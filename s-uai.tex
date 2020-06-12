@@ -884,10 +884,10 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 				\end{align*}
 		\end{minipage}}
 		where
-		\[D_n(\mu\|\rho):=\mathbb{E}_\mu\left[\ln\frac{\mu(x_{1:n})}{\rho(x_{1:n})}\right]\]
+		\[D_n(\mu\|\rho)\coloneqq \mathbb{E}_\mu\left[\ln\frac{\mu(x_{1:n})}{\rho(x_{1:n})}\right]\]
 	\end{theorem}\vspace{-1ex}
 	\begin{theorem}
-		\[\xi=\argmin\limits_\rho \mathbb{E}_w\left[D(\mu\|\rho)\right]\quad\text{where}\quad \xi(x):=\sum\limits_{\nu\in\mathcal{M}} w_\nu\nu(x)\]
+		\[\xi=\argmin\limits_\rho \mathbb{E}_w\left[D(\mu\|\rho)\right]\quad\text{where}\quad \xi(x)\coloneqq \sum\limits_{\nu\in\mathcal{M}} w_\nu\nu(x)\]
 	\end{theorem}
 \end{frame}
 
@@ -896,11 +896,11 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 		Suppose\; $\operatorname{Loss}(x_t,y_t)\in[0,1]$
 	\end{center}
 	\[
-	y_t^{\Lambda_\rho}(x_{<t}) \;:=\; \arg\min\limits_{y_t}\sum\limits_{x_t}\rho(x_t|x_{<t})\operatorname{Loss}(x_t,y_t)
+	y_t^{\Lambda_\rho}(x_{<t}) \;\coloneqq \; \arg\min\limits_{y_t}\sum\limits_{x_t}\rho(x_t|x_{<t})\operatorname{Loss}(x_t,y_t)
 	\]
 	\begin{align*}
-	&L^{\Lambda_\rho}(x_{<t}) \;:=\; \mathbb{E}_\mu\left[\operatorname{Loss}\left(x_t,y_t^{\Lambda_\rho}\right)\,\middle|\, x_{<t}\right]\\
-	&L_n^{\Lambda_\rho} \;:=\; \sum\limits_{t=1}^n\mathbb{E}_\mu\left[L^{\Lambda_\rho}(x_{<t})\right]
+	&L^{\Lambda_\rho}(x_{<t}) \;\coloneqq \; \mathbb{E}_\mu\left[\operatorname{Loss}\left(x_t,y_t^{\Lambda_\rho}\right)\,\middle|\, x_{<t}\right]\\
+	&L_n^{\Lambda_\rho} \;\coloneqq \; \sum\limits_{t=1}^n\mathbb{E}_\mu\left[L^{\Lambda_\rho}(x_{<t})\right]
 	\end{align*}
 	\begin{theorem}
 	\setlength\abovedisplayskip{0pt}
@@ -938,9 +938,9 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 \begin{frame}\frametitle{Invariance Criterion}
 	By applying some principle to a parameter $\theta$ we get prior $w(\theta)$. If we consider some new parametrization $\theta'$ via $f:\theta\mapsto\theta'$, then we get a prior $\tilde{w}(\theta')$ by transforming the original prior via $f$.\\
 	for discrete class $\mathcal{M}$,
-	\[\tilde{w}(\theta'):=\sum\limits_{\theta:f(\theta)=\theta'}\!\!\!\!w(\theta)\]
+	\[\tilde{w}(\theta')\coloneqq \sum\limits_{\theta:f(\theta)=\theta'}\!\!\!\!w(\theta)\]
 	for continuous parametric class $\mathcal{M}$, 
-	\[\tilde{w}(\theta'):=\int\!\!\delta(f(\theta)-\theta') w(\theta)\mathrm{d}\theta\tag{\text{Dirac-delta}}\]	
+	\[\tilde{w}(\theta')\coloneqq \int\!\!\delta(f(\theta)-\theta') w(\theta)\mathrm{d}\theta\tag{\text{Dirac-delta}}\]	
 	\textcolor{yellow}{Regrouping-invariant:} $$\tilde{w}(\theta')=w'(\theta')$$ where $w'(\theta')$ is obtained by applying the same principle to the new parametrization.\\
 	We say the principle is \textcolor{yellow}{reparametrization-invariant} when $f$ is bijective.
 \end{frame}
@@ -1008,7 +1008,7 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 \end{frame}
 
 \begin{frame}\frametitle{Solution~$2$ --- ad hoc}
-	\[\textcolor{yellow}{w(\theta):=\dfrac{1}{2}(1+\delta(1-\theta))}\]
+	\[\textcolor{yellow}{w(\theta)\coloneqq \dfrac{1}{2}(1+\delta(1-\theta))}\]
 	\[\text{Dirac-delta sifting property:}\quad\int\!\! f(\theta)\delta(\theta-a)\,\mathrm{d}\theta=f(a)\]
 	\begin{align*}
 	P(x)&=\int_0^1\!\! P(x|\theta)w(\theta)\mathrm{d}\theta\\
@@ -1044,7 +1044,7 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 	\begin{itemize}
 		\item $\mathscr{L}$ contains countable constants $\mathcal{C}$ and $m$ unary predicates.
 		\item $\mathcal{R}=\{R_1,R_2,\ldots,R_m\}$ with no function symbols nor equality.
-		\item $Q_i\,:=\,\bigwedge\limits_{j=1}^m\pm R_j$ for $1\leq i\leq 2^m=:r$.
+		\item $Q_i\,\coloneqq \,\bigwedge\limits_{j=1}^m\pm R_j$ for $1\leq i\leq 2^m\eqqcolon r$.
 		\item $\mathcal{Q}=\left\{Q_1,\cdots,Q_r\right\}$ is a $r$-fold classification system of some Universe with domain $\mathcal{C}$.
 	\end{itemize}
 	\begin{definition}[Probability on Sentences]
@@ -1088,10 +1088,10 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 	where $h: \mathcal{C}\to \mathcal{Q}$
 \item \textcolor{yellow}{\textbf{structure description}} $\{n_i\}_{i=1}^r$
 
-	where $n_i:=\sum\limits_{j=1}^n\llbracket h_j=i\rrbracket$
+	where $n_i\coloneqq \sum\limits_{j=1}^n\llbracket h_j=i\rrbracket$
 \item \textcolor{yellow}{\textbf{rank description}} $\{m_i\}_{i=0}^n$
 
-	where $m_i:=\sum\limits_{j=1}^r\llbracket n_j=i\rrbracket$
+	where $m_i\coloneqq \sum\limits_{j=1}^r\llbracket n_j=i\rrbracket$
 	
 	Obviously, $\sum\limits_{i=1}^n i\cdot m_i=n$ and $\sum\limits_{i=0}^n m_i=r$.
 \end{itemize}
@@ -1114,7 +1114,7 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 	Given $n$ individuals, there are $r^n$ possible state descriptions,
 	\[\left|\left\{(n_1,\ldots,n_r): \sum\limits_{i=1}^r n_i=n\right\}\right|=\binom{n+r-1}{r-1}\]
 	possible structure descriptions, and 
-	\[p(n,r):=\left|\left\{(m_0,\ldots,m_n): \sum\limits_{i=1}^n i\cdot m_i=n\;\;\&\;\;\sum\limits_{i=0}^n m_i=r\;\;\&\;\;\forall i: m_i\geq 0 \right\}\right|\]
+	\[p(n,r)\coloneqq \left|\left\{(m_0,\ldots,m_n): \sum\limits_{i=1}^n i\cdot m_i=n\;\;\&\;\;\sum\limits_{i=0}^n m_i=r\;\;\&\;\;\forall i: m_i\geq 0 \right\}\right|\]
 	possible rank descriptions.
 \end{frame}
 
@@ -1130,7 +1130,7 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 	Structure Description $(n_1,\ldots,n_r)$ corresponds to $\binom{n}{n_1,\ldots,n_r}$ State Descriptions.
 	\[m^*\left(\bigwedge\limits_{i=1}^n Q_{h_i}(a_i)\right)=\dfrac{m^*(n_1,\ldots,n_r)}{\binom{n}{n_1,\ldots,n_r}}=\dfrac{1}{\binom{n+r-1}{r-1} \binom{n}{n_1,\ldots,n_r}}\]
 	\begin{center}
-		\textcolor{yellow}{Sometimes we write $m^*(h_{1:n}):=m^*\left(\bigwedge\limits_{i=1}^n Q_{h_i}(a_i)\right)$ for short.}
+		\textcolor{yellow}{Sometimes we write $m^*(h_{1:n})\coloneqq m^*\left(\bigwedge\limits_{i=1}^n Q_{h_i}(a_i)\right)$ for short.}
 	\end{center}
 \end{frame}
 
@@ -1268,7 +1268,7 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 		\[\forall f,g\in\mathcal{Y}^{\mathcal{X}}:\forall y\in\mathcal{Y}\left(\left|f^{-1}(y)\right|=\left|g^{-1}(y)\right|\right)\implies P(f)=P(g)\]
 		then for any two algorithms $A, A'$, any value $k\in\mathbb{R}$, any $m\in\left\{1,\dots,|\mathcal{X}|\right\}$, and any performance measure $L$,
 		\[\sum\limits_{f\in\mathcal{Y}^{\mathcal{X}}}P(f)\left\llbracket k=L\left(T_m^y(A,f)\right)\right\rrbracket=\sum\limits_{f\in\mathcal{Y}^{\mathcal{X}}}P(f)\left\llbracket k=L\left(T_m^y(A',f)\right)\right\rrbracket\]
-		where $T_n:=\left\langle(x_1,f(x_1)),\dots,(x_n,f(x_n))\right\rangle$, $T_n^x:=\left\langle x_1,\dots,x_n\right\rangle$, $T_n^y:=\left\langle f(x_1),\dots,f(x_n)\right\rangle$ and $A: T_n\mapsto x_{n+1}\in\mathcal{X}\setminus T_n^x$.
+		where $T_n\coloneqq \left\langle(x_1,f(x_1)),\dots,(x_n,f(x_n))\right\rangle$, $T_n^x\coloneqq \left\langle x_1,\dots,x_n\right\rangle$, $T_n^y\coloneqq \left\langle f(x_1),\dots,f(x_n)\right\rangle$ and $A: T_n\mapsto x_{n+1}\in\mathcal{X}\setminus T_n^x$.
 	\end{theorem}
 	\centering{\huge\textcolor{red}{equally well and equally poorly}}\\
 	\centering{\Large\textcolor{red}{No learning is possible without some prior knowledge!}}
@@ -1277,9 +1277,9 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 \begin{frame}\frametitle{No-Free-Lunch for Pure Inductive Logic}
 	\begin{itemize}
 		\item No learning is possible for $c^\dagger$. It seems possible to learn with $c^*$ and $c_\lambda$. Unfortunately, No-Free-Lunch Theorem!
-		\item Take $\mathcal{X}:=\mathcal{C}, \mathcal{Y}:=\mathcal{Q}$ in the No-Free-Lunch Theorem. The state description $h:\mathcal{C}\to\mathcal{Q}$ can be taken as a \emph{classification} function.
+		\item Take $\mathcal{X}\coloneqq \mathcal{C}, \mathcal{Y}\coloneqq \mathcal{Q}$ in the No-Free-Lunch Theorem. The state description $h:\mathcal{C}\to\mathcal{Q}$ can be taken as a \emph{classification} function.
 		\item Then ``all state descriptions $h:\mathcal{C}\to\mathcal{Q}$ with the same structure description $\{n_i: 1\leq i\leq r\}$ have equal weight'' is \textcolor{red}{block uniform}!
-		\item Define induction algorithm $A(h_{1:n}):=\argmax\limits_j c^*\left(Q_j(a_{n+1})|h_{1:n}\right)$, and loss function $L\left(A,n,h\right):=\left\llbracket A(h_{1:n})\neq h_{n+1}\right\rrbracket$. Then for any $A'$,
+		\item Define induction algorithm $A(h_{1:n})\coloneqq \argmax\limits_j c^*\left(Q_j(a_{n+1})|h_{1:n}\right)$, and loss function $L\left(A,n,h\right)\coloneqq \left\llbracket A(h_{1:n})\neq h_{n+1}\right\rrbracket$. Then for any $A'$,
 		\[\sum\limits_{h\in\mathcal{Y}^{\mathcal{X}}}m^*(h_{1:n}) L\left(A,n,h\right)=\sum\limits_{h\in\mathcal{Y}^{\mathcal{X}}}m^*(h_{1:n})L\left(A',n,h\right)\]
 		\item Similarly for rank description $(E)$, which is related to Good-Turing estimate. And similarly for Ristad's methods $(C)(D)$.
 	\end{itemize}
@@ -1288,12 +1288,12 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 \begin{frame}\frametitle{Time Series and Solomonoff Induction}
 	\begin{itemize}
 		\item However, if we take time into consideration, define
-		\[M(h_{1:n}):=\sum\limits_{p:U(p)=h_{1:n}*}2^{-\ell(p)}\]
+		\[M(h_{1:n})\coloneqq \sum\limits_{p:U(p)=h_{1:n}*}2^{-\ell(p)}\]
 		then we can get free lunch with $M'$, since $M'$ biases non-random state descriptions and is not block uniform.
 		where 
 		\begin{align*}
-		M'(\epsilon)&:=1\\
-		M'(h_{1:n})&:=M'(h_{<n})\frac{M(h_{1:n})}{\sum\limits_{Q\in\mathcal{Q}}M(h_{<n}Q)}
+		M'(\epsilon)&\coloneqq 1\\
+		M'(h_{1:n})&\coloneqq M'(h_{<n})\frac{M(h_{1:n})}{\sum\limits_{Q\in\mathcal{Q}}M(h_{<n}Q)}
 		\end{align*}
 		and we can extend $M'$ from state descriptions to sentences.
 		\item Besides, by $c^*$ the probability of ``the sun will rise tomorrow'' is $\frac{n+1}{n+2}$, but $c^*$ fails to confirm ``the sun will always rise'', while $M'$ can confirm it.
@@ -1320,16 +1320,16 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{definition}[Agnostic PAC-Learnability]
-		A hypothesis space $\mathcal{H}\subset\mathcal{Y}^{\mathcal{X}}$ is agnostic PAC-learnable under a class $\Delta$ of distributions with respect to $\mathcal{Z}:=\mathcal{X}\times\mathcal{Y}$ and a loss function $\ell:\mathcal{H}\times\mathcal{Z}\to\mathbb{R}^+$, if there exists a sample complexity function $m_{\mathcal{H}}: (0,1)^2\to\mathbb{N}$ and a learning algorithm $A$ with the following property:
+		A hypothesis space $\mathcal{H}\subset\mathcal{Y}^{\mathcal{X}}$ is agnostic PAC-learnable under a class $\Delta$ of distributions with respect to $\mathcal{Z}\coloneqq \mathcal{X}\times\mathcal{Y}$ and a loss function $\ell:\mathcal{H}\times\mathcal{Z}\to\mathbb{R}^+$, if there exists a sample complexity function $m_{\mathcal{H}}: (0,1)^2\to\mathbb{N}$ and a learning algorithm $A$ with the following property:
 		\begin{itemize}
 			\item for every $\varepsilon,\delta\in(0,1)$
 			\item for every distribution $\mathcal{D}\in\Delta$ over $\mathcal{Z}$
 		\end{itemize}
 		when running $A$ on $m\geq m_{\mathcal{H}}(\varepsilon,\delta)$ i.i.d. training samples $S$ generated by $\mathcal{D}$, the algorithm $A$ returns a hypothesis $A(S)\in\mathcal{H}$ s.t.
 		\[P_{S\sim\mathcal{D}^m}\Big(L_{\mathcal{D}}(A(S))-\min\limits_{h\in\mathcal{H}}L_{\mathcal{D}}(h)>\varepsilon\Big)<\delta\]
-		where $L_{\mathcal{D}}(h):=\mathbb{E}_{z\sim\mathcal{D}}\left[\ell(h,z)\right]$.
+		where $L_{\mathcal{D}}(h)\coloneqq \mathbb{E}_{z\sim\mathcal{D}}\left[\ell(h,z)\right]$.
 	\end{definition}
-	\resizebox{\textwidth}{!}{PAC-learnable under $\Delta:=\left\{\mathcal{D}:\mathcal{D}\leqm\xi\right\}\iff$ PAC-learnable under $\xi(x):=\sum\limits_{\nu\in\mathcal{M}}2^{-K(\nu)}\nu(x)$.}
+	\resizebox{\textwidth}{!}{PAC-learnable under $\Delta\coloneqq \left\{\mathcal{D}:\mathcal{D}\leqm\xi\right\}\iff$ PAC-learnable under $\xi(x)\coloneqq \sum\limits_{\nu\in\mathcal{M}}2^{-K(\nu)}\nu(x)$.}
 \end{frame}
 
 \begin{frame}\frametitle{VC-Dimension}
@@ -1337,7 +1337,7 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 A hypothesis space $\mathcal{H}\subset 2^{\mathcal{X}}$ shatters a set $C\subset\mathcal{X}$ if $\mathcal{H}{\restriction_C}=2^C$.
 \end{definition}
 \begin{definition}[VC-Dimension]
-$\operatorname{VC}(\mathcal{H}):=\sup\big\{|C|: \mathcal{H} \mbox{ shatters } C\big\}$.
+$\operatorname{VC}(\mathcal{H})\coloneqq \sup\big\{|C|: \mathcal{H} \mbox{ shatters } C\big\}$.
 \end{definition}
 {\footnotesize\emph{If someone can explain every phenomena, her explanations are worthless.}}
 \begin{theorem}
@@ -1454,7 +1454,7 @@ $\mathcal{H}$ is PAC-learnable iff $\operatorname{VC}(\mathcal{H})<\infty$. Inde
 	\begin{columns}
 		\column{.62\textwidth}
 			\begin{definition}[Kolmogorov Complexity]
-				\[K(x):=\min\limits_p\{\ell(p): U(p)=x\}\]
+				\[K(x)\coloneqq \min\limits_p\{\ell(p): U(p)=x\}\]
 				where $U$ is a universal prefix Turing machine.
 			\end{definition}
 \begin{figure}[H]\centering
@@ -1472,7 +1472,7 @@ $\mathcal{H}$ is PAC-learnable iff $\operatorname{VC}(\mathcal{H})<\infty$. Inde
 \begin{frame}\frametitle{Kraft-Chaitin Theorem}
 \begin{theorem}[Kraft Inequality]
 \begin{enumerate}
-	\item Let $f:\mathcal{X}\to 2^{<\omega}$ be uniquely decodable. Let $\ell_x:=\ell(f(x))$. Then $f$ satisfies the Kraft inequality
+	\item Let $f:\mathcal{X}\to 2^{<\omega}$ be uniquely decodable. Let $\ell_x\coloneqq \ell(f(x))$. Then $f$ satisfies the Kraft inequality
 	\[\sum\limits_{x\in\mathcal{X}}2^{-\ell_x}\leq 1\]
 	\item Conversely, for any set of code length $\{\ell_x: x\in\mathcal{X}\}$ satisfying the above Kraft inequality, there exists a prefix code $f$ such that $\ell_x=\ell(f(x))$.
 \end{enumerate}
@@ -1500,12 +1500,12 @@ For any c.e. set $(\ell_i,x_i)_{i\in\omega}\subset\mathbb{N}\times 2^{<\omega}$ 
 
 \begin{frame}\frametitle{Universal Similarity Metric}
 	\begin{align*}
-	d(x,y)&:=\dfrac{\max\{K(x|y),K(y|x)\}}{\max\{K(x), K(y)\}}\\
+	d(x,y)&\coloneqq \dfrac{\max\{K(x|y),K(y|x)\}}{\max\{K(x), K(y)\}}\\
 	&\approx\frac{K_T(xy)-\min\{K_T(x),K_T(y)\}}{\max\{K_T(x),K_T(y)\}}
 	\end{align*}
 	\begin{itemize}
 		\item $T:$ Lempel-Ziv/gzip/bzip2/PPMZ, or\\
-		$K_T(x):=-\log P_{google}(x)$
+		$K_T(x)\coloneqq -\log P_{google}(x)$
 		\item compute similarity matrix $\left(d(x_i,x_j)\right)_{ij}$
 		\item cluster similar objects.
 	\end{itemize}
@@ -1513,7 +1513,7 @@ For any c.e. set $(\ell_i,x_i)_{i\in\omega}\subset\mathbb{N}\times 2^{<\omega}$ 
 
 \begin{frame}\frametitle{Algorithmic Probability}
 	\begin{definition}[Algorithmic Probability]
-		\[M(x):=\sum\limits_{p:U(p)=x*}2^{-\ell(p)}\]
+		\[M(x)\coloneqq \sum\limits_{p:U(p)=x*}2^{-\ell(p)}\]
 		where $U$ is a universal monotone Turing machine.
 	\end{definition}
 	\begin{columns}[onlytextwidth]
@@ -1579,11 +1579,11 @@ For any c.e. set $(\ell_i,x_i)_{i\in\omega}\subset\mathbb{N}\times 2^{<\omega}$ 
 \end{frame}
 
 \begin{frame}\frametitle{Aspect~$2$ --- Deterministic vs Stochastic}
-	$\mathcal{M}:=\{\nu_1,\nu_2,\dots\}$~lower semicomputable semi-measure.
+	$\mathcal{M}\coloneqq \{\nu_1,\nu_2,\dots\}$~lower semicomputable semi-measure.
 	\[
-	\xi(x):=\sum\limits_{\nu\in\mathcal{M}}\textcolor{yellow}{2^{-K(\nu)}}\nu(x)\]
+	\xi(x)\coloneqq \sum\limits_{\nu\in\mathcal{M}}\textcolor{yellow}{2^{-K(\nu)}}\nu(x)\]
 	\begin{center}
-		\fbox{$w_\nu \,:=\, 2^{-K(\nu)}$ is reparametrization \& regrouping invariant.}
+		\fbox{$w_\nu \,\coloneqq \, 2^{-K(\nu)}$ is reparametrization \& regrouping invariant.}
 	\end{center}
 	\[\textcolor{yellow}{M(x)\eqm \xi(x)}\]
 \end{frame}
@@ -1674,21 +1674,21 @@ For any c.e. set $(\ell_i,x_i)_{i\in\omega}\subset\mathbb{N}\times 2^{<\omega}$ 
 		%\setlength\abovedisplayskip{0pt}
 		%\setlength\belowdisplayskip{0pt}
 	\begin{block}{}
-	\[m(x):=\sum\limits_{p:U(p)\downarrow=x}2^{-\ell(p)}\]
+	\[m(x)\coloneqq \sum\limits_{p:U(p)\downarrow=x}2^{-\ell(p)}\]
 	\end{block}
 	\begin{theorem}[Algorithmic Coding Theorem]
 		\[K(x)\,\eqa\,-\log m(x)\]
 	\end{theorem}
 	The probability of a string being produced by a random algorithm is inversely proportional to its algorithmic complexity.\\
 	If a string has many long descriptions then it also has a short description.
-	\[KM(x):=-\log M(x)\]
+	\[KM(x)\coloneqq -\log M(x)\]
 	\[KM(x)\leq Km(x)\leqa KM(x)+K(KM(x))\]
 \end{frame}
 
 \begin{frame}\frametitle{Completeness Theorem}
 	\begin{align*}
-	M'(\epsilon)&:=1\\
-	M'(x_{1:t})&:=M'(x_{<t})\frac{M(x_{1:t})}{\sum\limits_{x\in\mathcal{X}}M(x_{<t}x)}=\frac{M(x_{1:t})}{M(\epsilon)}\prod\limits_{i=1}^t\frac{M(x_{<i})}{\sum\limits_{x\in\mathcal{X}}M(x_{<i}x)}
+	M'(\epsilon)&\coloneqq 1\\
+	M'(x_{1:t})&\coloneqq M'(x_{<t})\frac{M(x_{1:t})}{\sum\limits_{x\in\mathcal{X}}M(x_{<t}x)}=\frac{M(x_{1:t})}{M(\epsilon)}\prod\limits_{i=1}^t\frac{M(x_{<i})}{\sum\limits_{x\in\mathcal{X}}M(x_{<i}x)}
 	\end{align*}
 	\begin{theorem}[Completeness Theorem]
 		For any computable measure $\mu$,
@@ -1724,15 +1724,15 @@ For any c.e. set $(\ell_i,x_i)_{i\in\omega}\subset\mathbb{N}\times 2^{<\omega}$ 
 \setlength\belowdisplayskip{0pt}
 \begin{block}{}
 \begin{itemize}
-\item $M(\Theta(a_{1:n})):=\sum\limits_{p:U(p)=h_{1:n}*}2^{-\ell(p)}$\\
-where $\Theta(a_{1:n}):=\bigwedge\limits_{i=1}^n Q_{h_i}(a_i)$.
-\item $M'\left(A(\vec{a})\right):=\sum\limits_{\Theta(\vec{b})\vDash A(\vec{a})} M'(\Theta(\vec{b}))$\\
+\item $M(\Theta(a_{1:n}))\coloneqq \sum\limits_{p:U(p)=h_{1:n}*}2^{-\ell(p)}$\\
+where $\Theta(a_{1:n})\coloneqq \bigwedge\limits_{i=1}^n Q_{h_i}(a_i)$.
+\item $M'\left(A(\vec{a})\right)\coloneqq \sum\limits_{\Theta(\vec{b})\vDash A(\vec{a})} M'(\Theta(\vec{b}))$\\
 where
 $\vDash A(\vec{a})\leftrightarrow\bigvee\limits_{\Theta(\vec{b}) \vDash A(\vec{a})}\Theta(\vec{b}). \hfill\text{FDNF}$
 \end{itemize}
 \end{block}
 \centerline{\fbox{$\sum\limits_{t=1}^\infty\sum\limits_{A(a_{1:t})}\mu\left(A(a_{<t})\right)\Big(M'\left(A(a_t)\,\middle|\, A(a_{<t})\right)-\mu\left(A(a_t)\,\middle|\, A(a_{<t})\right)\Big)^2\leqa K(\mu)\ln 2$}}
-where $A(a_{1:t}):=\bigwedge\limits_{i=1}^t A(a_i/x)$.
+where $A(a_{1:t})\coloneqq \bigwedge\limits_{i=1}^t A(a_i/x)$.
 \end{frame}
 
 \begin{frame}\frametitle{All Ravens are Black!~$\checkmark$}
@@ -1740,7 +1740,7 @@ where $A(a_{1:t}):=\bigwedge\limits_{i=1}^t A(a_i/x)$.
 		\[\lim\limits_{n\to\infty} M'\left(\forall x(R(x)\to B(x))\,\middle|\,\bigwedge\limits_{i=1}^n (\neg R(a_i)\vee B(a_i))\right)=1\]
 	\end{theorem}
 	\begin{theorem}[Confirmation by Random Sampling]
-		If the sampling function $t:\mathbb{N}\to\mathbb{N}$ satisfies $\forall i: t_i\leq t_{i+1}$ and $\chi_{1:\infty}$ is Martin-L\"of random, where $\chi_i:=\llbracket\exists k(t_k=i)\rrbracket$, then
+		If the sampling function $t:\mathbb{N}\to\mathbb{N}$ satisfies $\forall i: t_i\leq t_{i+1}$ and $\chi_{1:\infty}$ is Martin-L\"of random, where $\chi_i\coloneqq \llbracket\exists k(t_k=i)\rrbracket$, then
 		\[M'\left(\forall x A(x)\,\middle|\,\bigwedge\limits_{i=1}^n A(a_{t_i})\right)\xrightarrow{n\to\infty}1\]
 	\end{theorem}
 	\[M(1|1^n)\xrightarrow{n\to\infty}1\qquad M(0|1^n)\eqm 2^{-K(n)}\qquad\sum\limits_{n=0}^\infty M(0|1^n)<\infty\]
@@ -1888,16 +1888,16 @@ Natural language processing & Definite clause grammars & Probabilistic context-f
 
 \begin{frame}\frametitle{Universal Portfolios}
 	\begin{itemize}
-		\item the agent chooses a distribution $\mathbf{b}_t\in\Delta_n:=\left\{\mathbf{x}\in[0,1]^n:\|\mathbf{x}\|_1=1\right\}$ of wealth over $n$ goods.
+		\item the agent chooses a distribution $\mathbf{b}_t\in\Delta_n\coloneqq \left\{\mathbf{x}\in[0,1]^n:\|\mathbf{x}\|_1=1\right\}$ of wealth over $n$ goods.
 		\item nature chooses returns $\mathbf{x}_t\in(\mathbb{R}^+)^n$, where \[(\mathbf{x}_t)_i=\frac{\text{price of good $i$ at end of $t$}}{\text{price of good $i$ at beginning of $t$}}\]
 		\item the total wealth.
 		$W_t(\mathbf{b},\mathbf{x})=W_1\prod\limits_{k=1}^t\mathbf{b}_k^\top(\mathbf{x}_{<k})\mathbf{x}_k$
 		\item regret.
-		$R_t:=\max\limits_{\mathbf{b}\in\Delta_n}\sum\limits_{k=1}^t\log \mathbf{b}_k^\top(\mathbf{x}_{<k})\mathbf{x}_k-\sum\limits_{k=1}^t\log \mathbf{b}_k^\top(\mathbf{x}_{<k})\mathbf{x}_k$
+		$R_t\coloneqq \max\limits_{\mathbf{b}\in\Delta_n}\sum\limits_{k=1}^t\log \mathbf{b}_k^\top(\mathbf{x}_{<k})\mathbf{x}_k-\sum\limits_{k=1}^t\log \mathbf{b}_k^\top(\mathbf{x}_{<k})\mathbf{x}_k$
 		\item universal portfolios.
 		\begin{align*}
-		\hat{\mathbf{b}}_1&:=\left(\tfrac{1}{n},\dots,\tfrac{1}{n}\right)\\
-		\hat{\mathbf{b}}_{t+1}(\mathbf{x}_{1:t})&:=\frac{\int_{\Delta_n}\!\!\mathbf{b} W_t(\mathbf{b},\mathbf{x})\mathrm{d}\mathbf{b}}{\int_{\Delta_n}\!\!W_t(\mathbf{b},\mathbf{x})\mathrm{d}\mathbf{b}}
+		\hat{\mathbf{b}}_1&\coloneqq \left(\tfrac{1}{n},\dots,\tfrac{1}{n}\right)\\
+		\hat{\mathbf{b}}_{t+1}(\mathbf{x}_{1:t})&\coloneqq \frac{\int_{\Delta_n}\!\!\mathbf{b} W_t(\mathbf{b},\mathbf{x})\mathrm{d}\mathbf{b}}{\int_{\Delta_n}\!\!W_t(\mathbf{b},\mathbf{x})\mathrm{d}\mathbf{b}}
 		\end{align*}
 		\item Asymptotic Optimality.
 		$\frac{1}{t}\log W_t(\hat{\mathbf{b}},\mathbf{x})\xrightarrow{t\to\infty}\frac{1}{t}\log \max\limits_{\mathbf{b}\in\Delta_n}W_t(\mathbf{b},\mathbf{x})$
@@ -1923,11 +1923,11 @@ Natural language processing & Definite clause grammars & Probabilistic context-f
 
 \begin{frame}\frametitle{Cantor Space $2^\omega$}
 \begin{itemize}
-	\item For $x\in 2^{<\omega}$, the cylinder set $\Gamma_x:=\{y\in 2^\omega: x\prec y\}$ is the basic open set. It corresponds to the interval $[0.x,0.x+2^{-\ell(x)})$.
-	\item For $A\subset 2^{<\omega}$, the open set generated by $A$ is $\Gamma_A:=\bigcup\limits_{x\in A}\Gamma_x$.
-	\item The Lebesgue measure $\mu(\Gamma_x):=2^{-\ell(x)}$, $\mu(x):=\mu(\Gamma_x)$.
-	\item The outer measure of $C\subset 2^\omega$ is $\mu^*(C):=\inf\left\{\sum\limits_{x\in A}2^{-\ell(x)}: C\subset\Gamma_A\right\}$.
-	\item The inner measure of $C$ is $\mu_*(C):=1-\mu^*(2^\omega\setminus C)$.
+	\item For $x\in 2^{<\omega}$, the cylinder set $\Gamma_x\coloneqq \{y\in 2^\omega: x\prec y\}$ is the basic open set. It corresponds to the interval $[0.x,0.x+2^{-\ell(x)})$.
+	\item For $A\subset 2^{<\omega}$, the open set generated by $A$ is $\Gamma_A\coloneqq \bigcup\limits_{x\in A}\Gamma_x$.
+	\item The Lebesgue measure $\mu(\Gamma_x)\coloneqq 2^{-\ell(x)}$, $\mu(x)\coloneqq \mu(\Gamma_x)$.
+	\item The outer measure of $C\subset 2^\omega$ is $\mu^*(C)\coloneqq \inf\left\{\sum\limits_{x\in A}2^{-\ell(x)}: C\subset\Gamma_A\right\}$.
+	\item The inner measure of $C$ is $\mu_*(C)\coloneqq 1-\mu^*(2^\omega\setminus C)$.
 	\item If $C$ is measurable, then $\mu^*(C)=\mu_*(C)$.
 	\item $A\subset 2^\omega$ has measure $0$ iff there is a sequence $\{V_n\}_{n\in\omega}$ of open sets s.t. $A\subset\bigcap\limits_{n\in\omega}V_n$ and $\lim\limits_{n\to\infty}\mu(V_n)=0$.
 \end{itemize}
@@ -1938,7 +1938,7 @@ Natural language processing & Definite clause grammars & Probabilistic context-f
 \setlength\belowdisplayskip{0pt}
 \begin{definition}[Martin-L\"of Randomness]
 \begin{itemize}
-	\item A total lower semicomputable function $\delta: 2^{<\omega}\to\omega$ is a Martin-Löf test if $\forall n:\mu(V_n)\leq 2^{-n}$, where $V_n:=\{x:\delta(x)\geq n\}$.
+	\item A total lower semicomputable function $\delta: 2^{<\omega}\to\omega$ is a Martin-Löf test if $\forall n:\mu(V_n)\leq 2^{-n}$, where $V_n\coloneqq \{x:\delta(x)\geq n\}$.
 	\item $x\in 2^\omega$ is ML-random if for every ML-test $\delta$, $\sup_n\delta(x_{1:n})<\infty$.
 \end{itemize}
 \end{definition}
@@ -1959,9 +1959,9 @@ A ML-test $\delta_0$ is \emph{universal} if for every ML-test $\delta$, $\exists
 \end{definition}
 A ML-test $\{U_n\}_{n\in\omega}$ is \emph{universal} iff for every ML-test $\{V_n\}_{n\in\omega}$, $\bigcap\limits_{n\in\omega}U_n\supset\bigcap\limits_{n\in\omega}V_n$.
 \begin{center}
-\fbox{$\delta(x):=\ell(x)-K(x|\ell(x))$ is a universal ML-test.}
+\fbox{$\delta(x)\coloneqq \ell(x)-K(x|\ell(x))$ is a universal ML-test.}
 \end{center}
-\[R_b:=\big\{x\in 2^\omega:\exists n\big(K(x_{1:n})<n-b\big)\big\}\]
+\[R_b\coloneqq \big\{x\in 2^\omega:\exists n\big(K(x_{1:n})<n-b\big)\big\}\]
 \begin{center}
 \fbox{$\{R_b\}_{b\in\omega}$ is a universal ML-test.}
 \end{center}
@@ -2023,7 +2023,7 @@ For lower semicomputable reals $\alpha$, the following are equivalent.
 	\item $K(\alpha_{1:n})\geqa K(\beta_{1:n})$ for all lower simicomputable reals $\beta$.
 	\item $K(\alpha_{1:n})\geqa K(\Omega_{1:n})$
 	\item $K(\alpha_{1:n})\eqa K(\Omega_{1:n})$
-	\item $\alpha=\Omega_U:=\sum\limits_{p:U(p)\downarrow}2^{-\ell(p)}$ for some universal prefix Turing machine $U$.
+	\item $\alpha=\Omega_U\coloneqq \sum\limits_{p:U(p)\downarrow}2^{-\ell(p)}$ for some universal prefix Turing machine $U$.
 \end{itemize}
 \end{theorem}
 \end{frame}
@@ -2037,7 +2037,7 @@ For lower semicomputable reals $\alpha$, the following are equivalent.
 \end{definition}
 \begin{itemize}
 \item $x_{1:\infty}$ is $\mu$-ML-random iff $\sup_n\delta(x_{1:n}|\mu)<\infty$, where
-\[\delta(x|\mu):=\log\frac{M(x)}{\mu(x)}\]
+\[\delta(x|\mu)\coloneqq \log\frac{M(x)}{\mu(x)}\]
 \item For a computable $\mu$, $x_{1:\infty}$ is $\mu$-ML-random iff
 \[\forall n: Km(x_{1:n})\eqa-\log\mu(x_{1:n})\]
 \end{itemize}
@@ -2060,30 +2060,30 @@ Some sequences are $K$-trivial but not computable.
 Neither randoms, nor $K$-trivials, are deep.
 \begin{definition}[Logical Depth]
 The logical depth of $x$ at a significance level $b$ is
-\[\operatorname{depth_b}(x):=\min\left\{t: U^t(p)=x\;\;\&\;\;\ell(p)-K(x)\leq b\right\}\]
+\[\operatorname{depth_b}(x)\coloneqq \min\left\{t: U^t(p)=x\;\;\&\;\;\ell(p)-K(x)\leq b\right\}\]
 \end{definition}
 $x$ is called \emph{shallow} if $\operatorname{depth_b}(x)\leqa\ell(x)$.\\
-Let $\chi_i:=\llbracket\varphi_i(i)\downarrow\rrbracket$. $\chi_{1:\infty}$ is deep. $\Omega$ is shallow.
+Let $\chi_i\coloneqq \llbracket\varphi_i(i)\downarrow\rrbracket$. $\chi_{1:\infty}$ is deep. $\Omega$ is shallow.
 \end{frame}
 
 \begin{frame}\frametitle{Effective Complexity}
 	\resizebox{\textwidth}{!}{
 	\begin{minipage}{\textwidth}
 				\begin{align*}
-				\delta(x|A)&:=\log |A|-K(x|A) &\text{[randomness deficiency]}\\
-				\delta(x|\mu)&:=\log\dfrac{M(x)}{\mu(x)} &\text{[$\mu$-randomness deficiency]}\\
-				\beta_x(k)&:=\min\limits_A\{\delta(x|A): x\in A\;\;\&\;\;K(A)\leq k\} &\text{[Best-Fit]}\\
-				h_x(k)&:=\min\limits_A\{\log |A|: x\in A\;\;\&\;\;K(A)\leq k\} &\text{[Kolmogorov structure function / ML]}\\
-				h_x(k)&:=\min\limits_\mu\{-\log \mu(x): K(\mu)\leq k\} &\text{[[Kolmogorov structure function / ML]}\\
-				A^*(x)&:=\iota A\Big[x\in A\;\;\&\;\;K(A)=\mu k\big[k+h_x(k)\eqa K(x)\big]\Big]&\text{[Kolmogorov minimal sufficient statistic]}\\
-				\lambda_x(k)&:=\min\limits_A\left\{K(A)+\log |A|: x\in A\;\;\&\;\;K(A)\leq k\right\} &\text{[MDL]}\\
-				\lambda_x(k)&:=\min\limits_\mu\{K(\mu)-\log\mu(x): K(\mu)\leq k\} &\text{[MDL]}\\
-				\Delta(x|A)&:=K(A)+\log |A|-K(x) &\text{[discrepancy]}\\
-				\operatorname{soph_c}(x)&:=\min\limits_A\{K(A):\Delta(x|A)<c\} &\text{[sophistication]}\\
-				\operatorname{csoph}(x)&:=\min\limits_A\{K(A)+\Delta(x|A)\} &\text{[coarse sophistication]}\\
-				\Sigma(\mu)&:=K(\mu)+H(\mu) &\text{[total information]}\\
-				\mathcal{E}_{\delta,\Delta}(x|\mathcal{M})&:=\min\limits_{\mu\in\mathcal{M}}\left\{K(\mu):\Sigma(\mu)-K(x)\leq\Delta\;\;\&\;\;\mu(x)\geq 2^{-H(\mu)(1+\delta)}\right\} &\text{[effective complexity]}\\
-				\mathcal{E}_\delta(x|\mathcal{M})&:=\min\limits_{\mu\in\mathcal{M}}\left\{K(\mu)+\Sigma(\mu)-K(x): \mu(x)\geq 2^{-H(\mu)(1+\delta)}\right\} &\text{[coarse effective complexity]}
+				\delta(x|A)&\coloneqq \log |A|-K(x|A) &\text{[randomness deficiency]}\\
+				\delta(x|\mu)&\coloneqq \log\dfrac{M(x)}{\mu(x)} &\text{[$\mu$-randomness deficiency]}\\
+				\beta_x(k)&\coloneqq \min\limits_A\{\delta(x|A): x\in A\;\;\&\;\;K(A)\leq k\} &\text{[Best-Fit]}\\
+				h_x(k)&\coloneqq \min\limits_A\{\log |A|: x\in A\;\;\&\;\;K(A)\leq k\} &\text{[Kolmogorov structure function / ML]}\\
+				h_x(k)&\coloneqq \min\limits_\mu\{-\log \mu(x): K(\mu)\leq k\} &\text{[[Kolmogorov structure function / ML]}\\
+				A^*(x)&\coloneqq \iota A\Big[x\in A\;\;\&\;\;K(A)=\mu k\big[k+h_x(k)\eqa K(x)\big]\Big]&\text{[Kolmogorov minimal sufficient statistic]}\\
+				\lambda_x(k)&\coloneqq \min\limits_A\left\{K(A)+\log |A|: x\in A\;\;\&\;\;K(A)\leq k\right\} &\text{[MDL]}\\
+				\lambda_x(k)&\coloneqq \min\limits_\mu\{K(\mu)-\log\mu(x): K(\mu)\leq k\} &\text{[MDL]}\\
+				\Delta(x|A)&\coloneqq K(A)+\log |A|-K(x) &\text{[discrepancy]}\\
+				\operatorname{soph_c}(x)&\coloneqq \min\limits_A\{K(A):\Delta(x|A)<c\} &\text{[sophistication]}\\
+				\operatorname{csoph}(x)&\coloneqq \min\limits_A\{K(A)+\Delta(x|A)\} &\text{[coarse sophistication]}\\
+				\Sigma(\mu)&\coloneqq K(\mu)+H(\mu) &\text{[total information]}\\
+				\mathcal{E}_{\delta,\Delta}(x|\mathcal{M})&\coloneqq \min\limits_{\mu\in\mathcal{M}}\left\{K(\mu):\Sigma(\mu)-K(x)\leq\Delta\;\;\&\;\;\mu(x)\geq 2^{-H(\mu)(1+\delta)}\right\} &\text{[effective complexity]}\\
+				\mathcal{E}_\delta(x|\mathcal{M})&\coloneqq \min\limits_{\mu\in\mathcal{M}}\left\{K(\mu)+\Sigma(\mu)-K(x): \mu(x)\geq 2^{-H(\mu)(1+\delta)}\right\} &\text{[coarse effective complexity]}
 				\end{align*}
 	\end{minipage}}
 \end{frame}
@@ -2119,9 +2119,9 @@ holds within logarithmic additive terms in argument and value.
 \[\operatorname{csoph}(x)=\min\limits_c\{\operatorname{soph_c}(x)+c\}\]
 \end{theorem}
 \begin{align*}
-K^t(x)&:=\min\limits_p\{\ell(p): U^t(p)=x\}\tag{\text{\footnotesize Time-bounded Kolmogorov Complexity}}\\
-\operatorname{depth^t}(x)&:=K^t(x)-K(x)\tag{\text{\footnotesize Basic Computational Depth}}\\
-\operatorname{depth_{BB}}(x)&:=\min\limits_t\{\operatorname{depth^t}(x)+K(t)\}\tag{\text{\footnotesize Busy Beaver Computational Depth}}
+K^t(x)&\coloneqq \min\limits_p\{\ell(p): U^t(p)=x\}\tag{\text{\footnotesize Time-bounded Kolmogorov Complexity}}\\
+\operatorname{depth^t}(x)&\coloneqq K^t(x)-K(x)\tag{\text{\footnotesize Basic Computational Depth}}\\
+\operatorname{depth_{BB}}(x)&\coloneqq \min\limits_t\{\operatorname{depth^t}(x)+K(t)\}\tag{\text{\footnotesize Busy Beaver Computational Depth}}
 \end{align*}
 \begin{theorem}
 \[|\operatorname{csoph}(x)-\operatorname{depth_{BB}}(x)|\leq O(\log \ell(x))\]
@@ -2132,8 +2132,8 @@ K^t(x)&:=\min\limits_p\{\ell(p): U^t(p)=x\}\tag{\text{\footnotesize Time-bounded
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{definition}[Physical Entropy]
-Physical entropy $S(d)$ of a microstate $d$ is the sum of the conditional Shannon entropy $H_d:=-\sum\limits_k P(k|d)\log P(k|d)$ and of the Kolmogorov Complexity $K(d)$.
-\[S(d):=H_d+K(d)\]
+Physical entropy $S(d)$ of a microstate $d$ is the sum of the conditional Shannon entropy $H_d\coloneqq -\sum\limits_k P(k|d)\log P(k|d)$ and of the Kolmogorov Complexity $K(d)$.
+\[S(d)\coloneqq H_d+K(d)\]
 \end{definition}
 \begin{figure}[H]
 	\begin{center}
@@ -2162,9 +2162,9 @@ Landauer's Principle: Logically irreversible computation costs energy. Erasing $
 \begin{definition}[Algorithmic Entropy]
 \begin{itemize}
 	\item \emph{coarse-grained algorithmic entropy} of a cell $\Gamma$ with respect to $\mu$
-	\[H_\mu(\Gamma):=\log\mu(\Gamma)+K(\Gamma|\mu)\]
+	\[H_\mu(\Gamma)\coloneqq \log\mu(\Gamma)+K(\Gamma|\mu)\]
 	\item \emph{fine-grained algorithmic entropy} of $x\in 2^\omega$ with respect to $\mu$
-	\[H_\mu(x):=\inf_n\big\{\log\mu(x_{1:n})+K(x_{1:n}|
+	\[H_\mu(x)\coloneqq \inf_n\big\{\log\mu(x_{1:n})+K(x_{1:n}|
 	\mu)\big\}\]
 \end{itemize}
 \end{definition}
@@ -2209,16 +2209,16 @@ If a preference relation $\succeq$ satisfies the above constraints, then there e
 	\end{figure}
 \column{.57\textwidth}
 	\begin{definition}[Value of a state under $\pi$]
-		\[V^\pi(s):=\mathbb{E}\left[\sum\limits_{k=0}^\infty\gamma^k r_{t+k+1}\,\middle|\, S_t=s\right]\]
+		\[V^\pi(s)\coloneqq \mathbb{E}\left[\sum\limits_{k=0}^\infty\gamma^k r_{t+k+1}\,\middle|\, S_t=s\right]\]
 	\end{definition}
 	\begin{definition}[Action-value under $\pi$]
-		\[Q^\pi(s,a):=\mathbb{E}\left[\sum\limits_{k=0}^\infty\gamma^k r_{t+k+1}\,\middle|\, S_t=s,A_t=a\right]\]
+		\[Q^\pi(s,a)\coloneqq \mathbb{E}\left[\sum\limits_{k=0}^\infty\gamma^k r_{t+k+1}\,\middle|\, S_t=s,A_t=a\right]\]
 	\end{definition}
 \end{columns}
 \end{frame}
 
 \begin{frame}\frametitle{Bellman Expectation Equations}
-\[r(s,a):=\mathbb{E}[r|s,a]\]
+\[r(s,a)\coloneqq \mathbb{E}[r|s,a]\]
 \begin{block}{}
 \begin{align*}
 V^\pi(s)&=\sum\limits_{a\in\mathcal{A}}\pi(a|s)Q^\pi(s,a)\\
@@ -2226,13 +2226,13 @@ Q^\pi(s,a)&=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')
 \end{align*}
 \end{block}
 \[V^\pi(s)=\mathbb{E}\left[r+\gamma V^\pi(s')\,\middle|\, s\right]=\sum\limits_{a\in\mathcal{A}}\pi(a|s)\left(r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')\right)\]
-\[\mbox{advantage: }\quad A^\pi(s,a):=Q^\pi(s,a)-V^\pi(s)\]
+\[\mbox{advantage: }\quad A^\pi(s,a)\coloneqq Q^\pi(s,a)-V^\pi(s)\]
 \end{frame}
 
 \begin{frame}\frametitle{Bellman Optimality Equations}
 	\begin{definition}[Optimal Values]
-		\[V^*(s):=\max\limits_\pi V^\pi(s)\]
-		\[Q^*(s,a):=\max\limits_\pi Q^\pi(s,a)\]
+		\[V^*(s)\coloneqq \max\limits_\pi V^\pi(s)\]
+		\[Q^*(s,a)\coloneqq \max\limits_\pi Q^\pi(s,a)\]
 	\end{definition}
 	\begin{definition}[Optimal Policy]
 		A policy $\pi$ is called optimal if $\forall s\in\mathcal{S}: V^\pi(s)=V^*(s)$.
@@ -2249,13 +2249,13 @@ Q^\pi(s,a)&=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')
 
 \begin{frame}\frametitle{Action/Policy Evaluation Operator \& Greedy Policy}
 	\begin{definition}[Action Evaluation Operator]
-		\[T_aV(s):=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V(s')\]
+		\[T_aV(s)\coloneqq r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V(s')\]
 	\end{definition}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{definition}[Policy Evaluation Operator]
-		\[T^\pi V(s):=\sum\limits_{a\in\mathcal{A}}\pi(a|s)T_aV(s)=\sum\limits_{a\in\mathcal{A}}\pi(a|s)\left(r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V(s')\right)\]
-		\[T^* V(s):=\max\limits_{a\in\mathcal{A}}T_aV(s)=\max\limits_{a\in\mathcal{A}}\left(r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V(s')\right)\]
+		\[T^\pi V(s)\coloneqq \sum\limits_{a\in\mathcal{A}}\pi(a|s)T_aV(s)=\sum\limits_{a\in\mathcal{A}}\pi(a|s)\left(r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V(s')\right)\]
+		\[T^* V(s)\coloneqq \max\limits_{a\in\mathcal{A}}T_aV(s)=\max\limits_{a\in\mathcal{A}}\left(r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V(s')\right)\]
 	\end{definition}
 	\begin{definition}[Greedy policy]
 		Policy $\pi$ is greedy w.r.t. $V$ if $T^\pi V=T^* V$.
@@ -2272,7 +2272,7 @@ Q^\pi(s,a)&=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')
 \begin{frame}\frametitle{Application of Banach's Fixpoint Theorem}
 	\begin{theorem}
 		$(\mathcal{V},\|\cdot\|_\infty)$ is a Banach space, where
-		$\mathcal{V}:=\left\{V\in\mathbb{R}^{\mathcal{S}}: \|V\|_\infty<\infty\right\}$ and $\|V\|_\infty:=\max\limits_{s\in\mathcal{S}}|V(s)|$.
+		$\mathcal{V}\coloneqq \left\{V\in\mathbb{R}^{\mathcal{S}}: \|V\|_\infty<\infty\right\}$ and $\|V\|_\infty\coloneqq \max\limits_{s\in\mathcal{S}}|V(s)|$.
 	\end{theorem}
 	\begin{block}{}
 		\begin{itemize}
@@ -2288,8 +2288,8 @@ Q^\pi(s,a)&=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{block}{}
-		\[T^\pi Q(s,a):=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)\sum\limits_{a'\in\mathcal{A}}\pi(a'|s')Q(s',a')\]
-		\[T^* Q(s,a):=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)\max\limits_{a'\in\mathcal{A}}Q(s',a')\]
+		\[T^\pi Q(s,a)\coloneqq r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)\sum\limits_{a'\in\mathcal{A}}\pi(a'|s')Q(s',a')\]
+		\[T^* Q(s,a)\coloneqq r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)\max\limits_{a'\in\mathcal{A}}Q(s',a')\]
 		\begin{itemize}
 			\item $T^\pi$ is a contraction, and $Q^\pi$ is the unique fixpoint of $T^\pi$.
 			\[\lim\limits_{n\to\infty}\left\|(T^\pi)^nQ_0-Q^\pi\right\|_\infty=0\]
@@ -2353,7 +2353,7 @@ Q^\pi(s,a)&=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')
 		\item E --- policy evaluation:
 		\[V_{k+1}^\pi\gets T^\pi V_k^\pi\]
 		\item I --- policy improvement:
-		\[\pi_{k+1}(s):=\argmax\limits_{a\in\mathcal{A}}\left(r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^{\pi_k}(s')\right)\]
+		\[\pi_{k+1}(s)\coloneqq \argmax\limits_{a\in\mathcal{A}}\left(r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^{\pi_k}(s')\right)\]
 	\end{itemize}
 	\begin{center}
 		\includegraphics[width=.65\textwidth,angle=0,origin=c]{img/policyit.pdf}
@@ -2364,9 +2364,9 @@ Q^\pi(s,a)&=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 MC learns from complete episodes of raw experience without modeling the environmental dynamics and computes the observed mean return as an approximation of the expected return.
-\[G_t:=\sum\limits_{k=0}^{T-t-1}\gamma^k r_{t+k+1}\]
-\[V(s):=\frac{\sum\limits_{t=1}^T\llbracket S_t=s\rrbracket G_t}{\sum\limits_{t=1}^T\llbracket S_t=s\rrbracket}\]
-\[Q(s,a):=\frac{\sum\limits_{t=1}^T\llbracket S_t=s,A_t=a\rrbracket G_t}{\sum\limits_{t=1}^T\llbracket S_t=s,A_t=a\rrbracket}\]
+\[G_t\coloneqq \sum\limits_{k=0}^{T-t-1}\gamma^k r_{t+k+1}\]
+\[V(s)\coloneqq \frac{\sum\limits_{t=1}^T\llbracket S_t=s\rrbracket G_t}{\sum\limits_{t=1}^T\llbracket S_t=s\rrbracket}\]
+\[Q(s,a)\coloneqq \frac{\sum\limits_{t=1}^T\llbracket S_t=s,A_t=a\rrbracket G_t}{\sum\limits_{t=1}^T\llbracket S_t=s,A_t=a\rrbracket}\]
 \end{frame}
 
 \begin{frame}\frametitle{Temporal-Difference Learning}
@@ -2568,7 +2568,7 @@ TD Learning is model-free and learns from incomplete episodes of experience.
 		Let $g$ be a nonconstant, bounded, and increasing continuous function. Let $I_n$ be any compact subset of $\mathbb{R}^n$. The space of continuous functions on $I_n$ is denoted by $C(I_n,\mathbb{R})$. Then, given any function $f\in C(I_n,\mathbb{R})$ and $\varepsilon>0$, there exists an integer $N$, real constants $v_i,b_i\in\mathbb{R}$ and real vectors $\mathbf{w}_i \in \mathbb{R}^n$, where $i=1,\dots,N$, s.t.
 		\[\forall\mathbf{x}\in I_n: |h(\mathbf{x}) - f(\mathbf{x})| < \varepsilon\]
 		where
-		\[h(\mathbf{x}):=\sum\limits_{i=1}^{N} v_i g\left(\mathbf{w}_i^\top\mathbf{x} + b_i\right)\]
+		\[h(\mathbf{x})\coloneqq \sum\limits_{i=1}^{N} v_i g\left(\mathbf{w}_i^\top\mathbf{x} + b_i\right)\]
 		In other words, functions of the form $h(\mathbf{x})$ are dense in $C(I_n,\mathbb{R})$.
 	\end{theorem}
 \end{frame}
@@ -2589,8 +2589,8 @@ TD Learning is model-free and learns from incomplete episodes of experience.
 	\begin{enumerate}
 		\item \textcolor{green}{hypothesis space} --- Network Structure --- $\textcolor{yellow}{f_\theta}$
 		\item \textcolor{green}{the goodness of a function} --- Learning Target --- \textcolor{yellow}{loss function $\ell$}
-		\item \textcolor{green}{pick the best function} --- Learn --- \textcolor{yellow}{find the network parameters $\theta^*:=\argmin\limits_\theta L(\theta)$ that minimize total cost $L(\theta)$ by gradient decent} \[\textcolor{yellow}{\theta\gets\theta-\eta\nabla_\theta L(\theta)}\]		
-		\textcolor{yellow}{where $L(\theta):=\mathbb{E}_P\left[\ell\left(f_\theta(\mathbf{a}),t \right)\right]+\lambda\Omega(\theta)$ and $\Omega(\theta)$ is a regularizer.}
+		\item \textcolor{green}{pick the best function} --- Learn --- \textcolor{yellow}{find the network parameters $\theta^*\coloneqq \argmin\limits_\theta L(\theta)$ that minimize total cost $L(\theta)$ by gradient decent} \[\textcolor{yellow}{\theta\gets\theta-\eta\nabla_\theta L(\theta)}\]		
+		\textcolor{yellow}{where $L(\theta)\coloneqq \mathbb{E}_P\left[\ell\left(f_\theta(\mathbf{a}),t \right)\right]+\lambda\Omega(\theta)$ and $\Omega(\theta)$ is a regularizer.}
 	\end{enumerate}
 \end{frame}
 
@@ -2600,17 +2600,17 @@ TD Learning is model-free and learns from incomplete episodes of experience.
 	\begin{center}
 		\scalebox{0.9}{$f_\theta:\mathbf{a}^{(0)} \mapsto\underbrace{\mathbf{g}^{(n)}\Bigg(\underbrace{\cdots\overbrace{\mathbf{g}^{(2)}\bigg(\overbrace{\mathbf{w}^{(2)}\underbrace{\mathbf{g}^{(1)}\Big(\underbrace{\mathbf{w}^{(1)}\mathbf{a}^{(0)} +\mathbf{b}^{(1)}}_{\mathbf{z}^{(1)}}\Big)}_{\mathbf{a}^{(1)}}+\mathbf{b}^{(2)}}^{\mathbf{z}^{(2)}}\bigg)}^{\mathbf{a}^{(2)}}\cdots}_{\mathbf{z}^{(n)}}\Bigg)}_{\mathbf{a}^{(n)}}$}
 	\end{center}
-	where parameters $\theta:=\left\{\mathbf{w}^{(i)},\mathbf{b}^{(i)}\right\}_{i=1}^n$ and activation functions $\mathbf{g}$
+	where parameters $\theta\coloneqq \left\{\mathbf{w}^{(i)},\mathbf{b}^{(i)}\right\}_{i=1}^n$ and activation functions $\mathbf{g}$
 	\[\sigma(z)=\frac{1}{1-e^{-z}}\qquad \tanh(z)=\dfrac{e^z-e^{-z}}{e^z+e^{-z}}\qquad\operatorname{ReLU}(z)=\max(0,z)\]\vspace*{-5pt}
 	\begin{block}{}
 		\[
 		\left.\begin{aligned}
-		a_0^{(l)}&:=1\\
-		w_{0j}^{(l)}&:=b_j^{(l)}
+		a_0^{(l)}&\coloneqq 1\\
+		w_{0j}^{(l)}&\coloneqq b_j^{(l)}
 		\end{aligned}\right\}\implies\left\{
 		\begin{aligned}
-		z_j^{(l+1)}&:=\sum\limits_i w_{ij}^{(l+1)}a_i^{(l)}\\
-		a_j^{(l+1)}&:=g_j^{(l+1)}\left(z_j^{(l+1)}\right)
+		z_j^{(l+1)}&\coloneqq \sum\limits_i w_{ij}^{(l+1)}a_i^{(l)}\\
+		a_j^{(l+1)}&\coloneqq g_j^{(l+1)}\left(z_j^{(l+1)}\right)
 		\end{aligned}\right.
 		\]
 	\end{block}
@@ -2622,7 +2622,7 @@ TD Learning is model-free and learns from incomplete episodes of experience.
 			\centering \includegraphics[height=1.02\textheight,angle=0,origin=c]{img/backpropa.png}
 		\column{.5\textwidth}
 			\begin{block}{Backpropagation}
-				\[\delta_j^{(l)}:=\frac{\partial L}{\partial z_j^{(l)}}\]
+				\[\delta_j^{(l)}\coloneqq \frac{\partial L}{\partial z_j^{(l)}}\]
 				\[\delta_j^{(l)}={g_j^{(l)}}'\!\left(z_j^{(l)}\right)\sum_k\delta_k^{(l+1)}w_{jk}^{(l+1)}\]
 				\[\frac{\partial L}{\partial w_{ij}^{(l)}}=a_i^{(l-1)}\delta_j^{(l)}\]
 				\[w_{ij}^{(l)}\gets w_{ij}^{(l)}-\eta\frac{\partial L}{\partial w_{ij}^{(l)}}\]
@@ -2706,16 +2706,16 @@ Take advantage of the structure of the data!
 
 \begin{frame}\frametitle{DQN}
 	\[Q^\pi(s,a)=\mathbb{E}\left[\sum\limits_{t=0}^\infty\gamma^tr_t\,\middle|\, s,a\right]\]
-	\[\max_\pi Q^\pi(s,a)=:Q^*(s,a)=\mathbb{E}_{s'}\left[r+\gamma\max_{a'}Q^*(s',a')\,\middle|\, s,a\right]\]
+	\[\max_\pi Q^\pi(s,a)\eqqcolon Q^*(s,a)=\mathbb{E}_{s'}\left[r+\gamma\max_{a'}Q^*(s',a')\,\middle|\, s,a\right]\]
 	\[Q_{t+1}(s,a)=\mathbb{E}_{s'}\left[r+\gamma\max_{a'}Q_t(s',a')\,\middle|\, s,a\right]\]
 	\[\textcolor{yellow}{Q_t\xrightarrow{t\to\infty}Q^*}\]
 	\[Q_{t+1}(s,a)=Q_t(s,a)+\alpha\left(r+\gamma\max\limits_{a'} Q_t(s',a')-Q_t(s,a)\right)\]
 	\[\textcolor{red}{Q(s,a;\theta)\approx Q^*(s,a)}\]
-	\[L(\theta):=\mathbb{E}_{s,a,r,s'}\left[\Big(r+\gamma\max\limits_{a'} Q\left(s',a';\theta^-\right)-Q(s,a;\theta)\Big)^2\right]\tag{DQN}\]
+	\[L(\theta)\coloneqq \mathbb{E}_{s,a,r,s'}\left[\Big(r+\gamma\max\limits_{a'} Q\left(s',a';\theta^-\right)-Q(s,a;\theta)\Big)^2\right]\tag{DQN}\]
 \end{frame}
 
 \begin{frame}\frametitle{DQN}
-	\[L(\theta):=\mathbb{E}_{s,a,r,s'}\left[\Big(r+\gamma Q\big(s',\argmax\limits_{a'} Q(s',a';\theta);\theta^-\big)-Q(s,a;\theta)\Big)^2\right]\tag{Double DQN}\]
+	\[L(\theta)\coloneqq \mathbb{E}_{s,a,r,s'}\left[\Big(r+\gamma Q\big(s',\argmax\limits_{a'} Q(s',a';\theta);\theta^-\big)-Q(s,a;\theta)\Big)^2\right]\tag{Double DQN}\]
 	
 	\[Q(s,a)=V(s;\theta)+A(s,a;\theta')\tag{Dueling Network}\]
 	
@@ -2797,7 +2797,7 @@ Find a random variable $T$ s.t.:
 	\item $Y\leftrightarrow X\leftrightarrow T$ form a Markov chain.
 	\item $I(X;T)$ is minimized (minimality, \textcolor{yellow}{complexity} term), while\\ $I(T;Y)$ is maximized (sufficiency, \textcolor{yellow}{accuracy} term).
 \end{itemize}
-\[\fbox{$T^*:=\argmin\limits_{T: I(T(X);Y)=I(X;Y)}I(X;T(X))$}\] is the \textcolor{yellow}{Information Bottleneck} between $X$ and $Y$.
+\[\fbox{$T^*\coloneqq \argmin\limits_{T: I(T(X);Y)=I(X;Y)}I(X;T(X))$}\] is the \textcolor{yellow}{Information Bottleneck} between $X$ and $Y$.
 \end{frame}
 
 \begin{frame}\frametitle{}\vspace{-1ex}
@@ -2814,7 +2814,7 @@ Find a random variable $T$ s.t.:
 
 \begin{frame}\frametitle{Information Bottleneck}
 $\min\limits_{p(t|x),p(y|t),p(t)}\Big\{I(X;T)-\beta I(T;Y)\Big\}$ subject to Markov chain $Y\to X\to T$.
-\[\mathcal{L}[p(t|x)]:=I(X;T)-\beta I(T;Y)-\sum\limits_x\lambda(x)\sum\limits_t p(t|x)\]
+\[\mathcal{L}[p(t|x)]\coloneqq I(X;T)-\beta I(T;Y)-\sum\limits_x\lambda(x)\sum\limits_t p(t|x)\]
 Let
 \[\frac{\delta\mathcal{L}}{\delta p(t|x)}=0\]
 The solution is
@@ -3015,7 +3015,7 @@ p(y|t)&=\sum\limits_x p(y|x)p(x|t)
 				\end{itemize}
 				\[\pi:(\mathcal{A}\times\mathcal{E})^*\to\Delta\mathcal{A}\]
 				\[\mu: (\mathcal{A}\times\mathcal{E})^*\times\mathcal{A}\to\Delta\mathcal{E}\]
-				\[{}_\mu^\pi(\ae_{<t}):=\prod\limits_{i=1}^{t-1}\pi(a_i|\ae_{<i})\mu(e_i|\ae_{<i}a_i)\]
+				\[{}_\mu^\pi(\ae_{<t})\coloneqq \prod\limits_{i=1}^{t-1}\pi(a_i|\ae_{<i})\mu(e_i|\ae_{<i}a_i)\]
 		\column{.25\textwidth}\hspace{-11ex}
 			\resizebox{\textwidth}{!}{
 				\begin{minipage}{\textwidth}
@@ -3037,8 +3037,8 @@ p(y|t)&=\sum\limits_x p(y|x)p(x|t)
 \end{frame}
 
 \begin{frame}\frametitle{Value Function}
-	\[r_n:=u(\ae_{1:n})\]
-	\[V_\mu^\pi(\ae_{<t}):=\mathbb{E}_\mu^\pi\left[\sum\limits_{k=0}^\infty\gamma^k r_{t+k}\,\middle|\, \ae_{<t}\right]\]
+	\[r_n\coloneqq u(\ae_{1:n})\]
+	\[V_\mu^\pi(\ae_{<t})\coloneqq \mathbb{E}_\mu^\pi\left[\sum\limits_{k=0}^\infty\gamma^k r_{t+k}\,\middle|\, \ae_{<t}\right]\]
 	\textcolor{yellow}{Bellman equation:}
 	\begin{align*}
 	V_\mu^\pi(\ae_{<k})&=\sum\limits_{a_k\in\mathcal{A}}\pi(a_k|\ae_{<k})\sum\limits_{e_k\in\mathcal{E}}\mu(e_k|\ae_{<k}a_k)\left[r_k+\gamma V_\mu^\pi(\ae_{1:k})\right]\tag{\text{\tiny{recursive}}}\\
@@ -3048,20 +3048,20 @@ p(y|t)&=\sum\limits_x p(y|x)p(x|t)
 \end{frame}
 
 \begin{frame}\frametitle{Optimal Value/Policy}
-	\[V_\mu^*:=\max\limits_\pi V_\mu^\pi\]
+	\[V_\mu^*\coloneqq \max\limits_\pi V_\mu^\pi\]
 	\begin{align*}
 	V_\mu^*(\ae_{<k})&=\lim\limits_{m\to\infty}\max\limits_{a_k\in\mathcal{A}}\sum\limits_{e_k\in\mathcal{E}}\cdots \max\limits_{a_m\in\mathcal{A}}\sum\limits_{e_m\in\mathcal{E}}\sum\limits_{i=k}^m\gamma^{i-k}r_i\prod\limits_{j=k}^i \mu(e_j|\ae_{<j}a_j)\\
 	&\textcolor{red}{=}\lim\limits_{m\to\infty}\max\limits_{a_k\in\mathcal{A}}\sum\limits_{e_k\in\mathcal{E}}\cdots \max\limits_{a_m\in\mathcal{A}}\sum\limits_{e_m\in\mathcal{E}}\left[\sum\limits_{i=k}^m\gamma^{i-k}r_i\right]\mu(e_{k:m}|\ae_{<k}a_{k:m})
 	\end{align*}
 	
-	\[\pi_\mu^*:=\argmax\limits_\pi V_\mu^\pi\]
+	\[\pi_\mu^*\coloneqq \argmax\limits_\pi V_\mu^\pi\]
 \end{frame}
 
 \begin{frame}\frametitle{Bayesian Mixture \& Belief Update}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
-	\[\xi(e_{<n}|a_{<n}):=\sum\limits_{\nu \in \mathcal{M}} w_\nu \nu(e_{<n}|a_{<n})\]
-	\[w_{\ae_{<n}}^\nu:=\dfrac{w_\nu \nu(e_{<n} | a_{<n})}{\xi(e_{<n}|a_{<n})}\]
+	\[\xi(e_{<n}|a_{<n})\coloneqq \sum\limits_{\nu \in \mathcal{M}} w_\nu \nu(e_{<n}|a_{<n})\]
+	\[w_{\ae_{<n}}^\nu\coloneqq \dfrac{w_\nu \nu(e_{<n} | a_{<n})}{\xi(e_{<n}|a_{<n})}\]
 	\[
 	\sum\limits_{k=1}^\infty \sum\limits_{e_{1:k}} \mu(e_{<k} | a_{<k}) \Big(\mu(e_k|\ae_{<k}a_k) - \xi(e_k|\ae_{<k}a_k ) \Big)^2\leq\min\limits_{\nu\in\mathcal{M}}\Big\{-\ln w_\nu+D(\mu\|\nu)\Big\}
 	\]
@@ -3087,17 +3087,17 @@ What probability should an observer assign to future experiences if she is told 
 		\boxed{
 			\begin{minipage}{60ex}
 				\begin{align*}
-				\Upsilon(\pi)&:=\sum\limits_{\nu\in\mathcal{M}}w_\nu V_\nu^\pi(\epsilon)=V_\xi^\pi(\epsilon)\tag{\textcolor{red}{Intelligence Measure}}\\
-				\textcolor{yellow}{\mathrm{AIXI}}&:=\argmax\limits_\pi\Upsilon(\pi)=\pi_\xi^*
+				\Upsilon(\pi)&\coloneqq \sum\limits_{\nu\in\mathcal{M}}w_\nu V_\nu^\pi(\epsilon)=V_\xi^\pi(\epsilon)\tag{\textcolor{red}{Intelligence Measure}}\\
+				\textcolor{yellow}{\mathrm{AIXI}}&\coloneqq \argmax\limits_\pi\Upsilon(\pi)=\pi_\xi^*
 				\end{align*}
 		\end{minipage}}
 	\end{center}
 	\[V_\xi^\pi(h)=\sum\limits_{\nu\in\mathcal{M}}w_h^\nu V_\nu^\pi(h)\]
-	\[\textcolor{yellow}{w_\nu:=2^{-K(\nu)}}\implies\xi(e_{1:m}|a_{1:m})\eqm M(e_{1:m}|a_{1:m}):=\textcolor{yellow}{\sum\limits_{p:U(p,a_{1:m})=e_{1:m}}\!\!2^{-\ell(p)}}\]
+	\[\textcolor{yellow}{w_\nu\coloneqq 2^{-K(\nu)}}\implies\xi(e_{1:m}|a_{1:m})\eqm M(e_{1:m}|a_{1:m})\coloneqq \textcolor{yellow}{\sum\limits_{p:U(p,a_{1:m})=e_{1:m}}\!\!2^{-\ell(p)}}\]
 \end{frame}
 
 \begin{frame}\frametitle{AIXI}\vspace{-3ex}
-\[a_k^*\;:=\;\argmax_{a_k}\sum_{e_k}\dots \max_{a_m}\sum_{e_m}\left[\sum\limits_{i=k}^m \gamma^{i-k}r_i\right]\!\sum\limits_{p:U(p,{a_{1:m}})=e_{1:m}}\!\!\!\!\!\!\!\!\!\!\! 2^{-\ell(p)}\tag{AIXI}\]
+\[a_k^*\;\coloneqq \;\argmax_{a_k}\sum_{e_k}\dots \max_{a_m}\sum_{e_m}\left[\sum\limits_{i=k}^m \gamma^{i-k}r_i\right]\!\sum\limits_{p:U(p,{a_{1:m}})=e_{1:m}}\!\!\!\!\!\!\!\!\!\!\! 2^{-\ell(p)}\tag{AIXI}\]
 	\begin{figure}[!htb]\vspace{-1ex}
 		\begin{center}
 			\resizebox{\textwidth}{!}{
@@ -3190,7 +3190,7 @@ What probability should an observer assign to future experiences if she is told 
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\[\text{discount } \gamma:\mathbb{N}^2\to[0,1]\;\;\text{and utility } u:(\mathcal{A}\times\mathcal{E})^*\to[0,1]\]
-	\[V_t^{\pi\mu}(h_{<k}):=\mathbb{E}_\mu^\pi\left[\sum\limits_{i=k}^\infty \gamma_t^i u(h_{1:i})\,\middle|\, h_{<k}\right]\]
+	\[V_t^{\pi\mu}(h_{<k})\coloneqq \mathbb{E}_\mu^\pi\left[\sum\limits_{i=k}^\infty \gamma_t^i u(h_{1:i})\,\middle|\, h_{<k}\right]\]
 	\begin{block}{Assumption}
 		\[
 		\forall t\in\mathbb{N}^+: \lim\limits_{m\to\infty}\sup\limits_\pi\sum\limits_{h_{<m}}
@@ -3200,11 +3200,11 @@ What probability should an observer assign to future experiences if she is told 
 	\begin{theorem}[Extreme Value Theorem]
 		If $K$ is compact and $f: K\to\mathbb{R}$ is continuous, then $f$ is bounded and there exist $p,q\in K$ s.t. $f(p)=\sup_{x\in K}f(x)$ and $f(q)=\inf_{x\in K}f(x)$.
 	\end{theorem}\vspace{-2ex}
-	\[\left\langle\Pi:=\mathcal{A}^{(\mathcal{A}\times\mathcal{E})^*}, D(\pi,\pi'):=\mathrm{e}^{-\min\left\{n:\exists h_{<n}\left(\pi(h_{<n})\neq\pi'(h_{<n})\right)\right\}}\right\rangle\]\vspace{-2ex}
+	\[\left\langle\Pi\coloneqq \mathcal{A}^{(\mathcal{A}\times\mathcal{E})^*}, D(\pi,\pi')\coloneqq \mathrm{e}^{-\min\left\{n:\exists h_{<n}\left(\pi(h_{<n})\neq\pi'(h_{<n})\right)\right\}}\right\rangle\]\vspace{-2ex}
 	\begin{center}
 		\fbox{\textcolor{yellow}{$V_\mu^\pi(h):\Pi\to\mathbb{R}$ is continuous on the compact metric space $\left\langle\Pi,D\right\rangle$.}}
 	\end{center}
-	\[\pi_t^\mu:=\argmax\limits_\pi V_t^{\pi\mu}\qquad \pi^\mu(h_{<t}):=\pi_t^\mu(h_{<t})\]
+	\[\pi_t^\mu\coloneqq \argmax\limits_\pi V_t^{\pi\mu}\qquad \pi^\mu(h_{<t})\coloneqq \pi_t^\mu(h_{<t})\]
 \end{frame}
 
 \begin{frame}\frametitle{Deterministic vs Stochastic}
@@ -3291,12 +3291,12 @@ For any environment $\mu\in\mathcal{M}$ and any policy $\pi$,
 	\begin{proof}[Proof Sketch]
 		For every $\nu$, let $\tilde{\nu}$ mimic $\nu$ until it receives an action that the policy $\pi$ would not take. From then on, it provides rewards $0$.
 		\[
-		\tilde{\nu}\left(e_{1:t} \| a_{1:t}\right):=\left\{\begin{array}{ll}{\nu\left(e_{1:t} \| a_{1:t}\right),} & \mbox{if } \forall k \leq t: a_k=\pi\left(\ae_{<k}\right)\\
-		{\nu\left(e_{<k} \| a_{<k}\right),} & \mbox{if } k:=\min\left\{i:a_i \ne \pi\left(\ae_{<i}\right)\right\} \mbox{ exists}\\
+		\tilde{\nu}\left(e_{1:t} \| a_{1:t}\right)\coloneqq \left\{\begin{array}{ll}{\nu\left(e_{1:t} \| a_{1:t}\right),} & \mbox{if } \forall k \leq t: a_k=\pi\left(\ae_{<k}\right)\\
+		{\nu\left(e_{<k} \| a_{<k}\right),} & \mbox{if } k\coloneqq \min\left\{i:a_i \ne \pi\left(\ae_{<i}\right)\right\} \mbox{ exists}\\
 		{} & \mbox{ and } \forall i \in\{k,\dots,t\}: e_i=(o,0)\\
 		{0,} & \mbox{otherwise}\end{array}\right.
 		\]
-	Let	$\tilde{w}(\nu):=\varepsilon w(\nu)$ and $\tilde{w}(\tilde{\nu}):=(1-\varepsilon)w(\nu)+\varepsilon w(\tilde{\nu})$.\\
+	Let	$\tilde{w}(\nu)\coloneqq \varepsilon w(\nu)$ and $\tilde{w}(\tilde{\nu})\coloneqq (1-\varepsilon)w(\nu)+\varepsilon w(\tilde{\nu})$.\\
 	The dogmatic prior $\tilde{w}$ puts much higher weight on the $\tilde{\nu}$ that behaves just like $\nu$ on the policy $\pi$, but sends any policy deviating from $\pi$ to hell.
 	\end{proof}
 \end{frame}
@@ -3314,7 +3314,7 @@ For any environment $\mu\in\mathcal{M}$ and any policy $\pi$,
 \end{frame}
 
 \begin{frame}\frametitle{AIXI Depends on UTM/Prior!}
-	\[\overline{\Upsilon}_\xi:=\sup\limits_\pi\Upsilon_\xi(\pi)=\sup\limits_\pi V_\xi^\pi(\epsilon)=V_\xi^{\pi_\xi^*}(\epsilon)=\Upsilon_\xi(\pi_\xi^*)\]
+	\[\overline{\Upsilon}_\xi\coloneqq \sup\limits_\pi\Upsilon_\xi(\pi)=\sup\limits_\pi V_\xi^\pi(\epsilon)=V_\xi^{\pi_\xi^*}(\epsilon)=\Upsilon_\xi(\pi_\xi^*)\]
 	\begin{figure}[t]
 		\begin{center}
 			\begin{tikzpicture}
@@ -3512,7 +3512,7 @@ For any environment $\mu\in\mathcal{M}$ and any policy $\pi$,
 \begin{block}{}
 Agent needs to explore infinitely often for an entire effective horizon.
 \end{block}
-\[\mathcal{M}:=\{\nu_\infty,\nu_1,\nu_2,\dots\}\]
+\[\mathcal{M}\coloneqq \{\nu_\infty,\nu_1,\nu_2,\dots\}\]
 \begin{center}
 \begin{tabular}{ccc}
 \begin{tikzpicture}[scale=1.2]
@@ -3578,7 +3578,7 @@ $\nu_\infty$ && $\nu_k$
 \begin{frame}\frametitle{Effective Horizon}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
-	\[\Gamma_t:=\sum\limits_{i=t}^\infty\gamma_i\qquad H_t(\varepsilon):=\min\left\{m: \dfrac{\Gamma_{t+m}}{\Gamma_t}\leq\varepsilon\right\}\]
+	\[\Gamma_t\coloneqq \sum\limits_{i=t}^\infty\gamma_i\qquad H_t(\varepsilon)\coloneqq \min\left\{m: \dfrac{\Gamma_{t+m}}{\Gamma_t}\leq\varepsilon\right\}\]
 	\begin{theorem}
 		If there is a nonincreasing computable sequence of positive reals $(\varepsilon_t)_{t\in\mathbb{N}}$ s.t. $\varepsilon_t\xrightarrow{t\to\infty}0$ and $\frac{H_t(\varepsilon_t)}{t\varepsilon_t}\xrightarrow{t\to\infty}0$, then there is a \textcolor{yellow}{limit-computable} policy	that is weakly asymptotically optimal in the class of all computable stochastic environments.
 	\end{theorem}
@@ -3621,7 +3621,7 @@ $\nu_\infty$ && $\nu_k$
 \begin{frame}\frametitle{Sublinear Regret}\vspace{-1ex}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
-	\[R_m(\pi,\mu):=\sup\limits_{\pi'}\mathbb{E}_\mu^{\pi'}\left[\sum\limits_{t=1}^m r_t\right]-\mathbb{E}_\mu^\pi\left[\sum\limits_{t=1}^m r_t\right]\]
+	\[R_m(\pi,\mu)\coloneqq \sup\limits_{\pi'}\mathbb{E}_\mu^{\pi'}\left[\sum\limits_{t=1}^m r_t\right]-\mathbb{E}_\mu^\pi\left[\sum\limits_{t=1}^m r_t\right]\]
 	\begin{assumption}[Discount Assumption]
 		\begin{enumerate}
 			\item $\forall t:\gamma_t>0$
@@ -3632,7 +3632,7 @@ $\nu_\infty$ && $\nu_k$
 	\begin{theorem}
 		If the discount function $\gamma$ satisfies the discount assumption, the environment $\mu$ is recoverable, and $\pi$ is asymptotically optimal in mean, then $R_m(\pi,\mu)\in o(m)$.
 	\end{theorem}\vspace{-1ex}
-	\[\argmin\limits_\pi\max\limits_\mu R_m(\pi,\mu)\qquad\qquad w_m^\mu:=\frac{2^{-R_m(\pi,\mu)}}{\sum\limits_{\mu\in\mathcal{M}}2^{-R_m(\pi,\mu)}}\]
+	\[\argmin\limits_\pi\max\limits_\mu R_m(\pi,\mu)\qquad\qquad w_m^\mu\coloneqq \frac{2^{-R_m(\pi,\mu)}}{\sum\limits_{\mu\in\mathcal{M}}2^{-R_m(\pi,\mu)}}\]
 \end{frame}
 
 \begin{frame}\frametitle{Regret in Non-Recoverable Environments}
@@ -3652,17 +3652,17 @@ $\nu_\infty$ && $\nu_k$
 		\item \textcolor{green}{square} \textcolor{yellow}{$-\xi(e_{t:k}|\ae_{<t}a_{t:k})$}
 		\item \textcolor{green}{shannon} \textcolor{yellow}{$-\log\xi(e_{t:k}|\ae_{<t}a_{t:k})\approx K(\ae_{1:k})-K(\ae_{<t})$}
 		\item \textcolor{green}{KL divergence} $\textcolor{yellow}{D\left(w_{\ae_{<k}}\|w_{\ae_{<t}}\right)}$ where $w_{\ae_{<n}}^\nu=\dfrac{w_\nu\nu(e_{<n}|a_{<n})}{\xi(e_{<n}|a_{<n})}$
-		\item \textcolor{green}{information gain} $\textcolor{yellow}{H(w_{h_{<t}})-H(w_{h_{1:k}})}$ where \[H(w_h):=-\sum\limits_{\nu\in\mathcal{M}}w_h^\nu\log w_h^\nu\]
+		\item \textcolor{green}{information gain} $\textcolor{yellow}{H(w_{h_{<t}})-H(w_{h_{1:k}})}$ where \[H(w_h)\coloneqq -\sum\limits_{\nu\in\mathcal{M}}w_h^\nu\log w_h^\nu\]
 		\item \textcolor{green}{effective complexity} $\textcolor{yellow}{\mathcal{E}_\delta(\ae_{1:k})-\mathcal{E}_\delta(\ae_{<t})}$ where
-		\[\mathcal{E}_\delta(\ae_{<n}):=\min\limits_{\nu\in\mathcal{M}}\left\{2K(\nu)+H(\nu)-K(\ae_{<n}): \nu(e_{<n}|a_{<n})\geq 2^{-H(\nu)(1+\delta)}\right\}\]
+		\[\mathcal{E}_\delta(\ae_{<n})\coloneqq \min\limits_{\nu\in\mathcal{M}}\left\{2K(\nu)+H(\nu)-K(\ae_{<n}): \nu(e_{<n}|a_{<n})\geq 2^{-H(\nu)(1+\delta)}\right\}\]
 		\item \textcolor{green}{logical depth} $\textcolor{yellow}{\operatorname{depth_b}(h_{1:k})-\operatorname{depth_b}(h_{<t})}$ where
-		\[\operatorname{depth_b}(x):=\min\left\{t: U^t(p)=x\;\;\&\;\;\ell(p)-K(x)\leq b\right\}\]
+		\[\operatorname{depth_b}(x)\coloneqq \min\left\{t: U^t(p)=x\;\;\&\;\;\ell(p)-K(x)\leq b\right\}\]
 	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{\href{https://arxiv.org/abs/1411.1373}{Hibbard's Two-Stage Model-Based Utility Agent}}
 \begin{align*}
-&\lambda(h):=\argmax\limits_{q\in\mathcal{Q}} P(h|q)P(q)\\
+&\lambda(h)\coloneqq \argmax\limits_{q\in\mathcal{Q}} P(h|q)P(q)\\
 &\rho(h')=P(h'|\lambda(h))\\
 &Q(ha)=\sum\limits_{e\in\mathcal{E}}\rho(e|ha)\left[\sum\limits_{z\in Z_h}P(z|\lambda(h))u(z)+\gamma V(h\ae)\right]\\
 &V(h)=\max\limits_{a\in\mathcal{A}}Q(ha)\\
@@ -3744,7 +3744,7 @@ CIRL agents learn about a human utility function $u^*$ by observing the actions 
 \[\underline{P}erfection=\underline{V}ariety-\underline{S}implicity\]
 \[\underline{V}ariety=\mathbb{E}_w[\underline{P}erception]\]
 \[\underline{P}erception=\underline{R}eason + (\underline{E}xperience|\underline{R}eason)\]
-\[\pi^*:=\argmax\limits_\pi\mathbb{E}_\xi^\pi\left[\sum\limits_{t=1}^\infty\Big(\mathbb{E}_w\left[R + (E|R)\right] - S\Big)\right]\]
+\[\pi^*\coloneqq \argmax\limits_\pi\mathbb{E}_\xi^\pi\left[\sum\limits_{t=1}^\infty\Big(\mathbb{E}_w\left[R + (E|R)\right] - S\Big)\right]\]
 \end{frame}
 
 \begin{frame}\frametitle{Leibniz's ``Wisdom''}
@@ -3752,7 +3752,7 @@ CIRL agents learn about a human utility function $u^*$ by observing the actions 
 \[\bar{U}(\nu)=\mathbb{E}_\nu\left[\sum\limits_{t\geq 1} u^{\mathrm{in}}(h_{1:t})\right]\]
 \[w_\epsilon^\nu\mapsto\bar{U}(\nu)\mapsto w_\epsilon^\nu\]
 \[
-\pi^*:=\argmax\limits_\pi\mathbb{E}_\xi^\pi\left[\sum\limits_{t=1}^\infty u^{\mathrm{in}}(h_{1:t})\right]
+\pi^*\coloneqq \argmax\limits_\pi\mathbb{E}_\xi^\pi\left[\sum\limits_{t=1}^\infty u^{\mathrm{in}}(h_{1:t})\right]
 \]
 \end{frame}
 
@@ -3798,13 +3798,13 @@ CIRL agents learn about a human utility function $u^*$ by observing the actions 
 
 \begin{frame}\frametitle{\href{http://www.hutter1.net/publ/ksaprob.pdf}{Knowledge-Seeking Agent}}\vspace{-2ex}
 	\[
-	V_{\mathrm{IG}}^{\pi,m}(h_{<t}):=\mathbb{E}_\xi^\pi\left[\textcolor{yellow}{H\big(w_{h_{<t}}^\cdot\big)-H\big(w_{h_{1:m}}^\cdot\big)}\,\middle|\, h_{<t}\right]=\sum\limits_{\nu\in\mathcal{M}} w_{h_{<t}}^\nu D_m\big({}_\nu^\pi\big\|{}_\xi^\pi\bigm\vert h_{<t}\big)
+	V_{\mathrm{IG}}^{\pi,m}(h_{<t})\coloneqq \mathbb{E}_\xi^\pi\left[\textcolor{yellow}{H\big(w_{h_{<t}}^\cdot\big)-H\big(w_{h_{1:m}}^\cdot\big)}\,\middle|\, h_{<t}\right]=\sum\limits_{\nu\in\mathcal{M}} w_{h_{<t}}^\nu D_m\big({}_\nu^\pi\big\|{}_\xi^\pi\bigm\vert h_{<t}\big)
 	\]
 	\[
 	\begin{aligned}
-	D_\gamma\big({}_\nu^\pi\big\|{}_\xi^\pi\bigm\vert h_{<t}\big)&:=\sum\limits_{k=t}^\infty\gamma_k\sum\limits_{h'\in\mathcal{H}^{k-t}}{}_\nu^\pi(h'|h_{<t})D\big({}_\nu^\pi\big\|{}_\xi^\pi\bigm\vert h_{<t}h'\big)\\
-	V_{\mathrm{IG}}^\pi(h_{<t})&:=\mathbb{E}_\xi^\pi\left[\sum\limits_{k=t}^\infty\gamma_k \textcolor{yellow}{D\big(w_{h_{1:k}}^\cdot\big\| w_{h_{<k}}^\cdot\big)}\,\middle|\, h_{<t}\right]=\sum\limits_{\nu\in\mathcal{M}}w_{h_{<t}}^\nu D_\gamma\big({}_\nu^\pi\big\|{}_\xi^\pi\bigm\vert h_{<t}\big)\\
-	\pi_{\mathrm{IG}}^*&:=\argmax\limits_\pi V_{\mathrm{IG}}^\pi
+	D_\gamma\big({}_\nu^\pi\big\|{}_\xi^\pi\bigm\vert h_{<t}\big)&\coloneqq \sum\limits_{k=t}^\infty\gamma_k\sum\limits_{h'\in\mathcal{H}^{k-t}}{}_\nu^\pi(h'|h_{<t})D\big({}_\nu^\pi\big\|{}_\xi^\pi\bigm\vert h_{<t}h'\big)\\
+	V_{\mathrm{IG}}^\pi(h_{<t})&\coloneqq \mathbb{E}_\xi^\pi\left[\sum\limits_{k=t}^\infty\gamma_k \textcolor{yellow}{D\big(w_{h_{1:k}}^\cdot\big\| w_{h_{<k}}^\cdot\big)}\,\middle|\, h_{<t}\right]=\sum\limits_{\nu\in\mathcal{M}}w_{h_{<t}}^\nu D_\gamma\big({}_\nu^\pi\big\|{}_\xi^\pi\bigm\vert h_{<t}\big)\\
+	\pi_{\mathrm{IG}}^*&\coloneqq \argmax\limits_\pi V_{\mathrm{IG}}^\pi
 	\end{aligned}
 	\]
 	\[\lim\limits_{t\to\infty}\frac{1}{\Gamma_t}\mathbb{E}_\mu^\pi\left[D_\gamma\big({}_\mu^\pi\big\|{}_\xi^\pi\bigm\vert h_{1:t}\big)\right]=0 \tag{on-policy}\]
@@ -3850,7 +3850,7 @@ CIRL agents learn about a human utility function $u^*$ by observing the actions 
 	\setlength\belowdisplayskip{0pt}
 	\begin{definition}[MDL]
 		\[ \widehat{\nu}=\arg\min\limits_{\nu\in\mathcal{M}}\{K_\nu(x)+K_w(\nu)\}=\arg\max\limits_{\nu\in\mathcal{M}}\{w_\nu \nu(x)\}\]
-		where $K_\nu(x):=-\log\nu(x)$ and $K_w(\nu):=-\log w_\nu$
+		where $K_\nu(x)\coloneqq -\log\nu(x)$ and $K_w(\nu)\coloneqq -\log w_\nu$
 	\end{definition}
 	\begin{theorem}[MDL Bound]
 		\begin{gather*}
@@ -3867,19 +3867,19 @@ CIRL agents learn about a human utility function $u^*$ by observing the actions 
 \Require{Finite class of deterministic environments $\mathcal{M}_0=\mathcal{M}$}
 \State $t=1$
 \Repeat
-\State $(\pi^*,\nu^*):=\argmax_{\pi\in\Pi,\nu\in\mathcal{M}_{t-1}}V_\nu^\pi(h_{t-1})$
+\State $(\pi^*,\nu^*)\coloneqq \argmax_{\pi\in\Pi,\nu\in\mathcal{M}_{t-1}}V_\nu^\pi(h_{t-1})$
  \Repeat
  \State $a_t=\pi^*(h_{t-1})$
  \State Perceive $e_t$ from environment $\mu$
  \State $h_t\gets h_{t-1}a_te_t$
- \State Remove inconsistent environment $\mathcal{M}_t:=\left\{\nu\in\mathcal{M}_{t-1}: h_t^{\pi^\circ\nu}=h_t\right\}$
+ \State Remove inconsistent environment $\mathcal{M}_t\coloneqq \left\{\nu\in\mathcal{M}_{t-1}: h_t^{\pi^\circ\nu}=h_t\right\}$
  \State $t\gets t+1$
  \Until $\nu^*\notin\mathcal{M}_{t-1}$
 \Until $\mathcal{M}=\emptyset$
 \end{algorithmic}
-\caption{Optimistic Agent $\pi^\circ \hfill \pi_t^\circ:=\argmax_\pi\max_{\nu\in\mathcal{M}_t} V_\nu^\pi(h_{1:t})$}\label{alg:optimistic}
+\caption{Optimistic Agent $\pi^\circ \hfill \pi_t^\circ\coloneqq \argmax_\pi\max_{\nu\in\mathcal{M}_t} V_\nu^\pi(h_{1:t})$}\label{alg:optimistic}
 \end{algorithm}\vspace{-1ex}
-	stochastic case: $\mathcal{M}_t:=\Big\{\nu\in\mathcal{M}_{t-1}: \nu(e_{<t}|a_{<t})\geq\varepsilon_t\max\limits_{\rho\in\mathcal{M}}\rho(e_{<t}|a_{<t})\Big\}$\\
+	stochastic case: $\mathcal{M}_t\coloneqq \Big\{\nu\in\mathcal{M}_{t-1}: \nu(e_{<t}|a_{<t})\geq\varepsilon_t\max\limits_{\rho\in\mathcal{M}}\rho(e_{<t}|a_{<t})\Big\}$\\
 	Act optimally w.r.t. the most optimistic environment until contradicted.\\
 	If there is a chance: Try it! --- Vulnerable to traps.
 \end{frame}
@@ -3936,9 +3936,9 @@ CIRL agents learn about a human utility function $u^*$ by observing the actions 
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{align*}
-V_{\mathrm{IG}}^\pi(h_{<t})&:=\mathbb{E}_\xi^\pi\left[D\big(w_{h_{<t+m}}^\cdot\big\| w_{h_{<t}}^\cdot\big)\,\middle|\, h_{<t}\right]\\
-\pi_{\mathrm{IG}}^{m,k}&:=\argmax_{\pi\in\mathcal{A}^{\mathcal{H}^{<m}}} V_{\mathrm{IG}}^\pi(h_{<t-k})\\
-\rho(h_{<t},m,k)&:=\min\left\{\frac{1}{m^2(m+1)}, \eta V_{\mathrm{IG}}^{\pi_{\mathrm{IG}}^{m,k}}(h_{<t-k})\right\}
+V_{\mathrm{IG}}^\pi(h_{<t})&\coloneqq \mathbb{E}_\xi^\pi\left[D\big(w_{h_{<t+m}}^\cdot\big\| w_{h_{<t}}^\cdot\big)\,\middle|\, h_{<t}\right]\\
+\pi_{\mathrm{IG}}^{m,k}&\coloneqq \argmax_{\pi\in\mathcal{A}^{\mathcal{H}^{<m}}} V_{\mathrm{IG}}^\pi(h_{<t-k})\\
+\rho(h_{<t},m,k)&\coloneqq \min\left\{\frac{1}{m^2(m+1)}, \eta V_{\mathrm{IG}}^{\pi_{\mathrm{IG}}^{m,k}}(h_{<t-k})\right\}
 \end{align*}
 \begin{algorithm}[H]
 \begin{algorithmic}[1]
@@ -3950,7 +3950,7 @@ V_{\mathrm{IG}}^\pi(h_{<t})&:=\mathbb{E}_\xi^\pi\left[D\big(w_{h_{<t+m}}^\cdot\b
 \end{algorithmic}
 \caption{Inquisitive Agent $\pi^\dagger$}
 \end{algorithm}
-\resizebox{\textwidth}{!}{$\pi^\dagger(a|h_{<t}):=\sum\limits_{m\in\mathbb{N}}\sum\limits_{k<m,t}\rho(h_{<t},m,k)\left\llbracket a=\pi_{\mathrm{IG}}^{m,k}(h_{<t})\right\rrbracket+\left(1-\sum\limits_{m\in\mathbb{N}} \sum\limits_{k<m,t}\rho(h_{<t},m,k)\right)\left\llbracket a=\pi_\xi^*(h_{<t})\right\rrbracket$}
+\resizebox{\textwidth}{!}{$\pi^\dagger(a|h_{<t})\coloneqq \sum\limits_{m\in\mathbb{N}}\sum\limits_{k<m,t}\rho(h_{<t},m,k)\left\llbracket a=\pi_{\mathrm{IG}}^{m,k}(h_{<t})\right\rrbracket+\left(1-\sum\limits_{m\in\mathbb{N}} \sum\limits_{k<m,t}\rho(h_{<t},m,k)\right)\left\llbracket a=\pi_\xi^*(h_{<t})\right\rrbracket$}
 \end{frame}
 
 \begin{frame}\frametitle{Approximation}
@@ -3966,8 +3966,8 @@ V_{\mathrm{IG}}^\pi(h_{<t})&:=\mathbb{E}_\xi^\pi\left[D\big(w_{h_{<t+m}}^\cdot\b
 		\item Feature Reinforcement Learning ($\Phi$MDP). --- history $\mapsto$ state\\
 		e.g. Classical physics: Position+velocity of objects=position at two time-slices. ($2\textsuperscript{nd}$ order Markov.)
 		\[\Phi: h\mapsto s\]
-		\[\Phi^{\mathrm{best}}:=\argmin\limits_\Phi \operatorname{Cost}(\Phi|h)\]
-		\[\operatorname{Cost}(\Phi|h):=\operatorname{CL}(s_{1:n}^\Phi|a_{1:n})+\operatorname{CL}(r_{1:n}|s_{1:n}^\Phi,a_{1:n})+\operatorname{CL}(\Phi)\]
+		\[\Phi^{\mathrm{best}}\coloneqq \argmin\limits_\Phi \operatorname{Cost}(\Phi|h)\]
+		\[\operatorname{Cost}(\Phi|h)\coloneqq \operatorname{CL}(s_{1:n}^\Phi|a_{1:n})+\operatorname{CL}(r_{1:n}|s_{1:n}^\Phi,a_{1:n})+\operatorname{CL}(\Phi)\]
 		How to find the map $\Phi$? Monte-Carlo\dots
 		\item Compress and Control. --- (model-free)\\
 		Combine induction and planning.
@@ -3978,9 +3978,9 @@ V_{\mathrm{IG}}^\pi(h_{<t})&:=\mathbb{E}_\xi^\pi\left[D\big(w_{h_{<t+m}}^\cdot\b
 Upper Confidence Tree (UCT) algorithm:
 \begin{itemize}
 	\item \textcolor{yellow}{Sample} observations from Context Tree Weighting (CTW) distribution.
-	\[\operatorname{CTW}(e_{<t}|a_{<t}):=\sum\limits_\Gamma 2^{-\operatorname{CL}(\Gamma)}\Gamma(e_{<t}|a_{<t})\]
+	\[\operatorname{CTW}(e_{<t}|a_{<t})\coloneqq \sum\limits_\Gamma 2^{-\operatorname{CL}(\Gamma)}\Gamma(e_{<t}|a_{<t})\]
 	\item \textcolor{yellow}{Select} actions with highest upper confidence bound.
-\[a_{\mathrm{ucb}}:=\argmax\limits_{a\in\mathcal{A}}\left(\underbrace{\hat{Q}(\ae_{<t}a)}_{\text{average}}+\underbrace{\sqrt{\frac{\log T(\ae_{<t})}{T(\ae_{<t}a)}}}_{\text{exploration bonus}}\right)\]
+\[a_{\mathrm{ucb}}\coloneqq \argmax\limits_{a\in\mathcal{A}}\left(\underbrace{\hat{Q}(\ae_{<t}a)}_{\text{average}}+\underbrace{\sqrt{\frac{\log T(\ae_{<t})}{T(\ae_{<t}a)}}}_{\text{exploration bonus}}\right)\]
 where $T(\cdot)$ is the number of times a sequence has been visited.
 	\item \textcolor{yellow}{Expand} tree by one leaf node (per trajectory).
 	\item \textcolor{yellow}{Simulate} from leaf node further down using (fixed) playout policy.
@@ -4050,7 +4050,7 @@ where $T(\cdot)$ is the number of times a sequence has been visited.
 		Run all $\{p: \ell(p)\leq i\}$ for $2^{i-\ell(p)}$ steps in phase $i=1,2,3,\ldots$ until it has inverted $f$ on $x$.
 	\end{block}\vspace{-2ex}
 	\[
-	Kt(x):=\min\limits_p\big\{\ell(p)+\log t(p,x): U(p)=x\big\}
+	Kt(x)\coloneqq \min\limits_p\big\{\ell(p)+\log t(p,x): U(p)=x\big\}
 	\]\vspace{-2ex}
 	\begin{theorem}
 		All strings $\{x: Kt(x) \leq n\}$ can be generated and tested in $2^{n+1}$ steps.
@@ -4063,7 +4063,7 @@ where $T(\cdot)$ is the number of times a sequence has been visited.
 \begin{frame}\frametitle{Speed Prior}\vspace{-2ex}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
-	\[S(e_{<t}|a_{<t}):=\sum\limits_{p:U(p,a_{<t})=e_{<t}}\frac{2^{-\ell(p)}}{t(p,a_{<t},e_{<t})}\]
+	\[S(e_{<t}|a_{<t})\coloneqq \sum\limits_{p:U(p,a_{<t})=e_{<t}}\frac{2^{-\ell(p)}}{t(p,a_{<t},e_{<t})}\]
 	\begin{center}
 		\textcolor{yellow}{$S$ is computable.}
 	\end{center}
@@ -4085,13 +4085,13 @@ where $T(\cdot)$ is the number of times a sequence has been visited.
 		\column{.5\textwidth}
 			\begin{enumerate}
 				\item[] {$\hspace{-1em}\hspace{-1em}$ \emph{\textcolor{red}{\fbox{$M^\varepsilon_{p^*}(x)$}}}}
-				\item[] \textcolor{red}{Initialize the shared variables $L:=\{\},\;\; t_{\mathrm{fast}}:=\infty,\;\; p_{\mathrm{fast}}:=p^*$.}
+				\item[] \textcolor{red}{Initialize the shared variables $L\coloneqq \{\},\;\; t_{\mathrm{fast}}\coloneqq \infty,\;\; p_{\mathrm{fast}}\coloneqq p^*$.}
 				\item[] \textcolor{red}{Start algorithms $A$, $B$, and $C$ in parallel with $\varepsilon$, $\varepsilon$, and $1-2\varepsilon$ computation time, respectively.}
 			\end{enumerate}
 		\column{.5\textwidth}
 			\begin{enumerate}
 				\item[] {\hspace{-1em}\hspace{-1em} \textcolor{green}{\fbox{$A$}}}
-				\item[] \hspace{-1em}\textcolor{orange}{{for}} \textcolor{green}{$i:=1,2,3,\dots$} \textcolor{orange}{{do}}
+				\item[] \hspace{-1em}\textcolor{orange}{{for}} \textcolor{green}{$i\coloneqq 1,2,3,\dots$} \textcolor{orange}{{do}}
 				\item[] \textcolor{green}{pick the last wff of the $i\textsuperscript{th}$ proof.}
 				\item[] \textcolor{orange}{if} \textcolor{green}{it reads ``$p(\cdot)$ is equivalent to $p^*(\cdot)$ and has time-bound $t(\cdot)$'',}\\
 				\textcolor{orange}{then} \textcolor{green}{add $(p,t)$ to $L$.}
@@ -4105,13 +4105,13 @@ where $T(\cdot)$ is the number of times a sequence has been visited.
 				\item[] $\hspace{-1em}$\textcolor{orange}{for} \textcolor{yellow}{$(p,t) \in L$}
 				\item[] \textcolor{yellow}{run $t(x)$ in parallel for all $t$ with computation time $2^{-\ell(p)-\ell(t)}$.}
 				\item[] \textcolor{orange}{if} \textcolor{yellow}{for some $t$, $t(x) < t_{\mathrm{fast}}$,}
-				\item[] \textcolor{orange}{then} \textcolor{yellow}{$t_{\mathrm{fast}}:=t(x)$ and $p_{\mathrm{fast}}:=p$.}
+				\item[] \textcolor{orange}{then} \textcolor{yellow}{$t_{\mathrm{fast}}\coloneqq t(x)$ and $p_{\mathrm{fast}}\coloneqq p$.}
 				\item[] $\hspace{-1em}$\textcolor{orange}{continue}
 			\end{enumerate}
 		\column{.5\textwidth}
 			\begin{enumerate}
 				\item[] {\hspace{-1em}\hspace{-1em} \textcolor{cyan}{\fbox{$C$}}}
-				\item[] \hspace{-1em}\textcolor{orange}{for} \textcolor{cyan}{$k:=1,2,4,8,\dots$} \textcolor{orange}{do}
+				\item[] \hspace{-1em}\textcolor{orange}{for} \textcolor{cyan}{$k\coloneqq 1,2,4,8,\dots$} \textcolor{orange}{do}
 				\item[] \textcolor{cyan}{run current $p_{\mathrm{fast}}$ for $k$ steps.}
 				\item[] \textcolor{orange}{if} \textcolor{cyan}{$p_{\mathrm{fast}}$ halts,}
 				\item[] \textcolor{orange}{then} \textcolor{cyan}{print result $p_{\mathrm{fast}}(x)$ and abort $A$, $B$ and $C$.}
@@ -4122,10 +4122,10 @@ where $T(\cdot)$ is the number of times a sequence has been visited.
 
 \begin{frame}\frametitle{AIXI$^{t\ell}$}
 \begin{enumerate}
-	\item \textcolor{red}{Let $P:=\emptyset$. This will be the set of verified programs.}
+	\item \textcolor{red}{Let $P\coloneqq \emptyset$. This will be the set of verified programs.}
 	\item \textcolor{red}{For all proofs of length $\leq n$: if the prover shows $\operatorname{VA}(p)$ for some $p$ with $\ell(p)\leq\ell$, then add $p$ to $P$.}
-	\[\textcolor{yellow}{\operatorname{VA}(p):=``\forall k\forall(va^\prime\ae)_{1:k}: p(\ae_{<k})=v_1a_1^\prime\dots v_ka_k^\prime\implies v_k\leq V_\xi^\pi(\ae_{<k})"}\]
-	\textcolor{green}{(The program $p$ not only computes future actions of $\pi$, which is the policy derived from $p$ according to $\pi(\ae_{<k}):=a_k^\prime$, but also hypothetical past actions $a_i^\prime$ and lower bounds $v_i$ for the value of the policy $\pi$.)}
+	\[\textcolor{yellow}{\operatorname{VA}(p)\coloneqq ``\forall k\forall(va^\prime\ae)_{1:k}: p(\ae_{<k})=v_1a_1^\prime\dots v_ka_k^\prime\implies v_k\leq V_\xi^\pi(\ae_{<k})"}\]
+	\textcolor{green}{(The program $p$ not only computes future actions of $\pi$, which is the policy derived from $p$ according to $\pi(\ae_{<k})\coloneqq a_k^\prime$, but also hypothetical past actions $a_i^\prime$ and lower bounds $v_i$ for the value of the policy $\pi$.)}
 	\item \textcolor{red}{For each input history $\ae_{<k}$ repeat: run all programs from $P$ for $\leq t$ steps each, take the one with the highest promised value $v_k$, and return that program's policy's action.}
 \end{enumerate}
 \begin{itemize}
@@ -4306,7 +4306,7 @@ An arrow $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g: 
 		\[\exists y\forall x: g(x)=f(x,y)\]
 	\end{itemize}
 	\begin{theorem}[Lawvere's Fixpoint Theorem]
-		For sets $X, Y$, functions $f: X\times X\to Y$, $\alpha: Y\to Y$, let $g:=\alpha\circ f\circ\Delta$.
+		For sets $X, Y$, functions $f: X\times X\to Y$, $\alpha: Y\to Y$, let $g\coloneqq \alpha\circ f\circ\Delta$.
 		\begin{enumerate}
 			\item If \textcolor{yellow}{$\alpha$ has no fixpoint}, then \textcolor{green}{$g$ is not representable by $f$}.
 			\item If \textcolor{yellow}{$g$ is representable by $f$}, then \textcolor{green}{$\alpha$ has a fixpoint}.
@@ -4346,7 +4346,7 @@ An arrow $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g: 
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{theorem}[Lawvere's Fixpoint Theorem]
-		For sets $X, Y, Z$, functions $\beta: X\to Y, f: X\times Y\to Z, \alpha: Z\to Z$, let $g:=\alpha\circ f\circ(1_X,\beta)$. Assume \textcolor{red}{$\beta$ is surjective}. 
+		For sets $X, Y, Z$, functions $\beta: X\to Y, f: X\times Y\to Z, \alpha: Z\to Z$, let $g\coloneqq \alpha\circ f\circ(1_X,\beta)$. Assume \textcolor{red}{$\beta$ is surjective}. 
 		\begin{enumerate}
 			\item If \textcolor{yellow}{$\alpha$ has no fixpoint}, then \textcolor{green}{$g$ is not representable by $f$}.
 			\item If \textcolor{yellow}{$g$ is representable by $f$}, then \textcolor{green}{$\alpha$ has a fixpoint}.
@@ -4373,7 +4373,7 @@ An arrow $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g: 
 	where $f:(m,n)\mapsto\varphi_{\varphi_n(m)}$, and $\mathcal{E}_h:\varphi_n\mapsto\varphi_{h(n)}$.\\
 	The function $g: m\mapsto\varphi_{h\left(\varphi_m(m)\right)}$ is a recursive sequence of partial recursive functions, and thus is representable by $f$. Explicitly,
 	\[g(m)=\varphi_{h(\varphi_m(m))}=\varphi_{s(m)}=\varphi_{\varphi_t(m)}=f(m,t)\]
-	\[e:=\varphi_t(t)\]
+	\[e\coloneqq \varphi_t(t)\]
 \end{frame}
 
 \begin{frame}\frametitle{Fixpoint vs Diagonalization}
@@ -4437,7 +4437,7 @@ s=\textquotesingle s=\%r; print(s\%\%s)\textquotesingle; print(s\%s)
 		\[B+\ulcorner X\urcorner\rightsquigarrow\ulcorner X\urcorner\]
 		\item A control machine $C$, which first activates $B$, then $A$.
 		\[A+B+C+\ulcorner X\urcorner\rightsquigarrow X+\ulcorner X\urcorner\]
-		\item Let $X:=A+B+C$. {Then} $A+B+C+\ulcorner A+B+C\urcorner$ is \textcolor{red}{self-reproducing}.
+		\item Let $X\coloneqq A+B+C$. {Then} $A+B+C+\ulcorner A+B+C\urcorner$ is \textcolor{red}{self-reproducing}.
 		\[A+B+C+\ulcorner A+B+C\urcorner\rightsquigarrow A+B+C+\ulcorner A+B+C\urcorner\]
 		\item It is possible to add the description of any machine $D$.
 		\[A+B+C+\ulcorner A+B+C+D\urcorner\rightsquigarrow A+B+C+D+\ulcorner A+B+C+D\urcorner\]
@@ -4459,7 +4459,7 @@ s=\textquotesingle s=\%r; print(s\%\%s)\textquotesingle; print(s\%s)
 		There is a program that is totally $\psi$-introspective.
 	\end{corollary}
 	\begin{proof}
-		Let $f(n,x):=\mbox{``the $\psi$-analysis of $\varphi_n(x)$''}$.
+		Let $f(n,x)\coloneqq \mbox{``the $\psi$-analysis of $\varphi_n(x)$''}$.
 	\end{proof}
 \end{frame}
 
@@ -4636,7 +4636,7 @@ G\"odel机&\textcolor{green}{我要变成能获取更大效用的自己}\\
 
 \begin{frame}\frametitle{G\"odel Machine}
 \begin{itemize}
-	\item language $\mathscr{L}:=\{\neg,\wedge,\vee,\to,\forall,\exists,=,(,),\ldots,+,-,\cdot,/,<,\ldots\}$
+	\item language $\mathscr{L}\coloneqq \{\neg,\wedge,\vee,\to,\forall,\exists,=,(,),\ldots,+,-,\cdot,/,<,\ldots\}$
 	\item well-formed formula
 	\item utility function $u(s,e)=\mathbb{E}_\mu \left[\sum\limits_{t=1}^T r_t\,\middle|\,s,e\right]$
 	\item target theorem
@@ -4864,7 +4864,7 @@ Calude, Kroon, Poznanovic: Free will is compatible with randomness.}}
  &=Q_t(\ae_{<k}\pi(\ae_{<k}))\\
  Q_t(\ae_{<k}a_k)
  &=\sum\limits_{e_k\in\mathcal{E}}\rho(e_k|\check{\ae}_{<k}\check{a}_k)\left[\textcolor{yellow}{u_t}(\check{\ae}_{1:k})+\gamma V_t^{\textcolor{yellow}{\pi_{t+1}}}(\ae_{1:k})\right]\\
-	\pi_1^*&:=\argmax_{\pi}V_1^\pi(\epsilon)
+	\pi_1^*&\coloneqq \argmax_{\pi}V_1^\pi(\epsilon)
 \end{align*}
 \begin{theorem}[All optimal policies are non-modifying]
 Let $\rho$ and $u_1$ be modification-independent. For every $t\geq 1$, for all percept sequences $e_{<t}$, and for the action sequence $a_{<t}$ given by $a_i=\pi(\ae_{<i})$, we have
@@ -4896,19 +4896,19 @@ Let $\rho$ and $u_1$ be modification-independent. For every $t\geq 1$, for all p
 \scalebox{.67}{
 \begin{minipage}{\textwidth}
 \begin{align*}
- V_t^\pi(\ae_{<k})&:=Q_t(\ae_{<k}\pi(\ae_{<k}))\\
- Q_t(\ae_{<k}a_k)&:=\sum\limits_{e_k\in\mathcal{E}}\sum\limits_{\nu\in\mathcal{M}}\textcolor{yellow}{w_{\ae_{<k}}^\nu}\nu(e_k|\check{\ae}_{<k}\check{a}_k)\left[\sum\limits_{\textcolor{yellow}{u\in\mathcal{U}}}\sum\limits_{a_k^H}\textcolor{yellow}{P\big(a_k^H|a_k\big)}P\big(u\mid \textcolor{red}{{}_\nu^{\pi_{t+1}}},\ae_{<k}a_k,\ae_{<k}^Ha_k^H\big)u(\check{\ae}_{1:k})+\gamma V_t^{\textcolor{red}{\pi_{t+1}}}(\ae_{1:k})\right]\\
-\textcolor{red}{\pi_t}(\ae_{<k})&:=\argmax_{a_k\in\check{\mathcal{A}}\times\Pi} Q_t(\ae_{<k}a_k)
+ V_t^\pi(\ae_{<k})&\coloneqq Q_t(\ae_{<k}\pi(\ae_{<k}))\\
+ Q_t(\ae_{<k}a_k)&\coloneqq \sum\limits_{e_k\in\mathcal{E}}\sum\limits_{\nu\in\mathcal{M}}\textcolor{yellow}{w_{\ae_{<k}}^\nu}\nu(e_k|\check{\ae}_{<k}\check{a}_k)\left[\sum\limits_{\textcolor{yellow}{u\in\mathcal{U}}}\sum\limits_{a_k^H}\textcolor{yellow}{P\big(a_k^H|a_k\big)}P\big(u\mid \textcolor{red}{{}_\nu^{\pi_{t+1}}},\ae_{<k}a_k,\ae_{<k}^Ha_k^H\big)u(\check{\ae}_{1:k})+\gamma V_t^{\textcolor{red}{\pi_{t+1}}}(\ae_{1:k})\right]\\
+\textcolor{red}{\pi_t}(\ae_{<k})&\coloneqq \argmax_{a_k\in\check{\mathcal{A}}\times\Pi} Q_t(\ae_{<k}a_k)
 \end{align*}
 \end{minipage}}
 \end{block}
 where
-\[P(u|{}_\nu^\pi,h):=\frac{\tilde{U}(u,{}_\nu^\pi,h)}{\sum\limits_{u\in\mathcal{U}_h}\tilde{U}(u,{}_\nu^\pi,h)}\]
+\[P(u|{}_\nu^\pi,h)\coloneqq \frac{\tilde{U}(u,{}_\nu^\pi,h)}{\sum\limits_{u\in\mathcal{U}_h}\tilde{U}(u,{}_\nu^\pi,h)}\]
 and
-\[\tilde{U}(u,{}_\nu^\pi,h):=\sum\limits_{z\in\mathcal{Z}_h}{}_\nu^\pi(z|h)u(z)\]
-\[\pi^*(\ae_{<t}):=\pi_t(\ae_{<t})\]
+\[\tilde{U}(u,{}_\nu^\pi,h)\coloneqq \sum\limits_{z\in\mathcal{Z}_h}{}_\nu^\pi(z|h)u(z)\]
+\[\pi^*(\ae_{<t})\coloneqq \pi_t(\ae_{<t})\]
 \[
-\pi^*(e_{<t}):=\pi_t(e_{<t}|\pi_{t-1}(e_{<t-1}|\ldots \pi_1(\epsilon)\ldots))\tag{Perfect Bayes-Nash}
+\pi^*(e_{<t})\coloneqq \pi_t(e_{<t}|\pi_{t-1}(e_{<t-1}|\ldots \pi_1(\epsilon)\ldots))\tag{Perfect Bayes-Nash}
 \]
 \centering uncertain model-based utility / IRL
 \end{frame}
@@ -4946,8 +4946,8 @@ and
 	\begin{block}{}
 		\resizebox{\textwidth}{!}{\begin{minipage}{\textwidth}
 \begin{align*}
-\pi^*&:=\argmax_{\pi_0\in\Pi^{\ell}} V(\pi_0,\epsilon)\\
-V(\pi_t,\ae_{<t})&:=\sum\limits_{a_t=\left\langle\check{a}_t,\textcolor{red}{\check\pi_{t+1}}\right\rangle}\pi_t(a_t|\check{e}_{t-1})\sum\limits_{e_t=\left\langle\check{e}_t,\textcolor{red}{\pi_{t+1}}\right\rangle}\rho(e_t|\ae_{<t}a_t)\big[u(\ae_{1:t})+\gamma_t V(\pi_{t+1},\ae_{1:t})\big]
+\pi^*&\coloneqq \argmax_{\pi_0\in\Pi^{\ell}} V(\pi_0,\epsilon)\\
+V(\pi_t,\ae_{<t})&\coloneqq \sum\limits_{a_t=\left\langle\check{a}_t,\textcolor{red}{\check\pi_{t+1}}\right\rangle}\pi_t(a_t|\check{e}_{t-1})\sum\limits_{e_t=\left\langle\check{e}_t,\textcolor{red}{\pi_{t+1}}\right\rangle}\rho(e_t|\ae_{<t}a_t)\big[u(\ae_{1:t})+\gamma_t V(\pi_{t+1},\ae_{1:t})\big]
 \end{align*}
 		\end{minipage}}
 	\end{block}\vspace{-1ex}
@@ -4956,8 +4956,8 @@ V(\pi_t,\ae_{<t})&:=\sum\limits_{a_t=\left\langle\check{a}_t,\textcolor{red}{\ch
 		\begin{minipage}{.7\textwidth}
 			\begin{block}{}
 \begin{align*}
-	\pi^*&:=\argmax_{\pi_0\in\Pi^{\ell}} V(\pi_0)\\
-	V(\pi_{<t})&:=\sum\limits_{\pi_t\in\Pi}\rho(\pi_t|\pi_{<t})\big[u(\pi_{1:t})+\gamma_t V(\pi_{1:t})\big]
+	\pi^*&\coloneqq \argmax_{\pi_0\in\Pi^{\ell}} V(\pi_0)\\
+	V(\pi_{<t})&\coloneqq \sum\limits_{\pi_t\in\Pi}\rho(\pi_t|\pi_{<t})\big[u(\pi_{1:t})+\gamma_t V(\pi_{1:t})\big]
 \end{align*}
 			\end{block}
 		\end{minipage}
@@ -5003,9 +5003,9 @@ V(\pi_t,\ae_{<t})&:=\sum\limits_{a_t=\left\langle\check{a}_t,\textcolor{red}{\ch
 	\begin{columns}
 		\column{\textwidth}
 			\begin{itemize}
-				\item $P(x):=\big\{p\in\mathcal{X}^*:\exists m\forall n\geq m\left(p(x_{1:n})=x_{n+1}\right)\big\}$
-				\item $P(A):=\bigcap\limits_{x\in A}P(x)$
-				\item $P_n:=P\big(\big\{x: Km(x)\leq n\big\}\big)$
+				\item $P(x)\coloneqq \big\{p\in\mathcal{X}^*:\exists m\forall n\geq m\left(p(x_{1:n})=x_{n+1}\right)\big\}$
+				\item $P(A)\coloneqq \bigcap\limits_{x\in A}P(x)$
+				\item $P_n\coloneqq P\big(\big\{x: Km(x)\leq n\big\}\big)$
 			\end{itemize}\vspace{17ex}
 			\begin{minipage}{.6\textwidth}
 				\begin{itemize}
@@ -5071,7 +5071,7 @@ but
 
 	\resizebox{.95\textwidth}{!}{$\forall\mathcal{S}^\prime:\;K\left(S_{1:n}^{\mathcal{S}}\middle|a_{1:n}\right)+K\left(u_{1:n}\middle|S_{1:n}^{\mathcal{S}},a_{1:n}\right)+K(\mathcal{S})\leq K\left(S_{1:n}^{\mathcal{S}^\prime}\middle|a_{1:n}\right)+K\left(u_{1:n}\middle|S_{1:n}^{\mathcal{S}^\prime},a_{1:n}\right)+K(\mathcal{S}^\prime)$}
 \end{enumerate}
-\[\resizebox{\textwidth}{!}{$u(h):=\left\llbracket K(h)<\ell(h)\;\;\&\;\;\forall h^\prime\succ h\bigg(K(h)\leq K(h^\prime)\;\;\&\;\;\forall \operatorname{part}(h)\Big(\sum\limits_{h^\prime\in \operatorname{part}(h)}K(h^\prime)\geq K(h)\Big)\bigg)\right\rrbracket$}
+\[\resizebox{\textwidth}{!}{$u(h)\coloneqq \left\llbracket K(h)<\ell(h)\;\;\&\;\;\forall h^\prime\succ h\bigg(K(h)\leq K(h^\prime)\;\;\&\;\;\forall \operatorname{part}(h)\Big(\sum\limits_{h^\prime\in \operatorname{part}(h)}K(h^\prime)\geq K(h)\Big)\bigg)\right\rrbracket$}
 \]
 \end{frame}
 
@@ -5079,7 +5079,7 @@ but
 \begin{itemize}
 	\item Let $\{x_i\}_{i=1}^n$ be a set of strings.
 	\item $K(x_1\dots x_n)\approx\min\limits_S\left(\ell(S)+\sum\limits_{i=1}^nK(x_i|S)\right)\ll\sum\limits_{i=1}^nK(x_i)$
-	\item search for models $y_i^*:=\argmin\limits_{y: S(y)=x_i}\ell(y)$ for each $x_i$ w.r.t. some best representation $S^*:=\argmin\limits_S\left[\ell(S)+\sum\limits_{i=1}^n\ell(y_i^*)\right]$
+	\item search for models $y_i^*\coloneqq \argmin\limits_{y: S(y)=x_i}\ell(y)$ for each $x_i$ w.r.t. some best representation $S^*\coloneqq \argmin\limits_S\left[\ell(S)+\sum\limits_{i=1}^n\ell(y_i^*)\right]$
 \end{itemize}
 \begin{enumerate}
 	\item Search for models
@@ -5102,7 +5102,7 @@ models to find the shortest model: $S(y_i)=x_i$.
 		\[\varphi_{s_n^m (e,x_1,\dots,x_m)}=\lambda y_1\dots y_n.\varphi_e(x_1,\dots,x_m,y_1,\dots,y_n)\]
 	\end{theorem}\vspace{-2ex}
 \[\forall x: \operatorname{spec}(\operatorname{MSearch},S)(x)=\operatorname{MSearch}(S,x)\]
-\[S':=\operatorname{spec}(\operatorname{MSearch},S)\implies
+\[S'\coloneqq \operatorname{spec}(\operatorname{MSearch},S)\implies
 \begin{cases}
 \forall x: S(S'(x))=x\\
 \ell(S)+\sum\limits_{i=1}^n\ell(S'(x_i))\to\min
@@ -5117,19 +5117,19 @@ models to find the shortest model: $S(y_i)=x_i$.
 \begin{frame}\frametitle{Potapov's Representational MDL}
 \[K(x_{1:n})\approx\min\limits_S\left(\ell(S)+\sum\limits_{i=1}^nK(x_i|S)\right)\ll\sum\limits_{i=1}^nK(x_i)\]
 \begin{align*}
-q_1^*&:=\argmin\limits_q\left[\ell(q)+K(x|S_1q)\right]\\
-q_{i+1}^*&:=\argmin\limits_q\left[\ell(q)+K(q_i^*|S_{i+1}q)\right]
+q_1^*&\coloneqq \argmin\limits_q\left[\ell(q)+K(x|S_1q)\right]\\
+q_{i+1}^*&\coloneqq \argmin\limits_q\left[\ell(q)+K(q_i^*|S_{i+1}q)\right]
 \end{align*}
-\[L_{S_1\dots S_m}(x):=K(x|S_1q_1^*)+\sum\limits_{i=2}^{m-1}K(q_i^*|S_{i+1}q_{i+1}^*)+\ell(q_m^*)\]
+\[L_{S_1\dots S_m}(x)\coloneqq K(x|S_1q_1^*)+\sum\limits_{i=2}^{m-1}K(q_i^*|S_{i+1}q_{i+1}^*)+\ell(q_m^*)\]
 \end{frame}
 
 \begin{frame}\frametitle{}
-\[a_k^*:=\argmax\limits_{a_k}\max\limits_{p:U(p,e_{<k})=a_{<k}a_k}\sum\limits_{q:U(q,a_{<k})=e_{<k}}2^{-\ell(q)}V_q^p(\ae_{<k})\]
-\[a_k^*:=\argmax\limits_{a_k}\max\limits_{p:U(p,e_{<k})=a_{<k}a_k}\sum\limits_{\{q_i\}:U(S\{q_i\},a_{<k})=e_{<k}}2^{-\ell(\{q_i\})}V_{\{q_i\}}^p(\ae_{<k})\]
+\[a_k^*\coloneqq \argmax\limits_{a_k}\max\limits_{p:U(p,e_{<k})=a_{<k}a_k}\sum\limits_{q:U(q,a_{<k})=e_{<k}}2^{-\ell(q)}V_q^p(\ae_{<k})\]
+\[a_k^*\coloneqq \argmax\limits_{a_k}\max\limits_{p:U(p,e_{<k})=a_{<k}a_k}\sum\limits_{\{q_i\}:U(S\{q_i\},a_{<k})=e_{<k}}2^{-\ell(\{q_i\})}V_{\{q_i\}}^p(\ae_{<k})\]
 where $e_{<k}=e_{m_1+1:m_2}\dots e_{m_{n-1}+1:m_n}$, $m_1=0$, $m_n=k-1$, and $U(Sq_ia_{<k})=e_{m_i+1:m_{i+1}}$.
 \begin{align*}
-Q(q_k=s,a_k=a)&:=\max\limits_{p:U(p,e_{<k})=a_{<k}a}\!\!\sum\limits_{\{q_i\}:q_k=s,U(S\{q_i\},a_{<k})=e_{<k}}\!\!\!\!\!\!2^{-\ell(\{q_i\})}V_{\{q_i\}}^p(\ae_{<k})\\
-Q(q_k=s)&:=\max\limits_{a_k}Q(q_k=s,a_k=a)
+Q(q_k=s,a_k=a)&\coloneqq \max\limits_{p:U(p,e_{<k})=a_{<k}a}\!\!\sum\limits_{\{q_i\}:q_k=s,U(S\{q_i\},a_{<k})=e_{<k}}\!\!\!\!\!\!2^{-\ell(\{q_i\})}V_{\{q_i\}}^p(\ae_{<k})\\
+Q(q_k=s)&\coloneqq \max\limits_{a_k}Q(q_k=s,a_k=a)
 \end{align*}
 \end{frame}
 
