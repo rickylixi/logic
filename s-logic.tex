@@ -8267,7 +8267,7 @@ Mary \underline{\phantom{xxxxx}} married.
 \subsection{Semantics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{Possible World Semantics}
+\begin{frame}\frametitle{\href{http://rkirsling.github.io/modallogic/}{Possible World Semantics}}
 	A Kripke frame is a pair $\mathcal{F}\coloneqq (W,R)$, where
 	\begin{itemize}
 		\item $W\neq\emptyset$
@@ -9921,6 +9921,42 @@ s\cdot m\cdot\overline{p}+s\cdot\overline{m}\cdot\overline{p}=s\cdot\overline{p}
 \end{columns}
 \end{frame}
 
+\begin{frame}\frametitle{Propositional Logic vs Boolean Algebra}
+\setlength\abovedisplayskip{0pt}
+\setlength\abovedisplayskip{0pt}
+	\begin{columns}
+		\column{0.5\textwidth}
+			\begin{align*}
+			(\bot)^*&\coloneqq 0\\
+			(\top)^*&\coloneqq 1\\
+			(p)^*&\coloneqq p\\
+			(\neg A)^*&\coloneqq \overline{A^*}\\
+			(A\vee B)^*&\coloneqq A^*+B^*\\
+			(A\wedge B)^*&\coloneqq A^*\cdot B^*
+			\end{align*}
+		\column{0.5\textwidth}
+			\begin{align*}
+			(0)'&\coloneqq \bot\\
+			(1)'&\coloneqq \top\\
+			(p)'&\coloneqq p\\
+			\left(\overline{A}\right)'&\coloneqq \neg A'\\
+			(A+B)'&\coloneqq A'\vee B'\\
+			(A\cdot B)'&\coloneqq A'\wedge B'
+			\end{align*}
+	\end{columns}
+\begin{columns}
+\column{0.45\textwidth}
+\begin{block}{}
+	\[A\vdash B\iff\mathrm{BA}\vdash A^*\leq B^*\]
+\end{block}
+\column{0.45\textwidth}
+\begin{block}{}
+	\[\mathrm{BA}\vdash A\leq B\iff A'\vdash B'\]
+\end{block}
+\end{columns}
+	\[\text{where}\; x\leq y\coloneqq x\cdot\overline{y}=0\]
+\end{frame}
+
 \begin{frame}\frametitle{Boolean Algebra vs Propositional Logic}
 	\begin{block}{Exercise}
 		Alice, Ben, Charlie, and Diane are considering going to a
@@ -9942,11 +9978,21 @@ s\cdot m\cdot\overline{p}+s\cdot\overline{m}\cdot\overline{p}=s\cdot\overline{p}
 	\begin{block}{Exercise --- Save Yourself}
 		You can say one sentence. If you lie I will hang you. If you tell the truth I will shoot you.
 	\end{block}
-	\[\vDash(\neg h\to h)\wedge(h\to s)\wedge(s\leftrightarrow\neg h)\to\neg h\wedge\neg s\]
 	\[x=?\implies\vDash(\neg x\to h)\wedge(x\to s)\wedge(s\leftrightarrow\neg h)\to\neg h\wedge\neg s\]
+	\[\vDash(\neg h\to h)\wedge(h\to s)\wedge(s\leftrightarrow\neg h)\to\neg h\wedge\neg s\]
 	\begin{problem}[General Solution?]
 		\[x=?\implies\vDash A(x)\]
 	\end{problem}
+\end{frame}
+
+\begin{frame}\frametitle{General Solution?}
+	\[x^5-x-1=0\implies x=?\]
+There is no solution in radicals to general polynomial equations of degree five or higher with arbitrary coefficients.
+
+
+	\[ax^2+bx+c=0\implies x=?\]
+
+	\[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\]
 \end{frame}
 
 \begin{frame}\frametitle{General Solution of Boolean Equation}
@@ -9970,10 +10016,11 @@ s\cdot m\cdot\overline{p}+s\cdot\overline{m}\cdot\overline{p}=s\cdot\overline{p}
 		\item ``Alright.''
 		\item Then Smullyan said such a sentence that she have to give him a kiss.
 	\end{enumerate}
-	\end{block}\pause
-	\begin{solution}
-		\[\left(s\cdot x+\overline{s}\cdot\overline{x}\right)\cdot\overline{k}=0\]
-		\[x=\overline{s}\cdot\overline{k}+\theta\cdot(\overline{s}+k)\]
+	\end{block}
+\[x=?\implies\vDash(s\leftrightarrow x)\to k\]
+	\pause
+	\begin{solution}\vspace*{-1ex}
+		\[\left(s\cdot x+\overline{s}\cdot\overline{x}\right)\cdot\overline{k}=0\;\;\implies \;\; x=\overline{s}\cdot\overline{k}+\theta\cdot(\overline{s}+k)\]
 	\end{solution}\vspace{-2ex}
 	\[\vDash(s\leftrightarrow\neg s\wedge\neg k)\to k\]
 	\[\vDash(s\leftrightarrow(s\to k))\to k\]
@@ -9993,36 +10040,6 @@ s\cdot m\cdot\overline{p}+s\cdot\overline{m}\cdot\overline{p}=s\cdot\overline{p}
 		\end{align*}
 		is a genereal solution of $f(x_1,\dots,x_n)=0$.
 	\end{theorem}
-\end{frame}
-
-\begin{frame}\frametitle{Propositional Logic vs Boolean Algebra}
-	\begin{columns}
-		\column{0.5\textwidth}
-			\begin{align*}
-			(\bot)^*&\coloneqq 0\\
-			(\top)^*&\coloneqq 1\\
-			(p)^*&\coloneqq p\\
-			(\neg A)^*&\coloneqq \overline{A^*}\\
-			(A\vee B)^*&\coloneqq A^*+B^*\\
-			(A\wedge B)^*&\coloneqq A^*\cdot B^*
-			\end{align*}\setlength\abovedisplayskip{0pt}
-			\begin{block}{}
-				\[A\vdash B\iff\mathrm{BA}\vdash A^*\leq B^*\]
-			\end{block}
-		\column{0.5\textwidth}
-			\begin{align*}
-			(0)'&\coloneqq \bot\\
-			(1)'&\coloneqq \top\\
-			(p)'&\coloneqq p\\
-			\left(\overline{A}\right)'&\coloneqq \neg A'\\
-			(A+B)'&\coloneqq A'\vee B'\\
-			(A\cdot B)'&\coloneqq A'\wedge B'
-			\end{align*}\setlength\abovedisplayskip{0pt}
-			\begin{block}{}
-				\[\mathrm{BA}\vdash A\leq B\iff A'\vdash B'\]
-			\end{block}
-	\end{columns}
-	\[\text{where}\; x\leq y\coloneqq x\cdot\overline{y}=0\]
 \end{frame}
 
 \begin{frame}\frametitle{Homomorphism}
@@ -10743,14 +10760,13 @@ Well-typed programs never go wrong: evaluating a program $t: A$ to a value indee
 \begin{enumerate}\small
 	\item S.~Awodey: Category Theory.
 	\item S.~Mac Lane: Categories for the Working Mathematician.
-	\item F.~W.~Lawvere, S.~H.~Schanuel: Conceptual Mathematics.
-	\item F.~W.~Lawvere, R.~Rosebrugh: Sets for Mathematics.
 	\item T.~Leinster: Basic Category Theory.
 	\item P.~Smith: Category Theory --- A Gentle Introduction.
-	\item E.~Riehl: Category theory in Context.
+	\item B.~Fong, D.~I.~Spivak: Seven Sketches in Compositionality --- An Invitation to Applied Category Theory.
 	\item D.~I.~Spivak: Category Theory for the Sciences.
-	\item B.~Fong, D.~I.~Spivak: An Invitation to Applied Category Theory --- Seven Sketches in Compositionality.
-	\item C.~Mclarty: Elementary Categories, Elementary Toposes.
+	\item F.~W.~Lawvere, S.~H.~Schanuel: Conceptual Mathematics.
+	\item F.~W.~Lawvere, R.~Rosebrugh: Sets for Mathematics.
+	\item E.~Riehl: Category theory in Context.
 	\item M.~Barr, C.~Wells: Category Theory for Computing Science.
 	\item T.~Streicher: Introduction to Category Theory and Categorical Loigc.
 	\item B.~Jacobs: Categorical Logic and Type Theory.
@@ -10847,7 +10863,8 @@ The \emph{opposite category} $\mathcal{C}^\mathrm{op}$ of $\mathcal{C}$ is forme
 		\item the identity morphisms in $\mathcal{C}'$ are identity morphisms in $\mathcal{C}$.
 	\end{enumerate}
 \end{definition}
-Moreover, $\mathcal{C}'$ is said to be \emph{full} if for $A,B\in\operatorname{ob}(\mathcal{C}'):\mathcal{C}'(A,B)=\mathcal{C}(A,B)$.
+Moreover, $\mathcal{C}'$ is called \emph{wide} if all objects of $\mathcal{C}'$ are also objects of $\mathcal{C}$.\\
+$\mathcal{C}'$ is called \emph{full} if for $A,B\in\operatorname{ob}(\mathcal{C}'):\mathcal{C}'(A,B)=\mathcal{C}(A,B)$.
 \end{frame}
 
 \begin{frame}\frametitle{Monic / Epic / Bimorphism / Isomorphism}
@@ -11101,7 +11118,7 @@ m(2t - 1) & 1/2 < t \leq 1
 \setlength\belowdisplayskip{0pt}
 \begin{itemize}
 \item If there exists a homotopy $h$ between $l$ and $m$ we say that $l$ and $m$ are \emph{homotopic}. This is an equivalence relation. We denote the space of homotopy classes by 
-\[\pi_1(X,x_0):=\{\mbox{all loops } l:[0,1]\to X \mbox{ based at }x_0\}/\mbox{homotopy}\]
+\[\pi_1(X,x_0)\coloneqq \{\mbox{all loops } l:[0,1]\to X \mbox{ based at }x_0\}/\mbox{homotopy}\]
 \item The concatenation of loops induces a concatenation between the homotopy classes $[l][m]=[lm]$ which equips $\pi_1(X,x_0)$ with a group structure. The unit is given by the constant loop at $x_0$, and the inverse is given by ``walking the loop backwards'' $l^{-1}(t)\coloneqq l(1-t)$. We call $\pi_1(X,x_0)$ the \emph{fundamental group of $X$ at $x_0$}. 
 \item Let $f:(X,x_0)\to (Y,y_0)$ be a base point-preserving continuous function. We can map a loop at $x_0$ to a loop of $y_0$
 \[
@@ -11483,7 +11500,7 @@ E \ar@{.>}[r]_\chi &\Omega}
  &X \ar[r]_g &X
 }
 \]
-	\item \emph{Choice:} for any epimorphism $f: A\to B$, there exists $g: B\to A$ s.t. $fg=1_B$. (every epimorphism has a section)
+	\item \emph{Choice:} for any epimorphism $f: A\to B$, there exists $g: B\to A$ s.t. $fg=1_B$. (every epimorphism has a section.)
 	\item $\mathrm{ETCS}$ is a well-pointed topos with natural numbers object and Choice.
 \end{itemize}
 \end{frame}
@@ -11673,6 +11690,32 @@ $\operatorname{y}: g\mapsto\mathcal{G}(-,g):\mathcal{G}(\bullet,\bullet)\to\math
 Therefore, the left-hand side is a subgroup of the group of all permutations on $G$.\\
 Moreover, this subgroup is isomorphic to the group $G$ itself by the restricted Yoneda lemma.
 \end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{}
+A group representation provides a way to view your
+abstract group elements as concrete linear transformations of some vector space.\\
+Explicitly, given a vector space $V$, a group representation is a group homomorphism $G\to\operatorname{Aut}(V)$.
+
+For example, $D_3\to\operatorname{Aut}(\mathbb{R}^2)$.
+\[D_3=\langle r,s|r^3=s^2=rsrs=e\rangle\]
+\[r\mapsto R=
+\begin{bmatrix}
+	\cos(2\pi/3) & -\sin(2\pi/3)\\
+	\sin(2\pi/3) & \cos(2\pi/3)
+\end{bmatrix}\qquad
+s\mapsto S=
+\begin{bmatrix}
+	1 & 0\\
+	0 & -1
+\end{bmatrix}
+\]
+\begin{figure}[H]
+	\includegraphics[width=.25\textwidth]{img/d3.jpg}
+\end{figure}
+We can think of a group $G$ as providing the
+syntax while automorphisms $\operatorname{Aut}(V)$ provide the semantics. So a group representation is like a functor
+\[\mbox{syntax } \to \mbox{ semantics}\]
 \end{frame}
 
 \begin{frame}\frametitle{Representable Functor \& Universal Element}
@@ -11875,6 +11918,13 @@ Naturality of $\theta$ means that for $f\in\mathcal{C}(A,A')$ and $g\in\mathcal{
 \[\infer={A\subset B\to C}{A\cap B\subset C}\qquad\mbox{where } B\to C\coloneqq \overline{B}\cup C\]
 \[F_B: X\mapsto X\cap B\qquad G_B: X\mapsto B\to X\qquad F_B\dashv G_B\]
 \end{block}
+\begin{block}{Example $([0,\infty],\geq,+,0)$}
+\[\infer={A\geq B\to C}{A+B\geq C}\qquad\mbox{where } B\to C\coloneqq \max\{0,C-B\}\]
+\[F_B: X\mapsto X+B\qquad G_B: X\mapsto B\to X\qquad F_B\dashv G_B\]
+\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{Left/Right Adjoint}
 \begin{block}{Example}
 	\[\mathcal{C}(A\times B,C)\cong\mathcal{C}(A,C^B)\]
 	\[F_B: X\mapsto X\times B\qquad G_B: X\mapsto X^B\qquad F_B\dashv G_B\]
@@ -12274,6 +12324,17 @@ ttx \ar@{->}[r]_{\mu_x} &tx}
 \]
 \end{frame}
 
+\begin{frame}\frametitle{Remarks}
+\begin{itemize}
+	\item	A monad is a consistent way of extending spaces to include generalized elements and generalized functions of a specific kind.
+	\item A comonad is a consistent way to equip spaces with extra information of a specific kind, and let some morphisms access that information.
+\end{itemize}
+\begin{itemize}
+	\item	A monad is a consistent choice of formal expressions of a specific kind, together with ways to evaluate them.
+	\item A comonad is a consistent way to construct, from spaces, processes of a specified structure, and give selected strategies or trajectories.
+\end{itemize}
+\end{frame}
+
 \begin{frame}\frametitle{Examples}
 \begin{itemize}
 	\item Consider $\mathbf{Set}$.
@@ -12288,11 +12349,11 @@ ttx \ar@{->}[r]_{\mu_x} &tx}
 		\item $\eta_A: A\to M\times A :: a\mapsto (e,a)$.
 		\item $\mu_A: M\times M\times A\to M\times A :: (m,(n,a))\mapsto (mn,a)$.
 	\end{itemize}
-	\item A preorder $(P,\leq)$ yields a category where endofunctors are monotone functions. Given a monad $(t,\eta,\mu)$, the natural transformations $\eta$ and $\mu$ give that, for $a\in P$, $a\leq ta$ and $tta\leq ta$, since $\eta_a: a\to ta$, and $\mu_a: tta\to ta$. Then $ta\leq tta\leq ta\implies tta=ta$. Monads on $(P,\leq)$ are closure operators\footnote{A \emph{closure operator} on a set $A$ is $\operatorname{cl}: \operatorname{P}(A)\to \operatorname{P}(A)$ s.t. for $X,Y\subset A$,
+	\item A preorder $(P,\leq)$ yields a category where endofunctors are monotone functions. Given a monad $(t,\eta,\mu)$, the natural transformations $\eta$ and $\mu$ give that, for $a\in P$, $a\leq ta$ and $tta\leq ta$, since $\eta_a: a\to ta$, and $\mu_a: tta\to ta$. Then $ta\leq tta\leq ta\implies tta=ta$. Monads on $(P,\leq)$ are closure operators\footnote{A \emph{closure operator} on a poset $(P,\leq)$ is $t: P\to P$ s.t. for $x,y\in P$,
 \begin{itemize}
-	\item $X\subset \operatorname{cl}(X)$
-	\item $X\subset Y\to \operatorname{cl}(X)\subset \operatorname{cl}(Y)$
-	\item $\operatorname{cl}(\operatorname{cl}(X))=\operatorname{cl}(X)$
+	\item $x\leq t(x)$
+	\item $x\leq y\to t(x)\leq t(y)$
+	\item $t(t(x))=t(x)$
 \end{itemize}}.
 \end{itemize}
 \end{frame}
@@ -12467,6 +12528,45 @@ A^* &A^*\otimes I \ar@{->}[l]^{\rho_{A^*}} &A^*\otimes (A\otimes A^*) \ar@{->}[l
 	\end{itemize}
 \end{block}
 Infinite-dimensional Hilbert spaces are dagger symmetric monoidal categories, but are not dagger compact closed categories.
+\end{frame}
+
+\begin{frame}\frametitle{Enrichment in a Monoidal Category}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}\vspace*{-1ex}
+\begin{definition}[Enrichment in a Monoidal Category]
+	Let $(V,\otimes,I,\lambda,\rho)$ be a monoidal category. Then a $V$-category $\mathcal{C}$ consists of
+	\begin{itemize}
+		\item a class $\operatorname{ob}(\mathcal{C})$ of objects.
+		\item a hom-object $\mathcal{C}(a,b)$ in $V$ for each pair $a,b\in\operatorname{ob}(\mathcal{C})$.
+		\item an arrow $\operatorname{id}_a:I\to\mathcal{C}(a,a)$ in $V$ for each $a\in\operatorname{ob}(\mathcal{C})$.
+		\item an arrow $\circ_{abc}:\mathcal{C}(b,c)\otimes\mathcal{C}(a,b)\to\mathcal{C}(a,c)$ in $V$ for each triple $a,b,c\in\operatorname{ob}(\mathcal{C})$ such that
+	\end{itemize}
+\[
+\xymatrix@C-7pt{
+(\mathcal{C}(c,d)\otimes \mathcal{C}(b,c))\otimes\mathcal{C}(a,b) \ar[rr]^{\alpha} \ar@{->}[d]_{\circ_{bcd}\otimes 1} && \mathcal{C}(c,d)\otimes(\mathcal{C}(b,c)\otimes\mathcal{C}(a,b))\ar@{->}[d]^{1\otimes\circ_{abc}}\\
+\mathcal{C}(b,d)\otimes\mathcal{C}(a,b) \ar@{->}[r]_{\circ_{abd}} &\mathcal{C}(a,d)&\mathcal{C}(c,d)\otimes\mathcal{C}(a,c) \ar@{->}[l]^{\circ_{acd}}}
+\]
+\[
+\xymatrix@C+17pt{
+\mathcal{C}(b,b)\otimes\mathcal{C}(a,b) \ar[r]^{\circ_{abb}} & \mathcal{C}(a,b) & \mathcal{C}(a,b)\otimes\mathcal{C}(a,a)\ar@{->}[l]_{\circ_{aab}}\\
+I\otimes\mathcal{C}(a,b) \ar@{->}[u]^{\operatorname{id}_b\otimes 1} \ar@{->}[ur]_{\lambda} &&\mathcal{C}(a,b)\otimes I \ar@{->}[ul]^{\rho} \ar@{->}[u]_{1\otimes\operatorname{id}_{a}}}
+\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Lawvere Metric Space}
+\begin{definition}[Lawvere Metric Space]
+	A Lawvere metric space is a set $X$ with a function $d:X\times X\to [0,\infty]$ s.t.,
+	\begin{enumerate}
+		\item $d(x,x)=0$
+		\item $d(x,z)\leq d(x,y)+d(y,z)$
+	\end{enumerate}
+\end{definition}
+\begin{itemize}
+	\item If we define $x\leq_X y\coloneqq d(x,y)=0$, then $\leq_X$ is a partial order.
+	\item A Lawvere metric space can be viewed as a category enriched in the monoidal poset $\mathbf{Cost}\coloneqq ([0,\infty],\geq,+,0)$, where the tensor product is $+$, and the identity is $0$.
+\[\operatorname{hom}(x,y)\coloneqq d(x,y)\in \operatorname{ob}(\mathbf{Cost})\]
+\end{itemize}
 \end{frame}
 
 
