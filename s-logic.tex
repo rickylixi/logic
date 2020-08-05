@@ -3,7 +3,7 @@
 %!TEX TS-program=xelatex
 %!TEX encoding=UTF-8 Unicode
 \RequirePackage{fix-cm}%优化字体
-\documentclass[UTF8,aspectratio=43,11pt,colorlinks,compress,openany]{beamer}%aspectratio=169%169宽屏 43窄屏[handout]
+\documentclass[UTF8,11pt,colorlinks,compress,openany]{beamer}%aspectratio=169%169宽屏 43窄屏[handout]
 
 \input{preamble-beamer}
 \input{beamer-light}%monokai,dark,light
@@ -1835,7 +1835,8 @@ Maximal degree of existence & Observed path\\
 		\end{block}
 \end{frame}
 
-\begin{frame}\frametitle{Hilbert's Program}
+\begin{frame}\frametitle{\hyperlink{incompatibility}{\beamerbutton{Hilbert's Program}}}
+\label{hilbert-program}
 		\begin{enumerate}{\small 
 			\item Formalization \& Axiomatization (Richness): Formalize and axiomatize (recursively) the elementary logic $\mathrm{L}$, the ``finitistic'' mathematics $\mathrm{F}$ (which is concerned with the real world) and the ``infinitistic'' mathematics $\mathrm{T}$ (which is concerned with `ideal objects').
 			\item Independence: the axioms should be ``independent'' of one another.
@@ -2027,15 +2028,13 @@ Arithetical truth can't be defined in arithmetic.
 		\emph{Truth} points the way for logic, just as beauty does for aesthetics, and goodness for ethics.\par
 		\hfill --- \textsl{Frege}
 	\end{quote}
-	\centerline{\xymatrix@C=1pc{
-					*+++[o][F=]{\textbf{\underline{\textcolor{yellow}{\text{Form}}}}}&&&&&&*+++[o][F=]{\textbf{\underline{\textcolor{yellow}{\text{Form}}}}}\\
-					&&&&
-					\ar@1{<--}^*++[F-]{\text{\footnotesize endow}} "1,7";"5,4"
-					&&&\\
-					\ar@1{-->}_*++[F-]{\text{\footnotesize suspend}} "1,1";"5,4"
-					&&&&&\\
-					\ar@1{->}^*++[F-]{\textcolor{red}{\text{\footnotesize transform}}} "1,1";"1,7"\\
-					&&&*+++[F-]{\textbf{\textcolor{yellow}{Meaning}}}&&}}
+\[
+\begin{tikzcd}[column sep=huge,row sep=huge]
+\textbf{\textcolor{yellow}{Form}} \arrow[rr, "\text{transform}" red] \arrow[dr, dashrightarrow, "\text{suspend}"']
+\&\& \textbf{\textcolor{yellow}{Form}}\\
+\& \textbf{\textcolor{yellow}{Meaning}} \arrow[ur, dashrightarrow, "\text{endow}"']
+\end{tikzcd}
+\]
 \end{frame}
 
 \begin{frame}\frametitle{}
@@ -2390,9 +2389,14 @@ $P(n)\coloneqq $ ``$n$ rings needs $2^n-1$ moves.''
 			\item for all $f\in\mathcal{F}$ and all $x_1,\dots,x_n\in C$: \[\overline{h}(f(x_1,\dots,x_n))=F_f\big(\overline{h}(x_1),\dots,\overline{h}(x_n)\big)\]
 		\end{enumerate}
 	\end{theorem}
-\column{.15\textwidth}
-\xymatrix{B \ar[dr]_{h} \ar[r] & C \ar[d]^{\overline{h}}\\
-& V}
+\column{.17\textwidth}
+\[
+\begin{tikzcd}[row sep=large]
+B \arrow[r] \arrow[dr, "h"']
+\& C \arrow[d, "\overline{h}"]\\
+\& V
+\end{tikzcd}
+\]
 \end{columns}
 	\begin{itemize}
 		\item $h$ tells you how to color the initial elements in $B$;
@@ -3377,7 +3381,7 @@ A truth assignment for $\mathscr{L}^0$ is a function $\nu:\mathcal{P}\to\{0,1\}$
 \end{frame}
 
 \begin{frame}\frametitle{Curry's Paradox --- How to Flirt with a Beauty $\sideset{^\heartsuit}{^\heartsuit}{\operatorname{\circledcirc}}$}
-	\begin{block}{Smullyan Flirts with a Beauty $\sideset{^\heartsuit}{^\heartsuit}{\operatorname{\circledcirc}}$}
+	\begin{block}{\hyperlink{smullyan-boole}{\beamerbutton{Smullyan}}\label{smullyan-curry} Flirts with a Beauty $\sideset{^\heartsuit}{^\heartsuit}{\operatorname{\circledcirc}}$}
 	\begin{enumerate}\small
 		\item ``I am to make a statement. If it is true, would you give me your autograph?''
 		\item ``I don't see why not.''
@@ -3386,7 +3390,7 @@ A truth assignment for $\mathscr{L}^0$ is a function $\nu:\mathcal{P}\to\{0,1\}$
 		\item Then Smullyan said such a sentence that she have to give him a kiss.
 	\end{enumerate}
 	\end{block}
-\[x=?\implies\vDash(s\leftrightarrow x)\to k\]
+\[x=?\implies\vDash(a\leftrightarrow x)\to k\]
 \begin{block}{Hi 美女，问你个问题呗}
 如果我问你\textcolor{yellow}{“你能做我女朋友吗”}，那么\textcolor{yellow}{你的答案}能否和\textbf{这个问题本身}的答案一样？
 \end{block}
@@ -4843,10 +4847,14 @@ continuity vs uniform continuity
 				\item $\overline{\nu}(f(t_1,\dots,f_n))\coloneqq f^{\mathcal{M}}(\overline{\nu}(t_1),\dots,\overline{\nu}(t_n))$
 			\end{itemize}
 		\end{block}
-		\centering\resizebox{0.4\textwidth}{!}{
-			\xymatrix{\mathcal{T} \ar[d]_{\mathcal{E}_f} \ar[r]^{\overline{\nu}} & M \ar[d]^{f^{\mathcal{M}}}\\
-				\mathcal{T} \ar[r]^{\overline{\nu}} & M}
-		}
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{T} \arrow[r, "\overline{\nu}"] \arrow[d, "\mathcal{E}_f"']
+\& M \arrow[d, "f^{\mathcal{M}}"] \\
+\mathcal{T} \arrow[r, "\overline{\nu}"']
+\& M
+\end{tikzcd}
+\]
 \end{frame}
 
 \begin{frame}\frametitle{Tarski's Definition of Truth}
@@ -5882,7 +5890,7 @@ Herbrand's Theorem is a corollary of the extended first $\varepsilon$-theorem.
 \begin{frame}\frametitle{}
 \begin{itemize}
 	\item The logical form of a statement may differ from its grammatical form.
-	\item The correct logical analysis of a word or phrase may involve an explanation not of what that word or phrase taken by itself means, but rather of what whole sentences containing the word or phrase mean.
+	\item (Contextuality Principle.) Never ask for the meaning of a phrase in isolation, but only in the context of some meaningful fragment of a text.
 	\item The method of contextual definition, which the theory of descriptions exemplifies, was inspired by the nineteenth-century rigorization of analysis.
 \end{itemize}
 Berkeley: $2\textsuperscript{nd}$ crisis of the Foundations of Mathematics\\
@@ -7528,18 +7536,16 @@ We refer to the functions $X\mapsto X^*$ and $Y\mapsto Y^\dagger$ as \emph{polar
 \end{frame}
 
 \begin{frame}\frametitle{\href{http://mat.msgsu.edu.tr/~dpierce/Notes/Ultraproducts/}{Stone Space of Lindenbaum Algebra}}
-\begin{columns}[onlytextwidth]\hspace*{-.075\textwidth}
-\column{.5\textwidth}\vspace*{-3.5cm}
-\begin{equation*}
-\xymatrix@!0@=2.3cm{
-\mathrm{Str}\ar@{>>}[d]_{\mathcal{M} \mapsto \operatorname{Th}(\mathcal{M})}
-&\mathrm{Sen}\ar@{<~>}[l]_{\vDash}\ar@{>>}[d]^{A \mapsto [A]}\\
-\mathrm{S_0}\rule[-1.7ex]{0ex}{2ex}
-\ar@{<~>}[ur]_{\ni}\ar@{<~>}[r]\ar@{>->}[d]_{T \mapsto T/\sim}
-&\mathrm{Lin_0}\\
-\operatorname{Sto}(\mathrm{Lin_0})\ar@{<~>}[ur]_{\ni}}
-\end{equation*}
-\column{1.1\textwidth}
+\begin{columns}[onlytextwidth]\hspace*{-.07\textwidth}
+\column{.5\textwidth}\vspace*{-3.7cm}
+\[
+\begin{tikzcd}[row sep=huge]
+\mathrm{Str} \arrow[r, leftrightsquigarrow, "\vDash"] \arrow[d, twoheadrightarrow, "\mathcal{M} \mapsto \operatorname{Th}(\mathcal{M})"'] \& \mathrm{Sen} \arrow[dl, leftrightsquigarrow, "\ni"] \arrow[d, twoheadrightarrow, "A\mapsto {[A]}"]\\
+\mathrm{S_0} \arrow[r, leftrightsquigarrow] \arrow[d, rightarrowtail, "T \mapsto T/\sim"'] \& \mathrm{Lin_0} \arrow[dl, leftrightsquigarrow, "\ni"]\\
+\operatorname{Sto}(\mathrm{Lin_0})
+\end{tikzcd}
+\]
+\column{1.15\textwidth}
 \resizebox{\textwidth}{!}{
 \begin{minipage}{\textwidth}\vspace*{2ex}
 \begin{itemize}
@@ -7981,7 +7987,8 @@ For any $n\in\mathbb{N}$,
 	\end{theorem}
 \end{frame}
 
-\begin{frame}\frametitle{Fragments of First Order Logic}
+\begin{frame}\frametitle{\hyperlink{quantifier-adjoint}{\beamerbutton{Fragments of First Order Logic}}}
+\label{fragment-logic}
 \begin{enumerate}
 	\item The set of \emph{Horn formulae} is the smallest set containing the set of atomic formulae and closed under $\top,\wedge$.
 	\item The set of \emph{regular formulae} is the smallest set containing the set of atomic formulae and closed under $\top,\wedge,\exists$.
@@ -8056,7 +8063,8 @@ A Heyting algebra $(H,\bot,\top,\wedge,\vee,\to,\leq)$ is a bounded lattice $(H,
 Define $\neg a\coloneqq a\to\bot$.
 \end{frame}
 
-\begin{frame}\frametitle{Brouwer-Heyting-Kolmogorov Interpretation}
+\begin{frame}\frametitle{\hyperlink{curry-howard}{\beamerbutton{Brouwer-Heyting-Kolmogorov Interpretation}}}
+\label{bhk}
 \begin{itemize}
 	\item A proof of $A\wedge B$ is a pair $(a,b)$ where $a$ is a proof of $A$ and $b$ is a proof of $B$.
 	\item A proof of $A\vee B$ is a pair $(a,b)$ where $a$ is $0$ and $b$ is a proof of $A$, or $a$ is $1$ and $b$ is a proof of $B$.
@@ -8085,17 +8093,17 @@ $e.g.\quad d(x,y)=\left(\sum\limits_{i=1}^n|x_i-y_i|^p\right)^{\frac{1}{p}}\quad
 
 \begin{frame}\frametitle{Topological Semantics of Intuitionistic Propositional Logic}
 \begin{itemize}
-	\item A \emph{topological space} $(X,\tau X)$ is a set $X$ with a family $\tau X\subset\operatorname{P}(X)$ of subsets of $X$ which contains $\emptyset$ and $X$, and is closed under finite intersections and arbitrary unions.
+	\item A \emph{topological space} $(X,\mathcal{O}(X))$ is a set $X$ with a family $\mathcal{O}(X)\subset\operatorname{P}(X)$ of subsets of $X$ which contains $\emptyset$ and $X$, and is closed under finite intersections and arbitrary unions.
 	\item The topological \emph{interior} of a subset $S\subset X$ is
-	\[S^\circ\coloneqq \bigcup\big\{U\in\tau X: U\subset S\big\}\]
-	\item Define for $A,B\in\tau X$ the open set
-	\[A\to B \coloneqq \big((X\setminus A)\cup B\big)^\circ=\bigcup\big\{U\in\tau X:U\cap A\subset B\big\}\]
-	by definition, for all $U\in\tau X$,
+	\[S^\circ\coloneqq \bigcup\big\{U\in\mathcal{O}(X): U\subset S\big\}\]
+	\item Define for $A,B\in\mathcal{O}(X)$ the open set
+	\[A\to B \coloneqq \big((X\setminus A)\cup B\big)^\circ=\bigcup\big\{U\in\mathcal{O}(X):U\cap A\subset B\big\}\]
+	by definition, for all $U\in\mathcal{O}(X)$,
 	\[U\subset A\to B\iff U\cap A\subset B\]
 	Define $\neg A\coloneqq A\to\bot$. Thus
 	\[\neg A=(X\setminus A)^\circ\]
 	\item $A\coloneqq (0,1)\cup(1,\infty), \neg A=(-\infty,0), \neg\neg A=(0,\infty), A\cup\neg A\ne\mathbb{R}, A\subsetneq\neg\neg A$.
-	\item A topological model of intuitionistic propositional logic is $(X,\tau X,\nu)$ where $\nu:\mathcal{P}\to\tau X$.
+	\item A topological model of intuitionistic propositional logic is $(X,\mathcal{O}(X),\nu)$ where $\nu:\mathcal{P}\to\mathcal{O}(X)$.
 \end{itemize}
 \end{frame}
 
@@ -8286,10 +8294,21 @@ Mary \underline{\phantom{xxxxx}} married.
 \begin{frame}\frametitle{Example}
 	\begin{columns}
 		\column{0.5\textwidth}
-			\centering\xymatrix{*++[o][F-]{p,q\atop\textcolor{yellow}{w_1}}\ar@(ul,ur) \ar@{->} "1,1";"1,3" && *++[o][F-]{p,\neg q\atop\textcolor{yellow}{w_3}} \ar@{<->} "1,3";"3,1" \ar@{->} "1,3";"3,3"\\
-				&\\
-				*++[o][F-]{\neg p,q\atop\textcolor{yellow}{w_2}} \ar@(dr,dl) \ar@{->} "3,1";"1,1" \ar@{->} "3,1";"3,3" && *++[o][F-]{\neg p,q\atop\textcolor{yellow}{w_4}}
-			}
+\begin{center}
+\begin{tikzpicture}[modal,node distance=2.5cm]
+\node[world] (w1) [label=left:$w_1$] {$p,q$};
+\node[world,inner sep=0.6mm] (w2) [label=left:$w_2$,below of=w1] {$\neg p,q$};
+\node[world,inner sep=0.6mm] (w3) [label=right:$w_3$,right of=w1] {$p,\neg q$};
+\node[world,inner sep=0.6mm] (w4) [label=right:$w_4$,right of=w2] {$\neg p,q$};
+\path[->] (w1) edge[reflexive above] (w1);
+\path[->] (w2) edge[reflexive below] (w2);
+\path[->] (w1) edge (w3);
+\path[->] (w2) edge (w1);
+\path[->] (w2) edge (w4);
+\path[<->] (w3) edge (w2);
+\path[->] (w3) edge (w4);
+\end{tikzpicture}
+\end{center}
 		\column{0.5\textwidth}
 			\begin{align*}
 			&\mathcal{M},w_1\Vdash p\wedge\Box p\\
@@ -8376,24 +8395,51 @@ Mary \underline{\phantom{xxxxx}} married.
 
 \begin{frame}\frametitle{Counter-model for D,T,B,4,5}
 	\begin{columns}
-		\column{0.33\textwidth}
-			\centering\xymatrix{*++[o][F-]{p\atop\textcolor{red}{w}}
-			}
-		\column{0.33\textwidth}
-			\centering\xymatrix{*++[o][F-]{\neg p\atop\textcolor{red}{w_1}} \ar[r] & *++[o][F-]{p\atop\textcolor{yellow}{w_2}}\ar@(ul,ur)
-			}
-		\column{0.34\textwidth}
-			\centering\xymatrix{*++[o][F-]{p\atop\textcolor{red}{w_1}}\ar@(ul,ur) \ar[r] & *++[o][F-]{\neg p\atop\textcolor{yellow}{w_2}}\ar@(ul,ur)
-			}
-	\end{columns}\vspace{2cm}
+		\column{0.33\textwidth}\centering
+\begin{tikzpicture}[modal,node distance=2.5cm]
+\node[world] (w) [label=below:$w$] {$p$};
+\phantom{\path[->] (w) edge[reflexive above] (w);}
+\end{tikzpicture}
+		\column{0.33\textwidth}\centering
+\begin{tikzpicture}[modal,node distance=2.5cm]
+\node[world, inner sep=0.6mm] (w1) [label=below:$w_1$] {$\neg p$};
+\node[world] (w2) [label=below:$w_2$, right of=w1] {$p$};
+\path[->] (w1) edge (w2);
+\path[->] (w2) edge[reflexive above] (w2);
+\end{tikzpicture}
+		\column{0.34\textwidth}\centering
+\begin{tikzpicture}[modal,node distance=2.5cm]
+\node[world] (w1) [label=below:$w_1$] {$p$};
+\node[world, inner sep=0.6mm] (w2) [label=below:$w_2$, right of=w1] {$\neg p$};
+\path[->] (w1) edge (w2);
+\path[->] (w1) edge[reflexive above] (w1);
+\path[->] (w2) edge[reflexive above] (w2);
+\end{tikzpicture}
+	\end{columns}
 	\begin{columns}
-		\column{0.5\textwidth}
-			\centering\xymatrix{*++[o][F-]{p\atop\textcolor{red}{w_1}}\ar@(ul,ur) \ar[rr] && *++[o][F-]{p\atop\textcolor{yellow}{w_2}}\ar@(ul,ur) \ar[ll] \ar[rr] && *++[o][F-]{\neg p\atop\textcolor{yellow}{w_3}}\ar@(ul,ur) \ar[ll]
-			}
-		\column{0.5\textwidth}
-			\centering\xymatrix{*++[o][F-]{p\atop\textcolor{yellow}{w_2}}\ar@(ul,ur) \ar@{->} "1,1";"1,3" && *++[o][F-]{\neg p\atop\textcolor{yellow}{w_3}}\ar@(ul,ur) \ar[dl]\\
-				&*++[o][F-]{\neg p\atop\textcolor{red}{w_1}} \ar@(dr,dl) \ar[ul] \ar[ur] &
-			}
+		\column{0.5\textwidth}\centering
+\begin{tikzpicture}[modal,node distance=2.5cm]
+\node[world] (w1) [label=below:$w_1$] {$p$};
+\node[world] (w2) [label=below:$w_2$, right of=w1] {$p$};
+\node[world, inner sep=0.6mm] (w3) [label=below:$w_3$, right of=w2] {$\neg p$};
+\path[<->] (w1) edge (w2);
+\path[<->] (w2) edge (w3);
+\path[->] (w1) edge[reflexive above] (w1);
+\path[->] (w2) edge[reflexive above] (w2);
+\path[->] (w3) edge[reflexive above] (w3);
+\end{tikzpicture}
+		\column{0.5\textwidth}\centering
+\begin{tikzpicture}[modal,node distance=2.5cm]
+\node[world, inner sep=0.6mm] (w1) [label=left:$w_1$] {$\neg p$};
+\node[world] (w2) [label=left:$w_2$, above left of=w1] {$p$};
+\node[world, inner sep=0.6mm] (w3) [label=right:$w_3$, above right of=w1] {$\neg p$};
+\path[->] (w1) edge (w2);
+\path[->] (w2) edge (w3);
+\path[<->] (w1) edge (w3);
+\path[->] (w1) edge[reflexive below] (w1);
+\path[->] (w2) edge[reflexive above] (w2);
+\path[->] (w3) edge[reflexive above] (w3);
+\end{tikzpicture}
 	\end{columns}
 \end{frame}
 
@@ -8603,7 +8649,8 @@ Conversely, if $L$ fails at $w_0$, there must be an infinite upward sequence of 
 	\end{proof}
 \end{frame}
 
-\begin{frame}\frametitle{Provability Logic}
+\begin{frame}\frametitle{\hyperlink{fixpoint-uniqueness}{\beamerbutton{Provability Logic}}}
+\label{provability-logic}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}\vspace{-1ex}
 	\begin{theorem}[Uniqueness of Fixpoint]
@@ -8646,38 +8693,95 @@ Conversely, if $L$ fails at $w_0$, there must be an infinite upward sequence of 
 			\item If $Zww'$ and $R' w' v'$, then there exists $v\in W$ s.t. $Zvv'$ and $Rwv$.
 		\end{enumerate}
 	\end{definition}\vspace{-2ex}
-\begin{figure}[H]
-\setlength{\unitlength}{1em}
-\begin{picture}(7.5,12)(1,-1.5)
-\put(1.5,3.7){\oval(4,9.5)}
-\put(0,0){\makebox(0,0)[bl]{
-$\xymatrix@C=3em{v \ar@{.}[rr]^Z && v'\\
-&\\
-w \ar@{.}[rr]^Z \ar[uu]^{R} && w'\ar@{-->}[uu]_{R'}}$
-}}
-\put(9.5,3.7){\oval(4,9.5)}
-\end{picture}
-\end{figure}
+\begin{center}
+\begin{tikzpicture}[modal,node distance=2cm]
+\node[world] (w1) {$w$};
+\node[world,inner sep=0.6mm] (w2) [right of=w1] {$w'$};
+\node[world] (v1) [below of=w1] {$v$};
+\node[world,inner sep=0.6mm] (v2) [right of=v1] {$v'$};
+\path[-] (w1) edge[dashed,red,thick] node[above]{$Z$} (w2);
+\path[-] (v1) edge[dashed,red,thick] node[below]{$Z$} (v2);
+\path[->] (w1) edge node[left]{$R$} (v1);
+\path[->] (w2) edge node[right]{$R'$} (v2);
+\end{tikzpicture}
+\end{center}
 \end{frame}
 
 \begin{frame}\frametitle{Bisimulation --- Example}
-\[\xymatrix@R=5pt{\neg p\atop\textcolor{green}{w_1} \ar@(ul,ur) \ar@{<->} "1,1";"3,1" && \neg p\atop\textcolor{green}{v_1} \ar@{<->} "1,3";"3,4"\\
-&\bis&\\
-p\atop \textcolor{green}{w_2} \ar@{->} "1,3";"3,3" && p\atop\textcolor{green}{v_2} \ar@{<->} "3,3";"3,4" & \neg p\atop\textcolor{green}{v_3}}\]
-
-\[\xymatrix@R=5pt{\textcolor{green}{w} \ar@{->} "1,1";"3,1" &&\textcolor{green}{v} \ar@{->} "1,3";"3,3"\\
-&\bis&\\
-\textcolor{green}{\bullet} \ar@{->} "1,3";"3,3" && \textcolor{green}{\bullet} \ar@{->} "1,3";"3,4" & \textcolor{green}{\bullet}}\]
-
-\[\xymatrix@R=17pt{&\textcolor{green}{w} \ar@{->}^-{a} "1,2";"2,2" &&&\textcolor{green}{v}&\\
-&&&\centernot\bis&&\\
-\textcolor{green}{\bullet} \ar@{->}_-{b} "2,2";"3,1" && \textcolor{green}{\bullet} \ar@{->}^-{c} "2,2";"3,3" & &\textcolor{green}{\bullet} \ar@{->}_-{b} "2,5";"3,5" & \textcolor{green}{\bullet} \ar@{->}^-{c} "2,6";"3,6" \ar@{->}_-{a} "1,5";"2,5" \ar@{->}^-{a} "1,5";"2,6"}\]
+\begin{columns}
+\column{.5\textwidth}\centering
+\begin{tikzpicture}[modal,node distance=1.5cm]
+\node[world, inner sep=0.6mm] (w1) [label=left:$w_1$] {$\neg p$};
+\node (b) [below right of=w1] {$\bis$};
+\node[world] (w2) [label=left:$w_2$, below left of=b] {$p$};
+\node[world, inner sep=0.6mm] (v1) [label=left:$v_1$, above right of=b] {$\neg p$};
+\node[world] (v2) [label=left:$v_2$, below right of=b] {$p$};
+\node[world, inner sep=0.6mm] (v3) [label=right:$v_3$, right of=v2] {$\neg p$};
+\path[<->] (w1) edge (w2);
+\path[->] (v1) edge (v2);
+\path[<->] (v1) edge (v3);
+\path[<->] (v2) edge (v3);
+\path[->] (w1) edge[reflexive above] (w1);
+\end{tikzpicture}
+\column{.5\textwidth}\centering
+\begin{tikzpicture}[modal,node distance=1.5cm]
+\node[world] (w1) {$w$};
+\node (b) [below right of=w1] {$\bis$};
+\node[world] (w2) [below left of=b] {};
+\node[world] (v1) [above right of=b] {$v$};
+\node[world] (v2) [below right of=b] {};
+\node[world] (v3) [right of=v2] {};
+\path[->] (w1) edge (w2);
+\path[->] (v1) edge (v2);
+\path[->] (v1) edge (v3);
+\end{tikzpicture}
+\end{columns}
+\begin{center}
+\begin{tikzpicture}[modal,node distance=1.5cm]
+\node[world] (w1) {$w$};
+\node[world] (w2) [below of=w1] {};
+\node[world] (w3) [below left=of w2] {};
+\node[world] (w4) [below right=of w2] {};
+\node (b) [above right=of w4] {$\centernot\bis$};
+\node[world] (v1) [above right=of b] {$v$};
+\node[world] (v2) [below of=v1] {};
+\node[world] (v3) [below of=v2] {};
+\node[world] (v4) [right of=v2] {};
+\node[world] (v5) [right of=v3] {};
+\path[->] (w1) edge node[left]{$a$} (w2);
+\path[->] (w2) edge node[left]{$b$} (w3);
+\path[->] (w2) edge node[right]{$c$} (w4);
+\path[->] (v1) edge node[left]{$a$} (v2);
+\path[->] (v1) edge node[right]{$a$} (v4);
+\path[->] (v2) edge node[left]{$b$} (v3);
+\path[->] (v4) edge node[right]{$c$} (v5);
+\end{tikzpicture}
+\end{center}
 \[\Box_a(\Diamond_b\top\wedge\Diamond_c\top)\]
 \end{frame}
 
 \begin{frame}\frametitle{反对称性不可模态定义}
-\[\xymatrix{\mathcal{F'}\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!&\textcolor{green}{v_1} \ar@{<->} "1,2";"1,3" & \textcolor{green}{v_2} \ar@{.} "1,2";"2,2" \ar@{.} "1,3";"2,3" \ar@{.} "1,2";"2,4" \ar@{.} "1,2";"2,6" \ar@{.} "1,3";"2,5"\\
-\mathcal{F}\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!&\textcolor{green}{w_1} \ar@{->} "2,2";"2,3" & \textcolor{green}{w_2} & \textcolor{green}{w_3} & \textcolor{green}{w_4} & \textcolor{green}{w_5} & \!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\cdots \ar@{->} "2,3";"2,4" \ar@{->} "2,4";"2,5" \ar@{->} "2,5";"2,6"}\]
+\begin{center}
+\begin{tikzpicture}[modal,node distance=2.5cm]
+\node[world] (v1) [label=left:$\mathcal{F'}$] {$v_1$};
+\node[world] (v2) [right of=v1] {$v_2$};
+\node[world] (w1) [label=left:$\mathcal{F}$] [below of=v1] {$w_1$};
+\node[world] (w2) [right of=w1] {$w_2$};
+\node[world] (w3) [right of=w2] {$w_3$};
+\node[world] (w4) [right of=w3] {$w_4$};
+\node[world] (w5) [label=right:$\cdots$, right of=w4] {$w_5$};
+\path[<->] (v1) edge (v2);
+\path[-] (v1) edge[dashed] (w1);
+\path[-] (v1) edge[dashed] (w3);
+\path[-] (v1) edge[dashed] (w5);
+\path[-] (v2) edge[dashed] (w2);
+\path[-] (v2) edge[dashed] (w4);
+\path[->] (w1) edge (w2);
+\path[->] (w2) edge (w3);
+\path[->] (w3) edge (w4);
+\path[->] (w4) edge (w5);
+\end{tikzpicture}
+\end{center}
 假设公式$A$定义反对称性，则对任意框架$\mathcal{F}: \mathcal{F}\vDash A\iff\mathcal{F}$是反对称的。考虑如上两个框架：$\mathcal{F}\vDash A, \mathcal{F}'\nvDash A$，这意味着$\mathcal{F}'$有赋值$V'$和点$v$使得$\mathcal{F}',V',v\nvDash A$，但是按照虚线我们可以把这个赋值迁移到$\mathcal{F}$上（记为$V$），并使虚线是互模拟，所以$\mathcal{F}',V',v\bis\mathcal{F},V,w$，因而$\mathcal{F},V,w\nvDash A$，这与$\mathcal{F}\vDash A$矛盾。
 \end{frame}
 
@@ -8768,7 +8872,18 @@ known}
 \begin{frame}\frametitle{Distributed Knowledge}
 		\[R_D\;\coloneqq \;\bigcap\limits_{i\in G}R_i\]
 		\[\mathcal{M},w\Vdash D_G A\ \mbox{\; iff \;} \forall v\in W: R_Dwv\implies\mathcal{M},v\Vdash A\]
-\[\xymatrix{*++[o][F-]{p,\neg q\atop\textcolor{yellow}{w_1}}\ar@(ul,ur)^-{12} \ar[rr] && *++[o][F-]{p,q\atop\textcolor{red}{w_2}}\ar@(ul,ur)^-{12} \ar[ll]_-{1} \ar[rr]&& *++[o][F-]{\neg p,q\atop\textcolor{yellow}{w_3}}\ar@(ul,ur)^-{12} \ar[ll]_-{2}}\]
+\begin{center}
+\begin{tikzpicture}[modal,node distance=2.5cm]
+\node[world, inner sep=0.6mm] (w1) [label=below:$w_1$] {$p,\neg q$};
+\node[world] (w2) [label=below:$w_2$, right of=w1] {$p,q$};
+\node[world, inner sep=0.6mm] (w3) [label=below:$w_3$, right of=w2] {$\neg p,q$};
+\path[<->] (w1) edge node[above]{$1$} (w2);
+\path[<->] (w2) edge node[above]{$2$} (w3);
+\path[->] (w1) edge[reflexive above] node[above]{$12$} (w1);
+\path[->] (w2) edge[reflexive above] node[above]{$12$} (w2);
+\path[->] (w3) edge[reflexive above] node[above]{$12$} (w3);
+\end{tikzpicture}
+\end{center}
 \[w_2\vDash K_1 p\wedge\neg K_1 q\wedge K_2 q\wedge\neg K_2 p\wedge D_{\{1,2\}}(p\wedge q)\]
 \end{frame}
 
@@ -8796,7 +8911,18 @@ known}
 \end{frame}
 
 \begin{frame}\frametitle{Can we easily have full common knowledge?}
-\[\xymatrix{*++[o][F-]{p\atop\textcolor{red}{w_1}}\ar@(ul,ur)^-{12} \ar[rr] && *++[o][F-]{p\atop\textcolor{yellow}{w_2}}\ar@(ul,ur)^-{12} \ar[ll]_-{1} \ar[rr]&& *++[o][F-]{\neg p\atop\textcolor{yellow}{w_3}}\ar@(ul,ur)^-{12} \ar[ll]_-{2}}\]
+\begin{center}
+\begin{tikzpicture}[modal,node distance=2.5cm]
+\node[world] (w1) [label=below:$w_1$] {$p$};
+\node[world] (w2) [label=below:$w_2$, right of=w1] {$p$};
+\node[world, inner sep=0.6mm] (w3) [label=below:$w_3$, right of=w2] {$\neg p$};
+\path[<->] (w1) edge node[above]{$1$} (w2);
+\path[<->] (w2) edge node[above]{$2$} (w3);
+\path[->] (w1) edge[reflexive above] node[above]{$12$} (w1);
+\path[->] (w2) edge[reflexive above] node[above]{$12$} (w2);
+\path[->] (w3) edge[reflexive above] node[above]{$12$} (w3);
+\end{tikzpicture}
+\end{center}
 \[w_1\vDash E_{\{1,2\}}p\wedge\neg C_{\{1,2\}}p\]
 \begin{block}{}
 假设$C$秘密的分别给了$A$和$B$两个数字$2$和$3$，他只告诉他们俩这两个数字是相邻的自然数。令$p$为“两数字之和小于一千万”，请问$p$是$A$和$B$的公共知识么？
@@ -9100,19 +9226,35 @@ where
 \[\Vdash[p]C_Gp\]
 \[\Vdash[C_GA]C_GA\]
 \[\stackrel{\textcolor{red}{?}}{\Vdash} [A]C_GA\quad\stackrel{\textcolor{red}{?}}{\Vdash} [A]KA\quad\stackrel{\textcolor{red}{?}}{\Vdash} [A]A\]
-
-\[\xymatrix{*++[o][F-]{p\atop\textcolor{yellow}{w}}\ar@(ul,ur) \ar[rr] && *++[o][F-]{\neg p\atop\textcolor{yellow}{v}}\ar@(ul,ur) \ar[ll]}
-\quad\xLongrightarrow{\quad\left[p\wedge\neg K p\right]\quad}\quad
-\xymatrix{*++[o][F-]{p\atop\textcolor{yellow}{w}}\ar@(ul,ur)}\]
-
+\begin{center}
+\begin{tikzpicture}[modal,node distance=4cm]
+\node[world] (w1) [label=below:$w$] {$p$};
+\node[world, inner sep=0.6mm] (w2) [label=below:$v$, right of=w1] {$\neg p$};
+\node[world] (w3) [label=below:$w$, right of=w2] {$p$};
+\path[<->] (w1) edge (w2);
+\path[->] (w2) edge[very thick,double,red] node[above]{$\left[p\wedge\neg Kp\right]$} (w3);
+\path[->] (w1) edge[reflexive above] (w1);
+\path[->] (w2) edge[reflexive above] (w2);
+\path[->] (w3) edge[reflexive above] (w3);
+\end{tikzpicture}
+\end{center}
 \[\mathcal{M},w\Vdash (p\wedge \neg Kp)\wedge \left[p\wedge \neg Kp\right]Kp\]
 \textbf{Remark:} If the goal of the announcing person was to ``spread the truth of this formula,'' then this attempt was clearly unsuccessful.
 \end{frame}
 
 \begin{frame}\frametitle{Unsuccessful Update}
-\[\xymatrix{*++[o][F-]{p\atop\textcolor{yellow}{w}}\ar@(ul,ur) \ar[rr]^{j} && *++[o][F-]{\neg p\atop\textcolor{yellow}{v}}\ar@(ul,ur) \ar[ll]}
-\quad\xLongrightarrow{\quad\left[K_i(p\wedge\neg K_j p)\right]\quad}\quad
-\xymatrix{*++[o][F-]{p\atop\textcolor{yellow}{w}}\ar@(ul,ur)}\]
+\begin{center}
+\begin{tikzpicture}[modal,node distance=4cm]
+\node[world] (w1) [label=below:$w$] {$p$};
+\node[world, inner sep=0.6mm] (w2) [label=below:$v$, right of=w1] {$\neg p$};
+\node[world] (w3) [label=below:$w$, right of=w2] {$p$};
+\path[<->] (w1) edge node[above]{$j$} (w2);
+\path[->] (w2) edge[very thick,double,red] node[above]{$\left[K_i(p\wedge\neg K_j p)\right]$} (w3);
+\path[->] (w1) edge[reflexive above] (w1);
+\path[->] (w2) edge[reflexive above] (w2);
+\path[->] (w3) edge[reflexive above] (w3);
+\end{tikzpicture}
+\end{center}
 
 \[\mathcal{M},w\Vdash (p\wedge \neg K_jp)\wedge K_i(p\wedge \neg K_jp)\wedge \left[K_i(p\wedge \neg K_jp)\right]K_iK_jp\]
 \end{frame}
@@ -9444,10 +9586,14 @@ $\textcolor{yellow}{C_{\operatorname{Human}}}\Bigg(\forall x\bigg(\operatorname{
 				\end{itemize}
 			\end{block}
 		\column{0.4\textwidth}
-			\resizebox{\textwidth}{!}{
-				\xymatrix{\mathcal{T} \ar[d]_{\mathcal{E}_f} \ar[r]^{\overline{\nu}} & M \ar[d]^{f^{\mathcal{M}}}\\
-					\mathcal{T} \ar[r]^{\overline{\nu}} & M}
-			}
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{T} \arrow[r, "\overline{\nu}"] \arrow[d, "\mathcal{E}_f"']
+\& M \arrow[d, "f^{\mathcal{M}}"] \\
+\mathcal{T} \arrow[r, "\overline{\nu}"']
+\& M
+\end{tikzcd}
+\]
 	\end{columns}
 \end{frame}
 
@@ -9597,7 +9743,7 @@ Jump above calculations; group the operations, classify them according to their 
 \end{columns}
 \end{frame}
 
-\begin{frame}\frametitle{Cayley's Theorem}
+\begin{frame}\frametitle{Cayley Theorem}
 \begin{theorem}[Cayley Theorem]
 Every group $G$ is isomorphic to a subgroup of the symmetry group on $G$.
 \end{theorem}
@@ -9702,13 +9848,14 @@ Boolean Algebra $\mathscr{L}=\{0,1,+,\cdot,\overline{\phantom{x}}\}$
 				$x+1=1\quad x\cdot 1=x$
 			\end{itemize}
 \column{0.5\textwidth}
-			\[\text{\textcolor{yellow}{Logic}}\]
-			\vspace{-17pt}
-			\resizebox{\textwidth}{!}{
-				\xymatrix{\text{proposition} \ar[d]_{\text{translate}} \ar[r]^{\text{deduce}} & \text{proposition}\\
-					\text{equation} \ar[r]^{\text{calculate}} & \text{equation} \ar[u]_{\text{translate}}}
-			}\vspace{-10pt}
-			\[\text{\textcolor{yellow}{Algebra}}\]
+\[
+\begin{tikzcd}
+\text{proposition} \arrow[d,"\text{translate}"'] \arrow[r,"\text{\textcolor{yellow}{Logic}}\atop\text{deduce}"]
+\& \text{proposition}\\
+\text{equation} \arrow[r,"\text{calculate}\atop\text{\textcolor{yellow}{Algebra}}"']
+\& \text{equation} \arrow[u,"\text{translate}"']
+\end{tikzcd}
+\]
 	\end{columns}
 \end{frame}
 
@@ -9989,7 +10136,6 @@ s\cdot m\cdot\overline{p}+s\cdot\overline{m}\cdot\overline{p}=s\cdot\overline{p}
 	\[x^5-x-1=0\implies x=?\]
 There is no solution in radicals to general polynomial equations of degree five or higher with arbitrary coefficients.
 
-
 	\[ax^2+bx+c=0\implies x=?\]
 
 	\[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\]
@@ -10008,7 +10154,7 @@ There is no solution in radicals to general polynomial equations of degree five 
 \end{frame}
 
 \begin{frame}\frametitle{Application --- How to Flirt with a Beauty $\sideset{^\heartsuit}{^\heartsuit}{\operatorname{\circledcirc}}$}
-	\begin{block}{Smullyan Flirts with a Beauty $\sideset{^\heartsuit}{^\heartsuit}{\operatorname{\circledcirc}}$}
+	\begin{block}{\hyperlink{smullyan-curry}{\beamerbutton{Smullyan}}\label{smullyan-boole} Flirts with a Beauty $\sideset{^\heartsuit}{^\heartsuit}{\operatorname{\circledcirc}}$}
 	\begin{enumerate}\small
 		\item ``I am to make a statement. If it is true, would you give me your autograph?''
 		\item ``I don't see why not.''
@@ -10017,13 +10163,13 @@ There is no solution in radicals to general polynomial equations of degree five 
 		\item Then Smullyan said such a sentence that she have to give him a kiss.
 	\end{enumerate}
 	\end{block}
-\[x=?\implies\vDash(s\leftrightarrow x)\to k\]
+\[x=?\implies\vDash(a\leftrightarrow x)\to k\]
 	\pause
 	\begin{solution}\vspace*{-1ex}
-		\[\left(s\cdot x+\overline{s}\cdot\overline{x}\right)\cdot\overline{k}=0\;\;\implies \;\; x=\overline{s}\cdot\overline{k}+\theta\cdot(\overline{s}+k)\]
+		\[\left(a\cdot x+\overline{a}\cdot\overline{x}\right)\cdot\overline{k}=0\;\;\implies \;\; x=\overline{a}\cdot\overline{k}+\theta\cdot(\overline{a}+k)\]
 	\end{solution}\vspace{-2ex}
-	\[\vDash(s\leftrightarrow\neg s\wedge\neg k)\to k\]
-	\[\vDash(s\leftrightarrow(s\to k))\to k\]
+	\[\vDash(a\leftrightarrow\neg a\wedge\neg k)\to k\]
+	\[\vDash(a\leftrightarrow(a\to k))\to k\]
 \end{frame}
 
 \begin{frame}\frametitle{General Solution of Boolean Equation}
@@ -10287,11 +10433,14 @@ Assume $|C|\geq 3$. There is a $1-1$ correspondence between ultrafilters on $N$ 
 		\mathbf{exp}&\coloneqq \lambda mn.nm
 	\end{align*}
 \column{.3\textwidth}
-\[\xymatrix{\mathbb{N}^*
-		\ar[rr]^{f} \ar[dd]_{\underline{\;\;}} && \mathbb{N}\ar[dd]^{\underline{\;\;}}
-		\\
-		\\
-		\Lambda^*\ar[rr]^{F}&&\Lambda}\]
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{N}^* \arrow[r, "f"] \arrow[d, "\underline{\;\;}"']
+\& \mathbb{N} \arrow[d, "\underline{\;\;}"] \\
+\Lambda^* \arrow[r, "F"']
+\& \Lambda
+\end{tikzcd}
+\]
 \end{columns}
 \end{frame}
 
@@ -10397,16 +10546,13 @@ Let $M\coloneqq \mathbf{Y}(\lambda f\vec{x}.C(f,\vec{x}))$.
 		Let $\twoheadrightarrow$ denote either $\twoheadrightarrow_\beta$ or $\twoheadrightarrow_{\beta\eta}$. Suppose $M,P,Q$ are $\lambda$-terms s.t. $M\twoheadrightarrow P$ and $M\twoheadrightarrow Q$. Then there exists a $\lambda$-term $N$ s.t. $P\twoheadrightarrow N$ and $Q\twoheadrightarrow N$.
 	\end{theorem}
 	\vspace{-3ex}
-	\[
-	\xymatrix@C=1pc{
-		&&*+[o][]{M}&&\\
-		*+[o][]{P}&&&&*+[o][]{Q}\\
-		&&*+[o][]{N}&&
-		\ar@1{->>}^*+[o][]{} "1,3";"2,1"
-		\ar@1{->>}^*+[o][]{} "1,3";"2,5"
-		\ar@1{..>>}^*+[o][]{} "2,1";"3,3"
-		\ar@1{..>>}^*+[o][]{} "2,5";"3,3"
-	}\]
+\[
+\begin{tikzcd}
+\& M \arrow[dl, two heads] \arrow[dr, two heads] \& \\
+P \arrow[dr, two heads, dashed] \&\& Q \arrow[dl, two heads, dashed]\\
+\& N
+\end{tikzcd}
+\]
 \end{frame}
 
 \begin{frame}\frametitle{Fixpoint Theorem in Lambda Calculus}
@@ -10762,15 +10908,16 @@ Well-typed programs never go wrong: evaluating a program $t: A$ to a value indee
 	\item S.~Mac Lane: Categories for the Working Mathematician.
 	\item T.~Leinster: Basic Category Theory.
 	\item P.~Smith: Category Theory --- A Gentle Introduction.
+	\item E.~Riehl: Category theory in Context.
+	\item M.~Barr, C.~Wells: Category Theory for Computing Science.
 	\item B.~Fong, D.~I.~Spivak: Seven Sketches in Compositionality --- An Invitation to Applied Category Theory.
 	\item D.~I.~Spivak: Category Theory for the Sciences.
 	\item F.~W.~Lawvere, S.~H.~Schanuel: Conceptual Mathematics.
 	\item F.~W.~Lawvere, R.~Rosebrugh: Sets for Mathematics.
-	\item E.~Riehl: Category theory in Context.
-	\item M.~Barr, C.~Wells: Category Theory for Computing Science.
 	\item T.~Streicher: Introduction to Category Theory and Categorical Loigc.
 	\item B.~Jacobs: Categorical Logic and Type Theory.
 	\item R.~Goldblatt: Topoi --- The Categorical Analysis of Logic.
+	\item P.~Johnstone: Sketches of an Elephant.
 	\item J.~Adamek, H.~Herrlich, G.~E.~Strecher: Abstract and Concrete Categories --- The Joy of Cats.
 	\item \href{https://ncatlab.org/}{nLab}
 \end{enumerate}
@@ -10796,9 +10943,11 @@ A category $\mathcal{C}$ consists of a class of objects $\operatorname{ob}(\math
 \begin{itemize}
 	\item A \emph{discrete category} is a category that contains no morphisms apart from identities.
 	\item A \emph{monoid} $(M,\cdot,e)$ is a category that has only one object $\bullet$ s.t. $\mathcal{C}(\bullet,\bullet)=M$.
-	\item A \emph{group} is a category that has only one object and in which all the morphisms are isomorphisms.\vspace*{-1ex}
+	\item A \emph{group} is a category that has only one object and in which all the morphisms are isomorphisms.\vspace*{-2ex}
 \[
-\xymatrix{\bullet \ar@(r,u)@<-.5ex>[]_{} \ar@(u,l) \ar@(ld,rd)[]_{}}
+\begin{tikzcd}
+\bullet \arrow[loop left] \arrow[loop right] \arrow[loop above] \arrow[loop below]
+\end{tikzcd}
 \]
 	\item A \emph{groupoid} is a category in which all the morphisms are isomorphisms.
 \end{itemize}
@@ -10849,6 +10998,13 @@ Abelian group & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
 \end{tabu}\]
 \end{frame}
 
+\begin{frame}\frametitle{Groupoid}
+\begin{itemize}
+	\item Any equivalence relation $R$ on a set $X$ can be presented as a groupoid on $X$. A groupoid is a generalized equivalence relation.
+	\item The underlying groupoid of a category $\mathcal{C}$ is an internal criterion of identity, that is a criterion of identity for the entities within the category. From a categorical point of view, The identity relation is contextual. Entities are entities in a context.
+\end{itemize}
+\end{frame}
+
 \begin{frame}\frametitle{Opposite Category / Subcategory}
 \begin{definition}[Opposite Category]
 The \emph{opposite category} $\mathcal{C}^\mathrm{op}$ of $\mathcal{C}$ is formed by reversing the morphisms. Formally, $\operatorname{ob}(\mathcal{C}^\mathrm{op})=
@@ -10880,10 +11036,14 @@ $\mathcal{C}'$ is called \emph{full} if for $A,B\in\operatorname{ob}(\mathcal{C}
 	\item retraction if a right inverse of $f$ exists, i.e. $\exists g: B\to A: fg=1_B$.
 	\item section if a left inverse of $f$ exists, i.e. $\exists g: B\to A: gf=1_A$.
 	\vspace*{-1ex}
-\[\xymatrix{B\ar[r]^{g} \ar[rd]_{1_B} &A \ar[d]^{f}\\
-&B}
-\qquad \xymatrix{A\ar[r]^{f} \ar[rd]_{1_A} &B \ar[d]^{g}\\
-&A}
+\[\begin{tikzcd}
+B \arrow[r,"g"] \arrow[dr, "1_B"'] \& A \arrow[d,"f"]\\
+\& B
+\end{tikzcd}\qquad
+\begin{tikzcd}
+A \arrow[r,"f"] \arrow[dr, "1_A"'] \& B \arrow[d,"g"]\\
+\& A
+\end{tikzcd}
 \]\vspace*{-2ex}
 \end{enumerate}
 	\item Every retraction is an epimorphism.
@@ -10918,13 +11078,17 @@ $\mathcal{C}'$ is called \emph{full} if for $A,B\in\operatorname{ob}(\mathcal{C}
 \begin{itemize}
 	\item A \emph{product} of $A$ and $B$ is an object $A\times B$ with a pair of morphisms $A\xleftarrow{\pi_1}A\times B\xrightarrow{\pi_2}B$ s.t
 	\[\forall C\forall fg: A\xleftarrow{f}C\xrightarrow{g}B\;\exists!u: C\to A\times B\big[f=\pi_1\circ u\;\;\&\;\;g=\pi_2\circ u\big]\]
-\[\xymatrix{A &A\times B\ar@1{<-}^{\pi_1} "1,1";"1,2" &\ar@1{->}^{\pi_2} "1,2";"1,3" B\\
-&C&\ar@1{.>}_u "2,2";"1,2" \ar@1{->}^f "2,2";"1,1" \ar@1{->}_g "2,2";"1,3"}\]
+\[\begin{tikzcd}
+A \& A\times B \arrow[l,"\pi_1"'] \arrow[r,"\pi_2"] \& B\\
+\& C \arrow[ul,"f"] \arrow[ur, "g"']  \arrow[u, dashed, "u"']
+\end{tikzcd}\]
 Example: $\min\{x,y\}$ in $(\mathbb{R},\leq)$. $x\cap y$ in $(\operatorname{P}(A),\subset)$. $\gcd(x,y)$ in $(\mathbb{N},|)$.
 	\item A \emph{coproduct} of $A$ and $B$ is an object $A + B$ with a pair of morphisms $A\xrightarrow{\iota_1}A + B\xleftarrow{\iota_2}B$ s.t
 	\[\forall C\forall fg: A\xrightarrow{f}C\xleftarrow{g}B\;\exists!u: A + B\to C\big[f=u\circ \iota_1\;\;\&\;\;g=u\circ \iota_2\big]\]
-\[\qquad\xymatrix{A &A + B\ar@1{->}^{\iota_1} "1,1";"1,2" &\ar@1{<-}^{\iota_2} "1,2";"1,3" B\\
-&C&\ar@1{<.}_u "2,2";"1,2" \ar@1{<-}^f "2,2";"1,1" \ar@1{<-}_g "2,2";"1,3"}\]
+\[\begin{tikzcd}
+A \arrow[dr,"f"'] \arrow[r, "\iota_1"] \& A+B \arrow[d,dashed,"u"] \& B \arrow[dl,"g"]  \arrow[l, "\iota_2"']\\
+\& C
+\end{tikzcd}\]
 \end{itemize}
 \end{frame}
 
@@ -10932,13 +11096,12 @@ Example: $\min\{x,y\}$ in $(\mathbb{R},\leq)$. $x\cap y$ in $(\operatorname{P}(A
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{itemize}
-	\item An \emph{exponential} of objects $A,B$ is an object $B^A$ with a morphism $\varepsilon: B^A\times A\to B$ s.t.
-	\[\forall C\forall f: C\times A\to B\;\exists!\hat{f}: C\to B^A\;\big[\varepsilon\circ(\hat{f}\times 1_A)=f\big]\]
-\[\xymatrix{B^A\\
-&\\
-C&\ar@1{.>}^{\hat{f}} "3,1";"1,1"}\quad\xymatrix{B^A\times A &\ar@1{->}^{\varepsilon} "1,1";"1,3" & B\\
-&\\
-C\times A &\ar@1{.>}^{\hat{f}\times 1_A} "3,1";"1,1" \ar@1{->}_{f} "3,1";"1,3"}\]
+	\item An \emph{exponential} of objects $A,B$ is an object $B^A$ with a morphism $\operatorname{eval}: B^A\times A\to B$ s.t.
+	\[\forall C\forall f: C\times A\to B\;\exists!\hat{f}: C\to B^A\;\big[\operatorname{eval}\circ(\hat{f}\times 1_A)=f\big]\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+B^A \& B^A\times A \arrow[r,"\operatorname{eval}"] \&B\\
+C \arrow[u, dashed, "\hat{f}"] \& C\times A \arrow[u, dashed, "\hat{f}\times 1_A"] \arrow[ur, "f"']
+\end{tikzcd}\]
 	\item \textbf{Cartesian Closed Category} ($\mathbf{CCC}$) is a category with a terminal object, all products and all exponentials.
 	\item \textbf{Bicartesian Closed Category} ($\mathbf{BCCC}$) is a $\mathbf{CCC}$ with an initial object and all coproducts, with products distributing over coproducts.
 \end{itemize}
@@ -10947,7 +11110,7 @@ C\times A &\ar@1{.>}^{\hat{f}\times 1_A} "3,1";"1,1" \ar@1{->}_{f} "3,1";"1,3"}\
 \begin{frame}\frametitle{Curry-Howard-Lambek Isomorphism}
 \begin{itemize}
 	\item \textbf{Objects} types/formulae\;\; $\top\mid A\times B\mid A\to B$
-	\item \textbf{Morphisms} terms/proofs\;\; $1_A\mid \;!\mid \varepsilon\mid \pi_1\mid \pi_2\mid \hat{f}\mid \langle f,g\rangle\mid g\circ f$\quad $f: A\to B\iff A\vdash B$
+	\item \textbf{Morphisms} terms/proofs\;\; $1_A\mid \;!\mid \operatorname{eval}\mid \pi_1\mid \pi_2\mid \hat{f}\mid \langle f,g\rangle\mid g\circ f$\quad $f: A\to B\iff A\vdash B$
 \end{itemize}
 \begin{columns}
 \column{.2\textwidth}
@@ -11008,7 +11171,7 @@ C\times A &\ar@1{.>}^{\hat{f}\times 1_A} "3,1";"1,1" \ar@1{->}_{f} "3,1";"1,3"}\
 	\AxiomC{}
 	\alwaysSingleLine
 	%\RightLabel{\textcolor{yellow}{Ax}}
-	\UnaryInfC{$\varepsilon: (A\to B)\times A\vdash B$}
+	\UnaryInfC{$\operatorname{eval}: (A\to B)\times A\vdash B$}
 \end{prooftree}
 \end{columns}
 \end{frame}
@@ -11030,16 +11193,19 @@ implication $\to$&function type $\to$&exponential $B^A$\\
 %existential quantifier $\exists$&dependent sum types $\sum$&left adjoint of a functor between power sets\\
 %universal quantifier $\forall$&dependent product types $\prod$&right adjoint of a functor between power sets\\
 cut-elimination&$\beta$-reduction&composition $\circ$\\
-modus ponens&application $\mathrm{app}$&evaluation $\varepsilon$\\
+modus ponens&application $\mathrm{app}$&evaluation $\operatorname{eval}$\\
 \hline
 \end{tabu}
 \end{table}
 \end{frame}
 
-\begin{frame}\frametitle{Curry-Howard-Lambek Isomorphism}
-\[\xymatrix{Logic &\ar@1{<->} "1,1";"1,3"&Computation\\
-&\\
-&Categories\ar@1{<->} "3,2";"1,1" \ar@1{<->} "1,3";"3,2"}\]
+\begin{frame}\frametitle{\hyperlink{bhk}{\beamerbutton{Curry-Howard-Lambek Isomorphism}}}
+\label{curry-howard}
+\[\begin{tikzcd}
+\text{Logic} \arrow[ddr, leftrightarrow] \arrow[rr, leftrightarrow] \&\& \text{Computation} \arrow[ddl, leftrightarrow]\\
+\&\\
+\& \text{Categories}
+\end{tikzcd}\]
 \begin{quote}
 A mathematician is a person who can find analogies between theorems; a better mathematician is one who can see analogies between proofs and the best mathematician can notice analogies between theories. One can imagine that the ultimate mathematician is one who can see analogies between analogies.\par\hfill --- \textsl{Stefan Banach}
 \end{quote}
@@ -11065,6 +11231,46 @@ A mathematician is a person who can find analogies between theorems; a better ma
 \end{table}
 \end{frame}
 
+\begin{frame}\frametitle{Diagonalization\footnote{\tiny Lawvere: Diagonal arguments and cartesian closed categories.\\
+Yanofsky: A universal approach to self-referential paradoxes, incompleteness and fixed points.}}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+\begin{columns}
+\column{.57\textwidth}
+\begin{definition}[Weakly Point-Surjective]
+A morphism $f: X\times X\to Y$ is \emph{weakly point-surjective} if for every $g: X\to Y$, there is a $t: \mathbf{1}\to X$ such that, for all $x: \mathbf{1}\to X$:
+\[gx=f\langle x,t\rangle\]
+\end{definition}
+	\begin{theorem}[Lawvere's Fixpoint Theorem]
+		Let $\mathcal{C}$ be a category with a terminal object and binary products. If $f: X\times X\to Y$ is weakly point-surjective, then every morphism $\alpha: Y\to Y$ has a fixpoint $y:\mathbf{1}\to Y$.
+	\end{theorem}
+\column{.2\textwidth}
+	\begin{figure}
+		\includegraphics[width=\textwidth,angle=0,origin=c]{img/lawvere.jpg}
+	\end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Lindenbaum Category}
+\begin{itemize}
+	\item Consider a first-order theory $\mathrm{T}$. We form $\mathcal{C}_\mathrm{T}$ a classifying category of $\mathrm{T}$ in the following way: objects of $\mathcal{C}_\mathrm{T}$ are generated by a sort object $A$ (more object if the theory is multi-sorted), and an object $2$. The $\mathcal{C}_\mathrm{T}$-morphisms are equivalence classes of (tuples of) formulas $A^n\to 2$ or terms $A^n\to A$ of $\mathrm{T}$. In particular, morphisms $1\to 2$ are sentences, and morphisms $1\to A$ are constant terms.
+	\item A theory is consistent if there is a morphism $\neg: 2\to 2$ with no fixpoint. A theory is complete if $\operatorname{hom}(1,2)=\{\text{true},\text{false}\}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Tarski \& G\"odel}
+\begin{itemize}
+	\item \textbf{Undefinability of $\operatorname{sat}$.} Suppose that the satisfiabilty predicate is definable in $\mathrm{T}$: $\vdash \operatorname{sat}(a,\ulcorner\varphi\urcorner)\leftrightarrow\varphi(a)$ for all $\varphi,a$.\\
+	In categorical terms, we have a G\"odel encoding $\ulcorner \urcorner: \operatorname{hom}(A^n,2)\to \operatorname{hom}(1,A)$, and a formula $\operatorname{sat}: A^2\to 2$, such that for $\varphi: A\to 2$ and $a: 1\to A$, $\operatorname{sat}\langle a,\ulcorner\varphi\urcorner\rangle=\varphi a$.\\
+	But this is exactly the condition for weak point-surjectivity!
+	\item \textbf{Undefinability of $\operatorname{truth}$.} Suppose that $\mathrm{T}$ has a truth predicate, $\operatorname{true}\circ\ulcorner\varphi\urcorner=\varphi$ for all $\varphi\in \operatorname{hom}(1,2)$, and suppose further that it supports ``substitution'': $\operatorname{subst}\langle a,\ulcorner\varphi\urcorner\rangle=\ulcorner\varphi(a)\urcorner$, then we can define $\operatorname{sat}\coloneqq\operatorname{true}\circ \operatorname{subst}$.
+	\item \textbf{Incomplenteness} Suppose that  \emph{provability} is representable in $\mathrm{T}$: $\mathrm{T}\vdash\varphi\iff\mathrm{T}\vdash\operatorname{prov}(\ulcorner\varphi\urcorner)$.\\
+	If $\mathrm{T}$ is complete, then $\varphi=\operatorname{true}$ or $\varphi=\operatorname{false}$.\\
+	And $\varphi=\operatorname{true}\implies \operatorname{prov}(\ulcorner\varphi\urcorner)=\operatorname{true}$, $\varphi=\operatorname{false}\implies \operatorname{prov}(\ulcorner\varphi\urcorner)=\operatorname{false}$.\\
+	Therefore, for all $\varphi\in \operatorname{hom}(1,2): \operatorname{prov}\circ\ulcorner\varphi\urcorner=\varphi$, i.e. $\operatorname{prov}$ is $\operatorname{true}$.
+\end{itemize}
+\end{frame}
+
 \begin{frame}\frametitle{Functor}
 \begin{definition}[Functor]
 A functor $F:\mathcal{C}\to\mathcal{D}$ between categories $\mathcal{C}$ and $\mathcal{D}$ is a mapping of objects to objects and morphisms to morphisms, in such a way that:
@@ -11075,14 +11281,11 @@ A functor $F:\mathcal{C}\to\mathcal{D}$ between categories $\mathcal{C}$ and $\m
 \end{itemize}
 \end{definition}
 identity functor $1_{\mathcal{C}}$ and composition of functors
-\[\xymatrix{A\ar[dd]^f &A\ar[dd]^f
-\\
-\!\!\!\!1_{\mathcal{C}}\qquad\quad=\!\!\!\!\!\!&\\
-B& B}\qquad\qquad\qquad
-\xymatrix{A\ar[dd]^f &G(FA)\ar[dd]^{G(Ff)}
-\\
-\!\!\!\!\!\!\!\!\!\!G\circ F \qquad\qquad=\!\!\!\!\!\!\!\!\!&\\
-B&G(FB)}\]
+\[\begin{tikzcd}[column sep=tiny]
+A \arrow[dd,"f","\textcolor{red}{1_{\mathcal{C}}}"' minimum size=1cm] \&\& A \arrow[dd,"f"] \&\hspace{1cm}\&A \arrow[dd,"f","\textcolor{red}{G\circ F}"' minimum size=1cm] \&\&G(FA) \arrow[dd,"G(Ff)"]\\
+ \&= \&\&\&\hspace{1cm}\&=\\
+B\&\&B\&\hspace{1cm}\&B\&\&G(FB)
+\end{tikzcd}\]
 \end{frame}
 
 \begin{frame}\frametitle{Functor --- Example}
@@ -11153,26 +11356,32 @@ If $A\cong B$ are isomorphic objects in $\mathcal{C}$ and $F:\mathcal{C}\to\math
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{definition}[Natural Transformation]
-Given categories and functors $F,G:\mathcal{C}\to\mathcal{D}$, a natural transformation $\eta: F\to G$ is a family of $\mathcal{D}$-morphisms $\{\eta_A: FA\to GA\}_{A\in\mathcal{C}}$, such that for all $\mathcal{C}$-morphisms $f: A\to B$, the diagram commutes:
-\[\xymatrix{FA\ar[rr]^{Ff}\ar[dd]_{\eta_A} && FB \ar[dd]^{\eta_B}
-\\
-\\
-GA\ar[rr]_{Gf}&&GB}\]
+Given categories and functors $F,G:\mathcal{C}\to\mathcal{D}$, a natural transformation $\alpha: F\to G$ is a family of $\mathcal{D}$-morphisms $\{\alpha_A: FA\to GA\}_{A\in\mathcal{C}}$, such that for all $\mathcal{C}$-morphisms $f: A\to B$, the diagram commutes:
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+FA \arrow[r,"Ff"] \arrow[d,"\alpha_A"'] \& FB \arrow[d,"\alpha_B"] \\
+GA \arrow[r,"Gf"']
+\& GB
+\end{tikzcd}\]
 \end{definition}
 \[
-\xymatrix@C+2pc{\mathcal{C} \rtwocell<4>^{F}_{G}{\eta} &\mathcal{D}}
+\begin{tikzcd}[column sep=huge]
+\mathcal{C} \arrow[r, bend left=30, "F", ""{name=U, below}]
+\arrow[r, bend right=30, "G"', ""{name=D}]
+\& \mathcal{D}
+\arrow[Rightarrow, "\alpha", from=U, to=D]
+\end{tikzcd}
 \]
 \end{frame}
 
 \begin{frame}\frametitle{Equivalence of Categories}
 \begin{definition}[Natural Isomorphism]
-A natural transformation $\eta: F\to G$ is a natural isomorphism ($F\cong G$) if each morphism $\eta_A: FA\to GA$ is an isomorphism.
+A natural transformation $\alpha: F\to G$ is a natural isomorphism ($F\cong G$) if each morphism $\alpha_A: FA\to GA$ is an isomorphism.
 \end{definition}
 \begin{definition}[Equivalence of Categories]
-The categories $\mathcal{C}$ and $\mathcal{D}$ are equivalent ($\mathcal{C}\simeq\mathcal{D}$) if there are functors $\xymatrix{\mathcal{C}\ar@{->}@<2pt>[r]^{F} \ar@{<-}@<-2pt>[r]_{G} &\mathcal{D}}$ and natural isomorphisms $G\circ F\cong 1_{\mathcal{C}}, F\circ G\cong 1_{\mathcal{D}}$.
+The categories $\mathcal{C}$ and $\mathcal{D}$ are equivalent ($\mathcal{C}\simeq\mathcal{D}$) if there are functors \begin{tikzcd} \mathcal{C} \arrow[r, bend left=10,"F"] \& \mathcal{D} \arrow[l, bend left=10,"G"] \end{tikzcd} and natural isomorphisms $G\circ F\cong 1_{\mathcal{C}}, F\circ G\cong 1_{\mathcal{D}}$.
 \end{definition}
 \begin{itemize}
-	\item The categories $\mathcal{C}$ and $\mathcal{D}$ are isomorphic ($\mathcal{C}\cong\mathcal{D}$) if there are functors $\xymatrix{\mathcal{C}\ar@{->}@<2pt>[r]^{F} \ar@{<-}@<-2pt>[r]_{G} &\mathcal{D}}$ satisfying $G\circ F=1_{\mathcal{C}}, F\circ G=1_{\mathcal{D}}$.
+	\item The categories $\mathcal{C}$ and $\mathcal{D}$ are isomorphic ($\mathcal{C}\cong\mathcal{D}$) if there are functors \begin{tikzcd} \mathcal{C} \arrow[r, bend left=10,"F"] \& \mathcal{D} \arrow[l, bend left=10,"G"] \end{tikzcd} satisfying $G\circ F=1_{\mathcal{C}}, F\circ G=1_{\mathcal{D}}$.
 	\item Equivalence of categories is a generalization of isomorphism. It can be seen as ``isomorphism up to isomorphism''.
 \end{itemize}
 \end{frame}
@@ -11183,42 +11392,88 @@ A functor $F:\mathcal{C}\to\mathcal{D}$ is an equivalence functor iff $F$ is ful
 \end{theorem}
 \begin{proof}
 ($\implies$) Easy.\\
-($\impliedby$) Suppose $F:\mathcal{C}\to\mathcal{D}$ is fully faithful and essentially surjective on objects. For each $B\in\mathcal{D}$, choose $GB\in\mathcal{C}$ and an isomorphism $\eta_B: F(GB)\to B$. For $f\in\mathcal{D}(B,B')$, let $Gf\in\mathcal{C}(GB,GB')$ be the unique morphism s.t.
-\[F(Gf)=\eta_{B'}^{-1}\circ f\circ\eta_B\]
+($\impliedby$) Suppose $F:\mathcal{C}\to\mathcal{D}$ is fully faithful and essentially surjective on objects. For each $B\in\mathcal{D}$, choose $GB\in\mathcal{C}$ and an isomorphism $\alpha_B: F(GB)\to B$. For $f\in\mathcal{D}(B,B')$, let $Gf\in\mathcal{C}(GB,GB')$ be the unique morphism s.t.
+\[F(Gf)=\alpha_{B'}^{-1}\circ f\circ\alpha_B\]
 Such a unique morphism exists because $F$ is fully faithful.\\
 This defines a functor $G:\mathcal{D}\to\mathcal{C}$.\\
-In addition, $\eta$ is a natural isomorphism $\eta: FG\to 1_\mathcal{D}$.\\
-It remains to show that $GF\cong 1_\mathcal{C}$. For $A\in\mathcal{C}$, let $\theta_A: A\to G(FA)$ be the unique morphism s.t. $F\theta_A=\eta_{FA}^{-1}$. Because $F$ reflects isomorphisms, $\theta_A$ is an isomorphism for every $A$. Naturality of $\theta_A$ follows from functoriality of $F$ and naturality of $\eta$.
+In addition, $\alpha$ is a natural isomorphism $\alpha: FG\to 1_\mathcal{D}$.\\
+It remains to show that $GF\cong 1_\mathcal{C}$. For $A\in\mathcal{C}$, let $\beta_A: A\to G(FA)$ be the unique morphism s.t. $F\beta_A=\alpha_{FA}^{-1}$. Because $F$ reflects isomorphisms, $\beta_A$ is an isomorphism for every $A$. Naturality of $\beta_A$ follows from functoriality of $F$ and naturality of $\alpha$.
 \end{proof}
 \end{frame}
 
 \begin{frame}\frametitle{Vertical and Horizontal Composition}
 \[
-\xymatrix@+7ex{\mathcal{C}\ruppertwocell^F{\theta}
-\rlowertwocell_H{\eta}
-\ar[r]|-G & \mathcal{D}}\qquad\implies\qquad\xymatrix@C+7ex{\mathcal{C} \rtwocell<4>_{H}^{F}{\;\;\eta\theta} &\mathcal{D}}
+\begin{tikzcd}[column sep=large]
+\mathcal{C} \arrow[rr, bend left=40, ""{name=U,below}, "F"] \arrow[rr, "G" description, ""{name=C1,above}, ""{name=C2,below}]
+\arrow[rr, bend right=40, ""{name=D,above}, "H" swap]
+\&\& \mathcal{D}
+\arrow[Rightarrow, "\alpha" right, from=U, to=C1]
+\arrow[Rightarrow, "\beta" right, from=C2, to=D]
+\end{tikzcd} \implies
+\begin{tikzcd}[column sep=large]
+\mathcal{C} \arrow[rr, bend left=30, ""{name=U,below}, "F"] 
+\arrow[rr, bend right=30, ""{name=D,above}, "H" swap]
+\&\& \mathcal{D}
+\arrow[Rightarrow, "\beta\alpha" right, from=U, to=D]
+\end{tikzcd}
 \]
-\[(\eta\theta)_A\coloneqq \eta_A\theta_A\]
+\[(\beta\alpha)_A\coloneqq \beta_A\alpha_A\]
 \[
-\xymatrix@C+7ex{\mathcal{C} \rtwocell<4>_{F_2}^{F_1}{\theta} &\mathcal{D} \rtwocell<4>_{G_2}^{G_1}{\eta} &\mathcal{E}}\qquad\implies\qquad
-\xymatrix@C+7ex{\mathcal{C} \rtwocell<4>_{G_2F_2}^{G_1F_1}{\;\;\eta\theta} &\mathcal{E}}
+\begin{tikzcd}[column sep=large]
+\mathcal{C} \arrow[rr, bend left=30, ""{name=U1,below}, "F_1"] 
+\arrow[rr, bend right=30, ""{name=D1,above}, "F_2" swap]
+\&\& \mathcal{D} \arrow[rr, bend left=30, ""{name=U2,below}, "G_1"] 
+\arrow[rr, bend right=30, ""{name=D2,above}, "G_2" swap] \&\& \mathcal{E}
+\arrow[Rightarrow, "\alpha" right, from=U1, to=D1]
+\arrow[Rightarrow, "\beta" right, from=U2, to=D2]
+\end{tikzcd} \implies
+\begin{tikzcd}[column sep=large]
+\mathcal{C} \arrow[rr, bend left=30, ""{name=U,below}, "G_1F_1"] 
+\arrow[rr, bend right=30, ""{name=D,above}, "G_2F_2" swap]
+\&\& \mathcal{E}
+\arrow[Rightarrow, "\beta\alpha" right, from=U, to=D]
+\end{tikzcd}
 \]
-\[\xymatrix@+7pt{
-G_1F_1 \ar[r]^{G_1\theta} \ar@{->}[d]_{\eta F_1} \ar@{->}[rd]^{\eta\theta} & G_1F_2 \ar@{->}[d]^{\eta F_2}\\
-G_2F_1 \ar@{->}[r]_{G_2\theta} &G_2F_2}\]
+\[\begin{tikzcd}[column sep=large, row sep=large]
+G_1F_1 \arrow[r,"G_1\alpha"] \arrow[d,"\beta F_1" swap] \arrow[dr, "\beta\alpha"]
+\& G_1F_2 \arrow[d, "\beta F_2"] \\
+G_2F_1 \arrow[r, "G_2\alpha" swap]
+\& G_2F_2
+\end{tikzcd}\]
 \end{frame}
 
 \begin{frame}\frametitle{Whiskering}
 \[
-\xymatrix@C+2ex{\mathcal{C} \ar[r]^{F} & \mathcal{D} \rtwocell<4>_{G_2}^{G_1}{\theta} &\mathcal{E}}\qquad\xymatrix@C+2ex{\mathcal{C} \rtwocell<4>_{G_2}^{G_1}{\theta} &\mathcal{D} \ar[r]^{F}&\mathcal{E}}
+\begin{tikzcd}
+\mathcal{C} \arrow[rr, "F"] \&\& \mathcal{D} \arrow[rr, bend left=30, ""{name=U2,below}, "G_1"] 
+\arrow[rr, bend right=30, ""{name=D2,above}, "G_2" swap] \&\& \mathcal{E}
+\arrow[Rightarrow, "\beta" right, from=U2, to=D2]
+\end{tikzcd}\quad
+\begin{tikzcd}
+\mathcal{C} \arrow[rr, bend left=30, ""{name=U1,below}, "G_1"] 
+\arrow[rr, bend right=30, ""{name=D1,above}, "G_2" swap]
+\&\& \mathcal{D} \arrow[rr, "F"] \&\& \mathcal{E}
+\arrow[Rightarrow, "\beta" right, from=U1, to=D1]
+\end{tikzcd}
 \]
-The prewhiskering of $\theta$ by $F$, denoted $\theta F\coloneqq \theta 1_F: G_1F\to G_2F$ (resp. the postwhiskering of $\theta$ by $F$, denoted $F\theta\coloneqq 1_F\theta: FG_1\to FG_2$) is defined as follows.
+The prewhiskering of $\beta$ by $F$, denoted $\beta F\coloneqq \beta 1_F: G_1F\to G_2F$ (resp. the postwhiskering of $\beta$ by $F$, denoted $F\beta\coloneqq 1_F\beta: FG_1\to FG_2$) is defined as follows.
 \[
-\xymatrix@C+7ex{\mathcal{C} \rtwocell<4>_{G_2F}^{G_1F}{\;\;\;\theta F} &\mathcal{E}}\qquad\xymatrix@C+7ex{\mathcal{C} \rtwocell<4>_{FG_2}^{FG_1}{\;\;\; F\theta} &\mathcal{E}}
+\begin{tikzcd}
+\mathcal{C} \arrow[rr, bend left=30, "G_1F", ""{name=U, below}]
+\arrow[rr, bend right=30, "G_2F"', ""{name=D}]
+\&\& \mathcal{E}
+\arrow[Rightarrow, "\beta F", from=U, to=D]
+\end{tikzcd}\quad
+\begin{tikzcd}
+\mathcal{C} \arrow[rr, bend left=30, "FG_1", ""{name=U, below}]
+\arrow[rr, bend right=30, "FG_2"', ""{name=D}]
+\&\& \mathcal{E}
+\arrow[Rightarrow, "F\beta", from=U, to=D]
+\end{tikzcd}
 \]
 \begin{align*}
-	(\theta F)_A&\coloneqq \theta_{FA}\\
-	(F\theta)_A&\coloneqq F\theta_A
+	(\beta F)_A&\coloneqq \beta_{FA}\\
+	(F\beta)_A&\coloneqq F\beta_A
 \end{align*}
 \end{frame}
 
@@ -11239,12 +11494,12 @@ Given categories $\mathcal{C}$ and $\mathcal{D}$, the product category $\mathcal
 Given categories $\mathcal{C}$ and $\mathcal{D}$, the functor category $\mathcal{D}^{\mathcal{C}}$ has
 \begin{itemize}
 	\item objects: functors $F:\mathcal{C}\to\mathcal{D}$
-	\item morphisms: natural transformations $\eta: F\to G$
+	\item morphisms: natural transformations $\alpha: F\to G$
 	\item identity natural transformation $(1_F)_A\coloneqq 1_{FA}$\\
 	given a functor $F:\mathcal{C}\to\mathcal{D}$, define $1_F: F\to F$ with $(1_F)_A\coloneqq FA\xrightarrow{1_{FA}}FA$.
-	\item composition of natural transformations $(\theta\circ\eta)_A\coloneqq \theta_A\circ\eta_A$\\
-	given functors $F,G,H:\mathcal{C}\to\mathcal{D}$ and natural transformations $F\xrightarrow{\eta}G\xrightarrow{\theta}H$, define $\theta\circ\eta: F\to H$ with
-\[(\theta\circ\eta)_A\coloneqq FA\xrightarrow{\eta_A}GA\xrightarrow{\theta_A}HA\]
+	\item composition of natural transformations $(\beta\circ\alpha)_A\coloneqq \beta_A\circ\alpha_A$\\
+	given functors $F,G,H:\mathcal{C}\to\mathcal{D}$ and natural transformations $F\xrightarrow{\alpha}G\xrightarrow{\beta}H$, define $\beta\circ\alpha: F\to H$ with
+\[(\beta\circ\alpha)_A\coloneqq FA\xrightarrow{\alpha_A}GA\xrightarrow{\beta_A}HA\]
 \end{itemize}
 \end{definition}
 \end{frame}
@@ -11269,9 +11524,11 @@ $\mathbf{Cat}$ is large.
 
 \begin{frame}\frametitle{$\mathbf{Cat}$ is $\mathbf{CCC}$}
 \begin{itemize}
-	\item $\mathbf{Cat}$ has a terminal object $\mathbf{1}\coloneqq \xymatrix{\bullet\ar@(ur,dr)^{1_\bullet}}$.
+	\item $\mathbf{Cat}$ has a terminal object $\mathbf{1}\coloneqq \begin{tikzcd}
+	\bullet \arrow[loop above, "1_\bullet"]
+\end{tikzcd}$.
 	\item $\mathbf{Cat}$ has products.
-	\item There is a functor $\varepsilon: \mathcal{D}^{\mathcal{C}}\times\mathcal{C}\to\mathcal{D}$ that makes $\mathcal{D}^{\mathcal{C}}$ the exponential.
+	\item There is a functor $\operatorname{eval}: \mathcal{D}^{\mathcal{C}}\times\mathcal{C}\to\mathcal{D}$ that makes $\mathcal{D}^{\mathcal{C}}$ the exponential.
 	\item $\mathbf{Cat}$ is cartesian closed.
 \end{itemize}
 \end{frame}
@@ -11280,13 +11537,11 @@ $\mathbf{Cat}$ is large.
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{itemize}
-	\item A \emph{fork} in a category $\mathcal{C}$ consists of $\xymatrix{C \ar[r]^h & A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B}$ s.t. $fh=gh$.
-	\item Let $\mathcal{C}$ be a category and take $\xymatrix{A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B}$. An \emph{equalizer} of $f$ and $g$ is an object $E$ with a morphism $E\xrightarrow{e} A$ s.t. $\xymatrix{E\ar[r]^e & A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B}$ is a fork, and for any fork $\xymatrix{C \ar[r]^h & A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B}$, there exists a unique morphism $C\xrightarrow{u} E$ s.t. 
+	\item A \emph{fork} in a category $\mathcal{C}$ consists of \begin{tikzcd} C \arrow[r,"h"] \&A \arrow[r, yshift=0.6ex,"f"] \arrow[r,  yshift=-0.6ex,"g" swap] \& B \end{tikzcd} s.t. $fh=gh$.
+	\item Let $\mathcal{C}$ be a category and take \begin{tikzcd} A \arrow[r, yshift=0.6ex,"f"] \arrow[r, yshift=-0.6ex,"g" swap] \& B \end{tikzcd}. An \emph{equalizer} of $f$ and $g$ is an object $E$ with a morphism $E\xrightarrow{e} A$ s.t. \begin{tikzcd} E \arrow[r,"e"] \&A \arrow[r, yshift=0.6ex,"f"] \arrow[r,  yshift=-0.6ex,"g" swap] \& B \end{tikzcd} is a fork, and for any fork \begin{tikzcd} C \arrow[r,"h"] \&A \arrow[r, yshift=0.6ex,"f"] \arrow[r,  yshift=-0.6ex,"g" swap] \& B \end{tikzcd}, there exists a unique morphism $C\xrightarrow{u} E$ s.t. 
 \[
-\begin{array}{c}
-\xymatrix{C\ar@{.>}[d]_u \ar[rd]^h &\\
-E \ar[r]^e & A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B}
-\end{array}
+\begin{tikzcd} \mathcal{C} \arrow[d, dashed, "u"'] \arrow[dr,"h"]\\
+E \arrow[r, "e"] \&A \arrow[r, yshift=0.6ex,"f"] \arrow[r,  yshift=-0.6ex,"g" swap] \& B \end{tikzcd}
 \]
 \end{itemize}
 Example: In $\mathbf{Set}$, $E\coloneqq \{x\in A: f(x)=g(x)\}$.
@@ -11296,13 +11551,11 @@ Example: In $\mathbf{Set}$, $E\coloneqq \{x\in A: f(x)=g(x)\}$.
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{itemize}
-	\item A \emph{cofork} in a category $\mathcal{C}$ consists of $\xymatrix{A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B \ar[r]^h & C}$ s.t. $hf=hg$.
-	\item Let $\mathcal{C}$ be a category and take $\xymatrix{A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B}$. An \emph{coequalizer} of $f$ and $g$ is an object $Q$ with a morphism $B\xrightarrow{q} Q$ s.t. $\xymatrix{A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B \ar[r]^q & Q}$ is a cofork, and for any cofork $\xymatrix{A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B \ar[r]^h & C}$, there exists a unique morphism $Q\xrightarrow{u} C$ s.t. 
+	\item A \emph{cofork} in a category $\mathcal{C}$ consists of \begin{tikzcd} A \arrow[r, yshift=0.6ex,"f"] \arrow[r,  yshift=-0.6ex,"g" swap] \& B \arrow[r,"h"] \&C \end{tikzcd} s.t. $hf=hg$.
+	\item Let $\mathcal{C}$ be a category and take \begin{tikzcd} A \arrow[r, yshift=0.6ex,"f"] \arrow[r,  yshift=-0.6ex,"g" swap] \& B \end{tikzcd}. An \emph{coequalizer} of $f$ and $g$ is an object $Q$ with a morphism $B\xrightarrow{q} Q$ s.t. \begin{tikzcd} A \arrow[r, yshift=0.6ex,"f"] \arrow[r,  yshift=-0.6ex,"g" swap] \& B \arrow[r,"q"] \&Q \end{tikzcd} is a cofork, and for any cofork \begin{tikzcd} A \arrow[r, yshift=0.6ex,"f"] \arrow[r,  yshift=-0.6ex,"g" swap] \& B \arrow[r,"h"] \&C \end{tikzcd}, there exists a unique morphism $Q\xrightarrow{u} C$ s.t. 
 \[
-\begin{array}{c}
-\xymatrix{A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B \ar[r]^q \ar[rd]_h & Q \ar@{.>}[d]^u\\
-&& C}
-\end{array}
+\begin{tikzcd} A \arrow[r, yshift=0.6ex,"f"] \arrow[r, yshift=-0.6ex,"g" swap] \& B \arrow[r,"q"] \arrow[dr, "h" swap] \&Q \arrow[d,dashed,"u"]\\
+\&\&C \end{tikzcd}
 \]
 \end{itemize}
 Example: In $\mathbf{Set}$, let $y\sim y'\coloneqq \exists x\big(f(x)=y\wedge g(x)=y'\big)$. Then $Q\coloneqq B/\sim$ is a coequalizer.
@@ -11311,54 +11564,90 @@ Example: In $\mathbf{Set}$, let $y\sim y'\coloneqq \exists x\big(f(x)=y\wedge g(
 \begin{frame}\frametitle{Pullback}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
-Let $\mathcal{C}$ be a category. A \emph{pullback} of \raisebox{4ex}{$\xymatrix{&B \ar[d]^g\\
-A \ar[r]_f &C}$} is an object $P$ with $P\xrightarrow{p_1} A$ and $P\xrightarrow{p_2} B$ s.t. \raisebox{4ex}{$\xymatrix{P\pbcorner \ar[r]^{p_2} \ar[d]_{p_1} &B \ar[d]^g\\
-A \ar[r]_f&C}$}, and for any \raisebox{4ex}{$\xymatrix{Q\ar[r]^{q_2} \ar[d]_{q_1} &B \ar[d]^g\\
-A\ar[r]_f &C}$} there is a unique morphism $Q\xrightarrow{u} P$ s.t.
-\raisebox{7ex}{$\xymatrix{Q\ar@/^/[rrd]^{q_2} \ar@{.>}[rd]^u \ar@/_/[rdd]_{q_1}&&\\
-&P\pbcorner \ar[r]^{p_2} \ar[d]_{p_1} &B\ar[d]^g\\
-&A\ar[r]_f &C}$}.
+Let $\mathcal{C}$ be a category. A \emph{pullback} of \begin{tikzcd}
+\& B \arrow[d, "g"] \\
+A \arrow[r, "f"] \& C
+\end{tikzcd} is an object $P$ with $P\xrightarrow{p_1} A$ and $P\xrightarrow{p_2} B$ s.t. \begin{tikzcd}
+P \arrow[r,"p_2"] \arrow[d,"p_1" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+\& B \arrow[d,"g"] \\
+A \arrow[r,"f" swap]
+\& C
+\end{tikzcd}, and for any \begin{tikzcd}
+Q \arrow[r,"q_2"] \arrow[d,"q_1" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+\& B \arrow[d,"g"]\\
+A \arrow[r,"f" swap]
+\& C
+\end{tikzcd} there is a unique morphism $Q\xrightarrow{u} P$ s.t.
+\begin{tikzcd}
+Q \arrow[dr, dashed, "u"] \arrow[drr, bend left=20, "q_2"] \arrow[ddr, bend right=20, "q_1" swap]\\
+\& P \arrow[r,"p_2"] \arrow[d,"p_1" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+\& B \arrow[d,"g"] \\
+\& A \arrow[r,"f" swap]
+\& C
+\end{tikzcd}.
 
 Example: In $\mathbf{Set}$, $P\coloneqq A\times_C B\coloneqq \big\{(x,y)\in A\times B: f(x)=g(y)\big\}$.
 \end{frame}
 
 \begin{frame}\frametitle{Pullback}
-\[\xymatrix{P\pbcorner \ar[r]^{p_2} \ar[d]_{p_1} &B \ar[d]^g\\
-A \ar[r]_f&C}\]
+\[\begin{tikzcd}
+P \arrow[r,"p_2"] \arrow[d,"p_1" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+\& B \arrow[d,"g"]\\
+A \arrow[r,"f" swap]
+\& C
+\end{tikzcd}\]
 
 In $\mathbf{Set}$, $P\coloneqq A\times_C B\coloneqq \big\{(x,y)\in A\times B: f(x)=g(y)\big\}$.
 
 We also say that we pull back $g$ along $f$ and think of $f^*g: f^*B\to A$ as the inverse image of $B$ along $f$. This terminology is explained by looking at the pullback of a subset inclusion $i: B\hookrightarrow C$.
-\[\xymatrix{f^*B\pbcorner \ar[r] \ar[d]_{f^*g} &B \ar[d]^g\\
-A \ar[r]_f&C}\qquad \xymatrix{f^*B\pbcorner \ar[r] \ar[d] &B \ar@^{(->}[d]^i\\
-A \ar[r]_f&C}\]
+\[\begin{tikzcd}
+f^*B \arrow[r,"p_2"] \arrow[d,"f^*g" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+\& B \arrow[d,"g"] \\
+A \arrow[r,"f" swap]
+\& C
+\end{tikzcd}\qquad \begin{tikzcd}
+f^*B \arrow[r] \arrow[d] \arrow[dr, phantom, "\lrcorner", very near start]
+\& B \arrow[d, hookrightarrow, "i"] \\
+A \arrow[r,"f" swap]
+\& C
+\end{tikzcd}\]
 In this case $\{(x,y)\in A\times B: fx=y\}\cong\{x\in A: fx\in B\}=f^*B$.
 \end{frame}
 
 \begin{frame}\frametitle{Pushout}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
-Let $\mathcal{C}$ be a category. A \emph{pushout} of \raisebox{4ex}{$\xymatrix{C \ar[d]_f \ar[r]^g &B\\
-A}$} is an object $P$ with $A\xrightarrow{p_1} P$ and $B\xrightarrow{p_2} P$ s.t. \raisebox{4ex}{$\xymatrix{C \ar[r]^g \ar[d]_f &B \ar[d]^{p_2}\\
-A \ar[r]_{p_1}&\pocorner P}$}, and for any \raisebox{4ex}{$\xymatrix{C \ar[r]^g \ar[d]_f &B \ar[d]^{q_2}\\
-A \ar[r]_{q_1}&Q}$} there is a unique morphism $P\xrightarrow{u} Q$ s.t.
-\raisebox{7ex}{$\xymatrix{C \ar[r]^g \ar[d]_f &B \ar[d]^{p_2} \ar@/^/[rdd]^{q_2}&\\
-A \ar[r]_{p_1} \ar@/_/[rrd]_{q_1} & \pocorner P \ar@{.>}[rd]^u &\\
-&& Q}$}.
+Let $\mathcal{C}$ be a category. A \emph{pushout} of \begin{tikzcd}
+C \arrow[r,"g"] \arrow[d,"f" swap] \& B\\
+A
+\end{tikzcd} is an object $P$ with $A\xrightarrow{p_1} P$ and $B\xrightarrow{p_2} P$ s.t. \begin{tikzcd}
+C \arrow[r,"g"] \arrow[d, "f" swap] \& B \arrow[d, "p_2"]\\
+A \arrow[r,"p_1" swap] \&P \arrow[ul, phantom, "\ulcorner", very near start]
+\end{tikzcd}, and for any \begin{tikzcd}
+C \arrow[r,"g"] \arrow[d, "f" swap] \& B \arrow[d, "q_2"]\\
+A \arrow[r,"q_1" swap] \&Q \arrow[ul, phantom, "\ulcorner", very near start]
+\end{tikzcd} there is a unique morphism $P\xrightarrow{u} Q$ s.t. \begin{tikzcd}
+C \arrow[r,"g"] \arrow[d, "f" swap] \& B \arrow[d, "p_2"] \arrow[ddr, bend left=20, "q_2"]\\
+A \arrow[r,"p_1" swap] \arrow[drr, bend right=20, "q_1" swap] \&P \arrow[ul, phantom, "\ulcorner", very near start] \arrow[dr, dashed, "u"]\\
+\&\&Q
+\end{tikzcd}.
 \end{frame}
 
 \begin{frame}\frametitle{Cone}
 \begin{itemize}
 	\item A \emph{diagram} of a small category $\mathcal{I}$ in category $\mathcal{C}$ is a functor $D:\mathcal{I}\to\mathcal{C}$.
 	\item A \emph{cone} $[C,c]$ over a diagram $D$ consists of an object $C\in\mathcal{C}$ and a family of morphisms $(C\xrightarrow{c_i} D_i)_{i\in\mathcal{I}}$ such that for each $i\xrightarrow{f}j$ in $\mathcal{I}$, the following triangle commutes.
-	\[\xymatrix@R=1ex{&D_i \ar[dd]^{Df}\\
-	C \ar[ru]^{c_i} \ar[rd]_{c_j} &\\
-	&D_j}\]
+	\[\begin{tikzcd}[row sep=tiny]
+\& D_i \arrow[dd,"Df"]\\
+C \arrow[ur,"c_i"] \arrow[dr,"c_j" swap] \& \\
+\& D_j
+\end{tikzcd}\]
 	{\footnotesize A cone over $D$ with vertex $C$ can be taken as a natural transformation $c: \Delta C\to D$.}
 	\item A morphism of cones $\theta: [C,c]\to[C',c']$ is a morphism $\theta$ s.t. 
-	\[\xymatrix@R=1ex{C\ar[r]^{\theta} \ar[rdd]_{c_i} &C'\ar[dd]^{c_i'}\\
-	&\\
-	&D_i}\]
+	\[\begin{tikzcd}
+C \arrow[r,"\theta"] \arrow[dr, "c_i"'] \& C' \arrow[d,"c_i'"]\\
+\& D_i
+\end{tikzcd}\]
 	Then we have a category $\mathbf{Cone}(D)$ of cones over $D$.
 \end{itemize}
 \end{frame}
@@ -11366,13 +11655,16 @@ A \ar[r]_{p_1} \ar@/_/[rrd]_{q_1} & \pocorner P \ar@{.>}[rd]^u &\\
 \begin{frame}\frametitle{Cocone}
 \begin{itemize}
 	\item A \emph{cocone} $[C,c]$ over a diagram $D$ consists of an object $C\in\mathcal{C}$ and a family of morphisms $(D_i\xrightarrow{c_i} C)_{i\in\mathcal{I}}$ such that for each $i\xrightarrow{f}j$ in $\mathcal{I}$, the following triangle commutes.
-	\[\xymatrix@R=1ex{D_i \ar[dd]_{Df} \ar[rd]^{c_i}\\
-	& C\\
-	D_j \ar[ru]_{c_j}}\]
+	\[\begin{tikzcd}[row sep=tiny]
+D_i \arrow[dd,"Df" swap] \arrow[dr,"c_i"]\\
+\& C\\
+D_j \arrow[ur,"c_j" swap]
+\end{tikzcd}\]
 	\item A morphism of cocones $\theta: [C,c]\to[C',c']$ is a morphism $\theta$ s.t. 
-	\[\xymatrix@R=1ex{C\ar[r]^{\theta} &C'\\
-	&\\
-	&D_i \ar[luu]^{c_i} \ar[uu]_{c_i'}}\]
+	\[\begin{tikzcd}
+C \arrow[r,"\theta"] \& C'\\
+\& D_i \arrow[u,"c_i'" swap] \arrow[ul, "c_i"] 
+\end{tikzcd}\]
 	Then we have a category $\mathbf{Cocone}(D)$ of cones over $D$.
 \end{itemize}
 \end{frame}
@@ -11382,19 +11674,20 @@ A \ar[r]_{p_1} \ar@/_/[rrd]_{q_1} & \pocorner P \ar@{.>}[rd]^u &\\
 \setlength\belowdisplayskip{0pt}
 \vspace*{-1ex}
 \begin{itemize}
-	\item A \emph{limit} $\left[\lim\limits_\gets D, p\right]$ for a diagram $D:\mathcal{I}\to\mathcal{C}$ is a terminal object in $\mathbf{Cone}(D)$. In other word, for any cone $[C,c]$ over $D$, there is a unique morphism $C\xrightarrow{u}\lim\limits_\gets D$ s.t. $c_i=p_i\circ u$ for all $i\in\mathcal{I}$.\vspace*{-2ex}
-\begin{figure}[H]
-\setlength{\unitlength}{1em}
-\begin{picture}(18.5,12)(1,-1.5)
-\put(0,0){\makebox(0,0)[bl]{%
-$\xymatrix@C=6em{&&D_i\\
-	C\ar[rru]^{c_i} \ar@{.>}[r]^u \ar[rrd]_{c_j} & \lim\limits_\gets D \ar[ru]_{p_i} \ar[rd]^{p_j}&\\
-	&&D_j}$
-}}
-\put(17,5){\oval(4,10)}
-\put(19.5,0.5){\makebox(0,0)[c]{$D$}}
-\end{picture}
-\end{figure}
+	\item A \emph{limit} $\left[\varprojlim D, p\right]$ for a diagram $D:\mathcal{I}\to\mathcal{C}$ is a terminal object in $\mathbf{Cone}(D)$. In other word, for any cone $[C,c]$ over $D$, there is a unique morphism $C\xrightarrow{u}\varprojlim D$ s.t. $c_i=p_i\circ u$ for all $i\in\mathcal{I}$.
+
+\[
+\begin{tikzcd}[column sep=large, row sep=large, execute at end picture={
+\begin{scope}
+\clip(2.3,0)circle(0.7 and 2.1);
+\filldraw[green!50!yellow,fill=green!50!yellow,nearly transparent](-5,-3)rectangle(6,6);
+\end{scope};
+}]
+\&\& D_i \arrow[dd,"Df"]\\
+C \arrow[r,dashed,"u"] \arrow[urr,"c_i"] \arrow[drr,"c_j" swap] \& \varprojlim D \arrow[ur,"p_i" swap] \arrow[dr,"p_j"]\\
+\&\& D_j
+\end{tikzcd}
+\]
 \end{itemize}
 \end{frame}
 
@@ -11403,32 +11696,37 @@ $\xymatrix@C=6em{&&D_i\\
 	\setlength\belowdisplayskip{0pt}
 		\vspace*{-1ex}
 \begin{itemize}
-	\item A \emph{colimit} $\left[\lim\limits_\to D, p\right]$ for a diagram $D:\mathcal{I}\to\mathcal{C}$ is an initial object in $\mathbf{Cocone}(D)$. In other word, for any cocone $[C,c]$ over $D$, there is a unique morphism $\lim\limits_\to D\xrightarrow{u} C$ s.t. $c_i=u\circ p_i$ for all $i\in\mathcal{I}$.%\vspace*{-2ex}
-\begin{figure}[H]
-\setlength{\unitlength}{1em}
-\begin{picture}(18.5,12)(1,-1.5)
-\put(-1.5,0.5){\makebox(0,0)[c]{$D$}}
-\put(1,5){\oval(4,10)}
-\put(0,0){\makebox(0,0)[bl]{
-$\xymatrix@C=6em{D_i \ar[rd]_{p_i} \ar[rrd]^{c_i} &&\\
-	 & \lim\limits_\to D \ar@{.>}[r]^u & C\\
-	D_j \ar[ru]^{p_j} \ar[rru]_{c_j} &&}$
-}}
-\end{picture}
-\end{figure}
+	\item A \emph{colimit} $\left[\varinjlim D, p\right]$ for a diagram $D:\mathcal{I}\to\mathcal{C}$ is an initial object in $\mathbf{Cocone}(D)$. In other word, for any cocone $[C,c]$ over $D$, there is a unique morphism $\varinjlim D\xrightarrow{u} C$ s.t. $c_i=u\circ p_i$ for all $i\in\mathcal{I}$.
+	
+\[
+\begin{tikzcd}[column sep=large, row sep=large, execute at end picture={
+\begin{scope}
+\clip(-2.3,0)circle(0.7 and 2.1);
+\filldraw[green!50!yellow,fill=green!50!yellow,nearly transparent](-5,-3)rectangle(6,6);
+\end{scope};
+}]
+D_i \arrow[dd,"Df" swap] \arrow[dr,"p_i" swap] \arrow[drr,"c_i"]\\
+\& \varinjlim D \arrow[r, dashed, "u"] \& C\\
+D_j \arrow[ur,"p_j"] \arrow[urr,"c_j" swap]
+\end{tikzcd}
+\]
 \end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Examples}
 \begin{itemize}
-	\item Take $\mathcal{I}\coloneqq \emptyset$. Then a limit for $D:\mathcal{I}\to\mathcal{C}$ is a terminal object in $\mathcal{C}$: $\lim\limits_\gets D\cong 1$.
-	\item Take $\mathcal{I}\coloneqq \fbox{$\bullet \hspace*{1.5em} \bullet$}$. Then a limit for $D$ is a product $\lim\limits_\gets D\cong D_1\times D_2$.
-	\item Take $\mathcal{I}\coloneqq \fbox{$\xymatrix{\bullet\ar@<.5ex>[r] \ar@<-.5ex>[r] &\bullet}$}$. Then a cone over $D$ is \raisebox{3ex}{$\xymatrix{&C\ar[ld]_{c_1} \ar[rd]^{c_2} &\\
-	D_1\ar@<.5ex>[rr]^f \ar@<-.5ex>[rr]_g &&D_2}$}.
+	\item Take $\mathcal{I}\coloneqq \emptyset$. Then a limit for $D:\mathcal{I}\to\mathcal{C}$ is a terminal object in $\mathcal{C}$: $\varprojlim D\cong 1$.
+	\item Take $\mathcal{I}\coloneqq \fbox{$\bullet \hspace*{1.5em} \bullet$}$. Then a limit for $D$ is a product $\varprojlim D\cong D_1\times D_2$.
+	\item Take $\mathcal{I}\coloneqq \fbox{\begin{tikzcd} \bullet \arrow[r, yshift=0.6ex,"f"] \arrow[r, yshift=-0.6ex,"g" swap] \& \bullet\end{tikzcd}}$. Then a cone over $D$ is \begin{tikzcd}[column sep=small]
+\& C \arrow[dl, "c_1" swap] \arrow[dr, "c_2"] \&\\
+D_1 \arrow[rr, yshift=0.6ex,"f"] \arrow[rr, yshift=-0.6ex,"g" swap] \& \& D_2
+\end{tikzcd}.
 
-	Thus a limit for $D$ is an equalizer for $f,g$.
-	\item Take $\mathcal{I}\coloneqq \raisebox{4ex}{\fbox{$\xymatrix{&\bullet \ar[d]\\
-\bullet \ar[r] &\bullet}$}}$. Then a limit for $D$ is a pullback.
+Thus a limit for $D$ is an equalizer for $f,g$.
+	\item Take $\mathcal{I}\coloneqq \fbox{\begin{tikzcd}
+\& \bullet \arrow[d] \\
+\bullet \arrow[r] \& \bullet
+\end{tikzcd}}$. Then a limit for $D$ is a pullback.
 \end{itemize}
 \end{frame}
 
@@ -11442,7 +11740,7 @@ $\xymatrix@C=6em{D_i \ar[rd]_{p_i} \ar[rrd]^{c_i} &&\\
 	\item A category is \emph{complete} if it has all small limits.
 	\item A functor is \emph{continuous} if it preserves all small limits.
 \end{itemize}
-Obviously, if $F$ preserves limits then $F\left(\lim\limits_\gets D\right)\cong\lim\limits_\gets (FD)$.
+Obviously, if $F$ preserves limits then $F\left(\varprojlim D\right)\cong\varprojlim (FD)$.
 \end{frame}
 
 \begin{frame}\frametitle{}
@@ -11475,9 +11773,12 @@ Obviously, if $F$ preserves limits then $F\left(\lim\limits_\gets D\right)\cong\
 \item A \emph{subobject} of an object $A\in\mathcal{C}$ is a monomorphism $m: M\rightarrowtail A$.
 \item Let $\mathcal{E}$ be a category with all finite limits. A \emph{subobject classifier} in $\mathcal{E}$ is a monomophism $t: 1\rightarrowtail\Omega$ such that for every monomorphism $m: M\rightarrowtail E$, there is a unique morphism $\chi: E\to\Omega$ making the following diagram a pullback:
 \[
-\xymatrix@M+1ex{
-M \pbcorner \ar[r]^{!_M} \ar@{>->}[d]_m & 1 \ar@{>->}[d]^t\\
-E \ar@{.>}[r]_\chi &\Omega}
+\begin{tikzcd}
+M \arrow[r,"!_M"] \arrow[d,tail,"m" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+\& 1 \arrow[d,tail,"t"]\\
+E \arrow[r, dashed, "\chi" swap]
+\& \Omega
+\end{tikzcd}
 \]
 \item A \emph{topos} is a cartesian closed category with finite limits and a subobject classifier.
 \end{itemize}
@@ -11490,15 +11791,15 @@ E \ar@{.>}[r]_\chi &\Omega}
 \begin{itemize}
 	\item \emph{Well-pointed Topos:} a topos is called \emph{well-pointed} if
 	\begin{enumerate}
-		\item for $\xymatrix{A \ar@<.5ex>[r]^f \ar@<-.5ex>[r]_g & B}$, if $\forall x: 1\to A[fx=gx]$ then $f=g$.
+		\item for \begin{tikzcd} A \arrow[r, yshift=0.6ex,"f"] \arrow[r,  yshift=-0.6ex,"g" swap] \& B \end{tikzcd}, if $\forall x: 1\to A[fx=gx]$ then $f=g$.
 		\item $0\not\cong 1$.
 	\end{enumerate}
 	\item \emph{Natural Numbers Object:} a \emph{natural number object} is an object $N$ with morphisms $0: 1\to N$ and $s: N \to N$ such that: given morphisms $a: 1\to X$ and $g: X \to X$, there is a unique morphism $f: N \to X$ making the following diagram commute:
 \[
-\xymatrix{
-1 \ar[r]^0 \ar[dr]_a &N \ar[r]^s \ar@{.>}[d]^f &N\ar@{.>}[d]^f\\
- &X \ar[r]_g &X
-}
+\begin{tikzcd}
+1 \arrow[r,"0"] \arrow[dr, "a"'] \& N \arrow[d,dashed,"f"] \arrow[r,"s"] \& N \arrow[d,dashed,"f"]\\
+\& X \arrow[r,"g" swap] \& X
+\end{tikzcd}
 \]
 	\item \emph{Choice:} for any epimorphism $f: A\to B$, there exists $g: B\to A$ s.t. $fg=1_B$. (every epimorphism has a section.)
 	\item $\mathrm{ETCS}$ is a well-pointed topos with natural numbers object and Choice.
@@ -11530,9 +11831,12 @@ E \ar@{.>}[r]_\chi &\Omega}
 \end{itemize}
 \end{definition}
 The hom functor $\mathcal{C}(-,-):\mathcal{C}^\mathrm{op}\times\mathcal{C}\to\mathbf{Set}$ maps $A,B\in\mathcal{C}$ to $\mathcal{C}(A,B)$, and $\mathcal{C}(-,-)$ maps $f\in\mathcal{C}^\mathrm{op}(A,A'), g\in\mathcal{C}(B,B')$ to $\mathcal{C}(f,g):\mathcal{C}(A,B)\to\mathcal{C}(A',B')$ given by $\mathcal{C}(f,g): h\mapsto ghf$ for $h\in\mathcal{C}(A,B)$.
-\[\xymatrix@C+7pt{\mathcal{C}(A,B)\ar[r]^{\mathcal{C}(f,B)}\ar[d]_{\mathcal{C}(A,g)} & \mathcal{C}(A',B) \ar[d]^{\mathcal{C}(A',g)}
-\\
-\mathcal{C}(A,B')\ar[r]_{\mathcal{C}(f,B')}&\mathcal{C}(A',B')}\]
+\[\begin{tikzcd}
+\mathcal{C}(A,B) \arrow[r,"{\mathcal{C}(f,B)}"] \arrow[d,"{\mathcal{C}(A,g)}" swap]
+\& \mathcal{C}(A',B) \arrow[d,"{\mathcal{C}(A',g)}"]\\
+\mathcal{C}(A,B') \arrow[r,"{\mathcal{C}(f,B')}" swap]
+\& \mathcal{C}(A',B')
+\end{tikzcd}\]
 \end{frame}
 
 \begin{frame}\frametitle{Yoneda Embedding}
@@ -11550,6 +11854,7 @@ The hom functor $\mathcal{C}(-,-):\mathcal{C}^\mathrm{op}\times\mathcal{C}\to\ma
 	\item For $f\in\mathcal{C}^\mathrm{op}(A,B)$, $\operatorname{y}: f\mapsto\mathcal{C}(f,-): \mathcal{C}(A,-)\to\mathcal{C}(B,-)$.
 \end{itemize}
 \end{definition}
+\[\widehat{\mathcal{C}}\coloneqq\mathbf{Set}^{\mathcal{C}^\mathrm{op}}\]
 \end{frame}
 
 \begin{frame}\frametitle{Yoneda Lemma}
@@ -11589,14 +11894,25 @@ The hom functor $\mathcal{C}(-,-):\mathcal{C}^\mathrm{op}\times\mathcal{C}\to\ma
 	Now, naturality forces us to define $\psi(a)_B(f)\coloneqq Ff(a)$.\\
 	By construction, $\psi(\varphi(a))=a$. It remains to verify that $\psi(\varphi(\alpha))=\alpha$.\\
 	$\psi(\varphi(\alpha))_B(f)=\psi(\alpha_A(1_A))_B(f)=Ff(\alpha_A(1_A))=\alpha_B(f)$
-	\column{.33\textwidth}\hspace*{-18pt}
+	\column{.33\textwidth}\hspace*{-20pt}
 	\begin{minipage}{\textwidth}
-	\[\xymatrix{\mathcal{C}(A,A) \ar[r]^{\mathcal{C}(A,f)} \ar[d]_{\psi(a)_A} &\mathcal{C}(A,B) \ar[d]^{\psi(a)_B}\\
-	FA\ar[r]_{Ff}&FB}\]
-	\[\xymatrix{1_A \ar@{|->}[r] \ar@{|->}[d] &f \ar@{|->}[d]\\
-	a\ar@{|->}[r]&\psi(a)_B(f)=Ff(a)}\]
-	\[\xymatrix{\mathcal{C}(A,A) \ar[r]^{\mathcal{C}(A,f)} \ar[d]_{\alpha_A} &\mathcal{C}(A,B) \ar[d]^{\alpha_B}\\
-	FA\ar[r]_{Ff}&FB}\]
+	\[\begin{tikzcd}
+\mathcal{C}(A,A) \arrow[r,"{\mathcal{C}(A,f)}"] \arrow[d,"{\psi(a)_A}" swap]
+\& \mathcal{C}(A,B) \arrow[d,"{\psi(a)_B}"]\\
+FA \arrow[r,"Ff" swap]
+\& FB
+\end{tikzcd}\]
+	\[\begin{tikzcd}
+1_A \arrow[r,mapsto] \arrow[d,mapsto] \&f \arrow[d,mapsto]\\
+a \arrow[r,mapsto]
+\& \psi(a)_B(f)=Ff(a)
+\end{tikzcd}\]
+	\[\begin{tikzcd}
+\mathcal{C}(A,A) \arrow[r,"{\mathcal{C}(A,f)}"] \arrow[d,"\alpha_A" swap]
+\& \mathcal{C}(A,B) \arrow[d,"\alpha_B"]\\
+FA \arrow[r,"Ff" swap]
+\& FB
+\end{tikzcd}\]
 	\end{minipage}
 \end{columns}
 \end{proof}
@@ -11607,20 +11923,33 @@ The hom functor $\mathcal{C}(-,-):\mathcal{C}^\mathrm{op}\times\mathcal{C}\to\ma
 \setlength\belowdisplayskip{0pt}
 	\vspace*{-2pt}
 \begin{proof}[Proof continued.]
-To show that $\varphi$ is natural in $F$, suppose given a natural transformation $\eta: F\to G$.\vspace*{-5pt}
-\[\xymatrix@C+2pc{\mathbf{Set}^\mathcal{C}(\mathcal{C}(A,-),F) \ar[r]^{\eta\circ-} \ar[d]_{\varphi_F} &\mathbf{Set}^\mathcal{C}(\mathcal{C}(A,-),G) \ar[d]^{\varphi_G}\\
-FA\ar[r]_{\eta_A}&GA}\]
-\[\eta_A(\varphi_F(\alpha))=\eta_A(\alpha_A(1_A))=(\eta\circ\alpha)_A(1_A)=\varphi_G(\eta\circ\alpha)\]
+To show that $\varphi$ is natural in $F$, suppose given a natural transformation $\beta: F\to G$.\vspace*{-5pt}
+\[\begin{tikzcd}[column sep=large]
+\mathbf{Set}^\mathcal{C}(\mathcal{C}(A,-),F) \arrow[r,"\beta\circ-"] \arrow[d,"\varphi_F" swap]
+\& \mathbf{Set}^\mathcal{C}(\mathcal{C}(A,-),G) \arrow[d,"\varphi_G"]\\
+FA \arrow[r,"\beta_A" swap]
+\& GA
+\end{tikzcd}\]
+\[\beta_A(\varphi_F(\alpha))=\beta_A(\alpha_A(1_A))=(\beta\circ\alpha)_A(1_A)=\varphi_G(\beta\circ\alpha)\]
 To show that $\varphi$ is natural in $A$, suppose given $f: A\to B$.
-\[\xymatrix@C+2pc{\mathbf{Set}^\mathcal{C}(\mathcal{C}(A,-),F) \ar[r]^{-\circ\mathcal{C}(f,-)} \ar[d]_{\varphi_A} &\mathbf{Set}^\mathcal{C}(\mathcal{C}(B,-),F) \ar[d]^{\varphi_B}\\
-FA\ar[r]_{Ff}&FB}\]
+\[\begin{tikzcd}[column sep=large]
+\mathbf{Set}^\mathcal{C}(\mathcal{C}(A,-),F) \arrow[r,"{-\circ\mathcal{C}(f,-)}"] \arrow[d,"\varphi_A" swap]
+\& \mathbf{Set}^\mathcal{C}(\mathcal{C}(B,-),F) \arrow[d,"\varphi_B"]\\
+FA \arrow[r,"Ff" swap]
+\& FB
+\end{tikzcd}\]
 $Ff(\varphi_A(\alpha))=Ff(\alpha_A(1_A))=\alpha_B\circ\mathcal{C}(A,f)(1_A)=\alpha_B(f)=\alpha_B\circ\mathcal{C}(f,-)_B(1_B)=(\alpha\circ\mathcal{C}(f,-))_B(1_B)=\varphi_B(\alpha\circ\mathcal{C}(f,-))$
 \end{proof}
 \end{frame}
 
 \begin{frame}\frametitle{}
 \[
-\xymatrix@C+5pc{\mathcal{C}^\mathrm{op}\times\mathbf{Set}^\mathcal{C} \rtwocell<4>^{\operatorname{hom}(\operatorname{y}(-),\bullet)}_{\bullet(-)}{\varphi} &\mathbf{Set}}
+\begin{tikzcd}[column sep=huge]
+\mathcal{C}^\mathrm{op}\times\mathbf{Set}^\mathcal{C} \arrow[r, bend left=50, "{\operatorname{hom}(\operatorname{y}(-),\bullet)}", ""{name=U, below}]
+\arrow[r, bend right=50, "\bullet(-)"', ""{name=D}]
+\& \mathbf{Set}
+\arrow[Rightarrow, "\varphi", from=U, to=D]
+\end{tikzcd}
 \]
 \begin{theorem}[Restricted Yoneda Lemma]
 	For any locally small category $\mathcal{C}$, object $A,B\in\mathcal{C}$,
@@ -11655,15 +11984,14 @@ For a locally small category $\mathcal{C}$, the Yoneda embedding $\operatorname{
 preserves all limits that exist in $\mathcal{C}$.
 \end{theorem}
 \begin{proof}
-Suppose $[L,\lambda]$ is a limit of $D:\mathcal{I}\to\mathcal{C}$. The Yoneda embedding maps $D$ to the
-diagram $\operatorname{y}D:\mathcal{I}\to\mathbf{Set}^{\mathcal{C}^\mathrm{op}}$ defined by $(\operatorname{y}D)_i=\operatorname{y}D_i=\mathcal{C}(-,D_i)$, and it maps $[L,\lambda]$ to $[\operatorname{y}L,\operatorname{y}\lambda]$ on $\operatorname{y}D$ defined by $(\operatorname{y}\lambda)_i=\operatorname{y}\lambda_i=\mathcal{C}(-,\lambda_i)$.\\
+Suppose $[L,\lambda]$ is a limit of $D:\mathcal{I}\to\mathcal{C}$. The Yoneda embedding maps $D$ to the diagram $\operatorname{y}D:\mathcal{I}\to\mathbf{Set}^{\mathcal{C}^\mathrm{op}}$ defined by $(\operatorname{y}D)_i=\operatorname{y}D_i=\mathcal{C}(-,D_i)$, and it maps $[L,\lambda]$ to $[\operatorname{y}L,\operatorname{y}\lambda]$ on $\operatorname{y}D$ defined by $(\operatorname{y}\lambda)_i=\operatorname{y}\lambda_i=\mathcal{C}(-,\lambda_i)$.\\
 To see that $[\operatorname{y}L,\operatorname{y}\lambda]$ is a limit cone on $\operatorname{y}D$, consider a cone $[M,\mu]$ on $\operatorname{y}D$. Then $\mu:\Delta M\to D$ consists of a family of functions, one for each $i\in\mathcal{I}$ and $A\in\mathcal{C}$,
 \[(\mu_i)_A: MA\to\mathcal{C}(A,D_i)\]
 For $A\in\mathcal{C}$ and $m\in MA$, we get a cone on D consisting of morphisms $(\mu_i)_Am: A\to D_i$. There exists a unique morphism $\varphi_Am: A\to L$ s.t. $(\mu_i)_Am=\lambda_i\circ\varphi_Am$. Then $\varphi_A: MA\to \mathcal{C}(A,L)=(\operatorname{y}L)A$ forms a unique factorization $\varphi: M\to\operatorname{y}L$.
 \end{proof}
 \begin{itemize}
-	\item $\mathcal{C}(A,\lim\limits_\gets D_i)\cong\lim\limits_\gets\mathcal{C}(A,D_i)$
-	\item $\mathcal{C}(\lim\limits_\to D_i,A)\cong\lim\limits_\gets\mathcal{C}(D_i,A)$
+	\item $\mathcal{C}(A,\varprojlim D_i)\cong\varprojlim\mathcal{C}(A,D_i)$
+	\item $\mathcal{C}(\varinjlim D_i,A)\cong\varprojlim\mathcal{C}(D_i,A)$
 \end{itemize}
 \end{frame}
 
@@ -11692,12 +12020,26 @@ Moreover, this subgroup is isomorphic to the group $G$ itself by the restricted 
 \end{proof}
 \end{frame}
 
-\begin{frame}\frametitle{}
-A group representation provides a way to view your
-abstract group elements as concrete linear transformations of some vector space.\\
-Explicitly, given a vector space $V$, a group representation is a group homomorphism $G\to\operatorname{Aut}(V)$.
+\begin{frame}\frametitle{From Klein's Erlangen Program to Category Theory}
+\begin{itemize}
+	\item Klein\footnote{Klein's Erlangen program: ``Given a manifold, and a transformation group acting on it, to study its invariants.''} started with a geometry and looked at the group of transformations of that geometry.
+	\item One possible generalization is to replace the geometry by a different structure $X$ and consider its algebra of automorphisms $\operatorname{Aut}(X)$.
+	\[\operatorname{Aut}(X)\to \operatorname{End}(X)\to \operatorname{hom}(X,Y)\]
+	\[\dfrac{\text{Space}}{\text{Transformation group}} \sim \dfrac{\text{Category}}{\text{Algebra of mappings}}\]
+\end{itemize}
+\end{frame}
 
-For example, $D_3\to\operatorname{Aut}(\mathbb{R}^2)$.
+\begin{frame}\frametitle{}
+\begin{itemize}
+	\item If geometric spaces are taken first, then groups, seen as systems of global properties of spaces, \textbf{supervene} upon geometric properties, that is properties definable in the language of the space, for instance via linear algebra.
+	\item On the other hand, it is possible to reverse the dependence and instead consider groups as being fundamental and construct the spaces from them  to look at their various representations.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{itemize}
+	\item Given a vector space $X$, a group action $G\times X\to X$ can be seen as a group representation $G\to \operatorname{Aut}(X)$. A group representation provides a way to view the abstract group elements as concrete linear transformations of some vector space.
+	\item For example, $D_3\to\operatorname{Aut}(\mathbb{R}^2)$.
 \[D_3=\langle r,s|r^3=s^2=rsrs=e\rangle\]
 \[r\mapsto R=
 \begin{bmatrix}
@@ -11713,9 +12055,9 @@ s\mapsto S=
 \begin{figure}[H]
 	\includegraphics[width=.25\textwidth]{img/d3.jpg}
 \end{figure}
-We can think of a group $G$ as providing the
-syntax while automorphisms $\operatorname{Aut}(V)$ provide the semantics. So a group representation is like a functor
+	\item We can think of a group $G$ as providing the syntax while automorphisms $\operatorname{Aut}(X)$ provide the semantics. So a group representation is like a functor
 \[\mbox{syntax } \to \mbox{ semantics}\]
+\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Representable Functor \& Universal Element}
@@ -11734,12 +12076,12 @@ A functor $F:\mathcal{C}\to\mathbf{Set}$ is \emph{representable} if there is a n
 \begin{frame}\frametitle{Category of Elements}
 \begin{definition}
 	\begin{itemize}
-		\item The \emph{category of elements} of a covariant functor $F:\mathcal{C}\to\mathbf{Set}$ has 
+		\item The \emph{category of elements} $\int^\mathcal{C} F$ of a covariant functor $F:\mathcal{C}\to\mathbf{Set}$ has 
 		\begin{enumerate}
 			\item as objects $(A,a)$, where $A\in\mathcal{C}$ and $a\in FA$, and
 			\item as morphisms $(A,a)\to(B,b)$, if $f: A\to B$ in $\mathcal{C}$ s.t. $Ff(a)=b$.
 		\end{enumerate}
-		\item The \emph{category of elements} of a contravariant functor $F:\mathcal{C}^\mathrm{op}\to\mathbf{Set}$ has 
+		\item The \emph{category of elements} $\int_\mathcal{C} F$ of a contravariant functor $F:\mathcal{C}^\mathrm{op}\to\mathbf{Set}$ has 
 		\begin{enumerate}
 			\item as objects $(A,a)$ where $A\in\mathcal{C}$ and $a\in FA$, and
 			\item as morphisms $(A,a)\to(B,b)$ if $f: A\to B$ in $\mathcal{C}$ s.t. $Ff(b)=a$.
@@ -11756,13 +12098,17 @@ A covariant set-valued functor is representable iff its category of elements has
 \begin{definition}[Over/Under Category]
 \begin{itemize}
 	\item Given a category $\mathcal{C}$ and $A\in\mathcal{C}$, the \emph{over category} $\mathcal{C}/A$ is a category whose objects are pairs $(B,f)$ where $B\in\mathcal{C}$ and $f\in\mathcal{C}(B,A)$. A morphism of $\mathcal{C}/A$ from $(B,f)$ to $(B',f')$ is a morphism $g: B\to B'$ s.t.\vspace*{-1ex}
-\[\xymatrix@R=1ex{&B \ar[ld]_{f} \ar[dd]^{g}\\
-A&\\
-&B'\ar[lu]^{f'}}\]
+\[\begin{tikzcd}[row sep=tiny]
+\& B \arrow[dd,"g"] \arrow[dl,"f" swap]\\
+A\\
+\& B' \arrow[ul,"f'"]
+\end{tikzcd}\]
 	\item Given a category $\mathcal{C}$ and $A\in\mathcal{C}$, the \emph{under category} $A/\mathcal{C}$ is a category whose objects are pairs $(B,f)$ where $B\in\mathcal{C}$ and $f\in\mathcal{C}(A,B)$. A morphism of $A/\mathcal{C}$ from $(B,f)$ to $(B',f')$ is a morphism $g: B\to B'$ s.t.\vspace*{-1ex}
-\[\xymatrix@R=1ex{&B \ar[dd]^{g}\\
-A \ar[ru]^{f} \ar[rd]_{f'} &\\
-&B'}\]
+\[\begin{tikzcd}[row sep=tiny]
+\& B \arrow[dd,"g"]\\
+A \arrow[ur,"f"] \arrow[dr,"f'" swap]\\
+\& B'
+\end{tikzcd}\]
 \end{itemize}
 \end{definition}
 \end{frame}
@@ -11771,16 +12117,21 @@ A \ar[ru]^{f} \ar[rd]_{f'} &\\
 \begin{itemize}
 \item There is a forgetful functor $U_A:\mathcal{C}/A\to\mathcal{C}$ which maps $(B,f)$ to $B$.
 \item Furthermore, for $h\in\mathcal{C}(A,A')$ there is a functor ``\emph{composition by $h$}'' $\mathcal{C}/h:\mathcal{C}/A\to\mathcal{C}/A'$ which maps $(B,f)$ to $(B,hf)$ and
-\[\xymatrix@R=1ex{&B \ar[ld]_{f} \ar[dd]^{g}\\
-A&\\
-&B'\ar[lu]^{f'}}\qquad\raisebox{-4ex}{to}\qquad\xymatrix@R=1ex{&B \ar[ld]_{hf} \ar[dd]^{g}\\
-A'&\\
-&B'\ar[lu]^{hf'}}\]
+\[\begin{tikzcd}[row sep=tiny]
+\& B \arrow[dd,"g"] \arrow[dl,"f" swap] \&\&\& B \arrow[dl, "hf" swap] \arrow[dd,"g"]\\
+A \&\&\text{to} \& A'\\
+\& B' \arrow[ul,"f'"] \&\&\& B \arrow[ul, "hf'"]
+\end{tikzcd}\]
 \item For any small category $\mathcal{C}$, the construction of over categories itself is a functor $\mathcal{C}/-:\mathcal{C}\to\mathbf{Cat}$.
 \item The functor $\mathcal{C}/-$ then factors through the forgetful functor $U_\mathcal{C}:\mathbf{Cat}/\mathcal{C}\to\mathbf{Cat}$ via a functor $\overline{\mathcal{C}}:\mathcal{C}\to\mathbf{Cat}/\mathcal{C}$.
-\[\raisebox{4ex}{\xymatrix{\mathcal{C}\ar[r]^{\overline{\mathcal{C}}} \ar[rd]_{\mathcal{C}/-} &\mathbf{Cat}/\mathcal{C} \ar[d]^{U_{\mathcal{C}}}\\
-&\mathbf{Cat}}}\;\;\scriptstyle\text{where\;\;$\overline{\mathcal{C}}: A\mapsto (\mathcal{C}/A,U_A)$\;\;and\;\;$\overline{\mathcal{C}}: h\mapsto\raisebox{4ex}{\xymatrix@=3ex{\mathcal{C}/A\ar@1{->}^{\mathcal{C}/h} "1,1";"1,3" &&\mathcal{C}/A'\\
-&\mathcal{C}&\ar@1{<-}^{U_A} "2,2";"1,1" \ar@1{<-}_{U_{A'}} "2,2";"1,3"}}$}\]
+\[\begin{tikzcd}
+\mathcal{C} \arrow[r,"\overline{\mathcal{C}}"] \arrow[dr,"{\mathcal{C}/-}" swap] \& \mathbf{Cat}/\mathcal{C} \arrow[d,"U_{\mathcal{C}}"]\\
+\& \mathbf{Cat}
+\end{tikzcd}\;\;\scriptstyle\text{where}\;\;\overline{\mathcal{C}}: A\mapsto(\mathcal{C}/A,U_A)\;\;\text{and}\;\;\overline{\mathcal{C}}: h \mapsto \begin{tikzcd}[column sep=3ex]
+\mathcal{C}/A \arrow[dr,"U_A" swap] \arrow[rr, "{\mathcal{C}/h}"]
+\&\& \mathcal{C}/A' \arrow[dl,"U_{A'}"]\\
+\& \mathcal{C}
+\end{tikzcd}\]
 \end{itemize}
 \end{frame}
 
@@ -11793,9 +12144,12 @@ Given $\mathcal{A}\xrightarrow{F}\mathcal{C}\xleftarrow{G}\mathcal{B}$, we can f
 	\item the objects are triples $(A,B,h)$ with $A\in\mathcal{A}, B\in\mathcal{B}$ and $h\in\mathcal{C}(FA,GB)$.
 	\item the morphisms from $(A,B,h)$ to $(A',B',h')$ are pairs $(f,g)$ where $f\in\mathcal{A}(A,A'), g\in\mathcal{B}(B,B')$ s.t.
 \[
-\xymatrix{
-FA \ar[r]^{h} \ar@{->}[d]_{Ff} & GB \ar@{->}[d]^{Gg}\\
-FA' \ar@{->}[r]_{h'} &GB'}
+\begin{tikzcd}
+FA \arrow[r,"h"] \arrow[d,"Ff" swap]
+\& GB \arrow[d,"Gg"]\\
+FA' \arrow[r,"h'" swap]
+\& GB'
+\end{tikzcd}
 \]
 \end{itemize}
 \end{definition}
@@ -11808,9 +12162,12 @@ FA' \ar@{->}[r]_{h'} &GB'}
 \begin{frame}\frametitle{Arrow Category}
 \begin{definition}[Arrow Category]
 Given a category $\mathcal{C}$, the \emph{arrow category} $\mathcal{C}^\to$ has as objects the morphisms of $\mathcal{C}$, and a morphism from $h: A\to B$ to $h': A'\to B'$ is a pair $(f,g)$ where $f\in\mathcal{C}(A,A'), g\in\mathcal{C}(B,B')$ s.t.
-\[\xymatrix{
-A \ar[r]^{h} \ar@{->}[d]_{f} & B \ar@{->}[d]^{g}\\
-A' \ar@{->}[r]_{h'} &B'}\]
+\[\begin{tikzcd}
+A \arrow[r,"h"] \arrow[d,"f" swap]
+\& B \arrow[d,"g"]\\
+A' \arrow[r,"h'" swap]
+\& B'
+\end{tikzcd}\]
 \end{definition}
 If $\mathcal{A}=\mathcal{B}=\mathcal{C}$, then the comma category $1_{\mathcal{C}}\downarrow 1_{\mathcal{C}}$ is the arrow category $\mathcal{C}^\to$.
 \end{frame}
@@ -11823,13 +12180,17 @@ Let $G:\mathcal{D}\to\mathcal{C}$ be a functor, and $A\in\mathcal{C}, B\in\mathc
 \begin{itemize}
 	\item A universal morphism from $A$ to $G$ is a unique pair $(B,u)$ where $u\in\mathcal{C}(A,GB)$ with the following property: for any $f\in\mathcal{C}(A,GB')$, there exists a unique morphism $g\in\mathcal{D}(B,B')$ s.t.
 \[
-\xymatrix{A\ar[r]^{u} \ar[rd]_{f} &GB \ar@{.>}[d]^{Gg}\\
-&GB'}
+\begin{tikzcd}
+A \arrow[r,"u"] \arrow[dr, "f"'] \& GB \arrow[d, dashed, "Gg"]\\
+\& GB'
+\end{tikzcd}
 \]
 	\item A universal morphism from $G$ to $A$ is a unique pair $(B,u)$ where $u\in\mathcal{C}(GB,A)$ with the following property: for any $f\in\mathcal{C}(GB',A)$, there exists a unique morphism $g\in\mathcal{D}(B',B)$ s.t.
 \[
-\xymatrix{A &GB \ar[l]_{u}\\
-&GB' \ar[lu]^{f} \ar@{.>}[u]_{Gg}}
+\begin{tikzcd}
+A \& GB \arrow[l,"u" swap]\\
+\& GB' \arrow[ul, "f"] \arrow[u, dashed, "Gg" swap]
+\end{tikzcd}
 \]
 \end{itemize}
 \end{definition}
@@ -11843,13 +12204,17 @@ Let $G:\mathcal{D}\to \mathcal{C}$ be a functor, and $A\in\mathcal{C}$.
 \begin{itemize}
 	\item The \emph{comma category} $A\downarrow G$ has objects all pairs $(B,f)$ with $B\in\mathcal{D}$ and $f\in\mathcal{C}(A,GB)$. A morphism from $(B,f)$ to $(B',f')$ is given by $g\in\mathcal{D}(B,B')$ s.t.\vspace*{-1ex}
 \[
-\xymatrix{A\ar[r]^{f} \ar[rd]_{f'} &GB \ar@{.>}[d]^{Gg}\\
-&GB'}
+\begin{tikzcd}
+A \arrow[r,"f"] \arrow[dr, "f'"'] \& GB \arrow[d, dashed, "Gg"]\\
+\& GB'
+\end{tikzcd}
 \]\vspace*{-3ex}
 	\item The \emph{comma category} $G\downarrow A$ has objects all pairs $(B,f)$ with $B\in\mathcal{D}$ and $f\in\mathcal{C}(GB,A)$. A morphism from $(B,f)$ to $(B',f')$ is given by $g\in\mathcal{D}(B',B)$ s.t.\vspace*{-1ex}
 \[
-\xymatrix{A &GB \ar[l]_{f}\\
-&GB' \ar[lu]^{f'} \ar@{.>}[u]_{Gg}}
+\begin{tikzcd}
+A \& GB \arrow[l,"f" swap]\\
+\& GB' \arrow[ul, "f'"] \arrow[u, dashed, "Gg" swap]
+\end{tikzcd}
 \]
 \end{itemize}
 \end{definition}
@@ -11880,16 +12245,21 @@ Let $G:\mathcal{D}\to \mathcal{C}$ be a functor, and $A\in\mathcal{C}$.
 
 \begin{frame}\frametitle{Universal Property --- Product}
 Let $X$ and $Y$ be objects of a category $\mathcal{D}$.
-\[\xymatrix{X &X\times Y\ar@1{<-}^{\pi_1} "1,1";"1,2" &\ar@1{->}^{\pi_2} "1,2";"1,3" Y\\
-&Z&\ar@1{.>}_h "2,2";"1,2" \ar@1{->}^f "2,2";"1,1" \ar@1{->}_g "2,2";"1,3"}\qquad\xymatrix@C=4pc{(X,Y) &\Delta(X\times Y) \ar[l]_{(\pi_1,\pi_2)}\\
-&\Delta(Z) \ar[lu]^{(f,g)} \ar@{.>}[u]_{\Delta(h)}}
+\[\begin{tikzcd}
+X \& X\times Y \arrow[l,"\pi_1"'] \arrow[r, "\pi_2"] \& Y\\
+\& Z  \arrow[ul,"f"]  \arrow[ur, "g"'] \arrow[u,dashed,"h"]
+\end{tikzcd}\qquad
+\begin{tikzcd}
+(X,Y) \& \Delta(X\times Y) \arrow[l,"{(\pi_1,\pi_2)}" swap]\\
+\& \Delta(Z) \arrow[u,dashed,"\Delta(h)" swap] \arrow[ul, "{(f,g)}"]
+\end{tikzcd}
 \]
 Take $\mathcal{C}$ to be the product category $\mathcal{D}\times\mathcal{D}$, and let $\Delta$ be the diagonal functor $\Delta: \mathcal{C}\to\mathcal{C}^\mathcal{I}$.\\
 Then $(X\times Y,(\pi_1,\pi_2))$ is a universal morphism from $\Delta$ to the object $(X,Y)$ of $\mathcal{D}\times\mathcal{D}$.\\
 One can generalize the above example to arbitrary limits and colimits.
 \begin{itemize}
-	\item Given $D:\mathcal{I}\to\mathcal{C}$ (thought of as an object in $\mathcal{C}^\mathcal{I}$), the limit $\lim\limits_\gets D$ is a universal morphism from $\Delta$ to $D$.
-	\item Dually, the colimit $\lim\limits_\to D$ is a universal morphism from $D$ to $\Delta$.
+	\item Given $D:\mathcal{I}\to\mathcal{C}$ (thought of as an object in $\mathcal{C}^\mathcal{I}$), the limit $\varprojlim D$ is a universal morphism from $\Delta$ to $D$.
+	\item Dually, the colimit $\varinjlim D$ is a universal morphism from $D$ to $\Delta$.
 \end{itemize}
 \end{frame}
 
@@ -11897,16 +12267,18 @@ One can generalize the above example to arbitrary limits and colimits.
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{definition}[Left/Right Adjoint]
-Functors $\xymatrix{\mathcal{C}\ar@{->}@<2pt>[r]^{F}
-\ar@{<-}@<-2pt>[r]_{G} &\mathcal{D}}$ are adjoint if there is a natural isomorphism for any $A\in\mathcal{C}$ and $B\in\mathcal{D}$,
-\[\theta_{A,B}:\mathcal{D}(FA,B)\cong\mathcal{C}(A,GB)\]
+Functors \begin{tikzcd} \mathcal{C} \arrow[r, bend left=10,"F"] \& \mathcal{D} \arrow[l, bend left=10,"G"] \end{tikzcd} are adjoint if there is a natural isomorphism for any $A\in\mathcal{C}$ and $B\in\mathcal{D}$,
+\[\theta_{A,B}:\mathcal{D}(FA,B)\xrightarrow{\cong}\mathcal{C}(A,GB)\]
 Then $F$ is left adjoint to $G$ and $G$ is right adjoint to $F$, notated $F\dashv G$.
 \end{definition}
 Naturality of $\theta$ means that for $f\in\mathcal{C}(A,A')$ and $g\in\mathcal{D}(B,B')$,
-\[\xymatrix{\mathcal{D}(FA,B)\ar[rr]^{\mathcal{D}(Ff,g)}\ar[dd]_{\theta_{A,B}} && \mathcal{D}(FA',B') \ar[dd]^{\theta_{A',B'}}
-\\
-\\
-\mathcal{C}(A,GB)\ar[rr]_{\mathcal{C}(f,Gg)}&&\mathcal{C}(A',GB')}\]
+
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{D}(FA,B) \arrow[r,"{\mathcal{D}(Ff,g)}"] \arrow[d,"\theta_{A,B}" swap]
+\& \mathcal{D}(FA',B') \arrow[d,"\theta_{A',B'}"]\\
+\mathcal{C}(A,GB) \arrow[r,"{\mathcal{C}(f,Gg)}" swap]
+\& \mathcal{C}(A',GB')
+\end{tikzcd}\]
 \end{frame}
 
 \begin{frame}\frametitle{Left/Right Adjoint}
@@ -11974,8 +12346,12 @@ Given a function $f: X\to Y$, consider $f^*: \operatorname{P}(Y)\to \operatornam
 Take the subset $B\subset Y$ as a predicate $B(y)$ over $Y$, and $f^*B$ as $f^*B(x)$ over $X$.\\
 By the pullback, $f^*B(x)=B(fx)\eqqcolon (Bf)(x)$.
 \column{.2\textwidth}
-\[\hspace*{-.2\textwidth}\xymatrix@M+1ex{f^*B\pbcorner \ar[r] \ar[d] &B \ar@^{(->}[d]^i\\
-X \ar[r]_f&Y}\]
+\[\hspace*{-.2\textwidth}\begin{tikzcd}
+f^*B \arrow[r] \arrow[d] \arrow[dr, phantom, "\lrcorner", very near start]
+\& B \arrow[d, hookrightarrow, "i"] \\
+X \arrow[r,"f" swap]
+\& Y
+\end{tikzcd}\]
 \end{columns}
 Then $f^*$ has both a left and a right adjoint $\exists_f,\forall_f: \operatorname{P}(X)\to \operatorname{P}(Y)$.
 \[
@@ -12007,12 +12383,16 @@ The unique functions satisfying these conditions can be defined as
 \end{columns}
 \end{frame}
 
-\begin{frame}\frametitle{Quantifiers are Adjoints $\exists_\pi\dashv \pi^*\dashv\forall_\pi$}
+\begin{frame}\frametitle{\hyperlink{fragment-logic}{\beamerbutton{Quantifiers are Adjoints}} $\exists_\pi\dashv \pi^*\dashv\forall_\pi$}\label{quantifier-adjoint}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 Let $f$ be the projection $\pi: X\times Y\to Y$. Hence $\pi^*: \operatorname{P}(Y)\to \operatorname{P}(X\times Y)$.
-\[\xymatrix@M+1ex{\pi^*B\pbcorner \ar[r] \ar[d] &B \ar@^{(->}[d]^i\\
-X\times Y \ar[r]_\pi&Y}\]
+\[\begin{tikzcd}
+\pi^*B \arrow[r] \arrow[d] \arrow[dr, phantom, "\lrcorner", very near start]
+\& B \arrow[d, hookrightarrow, "i"] \\
+X\times Y \arrow[r,"\pi" swap]
+\& Y
+\end{tikzcd}\]
 By the pullback, $\pi^*B(x,y)=B\pi(x,y)$.\\
 Then $\pi^*$ has both a left and a right adjoint $\exists_\pi,\forall_\pi: \operatorname{P}(X\times Y)\to \operatorname{P}(Y)$.
 \begin{center}
@@ -12105,29 +12485,39 @@ $1_\mathcal{C}:\mathbf{1}\to\mathcal{C}$ has the property that, for every $A\in\
 \end{theorem}
 	\[\mathcal{C}\times\mathcal{C}(\Delta X,(A,B))\cong\mathcal{C}(X,A)\times\mathcal{C}(X,B)\cong\mathcal{C}(X,A\times B)\]
 	\[\mathcal{C}(A+B,X)\cong\mathcal{C}(A,X)\times\mathcal{C}(B,X)\cong\mathcal{C}\times\mathcal{C}((A,B),\Delta X)\]
-\[\xymatrix{A &A\times B\ar@1{<-}^{\pi_1} "1,1";"1,2" &\ar@1{->}^{\pi_2} "1,2";"1,3" B\\
-&X&\ar@1{.>}_u "2,2";"1,2" \ar@1{->}^f "2,2";"1,1" \ar@1{->}_g "2,2";"1,3"}\qquad\qquad\xymatrix{A &A + B\ar@1{->}^{\iota_1} "1,1";"1,2" &\ar@1{<-}^{\iota_2} "1,2";"1,3" B\\
-&X&\ar@1{<.}_u "2,2";"1,2" \ar@1{<-}^f "2,2";"1,1" \ar@1{<-}_g "2,2";"1,3"}\]
+\[\begin{tikzcd}
+A \& A\times B \arrow[l,"\pi_1"'] \arrow[r,"\pi_2"] \& B\\
+\& Z \arrow[ul,"f"] \arrow[ur, "g"']  \arrow[u, dashed, "u"']
+\end{tikzcd}\qquad\begin{tikzcd}
+A \arrow[dr,"f"'] \arrow[r, "\iota_1"]
+\& A+B \arrow[d,dashed,"u"] \& B \arrow[dl,"g"]  \arrow[l, "\iota_2"']\\
+\& Z
+\end{tikzcd}\]
 \end{frame}
 
-\begin{frame}\frametitle{$\lim\limits_{\to}\dashv\Delta\dashv\lim\limits_{\gets}$}
-Consider the constant diagram functor $\Delta:\mathcal{C}\to\mathcal{C}^{\mathcal{I}}$. It maps $X\in\mathcal{C}$ to the constant diagram $\Delta X: \mathcal{I}\to\mathcal{C}$ which maps every object to $X$ and every morphism to $1_X$. The limit construction is a functor $\lim\limits_{\gets}:\mathcal{C}^{\mathcal{I}}\to\mathcal{C}$ that maps each diagram $D\in\mathcal{C}^{\mathcal{I}}$ to its limit $\lim\limits_{\gets} D$.\\
+\begin{frame}\frametitle{$\varinjlim\dashv\Delta\dashv\varprojlim$}
+Consider the constant diagram functor $\Delta:\mathcal{C}\to\mathcal{C}^{\mathcal{I}}$. It maps $X\in\mathcal{C}$ to the constant diagram $\Delta X: \mathcal{I}\to\mathcal{C}$ which maps every object to $X$ and every morphism to $1_X$. The limit construction is a functor $\varprojlim:\mathcal{C}^{\mathcal{I}}\to\mathcal{C}$ that maps each diagram $D\in\mathcal{C}^{\mathcal{I}}$ to its limit $\varprojlim D$.\\
 The cones over $D:\mathcal{I}\to\mathcal{C}$ with vertex $X$ is the hom-set $\mathcal{C}^\mathcal{I}(\Delta X,D)$.\\
-The cones over $D:\mathcal{I}\to\mathcal{C}$ with vertex $X$ correspond one-to-one with $\mathcal{C}(X,\lim\limits_\gets D)$.\\
+The cones over $D:\mathcal{I}\to\mathcal{C}$ with vertex $X$ correspond one-to-one with $\mathcal{C}(X,\varprojlim D)$.\\
 If $\mathcal{C}$ has all limits of shape $\mathcal{I}$, then
-\[\mathcal{C}^\mathcal{I}(\Delta X,D)\cong\mathcal{C}(X,\lim\limits_\gets D)\]
-\[\lim\limits_{\to}\dashv\Delta\dashv\lim\limits_{\gets}\]
+\[\mathcal{C}^\mathcal{I}(\Delta X,D)\cong\mathcal{C}(X,\varprojlim D)\]
+\[\varinjlim\dashv\Delta\dashv\varprojlim\]
 \end{frame}
 
 \begin{frame}\frametitle{Topological interior as an adjoint}
 \begin{itemize}
-	\item A \emph{topological space} $(X,\tau X)$ is a set $X$ with a family $\tau X\subset \operatorname{P}(X)$ of subsets of $X$ which contains $\emptyset$ and $X$, and is closed under finite intersections and arbitrary unions.
+	\item A \emph{topological space} $(X,\mathcal{O}(X))$ is a set $X$ with a family $\mathcal{O}(X)\subset \operatorname{P}(X)$ of subsets of $X$ which contains $\emptyset$ and $X$, and is closed under finite intersections and arbitrary unions.
 	\item The topological \emph{interior} of a subset $S\subset X$ is
-\[S^\circ\coloneqq \bigcup\big\{U\in\tau X: U\subset S\big\}\]
-	\item For $U\in\tau X$ and $S\in \operatorname{P}(X)$, topological interior is a right adjoint to the inclusion of $\tau X$ into $\operatorname{P}(X)$.
+\[S^\circ\coloneqq \bigcup\big\{U\in\mathcal{O}(X): U\subset S\big\}\]
+	\item For $U\in\mathcal{O}(X)$ and $S\in \operatorname{P}(X)$, topological interior is a right adjoint to the inclusion of $\mathcal{O}(X)$ into $\operatorname{P}(X)$.
 \[\infer={U\subset S^\circ}{i\,U\subset S}\]
 \[
-\xymatrix@C+2pc{\tau X \rtwocell<4>_{()^\circ}^{i}{'{\perp}} &\operatorname{P}(X)}
+\begin{tikzcd}
+\mathcal{O}(X) \arrow[r, bend left=30, "i", ""{name=U, below}]
+\arrow[r, bend right=30, "()^\circ"', ""{name=D}]
+\& \operatorname{P}(X)
+\arrow[phantom, "\perp", from=U, to=D]
+\end{tikzcd}
 \]
 \end{itemize}
 \end{frame}
@@ -12168,10 +12558,17 @@ Then
 
 \begin{frame}\frametitle{Left/Right Adjoint via Unit/Counit}
 \begin{theorem}
-Functors $\xymatrix{\mathcal{C} \rtwocell<2>_{G}^{F}{'{\perp}} &\mathcal{D}}$ are adjoint iff there are two natural transformations $\eta: 1_\mathcal{C}\to GF$ and $\varepsilon: FG\to 1_\mathcal{D}$ s.t.
-\[\xymatrix{F\ar[r]^{F\eta}\ar[dr]_{1_F} & FGF\ar[d]^{\varepsilon F}\\ &F}\qquad\raisebox{-3ex}{and}\qquad\xymatrix{G\ar[r]^{\eta G}\ar[dr]_{1_G} & GFG\ar[d]^{G\varepsilon}\\ &G}\]
+Functors \begin{tikzcd} \mathcal{C} \arrow[r, bend left=18,"F", ""{name=U, above}] \& \mathcal{D} \arrow[l, bend left=18,"G", ""{name=D}] 
+\arrow[phantom, "\perp", from=U, to=D]\end{tikzcd} are adjoint iff there are two natural transformations $\eta: 1_\mathcal{C}\to GF$ and $\varepsilon: FG\to 1_\mathcal{D}$ s.t.
+\[\begin{tikzcd}
+F \arrow[r,"F\eta"] \arrow[dr, "1_F"'] \& FGF \arrow[d,"\varepsilon F"]\\
+\& F
+\end{tikzcd}\qquad\begin{tikzcd}
+G \arrow[r,"\eta G"] \arrow[dr, "1_G"'] \& GFG \arrow[d,"G\varepsilon"]\\
+\& G
+\end{tikzcd}\]
 \end{theorem}
-$\eta$ and $\varepsilon$ are called the \emph{unit} and \emph{counit} of the adjunction.
+$\eta$ and $\varepsilon$ are called the \emph{unit} and \emph{counit} of the adjoint.
 \end{frame}
 
 \begin{frame}\frametitle{}
@@ -12179,10 +12576,11 @@ Let $\theta:\mathcal{D}(F-,-)\to\mathcal{C}(-,G-)$ be the natural isomorphism wi
 \centerline{\infer={\eta_A: A\to G(FA)}{1_{FA}: FA\to FA}}
 In fact, we can recover $\theta$ from $\eta$ as follows, for $g\in\mathcal{D}(FA,B)$,
 \[\theta_{A,B}g=\theta_{A,B}(g\circ 1_{FA})=Gg\circ \theta_{A,FA}(1_{FA})=Gg\circ\eta_A\]
-\[\xymatrix{\mathcal{D}(FA,B)\ar[dd]_{\theta_{A,B}} && \mathcal{D}(FA,FA) \ar[ll]_{\mathcal{D}(FA,g)} \ar[dd]^{\theta_{A,FA}}
-\\
-\\
-\mathcal{C}(A,GB)&&\mathcal{C}(A,GFA)\ar[ll]^{\mathcal{C}(A,Gg)}}\]
+\[\begin{tikzcd}[column sep=huge,row sep=huge]
+\mathcal{D}(FA,B)\arrow[d,"\theta_{A,B}" swap] \& \mathcal{D}(FA,FA) \arrow[l,"{\mathcal{D}(FA,g)}" swap] \arrow[d,"\theta_{A,FA}"]\\
+\mathcal{C}(A,GB)
+\& \mathcal{C}(A,GFA) \arrow[l,"{\mathcal{C}(A,Gg)}"]
+\end{tikzcd}\]
 \end{frame}
 
 \begin{frame}\frametitle{}
@@ -12190,10 +12588,11 @@ Similarly, for any $B\in\mathcal{D}$, there is a distinguished morphism $\vareps
 \centerline{\infer={\varepsilon_B: F(GB)\to B}{1_{GB}: GB\to GB}}
 In fact, we can recover $\theta^{-1}$ from $\varepsilon$ as follows, for $f\in\mathcal{C}(A,GB)$,
 \[\theta_{A,B}^{-1}f=\theta_{A,B}^{-1}(1_{GB}\circ f)=\theta_{GB,B}^{-1}1_{GB}\circ Ff=\varepsilon_B\circ Ff\]
-\[\xymatrix{\mathcal{D}(FA,B) && \mathcal{D}(FGB,B) \ar[ll]_{\mathcal{D}(Ff,B)}
-\\
-\\
-\mathcal{C}(A,GB) \ar[uu]^{\theta_{A,B}^{-1}} &&\mathcal{C}(GB,GB) \ar[ll]^{\mathcal{C}(f,GB)} \ar[uu]_{\theta_{GB,B}^{-1}}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{D}(FA,B)
+\& \mathcal{D}(FGB,B) \arrow[l,"{\mathcal{D}(Ff,B)}" swap]\\
+\mathcal{C}(A,GB) \arrow[u,"\theta_{A,B}^{-1}"] \& \mathcal{C}(GB,GB) \arrow[l,"{\mathcal{C}(f,GB)}"] \arrow[u,"\theta_{GB,B}^{-1}" swap]
+\end{tikzcd}\]
 \begin{itemize}
 	\item $1_{FA}=\varepsilon_{FA}\circ F(\eta_A)$ \quad(substitut $FA$ for $B$ and $\eta_A$ for $f$)
 	\item $1_{GB}=G(\varepsilon_B)\circ\eta_{GB}$ \quad(substitut $GB$ for $A$ and $\varepsilon_B$ for $g$)
@@ -12202,11 +12601,20 @@ In fact, we can recover $\theta^{-1}$ from $\varepsilon$ as follows, for $f\in\m
 
 \begin{frame}\frametitle{}
 \begin{itemize}
-\item Functors $\xymatrix{\mathcal{C} \rtwocell<2>_{G}^{F}{'{\perp}} &\mathcal{D}}$ are adjoint iff there is a natural transformation $\eta: 1_\mathcal{C}\to GF$, for which for any $f\in\mathcal{C}(A,GB)$ there is a unique $g\in\mathcal{D}(FA,B)$ s.t. $f=Gg\circ\eta_A$.
-\[\xymatrix{A\ar[r]^{\eta_A}\ar[dr]_{f} & G(FA)\ar@{.>}[d]^{Gg}\\ &GB}\]
-\item Functors $\xymatrix{\mathcal{C} \rtwocell<2>_{G}^{F}{'{\perp}} &\mathcal{D}}$ are adjoint iff there is a natural transformation $\varepsilon: FG\to 1_\mathcal{D}$, for which for any $g\in\mathcal{D}(FA,B)$ there is a unique $f\in\mathcal{C}(A,GB)$ s.t. $g=\varepsilon_B\circ Ff$.
-\[\xymatrix{B &F(GB) \ar[l]_{\varepsilon_B}\\
-&FA \ar[lu]^{g} \ar@{.>}[u]_{Ff}}\]
+\item Functors \begin{tikzcd} \mathcal{C} \arrow[r, bend left=18,"F", ""{name=U, above}] \& \mathcal{D} \arrow[l, bend left=18,"G", ""{name=D}] 
+\arrow[phantom, "\perp", from=U, to=D]\end{tikzcd} are adjoint iff there is a natural transformation $\eta: 1_\mathcal{C}\to GF$, for which for any $f\in\mathcal{C}(A,GB)$ there is a unique $g\in\mathcal{D}(FA,B)$ s.t. $f=Gg\circ\eta_A$.
+\[\begin{tikzcd}
+A \arrow[r,"\eta_A"] \arrow[dr, "f"'] \& G(FA) \arrow[d,dashed,"Gg"]\\
+\& GB
+\end{tikzcd}\]
+\item Functors \begin{tikzcd} \mathcal{C} \arrow[r, bend left=18,"F", ""{name=U, above}] \& \mathcal{D} \arrow[l, bend left=18,"G", ""{name=D}] 
+\arrow[phantom, "\perp", from=U, to=D]\end{tikzcd} are adjoint iff there is a natural transformation $\varepsilon: FG\to 1_\mathcal{D}$, for which for any $g\in\mathcal{D}(FA,B)$ there is a unique $f\in\mathcal{C}(A,GB)$ s.t. $g=\varepsilon_B\circ Ff$.
+\[
+\begin{tikzcd}
+B \& F(GB) \arrow[l,"\varepsilon_B" swap]\\
+\& FA \arrow[u,dashed,"Ff" swap] \arrow[ul, "g"]
+\end{tikzcd}
+\]
 \end{itemize}
 \end{frame}
 
@@ -12234,12 +12642,19 @@ In fact, we can recover $\theta^{-1}$ from $\varepsilon$ as follows, for $f\in\m
 \begin{frame}\frametitle{Left/Right Adjoint via Universal Property}
 \begin{itemize}
 	\item A functor $F:\mathcal{C}\to\mathcal{D}$ has a right adjoint, iff, for any $B\in\mathcal{D}$, there is an object $GB\in\mathcal{C}$ and a morphism $\varepsilon_B\in\mathcal{D}(F(GB),B)$ such that $(GB,\varepsilon_{B})$ is a universal morphism from $F$ to $B$.
-\[\xymatrix{B &F(GB) \ar[l]_{\varepsilon_B}\\
-&FA \ar[lu]^{g} \ar@{.>}[u]_{Ff}}\]
+\[
+\begin{tikzcd}
+B \& F(GB) \arrow[l,"\varepsilon_B" swap]\\
+\& FA \arrow[u,dashed,"Ff" swap] \arrow[ul, "g"]
+\end{tikzcd}
+\]
 	\item A functor $G:\mathcal{D}\to\mathcal{C}$ has a left adjoint, iff, for any $A\in\mathcal{C}$, there is an object $FA\in\mathcal{D}$ and a morphism $\eta_A\in\mathcal{C}(A,G(FA))$ such that $(FA,\eta_{A})$ is a universal morphism from $A$ to $G$.
-\[\xymatrix{A\ar[r]^{\eta_A}\ar[dr]_{f} & G(FA)\ar@{.>}[d]^{Gg}\\ &GB}\]
+\[\begin{tikzcd}
+A \arrow[r,"\eta_A"] \arrow[dr, "f"'] \& G(FA) \arrow[d,dashed,"Gg"]\\
+\& GB
+\end{tikzcd}\]
 \end{itemize}
-\centerline{\fbox{\textcolor{yellow}{Universality $\equiv$ Adjunctions}}}
+\centerline{\fbox{\textcolor{yellow}{Universality $\equiv$ Adjoints}}}
 \end{frame}
 
 \begin{frame}\frametitle{}
@@ -12252,19 +12667,25 @@ In fact, we can recover $\theta^{-1}$ from $\varepsilon$ as follows, for $f\in\m
 \end{itemize}
 \end{theorem}
 \begin{proof}
-Given $\xymatrix{\mathcal{C} \rtwocell<2>_{G}^{F}{'{\perp}} &\mathcal{D}}$, assume limits of shape $\mathcal{I}$ exist in both $\mathcal{C}$ and $\mathcal{D}$. Define $F_*(D)\coloneqq FD$ and $G_*(D)\coloneqq GD$. Then it's easy to see that
+Given \begin{tikzcd} \mathcal{C} \arrow[r, bend left=18,"F", ""{name=U, above}] \& \mathcal{D} \arrow[l, bend left=18,"G", ""{name=D}] 
+\arrow[phantom, "\perp", from=U, to=D]\end{tikzcd}, assume limits of shape $\mathcal{I}$ exist in both $\mathcal{C}$ and $\mathcal{D}$. Define $F_*(D)\coloneqq FD$ and $G_*(D)\coloneqq GD$. Then it's easy to see that
 \[
-\xymatrix@C+2pc{\mathcal{C}^\mathcal{I} \rtwocell<4>_{G_*}^{F_*}{'{\perp}} &\mathcal{D}^\mathcal{I}}
+\begin{tikzcd}[column sep=large,row sep=large] \mathcal{C}^\mathcal{I} \arrow[r, bend left=18,"F_*", ""{name=U, above}] \& \mathcal{D}^\mathcal{I} \arrow[l, bend left=18,"G_*", ""{name=D}] 
+\arrow[phantom, "\perp", from=U, to=D]\end{tikzcd}
 \]
 Since the diagram of right-adjoints of the functors in a commutative square commutes up to natural isomorphism, then
 \[
-\xymatrix{
-\mathcal{C} \ar[r]^{F} \ar@{->}[d]_{\Delta} & \mathcal{D} \ar@{->}[d]^{\Delta}\\
-\mathcal{C}^\mathcal{I} \ar@{->}[r]_{F_*} &\mathcal{D}^\mathcal{I}}\qquad\raisebox{-4ex}{$\implies$}\qquad\xymatrix{
-\mathcal{C} & \mathcal{D} \ar[l]_{G}\\
-\mathcal{C}^\mathcal{I} \ar@{->}[u]^{\lim\limits_\gets} &\mathcal{D}^\mathcal{I} \ar@{->}[l]^{G_*} \ar@{->}[u]_{\lim\limits_\gets}}
+\begin{tikzcd}
+\mathcal{C} \arrow[r,"F"] \arrow[d,"\Delta" swap] \& \mathcal{D} \arrow[d, "\Delta"]\\
+\mathcal{C}^\mathcal{I} \arrow[r,"F_*" swap]
+\& \mathcal{D}^\mathcal{I}
+\end{tikzcd}\qquad\implies\qquad\begin{tikzcd}
+\mathcal{C} \& \mathcal{D} \arrow[l, "G" swap]\\
+\mathcal{C}^\mathcal{I} \arrow[u,"\varprojlim"]
+\& \mathcal{D}^\mathcal{I} \arrow[l,"G_*"] \arrow[u,"\varprojlim" swap]
+\end{tikzcd}
 \]
-\[G\lim\limits_\gets D\cong \lim\limits_\gets GD\]
+\[G\varprojlim D\cong \varprojlim GD\]
 \end{proof}
 \end{frame}
 
@@ -12279,7 +12700,10 @@ Suppose $\mathcal{D}$ is locally small and complete. Then $\mathcal{D}$ has an i
 \end{lemma}\vspace*{-1ex}
 \begin{theorem}[Adjoint Functor Theorem]
 Suppose $\mathcal{D}$ is locally small and complete. Then $G:\mathcal{D}\to\mathcal{C}$ has a left adjoint iff $G$ is continuous and for each $A\in\mathcal{C}$, the comma category $A\downarrow G$ has a \textbf{weakly initial set:} there is a set of objects $(B_i,f_i:A\to GB_i)_{i\in I}$ in $A\downarrow G$ s.t. for any $(B,f:A\to GB)$ there exists some $i\in I$ and $g_i:B_i\to B$ with $f=Gg_i\circ f_i$.\vspace*{-12pt}
-\[\xymatrix{A\ar[r]^{f_i}\ar[dr]_{f} & GB_i\ar[d]^{Gg_i}\\ &GB}\]
+\[\begin{tikzcd}
+A \arrow[r,"f_i"] \arrow[dr, "f"'] \& GB_i \arrow[d,"Gg_i"]\\
+\& GB
+\end{tikzcd}\]
 \end{theorem}
 \end{frame}
 
@@ -12296,11 +12720,15 @@ A \emph{monad} $(t,\eta,\mu)$ on a category $\mathcal{C}$ consists of
 	\item $\mu \circ t\eta=\mu \circ \eta t=1_t$ (as natural transformations $t\to t$).
 \end{itemize}
 \[
-\xymatrix{
-t^3 \ar[r]^{t\mu} \ar@{->}[d]_{\mu t} & t^2 \ar@{->}[d]^{\mu}\\
-t^2 \ar@{->}[r]_{\mu} &t}\qquad\qquad\xymatrix{
-t \ar[r]^{\eta t} \ar@{->}[d]_{t\eta} \ar@{=}[rd] & t^2 \ar@{->}[d]^{\mu}\\
-t^2 \ar@{->}[r]_{\mu} &t}
+\begin{tikzcd}
+t^3 \arrow[r,"t\mu"] \arrow[d,"\mu t" swap] \& t^2 \arrow[d, "\mu"] \\
+t^2 \arrow[r,"\mu" swap]
+\& t
+\end{tikzcd}\qquad\qquad\begin{tikzcd}
+t \arrow[r,"\eta t"] \arrow[d,"t\eta" swap] \arrow[dr,equal] \& t^2 \arrow[d, "\mu"] \\
+t^2 \arrow[r,"\mu" swap]
+\& t
+\end{tikzcd}
 \]
 \end{definition}
 A \emph{comonad} for a category $\mathcal{C}$ is a monad for the opposite category $\mathcal{C}^\mathrm{op}$.
@@ -12309,18 +12737,26 @@ A \emph{comonad} for a category $\mathcal{C}$ is a monad for the opposite catego
 \begin{frame}\frametitle{Monad}
 The first axiom is akin to the associativity in monoids if we think of $\mu$ as the monoid's binary operation, and the second axiom is akin to the existence of an identity element. Indeed, a monad on $\mathcal{C}$ can be regarded as a monoid in the category $\mathbf{End}_{\mathcal{C}}$ whose objects are the endofunctors of $\mathcal{C}$ and whose morphisms are the natural transformations between them, with the monoidal structure induced by the composition of endofunctors.
 \[
-\xymatrix{
-t^3 \ar[r]^{t\mu} \ar@{->}[d]_{\mu t} & t^2 \ar@{->}[d]^{\mu}\\
-t^2 \ar@{->}[r]_{\mu} &t}\qquad\qquad\xymatrix{
-t \ar[r]^{\eta t} \ar@{->}[d]_{t\eta} \ar@{=}[rd] & t^2 \ar@{->}[d]^{\mu}\\
-t^2 \ar@{->}[r]_{\mu} &t}
+\begin{tikzcd}
+t^3 \arrow[r,"t\mu"] \arrow[d,"\mu t" swap] \& t^2 \arrow[d, "\mu"] \\
+t^2 \arrow[r,"\mu" swap]
+\& t
+\end{tikzcd}\qquad\qquad\begin{tikzcd}
+t \arrow[r,"\eta t"] \arrow[d,"t\eta" swap] \arrow[dr,equal] \& t^2 \arrow[d, "\mu"] \\
+t^2 \arrow[r,"\mu" swap]
+\& t
+\end{tikzcd}
 \]
 \[
-\xymatrix{
-tttx \ar[r]^{t\mu_x} \ar@{->}[d]_{\mu_{tx}} & ttx \ar@{->}[d]^{\mu_x}\\
-ttx \ar@{->}[r]_{\mu_x} &tx}\qquad\qquad\xymatrix{
-tx \ar[r]^{\eta_{tx}} \ar@{->}[d]_{t\eta_x} \ar@{=}[rd] & ttx \ar@{->}[d]^{\mu_x}\\
-ttx \ar@{->}[r]_{\mu_x} &tx}
+\begin{tikzcd}
+tttx \arrow[r,"t\mu_x"] \arrow[d,"\mu_{tx}" swap] \& ttx \arrow[d, "\mu_x"] \\
+ttx \arrow[r,"\mu_x" swap]
+\& tx
+\end{tikzcd}\qquad\qquad\begin{tikzcd}
+tx \arrow[r,"\eta_{tx}"] \arrow[d,"t\eta_x" swap] \arrow[dr,equal] \& ttx \arrow[d, "\mu_x"] \\
+ttx \arrow[r,"\mu_x" swap]
+\& tx
+\end{tikzcd}
 \]
 \end{frame}
 
@@ -12358,9 +12794,10 @@ ttx \ar@{->}[r]_{\mu_x} &tx}
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Monads from Adjunctions}
-\begin{block}{Monads from Adjunctions}
-Any adjunction $\xymatrix{\mathcal{C} \rtwocell<2>_{G}^{F}{'{\perp}} &\mathcal{D}}$ gives rise to a monad on the category $\mathcal{C}$, with 
+\begin{frame}\frametitle{Monads from Adjoints}
+\begin{block}{Monads from Adjoints}
+Any adjoint \begin{tikzcd} \mathcal{C} \arrow[r, bend left=18,"F", ""{name=U, above}] \& \mathcal{D} \arrow[l, bend left=18,"G", ""{name=D}] 
+\arrow[phantom, "\perp", from=U, to=D]\end{tikzcd} gives rise to a monad on the category $\mathcal{C}$, with 
 \begin{itemize}
 	\item the endofuntor $t\coloneqq GF$,
 	\item the unit natural transformation $\eta: 1_\mathcal{C}\to GF$,
@@ -12376,20 +12813,29 @@ Any adjunction $\xymatrix{\mathcal{C} \rtwocell<2>_{G}^{F}{'{\perp}} &\mathcal{D
 \begin{frame}\frametitle{$\mathrm{T}$-Algebra}
 \begin{definition}
 Let $\mathrm{T}=(t,\eta,\mu)$ be a monad on $\mathcal{C}$. A $\mathrm{T}$-algebra is a pair $(a,\alpha)$ where $a\in\mathcal{C}$ and $\alpha: ta\to a$ s.t.
-\[\xymatrix{
-tta \ar[r]^{t\alpha} \ar@{->}[d]_{\mu a} & ta \ar@{->}[d]^{\alpha}&&a \ar@{->}[r]^{\eta a} \ar@{->}[rd]_{1_a} &ta \ar@{->}[d]^{\alpha}\\
-ta \ar@{->}[r]_{\alpha} &a&&&a}\]
+\[\begin{tikzcd}
+tta \arrow[r,"t\alpha"] \arrow[d,"\mu a" swap] \& ta \arrow[d, "\alpha"] \\
+ta \arrow[r,"\alpha" swap]
+\& a
+\end{tikzcd}\qquad
+\begin{tikzcd}
+a \arrow[r,"\eta a"] \arrow[dr, "1_a"'] \& ta \arrow[d,"\alpha"]\\
+\& a
+\end{tikzcd}\]
 \end{definition}
 A homomorphism of $\mathrm{T}$-algebras $f:(a,\alpha)\to(b,\beta)$ is $f: a\to b$ s.t.
-\[\xymatrix{
-ta \ar[r]^{tf} \ar@{->}[d]_{\alpha} & tb \ar@{->}[d]^{\beta}\\
-a \ar@{->}[r]_{f} &b}\]
+\[\begin{tikzcd}
+ta \arrow[r,"tf"] \arrow[d,"\alpha" swap] \& tb \arrow[d, "\beta"] \\
+a \arrow[r,"f" swap]
+\& b
+\end{tikzcd}\]
 The category of $\mathrm{T}$-algebras and $\mathbf{T}$-algebra homomorphisms is denoted $\mathcal{C}^\mathbf{T}$. This is called the Eilenberg-Moore category.
 \end{frame}
 
 \begin{frame}\frametitle{}
 \begin{theorem}
-\textcolor{yellow}{Every monad $\mathrm{T}=(t,\eta,\mu)$ arises from an adjunction $\xymatrix{\mathcal{C} \rtwocell<2>_{U}^{F}{'{\perp}} &\mathcal{C}^\mathrm{T}}$.}\\
+\textcolor{yellow}{Every monad $\mathrm{T}=(t,\eta,\mu)$ arises from an adjoint \begin{tikzcd} \mathcal{C} \arrow[r, bend left=18,"F", ""{name=U, above}] \& \mathcal{C}^\mathrm{T} \arrow[l, bend left=18,"U", ""{name=D}] 
+\arrow[phantom, "\perp", from=U, to=D]\end{tikzcd}.}\\
 More precisely, there are natural transformations $(\dot{\eta},\dot{\varepsilon}): F\dashv U$ and $t=UF, \eta=\dot{\eta}, \mu=U\dot{\varepsilon} F$.
 \end{theorem}
 \begin{proof}
@@ -12420,12 +12866,17 @@ A \emph{strict monoidal category} is one for which the natural isomorphisms $\al
 
 \begin{frame}\frametitle{Monoidal Category}
 \[
-\xymatrix@C+7pt{
-A\otimes(B\otimes(C\otimes D)) \ar[r]^{\alpha_{A,B,C\otimes D}} \ar@{->}[d]_{1_A\otimes \alpha_{B,C,D}} & (A\otimes B)\otimes (C\otimes D) \ar@{->}[r]^{\alpha_{A\otimes B,C,D}} & ((A\otimes B)\otimes C)\otimes D\\
-A\otimes ((B\otimes C)\otimes D) \ar@{->}[rr]_{\alpha_{A,B\otimes C,D}} &&(A\otimes (B\otimes C))\otimes D \ar@{->}[u]_{\alpha_{A,B,C}\otimes 1_D}}
+\begin{tikzcd}[row sep=large]
+A\otimes(B\otimes(C\otimes D)) \arrow[r,"\alpha_{A,B,C\otimes D}"] \arrow[d,"1_A\otimes \alpha_{B,C,D}" swap] \& (A\otimes B)\otimes (C\otimes D) \arrow[r, "\alpha_{A\otimes B,C,D}"] \& ((A\otimes B)\otimes C)\otimes D\\
+A\otimes ((B\otimes C)\otimes D) \arrow[rr,"\alpha_{A,B\otimes C,D}" swap]
+\&\& (A\otimes (B\otimes C))\otimes D \arrow[u,"\alpha_{A,B,C}\otimes 1_D" swap]
+\end{tikzcd}
 \]
-\[\xymatrix{A\otimes(I\otimes B) \ar@{->}[rr]^{\alpha_{A,I,B}} \ar@{->}[rd]_{1_A\otimes\lambda_B} && (A\otimes I)\otimes B \ar@{->}[ld]^{\rho_A\otimes 1_B}\\
-&A\otimes B}\]
+\[\begin{tikzcd}
+A\otimes(I\otimes B) \arrow[dr,"1_A\otimes\lambda_B" swap] \arrow[rr, "\alpha_{A,I,B}"]
+\&\& (A\otimes I)\otimes B \arrow[dl,"\rho_A\otimes 1_B"] \\
+\& A\otimes B
+\end{tikzcd}\]
 \end{frame}
 
 \begin{frame}\frametitle{Examples}
@@ -12443,14 +12894,16 @@ A\otimes ((B\otimes C)\otimes D) \ar@{->}[rr]_{\alpha_{A,B\otimes C,D}} &&(A\oti
 \begin{definition}[Braided Monoidal Category]
 	A \emph{braided monoidal category} $\mathcal{C}$ is a monoidal category equipped with a natural isomorphism $\sigma$ called the \emph{braiding} that assigns to every pair of objects $A,B\in\mathcal{C}$ an isomorphism $\sigma_{A,B}: A\otimes B\to B\otimes A$ such that,
 \[
-\xymatrix@C+7pt{
-A\otimes(B\otimes C) \ar[r]^{\alpha_{A,B,C}} \ar@{->}[d]_{\sigma_{A,B\otimes C}} & (A\otimes B)\otimes C \ar@{->}[r]^{\sigma_{A,B}\otimes 1_C} & (B\otimes A)\otimes C \ar@{->}[d]^{\alpha_{B,A,C}^{-1}}\\
-(B\otimes C)\otimes A &B\otimes(C\otimes A) \ar@{->}[l]^{\alpha_{B,C,A}} &B\otimes (A\otimes C) \ar@{->}[l]^{1_B\otimes\sigma_{A,C}}}
+\begin{tikzcd}[row sep=large]
+A\otimes(B\otimes C) \arrow[r,"\alpha_{A,B,C}"] \arrow[d,"\sigma_{A,B\otimes C}" swap] \& (A\otimes B)\otimes C \arrow[r, "\sigma_{A,B}\otimes 1_C"] \& (B\otimes A)\otimes C \arrow[d,"\alpha_{B,A,C}^{-1}"]\\
+(B\otimes C)\otimes A \& B\otimes(C\otimes A) \arrow[l,"\alpha_{B,C,A}"] \& B\otimes (A\otimes C) \arrow[l,"1_B\otimes\sigma_{A,C}"]
+\end{tikzcd}
 \]
 \[
-\xymatrix@C+7pt{
-(A\otimes B)\otimes C \ar[r]^{\alpha_{A,B,C}^{-1}} \ar@{->}[d]_{\sigma_{A\otimes B,C}} & A\otimes (B\otimes C) \ar@{->}[r]^{1_A\otimes\sigma_{B,C}} & A\otimes (C\otimes B) \ar@{->}[d]^{\alpha_{A,C,B}}\\
-C\otimes (A\otimes B) &(C\otimes A)\otimes B \ar@{->}[l]^{\alpha_{C,A,B}^{-1}} &(A\otimes C)\otimes B \ar@{->}[l]^{\sigma_{A,C}\otimes 1_B}}
+\begin{tikzcd}[row sep=large]
+(A\otimes B)\otimes C \arrow[r,"\alpha_{A,B,C}^{-1}"] \arrow[d,"\sigma_{A\otimes B,C}" swap] \& A\otimes (B\otimes C) \arrow[r, "1_A\otimes\sigma_{B,C}"] \& A\otimes (C\otimes B) \arrow[d,"\alpha_{A,C,B}"]\\
+C\otimes (A\otimes B) \& (C\otimes A)\otimes B \arrow[l,"\alpha_{C,A,B}^{-1}"] \& (A\otimes C)\otimes B \arrow[l,"\sigma_{A,C}\otimes 1_B"]
+\end{tikzcd}
 \]
 \end{definition}
 \end{frame}
@@ -12502,14 +12955,16 @@ A morphism $f:A\to B$ in a dagger category is:
 \begin{definition}[Compact Closed Category]
 A \emph{compact closed category} is a symmetric monoidal category where each object $A$ has a dual object $A^*$, a unit $\eta_A: I\to A^*\otimes A$, and a counit $\varepsilon_A: A\otimes A^*\to I$ such that
 \[
-\xymatrix@C+7pt{
-A \ar[r]^{\rho_A^{-1}} \ar@{->}[d]_{1_A} & A\otimes I \ar@{->}[r]^{1_A\otimes\eta_A} & A\otimes (A^*\otimes A) \ar@{->}[d]^{\alpha_{A,A^*,A}}\\
-A &I\otimes A \ar@{->}[l]^{\lambda_A} &(A\otimes A^*)\otimes A \ar@{->}[l]^{\varepsilon_A\otimes 1_A}}
+\begin{tikzcd}[column sep=large, row sep=large]
+A \arrow[r,"\rho_A^{-1}"] \arrow[d,"1_A" swap] \& A\otimes I \arrow[r, "1_A\otimes\eta_A"] \& A\otimes (A^*\otimes A) \arrow[d,"\alpha_{A,A^*,A}"]\\
+A \& I\otimes A \arrow[l,"\lambda_A"] \& (A\otimes A^*)\otimes A \arrow[l,"\varepsilon_A\otimes 1_A"]
+\end{tikzcd}
 \]
 \[
-\xymatrix@C+7pt{
-A^* \ar[r]^{\lambda_{A^*}^{-1}} \ar@{->}[d]_{1_{A^*}} & I\otimes A^* \ar@{->}[r]^{\eta_A\otimes 1_{A^*}} & (A^*\otimes A)\otimes A^* \ar@{->}[d]^{\alpha_{A^*,A,A^*}^{-1}}\\
-A^* &A^*\otimes I \ar@{->}[l]^{\rho_{A^*}} &A^*\otimes (A\otimes A^*) \ar@{->}[l]^{1_{A^*}\otimes \varepsilon_A}}
+\begin{tikzcd}[column sep=large, row sep=large]
+A^* \arrow[r,"\lambda_{A^*}^{-1}"] \arrow[d,"1_{A^*}" swap] \& I\otimes A^* \arrow[r, "\eta_A\otimes 1_{A^*}"] \& (A^*\otimes A)\otimes A^* \arrow[d,"\alpha_{A^*,A,A^*}^{-1}"]\\
+A^* \& A^*\otimes I \arrow[l,"\rho_{A^*}"] \& A^*\otimes (A\otimes A^*) \arrow[l,"1_{A^*}\otimes \varepsilon_A"]
+\end{tikzcd}
 \]
 \end{definition}
 \end{frame}
@@ -12519,7 +12974,13 @@ A^* &A^*\otimes I \ar@{->}[l]^{\rho_{A^*}} &A^*\otimes (A\otimes A^*) \ar@{->}[l
 \setlength\belowdisplayskip{0pt}
 \begin{definition}[Dagger Compact Closed Category]
 	A \emph{dagger compact closed category} is a dagger symmetric monoidal category that is also compact closed, and such that:
-	\[\xymatrix{I\ar[r]^{\varepsilon_A^\dagger}\ar[dr]_{\eta_A} & A\otimes A^*\ar[d]^{\sigma_{A,A^*}}\\ &A^*\otimes A}\]
+\[
+\begin{tikzcd}
+I \arrow[r, "\varepsilon_A^\dagger"] \arrow[dr, "\eta_A"']
+\& A\otimes A^* \arrow[d, "\sigma_{A,A^*}"]\\
+\& A^*\otimes A
+\end{tikzcd}
+\]
 \end{definition}\small
 \begin{block}{Examples}
 	\begin{itemize}
@@ -12542,14 +13003,16 @@ Infinite-dimensional Hilbert spaces are dagger symmetric monoidal categories, bu
 		\item an arrow $\circ_{abc}:\mathcal{C}(b,c)\otimes\mathcal{C}(a,b)\to\mathcal{C}(a,c)$ in $V$ for each triple $a,b,c\in\operatorname{ob}(\mathcal{C})$ such that
 	\end{itemize}
 \[
-\xymatrix@C-7pt{
-(\mathcal{C}(c,d)\otimes \mathcal{C}(b,c))\otimes\mathcal{C}(a,b) \ar[rr]^{\alpha} \ar@{->}[d]_{\circ_{bcd}\otimes 1} && \mathcal{C}(c,d)\otimes(\mathcal{C}(b,c)\otimes\mathcal{C}(a,b))\ar@{->}[d]^{1\otimes\circ_{abc}}\\
-\mathcal{C}(b,d)\otimes\mathcal{C}(a,b) \ar@{->}[r]_{\circ_{abd}} &\mathcal{C}(a,d)&\mathcal{C}(c,d)\otimes\mathcal{C}(a,c) \ar@{->}[l]^{\circ_{acd}}}
+\begin{tikzcd}[column sep=small]
+(\mathcal{C}(c,d)\otimes \mathcal{C}(b,c))\otimes\mathcal{C}(a,b) \arrow[rr,"\alpha"] \arrow[d,"\circ_{bcd}\otimes 1" swap] \&\& \mathcal{C}(c,d)\otimes(\mathcal{C}(b,c)\otimes\mathcal{C}(a,b)) \arrow[d, "1\otimes\circ_{abc}"]\\
+\mathcal{C}(b,d)\otimes\mathcal{C}(a,b) \arrow[r,"\circ_{abd}" swap] \& \mathcal{C}(a,d) \& \mathcal{C}(c,d)\otimes\mathcal{C}(a,c) \arrow[l,"\circ_{acd}"]
+\end{tikzcd}
 \]
 \[
-\xymatrix@C+17pt{
-\mathcal{C}(b,b)\otimes\mathcal{C}(a,b) \ar[r]^{\circ_{abb}} & \mathcal{C}(a,b) & \mathcal{C}(a,b)\otimes\mathcal{C}(a,a)\ar@{->}[l]_{\circ_{aab}}\\
-I\otimes\mathcal{C}(a,b) \ar@{->}[u]^{\operatorname{id}_b\otimes 1} \ar@{->}[ur]_{\lambda} &&\mathcal{C}(a,b)\otimes I \ar@{->}[ul]^{\rho} \ar@{->}[u]_{1\otimes\operatorname{id}_{a}}}
+\begin{tikzcd}[column sep=large]
+\mathcal{C}(b,b)\otimes\mathcal{C}(a,b) \arrow[r,"\circ_{abb}"] \& \mathcal{C}(a,b) \& \mathcal{C}(a,b)\otimes\mathcal{C}(a,a) \arrow[l,"\circ_{aab}" swap]\\
+I\otimes\mathcal{C}(a,b) \arrow[u,"\operatorname{id}_b\otimes 1"] \arrow[ur,"\lambda" swap] \&\& \mathcal{C}(a,b)\otimes I \arrow[ul,"\rho"] \arrow[u,"1\otimes\operatorname{id}_{a}" swap]
+\end{tikzcd}
 \]
 \end{definition}
 \end{frame}
@@ -12567,6 +13030,193 @@ I\otimes\mathcal{C}(a,b) \ar@{->}[u]^{\operatorname{id}_b\otimes 1} \ar@{->}[ur]
 	\item A Lawvere metric space can be viewed as a category enriched in the monoidal poset $\mathbf{Cost}\coloneqq ([0,\infty],\geq,+,0)$, where the tensor product is $+$, and the identity is $0$.
 \[\operatorname{hom}(x,y)\coloneqq d(x,y)\in \operatorname{ob}(\mathbf{Cost})\]
 \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Sheaf}
+\begin{itemize}
+	\item The topology $\mathcal{O}(X)$ of $X$, i.e. the poset of open subsets of $X$, ordered by inclusion, can be considered to be a category.
+	\item A presheaf $F: \mathcal{O}(X)^{\mathrm{op}}\to\mathbf{Set}$ is a \emph{sheaf} if it satisfies:
+	\begin{enumerate}
+		\item (Locality) For any open cover $(U_i)_{i\in I}$ of $U$, and for $s,t\in F(U)$, and $\forall i: s{\restriction_{U_i}}=t{\restriction_{U_i}}$, then $s=t$.
+		\item (Gluing) For any open cover $(U_i)_{i\in I}$ of $U$, and for $\left(s_i\in F(U_i)\right)_{i\in I}$ such that $\forall i,j: s_i{\restriction_{U_i\cap U_j}}=s_j{\restriction_{U_i\cap U_j}}$, then there exists some $s\in F(U)$ such that $\forall i: s{\restriction_{U_i}}=s_i$.
+	\end{enumerate}
+	\item It ``says'' roughly that there is a unique way to ``glue'' together functions that are defined locally. In other words, for sheaves, one can systematically move from the local to the global.
+	\item The category $\mathbf{Sh}(X)$ is the category of sheaves and morphisms are natural transformations between them.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Etale Bundle}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+\begin{itemize}
+	\item Consider the over category $\mathbf{Top}/X$. An \emph{\'etale bundle} over $X$ is $(Y,f:Y\to X)$ in $\mathbf{Top}/X$ such that $f$ is a local homeomorphism: that is, for every $y\in Y$, there is an open set $U\ni y$ such that $f(U)$ is open in $X$ and $f{\restriction_U}: U\to f(U)$ is a homeomorphism.
+	\item The category $\mathbf{Et}(X)$ is the category of \'etale bundles over $X$ and morphisms are the continous functions between them.
+	\item \begin{tikzcd} \widehat{\mathcal{O}(X)} \arrow[r, bend left=18,"\Lambda", ""{name=U, above}] \& \mathbf{Top}/X \arrow[l, bend left=18,"\Gamma", ""{name=D}]
+\arrow[phantom, "\perp", from=U, to=D]\end{tikzcd}\\
+	where $\Gamma: Y\xrightarrow{f} X\mapsto\big\{s:U\to Y: f\circ s=i:U\hookrightarrow X\big\}$, while $\Lambda: F\mapsto \coprod\limits_{x\in X} F_x$ and $F_x\coloneqq \varinjlim\limits_{U\ni x} FU$. There are natural transformations
+	\[\eta_F: F\to \Gamma\Lambda F,\quad \varepsilon_Y: \Lambda\Gamma Y\to Y\]
+	for $F$ a presheaf and $Y$ a bundle which are unit and counit.
+	\item If $F$ is a sheaf, $\eta_F$ is an isomorphism, while if $Y$ is \'etale, $\varepsilon_Y$ is an isomorphism. \begin{tikzcd} \mathbf{Sh}(X) \arrow[r, bend left=18,"", ""{name=U, above}] \& \mathbf{Et}(X) \arrow[l, bend left=18,"", ""{name=D}]
+\arrow[phantom, "\cong", from=U, to=D]\end{tikzcd}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Kan Extension}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}\vspace*{-1ex}
+\begin{definition}[Left Kan Extension]
+	Given functors $F: \mathcal{C}\to\mathcal{E}$ and $K:\mathcal{C}\to\mathcal{D}$, a \emph{left Kan extension} of $F$ along $K$ is a functor $\operatorname{Lan}_KF:\mathcal{D}\to\mathcal{E}$ with a natural transformation $\eta:F\to \operatorname{Lan}_KF\circ K$ s.t. for any such pair $(G:\mathcal{D}\to\mathcal{E}, \gamma:F\to GK)$, there exists a unique natural transformation $\alpha:\operatorname{Lan}_KF\to G$ with $\gamma=\alpha K\circ\eta$.
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{C} \arrow[dr,"K" swap] \arrow[rr, "F", ""{name=U, below}]
+\&\& \mathcal{E} \\
+\& \mathcal{D} \arrow[ur, dashed, "\operatorname{Lan}_KF" swap] \arrow[Rightarrow, from=U, "\eta"]
+\end{tikzcd}
+\]
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{C} \arrow[dr,"K" swap] \arrow[rr, "F", ""{name=U, below}]
+\&\& \mathcal{E} \\
+\& \mathcal{D} \arrow[ur, "G" swap] \arrow[Rightarrow, from=U, "\gamma"]
+\end{tikzcd}=
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{C} \arrow[dr,"K" swap] \arrow[rr, "F", ""{name=U, below}]
+\&\& \mathcal{E} \\
+\& \mathcal{D} \arrow[ur, bend left=30, "\operatorname{Lan}_KF" description, ""{name=L,below}] \arrow[ur, bend right=30, "G" swap, ""{name=R,above}] \arrow[Rightarrow, from=U, "\eta"] \arrow[Rightarrow, from=L, to=R, "\alpha" swap]
+\end{tikzcd}
+\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Kan Extension}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}\vspace*{-1ex}
+\begin{definition}[Right Kan Extension]
+	Given functors $F: \mathcal{C}\to\mathcal{E}$ and $K:\mathcal{C}\to\mathcal{D}$, a \emph{right Kan extension} of $F$ along $K$ is a functor $\operatorname{Ran}_KF:\mathcal{D}\to\mathcal{E}$ with a natural transformation $\varepsilon:\operatorname{Ran}_KF\circ K\to F$ s.t. for any such pair $(G:\mathcal{D}\to\mathcal{E}, \delta:GK\to F)$, there exists a unique natural transformation $\beta:G\to\operatorname{Lan}_KF$ with $\delta=\varepsilon\circ\beta K$.
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{C} \arrow[dr,"K" swap] \arrow[rr, "F", ""{name=U, below}]
+\&\& \mathcal{E} \\
+\& \mathcal{D} \arrow[ur, dashed, "\operatorname{Lan}_KF" swap] \arrow[Rightarrow, to=U, "\varepsilon" swap]
+\end{tikzcd}
+\]
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{C} \arrow[dr,"K" swap] \arrow[rr, "F", ""{name=U, below}]
+\&\& \mathcal{E} \\
+\& \mathcal{D} \arrow[ur, "G" swap] \arrow[Rightarrow, to=U, "\delta" swap]
+\end{tikzcd}=
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{C} \arrow[dr,"K" swap] \arrow[rr, "F", ""{name=U, below}]
+\&\& \mathcal{E} \\
+\& \mathcal{D} \arrow[ur, bend left=30, "\operatorname{Ran}_KF" description, ""{name=L,below}] \arrow[ur, bend right=30, "G" swap, ""{name=R,above}] \arrow[Rightarrow, to=U, "\varepsilon" swap] \arrow[Rightarrow, from=R, to=L, "\beta"]
+\end{tikzcd}
+\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Example}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+For any object $A\in\mathcal{C}$ and any $F:\mathcal{C}\to\mathbf{Set}$, there is a bijection between elements $x\in FA$ and natural transformations with boundary as displayed
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbf{1} \arrow[dr,"A" swap] \arrow[rr, "*", ""{name=U, below}]
+\&\& \mathbf{Set} \\
+\& \mathcal{C} \arrow[ur, "F" swap] \arrow[Rightarrow, from=U, "x"]
+\end{tikzcd}
+\]
+By the Yoneda lemma, the representable functor $\mathcal{C}(A,-)$ and the identity $1_A\in\mathcal{C}(A,A)$ define the left Kan extension of $*:\mathbf{1}\to\mathbf{Set}$ along $A:\mathbf{1}\to\mathcal{C}$.
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbf{1} \arrow[dr,"A" swap] \arrow[rr, "*", ""{name=U, below}]
+\&\& \mathbf{Set} \\
+\& \mathcal{C} \arrow[ur, dashed, "{\mathcal{C}(A,-)}" swap] \arrow[Rightarrow, from=U, "1_A"]
+\end{tikzcd}\quad
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbf{1} \arrow[dr,"A" swap] \arrow[rr, "*", ""{name=U, below}]
+\&\& \mathbf{Set} \\
+\& \mathcal{C} \arrow[ur, bend left=30, "{\mathcal{C}(A,-)}" description, ""{name=L,below}] \arrow[ur, bend right=30, "F" swap, ""{name=R,above}] \arrow[Rightarrow, from=U, "1_A"] \arrow[Rightarrow, from=L, to=R, "\psi(x)" swap]
+\end{tikzcd}
+\]
+The required unique factorization is the natural transformation $\psi(x):\mathcal{C}(A,-)\to F$ with $\psi(x)_A(1_A)=x$.
+\end{frame}
+
+\begin{frame}\frametitle{$\operatorname{Lan}_K\dashv K^*\dashv \operatorname{Ran}_K$}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+\begin{theorem}
+If the Kan extensions exist for all $F$, then $\operatorname{Lan}_K\dashv K^*\dashv \operatorname{Ran}_K$, where $K^*\coloneqq -\circ K$.
+\[
+\begin{tikzcd}[column sep=large]
+\mathcal{E}^\mathcal{C} \arrow[rr, bend left=40, ""{name=U,below}, "\operatorname{Lan}_K"]
+\arrow[rr, bend right=40, ""{name=D,above}, "\operatorname{Ran}_K" swap]
+\&\& \mathcal{E}^\mathcal{D}
+\arrow[ll, "K^*"' description, ""{name=C1,above}, ""{name=C2,below}]
+\arrow[phantom, "\perp", from=U, to=C1]
+\arrow[phantom, "\perp", from=C2, to=D]
+\end{tikzcd}
+\]
+\end{theorem}
+\begin{proof}
+By the Yoneda Lemma, any pair $(G,\gamma)$, as in the definition for the left Kan extension, yields a natural transformation by $\gamma_H^*(\alpha)\coloneqq\alpha K\circ \gamma$.
+\[\gamma^*: \mathcal{E}^\mathcal{D}(G,-)\to\mathcal{E}^\mathcal{C}(F,-\circ K)\]
+The universal property of the left Kan extension says that $(\operatorname{Lan}_K,\eta)$ yields a natural isomorphism.
+\[\mathcal{E}^\mathcal{D}(\operatorname{Lan}_KF,-)\cong\mathcal{E}^\mathcal{C}(F,-\circ K)\]
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{(Co)Limits as Kan Extensions}
+\begin{theorem}[(Co)Limits as Kan Extensions]
+\begin{enumerate}
+	\item The left Kan extension $\operatorname{Lan}_!D$ of $D:\mathcal{I}\to\mathcal{C}$ along $!:\mathcal{I}\to\mathbf{1}$ defines the colimit $\varinjlim D$.
+\[
+\begin{tikzcd}[column sep=normal, row sep=normal]
+\mathcal{I} \arrow[dr,"!" swap] \arrow[rr, "D", ""{name=U, below}]
+\&\& \mathcal{C} \\
+\& \mathbf{1} \arrow[ur, "C" swap] \arrow[Rightarrow, from=U, "\eta"]
+\end{tikzcd}\quad = \quad
+\raisebox{2.5ex}{\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{I} \arrow[r, bend right=80, "\Delta_C" swap, ""{name=D, above}] \arrow[r, "D", ""{name=U, below}]
+\& \mathcal{C} \arrow[Rightarrow, from=U, to=D, "\eta"]
+\end{tikzcd}}
+\]
+	\item Dually, the right Kan extension $\operatorname{Ran}_!D$ defines the limit $\varprojlim D$.
+\[
+\begin{tikzcd}[column sep=normal, row sep=normal]
+\mathcal{I} \arrow[dr,"!" swap] \arrow[rr, "D", ""{name=U, below}]
+\&\& \mathcal{C} \\
+\& \mathbf{1} \arrow[ur, "C" swap] \arrow[Rightarrow, to=U, "\varepsilon" swap]
+\end{tikzcd}\quad = \quad
+\raisebox{2.5ex}{\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathcal{I} \arrow[r, bend right=80, "\Delta_C" swap, ""{name=D, above}] \arrow[r, "D", ""{name=U, below}]
+\& \mathcal{C} \arrow[Rightarrow, from=D, to=U, "\varepsilon" swap]
+\end{tikzcd}}
+\]
+\end{enumerate}
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{Adjoints as Kan Extensions}
+\begin{theorem}[Adjoints as Kan Extensions]
+\begin{enumerate}
+	\item If $F \dashv G$ is an adjoint with unit $\eta: 1_\mathcal{C}\to GF$ and counit $\varepsilon: FG\to 1_\mathcal{D}$, then $(G,\eta)$ is a left Kan extension of the identity functor $1_\mathcal{C}$ along $F$ and $(F,\varepsilon)$ is a right Kan extension of the identity functor $1_\mathcal{D}$ along $G$.
+\[
+\begin{tikzcd}[column sep=large, row sep=large]
+\mathcal{C} \arrow[dr,"F" swap] \arrow[rr, "{1_\mathcal{C}}", ""{name=U, below}]
+\&\& \mathcal{C} \\
+\& \mathcal{D} \arrow[ur, dashed, "{G\cong \operatorname{Lan}_F 1_\mathcal{C}}" swap] \arrow[Rightarrow, from=U, "\eta"]
+\end{tikzcd}
+\begin{tikzcd}[column sep=large, row sep=large]
+\mathcal{D} \arrow[dr,"G" swap] \arrow[rr, "{1_\mathcal{D}}", ""{name=U, below}]
+\&\& \mathcal{D} \\
+\& \mathcal{C} \arrow[ur, dashed, "{F\cong \operatorname{Ran}_G 1_\mathcal{D}}" swap] \arrow[Rightarrow, to=U, "\varepsilon" swap]
+\end{tikzcd}
+\]
+	Moreover, both Kan extensions are \emph{absolute}(preserved by all functors).
+	\item Conversely, if $(G,\eta: 1_\mathcal{C}\to GF)$ is a left Kan extension of the identity functor $1_\mathcal{C}$ along $F$ and if $F$ preserves this Kan extension, then $F \dashv G$ with unit $\eta$.
+\end{enumerate}
+\end{theorem}
 \end{frame}
 
 
@@ -12795,16 +13445,22 @@ f: X\rightarrowtail Y &\;\;\mbox{ iff }\;\; \exists g: Y\to X: gf=1_X\\
 &\;\;\mbox{ iff }\;\; \forall Z\forall g_1g_2: Z\to X: fg_1=fg_2\implies g_1=g_2\\
 f: X\twoheadrightarrow Y &\;\;\mbox{ iff }\;\; \exists g: Y\to X: fg=1_Y\\
 &\;\;\mbox{ iff }\;\; \forall Z\forall g_1g_2: Y\to Z: g_1f=g_2f\implies g_1=g_2\\
-&\qquad\xymatrix{X\ar[r]^{f} \ar[rd]_{1_X} &Y \ar[d]^{g}\\
-&X}\qquad\qquad \xymatrix{Y\ar[r]^{g} \ar[rd]_{1_Y} &X \ar[d]^{f}\\
-&Y}\\
-&\xymatrix{Z\ar@{->}@<2pt>[r]^{g_1}
-\ar@{->}@<-2pt>[r]_{g_1} &X\ar@{->}[r]^{f} &Y}\qquad
-\xymatrix{X\ar@{->}[r]^{f} &Y\ar@{->}@<2pt>[r]^{g_1}
-\ar@{->}@<-2pt>[r]_{g_1} &Z}\\
+&\qquad\begin{tikzcd}
+X \arrow[r,"f"] \arrow[dr, "1_X"'] \& Y \arrow[d,"g"]\\
+\& X
+\end{tikzcd}\qquad\qquad
+\begin{tikzcd}
+Y \arrow[r,"g"] \arrow[dr, "1_Y"'] \& X \arrow[d,"f"]\\
+\& Y
+\end{tikzcd}\\
+&\begin{tikzcd} Z \arrow[r, yshift=0.6ex,"g_1"] \arrow[r,  yshift=-0.6ex,"g_2" swap] \& X \arrow[r,"f"] \& Y \end{tikzcd}\qquad
+\begin{tikzcd} 
+X \arrow[r, "f"] \& Y \arrow[r, yshift=0.6ex,"g_1"] \arrow[r,  yshift=-0.6ex,"g_2" swap] \& Z \end{tikzcd}\\
 f: X\biject Y &\;\;\mbox{ iff the diagram commutes: }
-\xymatrix{X\ar[r]^f \ar[dr]_{1_X} &Y\ar[d]^g \ar[dr]^{1_Y}\\
-& X\ar[r]_f & Y}
+\begin{tikzcd}
+X \arrow[r,"f"] \arrow[dr, "1_X"'] \& Y \arrow[d,"g"] \arrow[dr,"1_Y"]\\
+\& X \arrow[r,"f" swap] \& Y
+\end{tikzcd}
 \end{align*}
 \end{frame}
 
@@ -13690,7 +14346,7 @@ Let $R$ be a well-founded relation on $A$. Let $G$ be a function. Then there is 
 				\resizebox{\textwidth}{!}{
 					\begin{minipage}{\textwidth}
 						\begin{tikzpicture}
-						\matrix(m)[green, matrix of math nodes, column sep=0.7cm,row sep=0.7cm, ampersand replacement=\&]{
+						\matrix(m)[green, matrix of math nodes, column sep=0.7cm,row sep=0.7cm]{
 							\dfrac{1}{1} \& \dfrac{1}{2} \& \dfrac{1}{3} \& \dfrac{1}{4} \& \cdots\\
 							\dfrac{2}{1} \& \dfrac{2}{2} \& \dfrac{2}{3} \& \dfrac{2}{4} \& \cdots\\
 							\dfrac{3}{1} \& \dfrac{3}{2} \& \dfrac{3}{3} \& \dfrac{3}{4} \& \cdots\\
@@ -14076,7 +14732,7 @@ x&\mbox{otherwise }
 					\draw[-latex,red] (r3) -- (d3);
 					\draw[-latex,green] (d3) -- (r2);
 					\draw[-latex,red] (r2) -- (d4);
-					\draw [->,dotted,green] (d4) -- node{}(output);
+					\draw [->,dashed,green] (d4) -- node{}(output);
 					\end{tikzpicture}
 			\end{minipage}}
 			\[\textcolor{green}{m_i\mapsto n_i}\]
@@ -14874,8 +15530,8 @@ For $k,k'\in\operatorname{Iter}(j)$, declare $k\equiv_n k'\coloneqq \forall x\in
 	\begin{center}
 		$\operatorname{prf}_{\mathrm{T}}(y,x)\coloneqq $ ``$y$ is the code of a proof in $\mathrm{T}$ of the formula with code $x$.''
 	\end{center}
-	\[\Box_{\mathrm{T}}x\coloneqq \exists y \operatorname{prf}_{\mathrm{T}}(y,x)\]
-	\[\Box_{\mathrm{T}} A\coloneqq \Box_{\mathrm{T}}\ulcorner A\urcorner\]
+	\[\operatorname{prov}_{\mathrm{T}}(x)\coloneqq \exists y \operatorname{prf}_{\mathrm{T}}(y,x)\]
+	\[\Box_{\mathrm{T}} A\coloneqq \operatorname{prov}_{\mathrm{T}}(\ulcorner A\urcorner)\]
 	\textcolor{yellow}{Is there a wff $A$ s.t. $\mathrm{T}\vdash A\leftrightarrow\neg\Box_{\mathrm{T}}A$?}
 \end{frame}
 
@@ -15324,12 +15980,11 @@ Yanofsky: A universal approach to self-referential paradoxes, incompleteness and
 \setlength\belowdisplayskip{0pt}
 \begin{columns}
 \column{.57\textwidth}
-\begin{definition}[Weakly Point Surjective]
-A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g: X\to Y$, there is a $t: \mathbf{1}\to X$ such that, for all $x: \mathbf{1}\to X$:
-\[g\circ x=f\circ(x,t): \mathbf{1}\to Y\]
+\begin{definition}[Point-Surjective]
+A morphism $f: X\to Y$ is \emph{point-surjective} if for every $y: 1\to Y$, there is an $x: \mathbf{1}\to X$ such that $y=f\circ x$.
 \end{definition}
 	\begin{theorem}[Lawvere's Fixpoint Theorem]
-		Let $\mathcal{C}$ be a category with finite products. If $f: X\times X\to Y$ is weakly point surjective, then every endomorphism $\alpha: Y\to Y$ has a fixpoint $y:\mathbf{1}\to Y$ such that $\alpha\circ y=y$.
+		In a cartesian closed category, if there is a point-surjective morphism $f: X\to Y^X$, then every morphism $\alpha: Y\to Y$ has a fixpoint $y:\mathbf{1}\to Y$.
 	\end{theorem}
 \column{.2\textwidth}
 	\begin{figure}
@@ -15352,11 +16007,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 	\end{theorem}
 	\begin{columns}[onlytextwidth]
 		\column{.62\textwidth}
-			\[\xymatrix{X\times X
-				\ar[rr]^f && Y \ar[dd]^\alpha
-				\\
-				\\
-				X\ar[uu]^{\Delta}\ar[rr]_{g}&&Y}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times X \arrow[r,"f"] \& Y \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"\Delta"] \& Y
+\end{tikzcd}\]
 				$\alpha\big(f\left(\ulcorner g\urcorner,\ulcorner g\urcorner\right)\big)=g\left(\ulcorner g\urcorner\right)=f\left(\ulcorner g\urcorner,\ulcorner g\urcorner\right)$
 		\column{.38\textwidth}
 			\resizebox{\textwidth}{!}{\hspace{-0.15\textwidth}
@@ -15384,26 +16038,25 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{theorem}[Lawvere's Fixpoint Theorem]
-		For all sets $X, Y, Z$, and all functions $\beta: X\to Y, f: X\times Y\to Z, \alpha: Z\to Z$, let $g\coloneqq \alpha\circ f\circ(1_X,\beta)$. Assume \textcolor{red}{$\beta$ is surjective}. 
+		For all sets $X, Y, Z$, and all functions $\beta: X\to Y, f: X\times Y\to Z, \alpha: Z\to Z$, let $g\coloneqq \alpha\circ f\circ\langle 1_X,\beta\rangle$. Assume \textcolor{red}{$\beta$ is surjective}. 
 		\begin{enumerate}
 			\item If \textcolor{yellow}{$\alpha$ has no fixpoint}, then \textcolor{green}{$g$ is not representable by $f$}.
 			\item If \textcolor{yellow}{$g$ is representable by $f$}, then \textcolor{green}{$\alpha$ has a fixpoint}.
 		\end{enumerate}
 	\end{theorem}
-	\[\xymatrix{X\times Y
-	\ar[rr]^f && Z \ar[dd]^\alpha\\
-	\\
-	X\ar[uu]^{(1_X,\beta)}\ar[rr]_{g}&&Z}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times Y \arrow[r,"f"] \& Z \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"{\langle 1_X,\beta\rangle}"] \& Z
+\end{tikzcd}\]
 \end{frame}
 
 \begin{frame}\frametitle{Example --- Grelling/Liar/Quine\dots Paradox}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
-	\[\xymatrix{X\times X
-		\ar[rr]^{f} && \mathbf{2} \ar[dd]^\alpha
-		\\
-		\\
-		X\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathbf{2}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times X \arrow[r,"f"] \& \mathbf{2} \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \mathbf{2}
+\end{tikzcd}\]
 	where \textcolor{yellow}{$f: (x,y)\mapsto\left\llbracket y\;\mbox{``describes''}\;x\right\rrbracket$} and \textcolor{yellow}{$\alpha: x\mapsto 1-x$}.
 	\begin{itemize}
 		\item Is ``non-self-descriptive'' non-self-descriptive?
@@ -15415,11 +16068,12 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 \begin{frame}\frametitle{Example --- Russell Paradox}
 	\begin{columns}
 		\column{.6\textwidth}
-			\[\xymatrix{V\times V
-				\ar[rr]^{f} && \mathbf{2} \ar[dd]^\alpha
-				\\
-				\\
-				V\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathbf{2}}\]
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times X \arrow[r,"f"] \& \mathbf{2} \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \mathbf{2}
+\end{tikzcd}
+\]
 			where
 			\[\textcolor{yellow}{f:(x,y)\mapsto\left\llbracket x\in y\right\rrbracket}\]
 			and
@@ -15439,15 +16093,15 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 						\draw[-,thick] (0,0) -- (4,0);
 						\draw[-,green,thick] (0,3) -- (4,3);
 						
-						\node at (-0.5,2) {$V$};
-						\node at (2,-0.5) {$V$};
+						\node at (-0.5,2) {$X$};
+						\node at (2,-0.5) {$X$};
 						\node at (-0.2,3) {$y$};
 						\node at (2,3.3) {$S_y$};
 						\node at (2,2.3) {$R$};
 						\end{tikzpicture}
 					\end{figure}
 			\end{minipage}}
-			\[\mbox{Let } S\subset V\times V\]
+			\[\mbox{Let } S\subset X\times X\]
 			\[S_y\coloneqq \{x: Sxy\}\]
 			\[R\coloneqq \{x: x\notin S_x\}\]
 			\[\forall x:\;R\neq S_x\]
@@ -15463,11 +16117,12 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 	&n\Vdash\Box A&\iff &&\forall m\geq n\implies m\Vdash A
 	\end{aligned}
 	\]
-	\[\xymatrix{\mathrm{Sen}\times \mathrm{Sen}
-		\ar[rr]^{f} && \mathbf{2} \ar[dd]^\alpha
-		\\
-		\\
-		\mathrm{Sen}\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathbf{2}}\]
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathrm{Sen}\times \mathrm{Sen} \arrow[r,"f"] \& \mathbf{2} \arrow[d,"\alpha"]\\
+\mathrm{Sen} \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \mathbf{2}
+\end{tikzcd}
+\]
 	\[\textcolor{yellow}{f: (X,Y)\mapsto\llbracket X\nleftrightarrow\bcircle\Box\neg Y\rrbracket}\quad\mbox{and}\quad\textcolor{yellow}{\alpha: x\mapsto 1-x}\]
 	\begin{theorem}
 		For any wff $A$, $\mathrm{LTL}\nvdash A\leftrightarrow\bcircle\Box\neg A$.
@@ -15478,11 +16133,12 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 	\begin{theorem}[Euclid's Theorem]
 		There are infinitely many prime numbers.
 	\end{theorem}\vspace{-2ex}
-	\[\xymatrix{\mathbb{N}\times \mathbb{N}
-		\ar[rr]^{f} && \mathbf{2} \ar[dd]^\alpha
-		\\
-		\\
-		\mathbb{N}\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathbf{2}}\]
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{N}\times \mathbb{N} \arrow[r,"f"] \& \mathbf{2} \arrow[d,"\alpha"]\\
+\mathbb{N} \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \mathbf{2}
+\end{tikzcd}
+\]
 	where 
 	\[\textcolor{yellow}{f(m,n)=\begin{cases}
 	1 &\forall p\in\mathbb{P}: p|(m!+1)\to p<n\\
@@ -15503,11 +16159,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 	\vspace{-7pt}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
-	\[\xymatrix{\mathbb{N}\times \mathbb{N}
-		\ar[rr]^{f} && \mathbf{10} \ar[dd]^\alpha
-		\\
-		\\
-		\mathbb{N}\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathbf{10}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{N}\times \mathbb{N} \arrow[r,"f"] \& \mathbf{10} \arrow[d,"\alpha"]\\
+\mathbb{N} \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \mathbf{10}
+\end{tikzcd}\]
 	where \textcolor{yellow}{$f: (m,n)\mapsto r_{mn}\coloneqq \mbox{``the $n\textsuperscript{th}$ digit of the $m\textsuperscript{th}$ real''}$} and \textcolor{yellow}{$\alpha: x\mapsto 9-x$}.
 	\begin{itemize}
 		\item There exists uncomputable real $\sum_ng(n)10^{-n}$, where
@@ -15530,20 +16185,19 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 			\begin{theorem}[Cantor's Theorem]
 				\[|X|<|\operatorname{P}(X)|\]
 			\end{theorem}
-			\[\xymatrix{X\times \operatorname{P}(X)
-				\ar[rr]^{f} && \mathbf{2} \ar[dd]^\alpha
-				\\
-				\\
-				X\ar[uu]^{(1_X,\beta)}\ar[rr]_{g}&&\mathbf{2}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times \operatorname{P}(X) \arrow[r,"f"] \& \mathbf{2} \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"{\langle 1_X,\beta\rangle}"] \& \mathbf{2}
+\end{tikzcd}\]
 			where \textcolor{yellow}{$f: (x,y)\mapsto\llbracket x\in y\rrbracket$} and \textcolor{yellow}{$\alpha: x\mapsto 1-x$}.\\
 			\centering\textcolor{red}{$\beta$ is not surjective.}
 		\column{.5\textwidth}
 			\[\mbox{\textcolor{yellow}{another proof:}
 				assume $h: \operatorname{P}(X)\rightarrowtail X$.}\]
-			\[\xymatrix{\operatorname{P}(X)\times \operatorname{P}(X) \ar[rr]^{f} && \mathbf{2} \ar[dd]^{\alpha}
-				\\
-				\\
-				\operatorname{P}(X)\ar[uu]^{\Delta}\ar[rr]_{g}&& \mathbf{2}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\operatorname{P}(X)\times \operatorname{P}(X) \arrow[r,"f"] \& \mathbf{2} \arrow[d,"\alpha"]\\
+\operatorname{P}(X) \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \mathbf{2}
+\end{tikzcd}\]
 			where \textcolor{yellow}{$f: (x,y)\mapsto\llbracket h(x)\in y\rrbracket$}, and \textcolor{yellow}{$\alpha: x\mapsto 1-x$}.
 			
 			$g$ is representable by $y\coloneqq \big\{h(x): x\subset X\;\&\;h(x)\notin x\big\}$.
@@ -15552,11 +16206,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 
 \begin{frame}\frametitle{Example --- Cantor's Theorem --- another proof}
 	If $|X|\geq|\operatorname{P}(X)|$, then there exists some enumeration $\{S_i\}_{i\in X}$ of $\operatorname{P}(X)$.
-	\[\xymatrix{X\times\{S_i\}_{i\in X}
-		\ar[rr]^{f} && \mathbf{2} \ar[dd]^\alpha
-		\\
-		\\
-		X\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathbf{2}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times \{S_i\}_{i\in X} \arrow[r,"f"] \& \mathbf{2} \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \mathbf{2}
+\end{tikzcd}\]
 	where \textcolor{yellow}{$f: (x,y)\mapsto\llbracket x\in S_y\rrbracket$} and \textcolor{yellow}{$\alpha: x\mapsto 1-x$}.
 	\[g: x\mapsto\llbracket x\notin S_x\rrbracket\]
 	
@@ -15570,11 +16223,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 		For $|Y|\geq 2$,
 		\[|X|<|Y^X|\]
 	\end{theorem}
-	\[\xymatrix{X\times X
-		\ar[rr]^{f} && Y \ar[dd]^\alpha
-		\\
-		\\
-		X\ar[uu]^{\Delta}\ar[rr]_{g}&& Y}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times X \arrow[r,"f"] \& Y \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"\Delta"] \& Y
+\end{tikzcd}\]
 	where $\alpha$ is the cyclic permutation.\\
 	\textcolor{yellow}{Every $g: X\to Y$ is representable by some $f: X\times X\to Y$ iff $\exists f: X\twoheadrightarrow Y^X$.}
 	\centering\fbox{\emph{\textcolor{green}{If there exists $f: X\twoheadrightarrow Y^X$, then every $\alpha: Y\to Y$ has a fixpoint.}}}
@@ -15583,11 +16235,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 \begin{frame}\frametitle{Example --- Continuous Functions}
 	\begin{itemize}
 		\item Since a continuous function on $\mathbb{R}$ is determined by its values at rational points, the set of continuous functions $|C(\mathbb{R},\mathbb{R})|=|\mathbb{R}|$. However, there is no continuous surjection $\mathbb{R}\twoheadrightarrow C(\mathbb{R},\mathbb{R})$ from the real line to the Banach space of continuous real functions, equipped with the $\sup$-norm $\|f\|_\infty=\sup\limits_{x\in\mathbb{R}}|f(x)|$.
-		\[\xymatrix{\mathbb{R}\times C(\mathbb{R},\mathbb{R})
-			\ar[rr]^{\mathcal{F}} && \mathbb{R} \ar[dd]^\alpha
-			\\
-			\\
-			\mathbb{R}\ar[uu]^{(1_\mathbb{R},\beta)}\ar[rr]_{g}&&\mathbb{R}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{R}\times C(\mathbb{R},\mathbb{R}) \arrow[r,"\mathcal{F}"] \& \mathbb{R} \arrow[d,"\alpha"]\\
+\mathbb{R} \arrow[r,"g" swap] \arrow[u,"{\langle 1_\mathbb{R},\beta\rangle}"] \&\mathbb{R}
+\end{tikzcd}\]
 		where \textcolor{yellow}{$\mathcal{F}: (x,f)\mapsto f(x)$} and \textcolor{yellow}{$\alpha: x\mapsto x+1$}.
 		\item For most spaces $X$, there is no space-filling curve for its path space, $f: I\to X^I$.
 	\end{itemize}
@@ -15596,11 +16247,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 \begin{frame}\frametitle{Example --- total recursive but not primitive recursive}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
-	\[\xymatrix{\mathbb{N}\times \mathbb{N}
-		\ar[rr]^{f} && \mathbb{N}\ar[dd]^\alpha
-		\\
-		\\
-		\mathbb{N}\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathbb{N}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{N}\times \mathbb{N} \arrow[r,"f"] \& \mathbb{N} \arrow[d,"\alpha"]\\
+\mathbb{N} \arrow[r,"g" swap] \arrow[u,"\Delta"] \&\mathbb{N}
+\end{tikzcd}\]
 	where \textcolor{yellow}{$f: (m,n)\mapsto\psi_n(m)$} and \textcolor{yellow}{$\alpha: x\mapsto x+1$}.
 	\[g: n\mapsto\psi_n(n)+1\]
 	
@@ -15610,11 +16260,12 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 \end{frame}
 
 \begin{frame}\frametitle{Example --- Berry Paradox vs Busy Beaver}
-	\[\xymatrix{\mathbb{N}\times\mathbb{N}
-		\ar[rr]^{\mathcal{E}_\varphi} && \left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2} \ar[dd]^{\alpha}
-		\\
-		\\
-		\mathbb{N}\ar[uu]^{\Delta}\ar[rr]_{g}&&\left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2}}\]
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{N}\times \mathbb{N} \arrow[r,"\mathcal{E}_\varphi"] \& \left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2} \arrow[d,"\alpha"]\\
+\mathbb{N} \arrow[r,"g" swap] \arrow[u,"\Delta"] \&\left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2}
+\end{tikzcd}
+\]
 	where \textcolor{yellow}{$\mathcal{E}_\varphi:(m,n)\mapsto\varphi_n(m)$}, and
 	\textcolor{yellow}{$\alpha: \varphi_n(m)\mapsto\min\big(\mathbb{N}\setminus\left\{\varphi_{k}(m): k\leq n\right\}\big)$}
 	\[g(m)=\min\big(\mathbb{N}\setminus\left\{\varphi_{k}(m): k\leq m\right\}\big)=\mu n\left[K(n|m)>m\right]\]
@@ -15623,11 +16274,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 \end{frame}
 
 \begin{frame}\frametitle{\small Example --- Not every partial recursive function is potentially recursive}
-	\[\xymatrix{\mathbb{N}\times\mathbb{N}
-		\ar[rr]^{\mathcal{E}_\varphi} && \left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2} \ar[dd]^{\alpha}
-		\\
-		\\
-		\mathbb{N}\ar[uu]^{\Delta}\ar[rr]_{g}&&\left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{N}\times \mathbb{N} \arrow[r,"\mathcal{E}_\varphi"] \& \left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2} \arrow[d,"\alpha"]\\
+\mathbb{N} \arrow[r,"g" swap] \arrow[u,"\Delta"] \&\left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2}
+\end{tikzcd}\]
 	where \textcolor{yellow}{$\mathcal{E}_\varphi:(m,n)\mapsto\varphi_n(m)$}, and
 	\textcolor{yellow}{$\alpha: x\mapsto x+1$}
 	\[g: m\mapsto\varphi_m(m)+1\]
@@ -15640,11 +16290,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 	\begin{theorem}[Turing1936]
 		The Halting problem is unsolvable.
 	\end{theorem}
-	\[\xymatrix{\mathbb{N}\times \mathbb{N}
-		\ar[rr]^H && \mathbf{2} \ar[dd]^\alpha
-		\\
-		\\
-		\mathbb{N}\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathbf{2}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{N}\times \mathbb{N} \arrow[r,"H"] \& \mathbf{2} \arrow[d,"\alpha"]\\
+\mathbb{N} \arrow[r,"g" swap] \arrow[u,"\Delta"] \&\mathbf{2}
+\end{tikzcd}\]
 	where \textcolor{yellow}{$H:(x,y)\mapsto\left\llbracket \varphi_y(x)\downarrow\right\rrbracket$}, and \textcolor{yellow}{$\alpha(x)=
 	\begin{cases}
 	1&\text{if}\;x=0\\
@@ -15656,11 +16305,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 
 \begin{frame}\frametitle{Example --- Turing's Halting Problem --- another proof}
 	%\begin{proof}
-	\[\xymatrix{\mathbb{N}\times\mathbb{N}
-		\ar[rr]^{\mathcal{E}_\varphi} && \left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2} \ar[dd]^{\alpha}
-		\\
-		\\
-		\mathbb{N}\ar[uu]^{\Delta}\ar[rr]_{g}&&\left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{N}\times \mathbb{N} \arrow[r,"\mathcal{E}_\varphi"] \& \left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2} \arrow[d,"\alpha"]\\
+\mathbb{N} \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \left\{\varphi_n(m)\right\}_{(m,n)\in\mathbb{N}^2}
+\end{tikzcd}\]
 	where \textcolor{yellow}{$\mathcal{E}_\varphi:(m,n)\mapsto\varphi_n(m)$}, and
 	\[\textcolor{yellow}{\alpha: \varphi_n(m)\mapsto
 	\begin{cases}
@@ -15681,11 +16329,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 		Given a recursive function $h$, there is an index $e$ s.t.
 		\[\varphi_e=\varphi_{h(e)}\]
 	\end{theorem}
-	\[\xymatrix{\mathbb{N}\times \mathbb{N}
-		\ar[rr]^{f} && \left\{\varphi_n\right\}_{n\in\mathbb{N}} \ar[dd]^{\mathcal{E}_h}
-		\\
-		\\
-		\mathbb{N}\ar[uu]^{\Delta}\ar[rr]_{g}&&\left\{\varphi_n\right\}_{n\in\mathbb{N}}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{N}\times \mathbb{N} \arrow[r,"f"] \& \left\{\varphi_n\right\}_{n\in\mathbb{N}} \arrow[d,"\mathcal{E}_h"]\\
+\mathbb{N} \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \left\{\varphi_n\right\}_{n\in\mathbb{N}}
+\end{tikzcd}\]
 	where \textcolor{yellow}{$f:(m,n)\mapsto\varphi_{\varphi_n(m)}$}, and \textcolor{yellow}{$\mathcal{E}_h:\varphi_n\mapsto\varphi_{h(n)}$}.\\
 	The function $g: m\mapsto\varphi_{h\left(\varphi_m(m)\right)}$ is a recursive sequence of partial recursive functions, and thus is representable by $f$. Explicitly,
 	\[g(m)=\varphi_{h(\varphi_m(m))}=\varphi_{s(m)}=\varphi_{\varphi_t(m)}=f(m,t)\]
@@ -15693,11 +16340,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 \end{frame}
 
 \begin{frame}\frametitle{Example --- $\mathbf{Y}$ Combinator}
-	\[\xymatrix{\Lambda\times \Lambda
-		\ar[rr]^{f} && \Lambda \ar[dd]^{\mathcal{E}_y}
-		\\
-		\\
-		\Lambda\ar[uu]^{\Delta}\ar[rr]_{g}&&\Lambda}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\Lambda\times \Lambda \arrow[r,"f"] \& \Lambda \arrow[d,"\mathcal{E}_y"]\\
+\Lambda \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \Lambda
+\end{tikzcd}\]
 	where \textcolor{yellow}{$f:(x,y)\mapsto yx$}, and \textcolor{yellow}{$\mathcal{E}_y: x\mapsto yx$}.
 	\[g=\lambda x.y(xx)\]
 	\[gg=\mathcal{E}_y(gg)\]
@@ -15706,11 +16352,10 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 \end{frame}
 
 \begin{frame}\frametitle{Example --- $\mathbf{Z}$ Combinator}
-	\[\xymatrix{\Lambda\times \Lambda
-		\ar[rr]^{f} && \Lambda \ar[dd]^{\mathcal{E}_y}
-		\\
-		\\
-		\Lambda\ar[uu]^{\Delta}\ar[rr]_{g}&&\Lambda}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\Lambda\times \Lambda \arrow[r,"f"] \& \Lambda \arrow[d,"\mathcal{E}_y"]\\
+\Lambda \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \Lambda
+\end{tikzcd}\]
 	where \textcolor{yellow}{$f:(x,y)\mapsto \lambda v.yxv$}, and \textcolor{yellow}{$\mathcal{E}_y: x\mapsto yx$}.
 	\[g=\lambda x.y(\lambda v.xxv)\]
 	\[gg=\mathcal{E}_y(gg)\]
@@ -15720,11 +16365,12 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g
 \end{frame}
 
 \begin{frame}\frametitle{Example --- $\Theta$ Combinator}
-	\[\xymatrix{\Lambda\times \Lambda
-		\ar[rr]^{f} && \Lambda \ar[dd]^{\alpha}
-		\\
-		\\
-		\Lambda\ar[uu]^{\Delta}\ar[rr]_{g}&&\Lambda}\]
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\Lambda\times \Lambda \arrow[r,"f"] \& \Lambda \arrow[d,"\alpha"]\\
+\Lambda \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \Lambda
+\end{tikzcd}
+\]
 	where \textcolor{yellow}{$f:(x,y)\mapsto yx$}, and \textcolor{yellow}{$\alpha: x\mapsto\lambda y.y(xy)$}.
 	\[g=\lambda xy.y(xxy)\]
 	\[gg=\alpha(gg)\]
@@ -15734,11 +16380,10 @@ Generally, let $\gamma\coloneqq \lambda x_1\dots x_{n-1}y.y(wy)$ where $w$ is an
 \end{frame}
 
 \begin{frame}\frametitle{Example --- $\Theta_v$ Combinator}
-	\[\xymatrix{\Lambda\times \Lambda
-		\ar[rr]^{f} && \Lambda \ar[dd]^{\alpha}
-		\\
-		\\
-		\Lambda\ar[uu]^{\Delta}\ar[rr]_{g}&&\Lambda}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\Lambda\times \Lambda \arrow[r,"f"] \& \Lambda \arrow[d,"\alpha"]\\
+\Lambda \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \Lambda
+\end{tikzcd}\]
 	where \textcolor{yellow}{$f:(x,y)\mapsto yx$}, and \textcolor{yellow}{$\alpha: x\mapsto\lambda y.y(\lambda z.xyz)$}.
 	\[g=\lambda xy.y(\lambda z.xxyz)\]
 	\[gg=\alpha(gg)\]
@@ -15753,11 +16398,10 @@ Generally, let $\gamma\coloneqq \lambda x_1\dots x_{n-1}y.y(wy)$ where $w$ is an
 	\setlength\belowdisplayskip{0pt}
 		\[F\ulcorner G\urcorner=G\]
 	\end{theorem}
-	\[\xymatrix{\underline{\Lambda}\times\underline{\Lambda}
-		\ar[rr]^{A} &&\Lambda \ar[dd]^{\mathcal{E}_F}
-		\\
-		\\
-		\underline{\Lambda}\ar[uu]^{\Delta}\ar[rr]_{W}&& \Lambda}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\underline{\Lambda}\times \underline{\Lambda} \arrow[r,"A"] \& \Lambda \arrow[d,"\mathcal{E}_F"]\\
+\underline{\Lambda} \arrow[r,"W" swap] \arrow[u,"\Delta"] \& \Lambda
+\end{tikzcd}\]
 	where $\underline{\Lambda}\coloneqq \left\{\ulcorner M\urcorner: M\in\Lambda\right\}$, and \textcolor{yellow}{$A:(\ulcorner M\urcorner,\ulcorner N\urcorner)\mapsto N\left(\ulcorner M\urcorner\right)$}, and \textcolor{yellow}{$\mathcal{E}_F: M\mapsto F\ulcorner M\urcorner$}.
 	\[W\ulcorner M\urcorner=F\ulcorner M\ulcorner M\urcorner\urcorner\]
 	\[G\coloneqq W\ulcorner W\urcorner\]
@@ -15770,11 +16414,10 @@ Generally, let $\gamma\coloneqq \lambda x_1\dots x_{n-1}y.y(wy)$ where $w$ is an
 		For any wff $F(x)$ with one free variable $x$, there exists a sentence $G$ s.t.
 		\[\mathrm{Q}\vdash G\leftrightarrow F\left(\ulcorner G\urcorner\right)\]
 	\end{theorem}\vspace{-7pt}
-	\[\xymatrix{\mathrm{Lin_1}\times\mathrm{Lin_1}
-		\ar[rr]^{f} && \mathrm{Lin_0} \ar[dd]^{\mathcal{E}_F}
-		\\
-		\\
-		\mathrm{Lin_1}\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathrm{Lin_0}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathrm{Lin_1}\times \mathrm{Lin_1} \arrow[r,"f"] \& \mathrm{Lin_0} \arrow[d,"\mathcal{E}_F"]\\
+\mathrm{Lin_1} \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \mathrm{Lin_0}
+\end{tikzcd}\]
 	where \textcolor{yellow}{$f:(M(x),N(x))\mapsto N\left(\ulcorner M(x)\urcorner\right)$}, and \textcolor{yellow}{$\mathcal{E}_F: M\mapsto F(\ulcorner M\urcorner)$}.
 	\[\textcolor{red}{g}(M(x))=F\left(\ulcorner M\left(\ulcorner M(x)\urcorner\right)\urcorner\right)\]
 	\[\textcolor{red}{W}(x)\coloneqq F\left(D(x)\right)\]
@@ -15783,11 +16426,10 @@ Generally, let $\gamma\coloneqq \lambda x_1\dots x_{n-1}y.y(wy)$ where $w$ is an
 \end{frame}
 
 \begin{frame}\frametitle{Fixpoint vs Diagonalization}
-	\[\xymatrix{X\times X
-		\ar[rr]^{f} &&Y\ar[dd]^\alpha
-		\\
-		\\
-		X\ar[uu]^{\Delta}\ar[rr]_{g}&&Y}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times X \arrow[r,"f"] \& Y \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"\Delta"] \& Y
+\end{tikzcd}\]
 	\scalebox{.85}{
 		\begin{minipage}{\textwidth}
 \[\hspace*{-9pt}
@@ -15812,11 +16454,10 @@ y(xx) &\hat{=} &F\ulcorner M\ulcorner M\urcorner\urcorner &\hat{=} &F(\ulcorner 
 \begin{quote}
 	The information available to the observer regarding his own state could have absolute limitations, by the laws of nature.\par\hfill --- \textsl{von Neumann}
 \end{quote}
-	\[\xymatrix{\mathbf{M}\times\mathbf{M}
-		\ar[rr]^{f} &&\mathbf{O}\ar[dd]^\alpha
-		\\
-		\\
-		\mathbf{M}\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathbf{O}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbf{M}\times \mathbf{M} \arrow[r,"f"] \& \mathbf{O} \arrow[d,"\alpha"]\\
+\mathbf{M} \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \mathbf{O}
+\end{tikzcd}\]
 \begin{itemize}
 	\item $\mathbf{M}$: quantum measurements.
 	\item $\mathbf{O}$: possible outcomes of quantum measurements.
@@ -16833,7 +17474,7 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 			\end{gather*}
 		\end{columns}
 	\end{proof}
-	\begin{block}{Fixpoint}
+	\begin{block}{\hyperlink{provability-logic}{\beamerbutton{Fixpoint}}}\label{fixpoint-uniqueness}
 		\begin{enumerate}
 			\item For any G\"odelian $\mathrm{T}\supset \mathrm{PA} $, $\operatorname{Con}(\mathrm{T})$ is the only fixpoint of $\neg\Box x$ up to the logical equivalence in $\mathrm{T}$.
 			\item For any G\"odelian $\mathrm{T}\supset\mathrm{PA} $, $\top$ is the only fixpoint of $\Box x$ up to the logical equivalence in $\mathrm{T}$.
@@ -16890,7 +17531,8 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 	\end{theorem}
 \end{frame}
 
-\begin{frame}\frametitle{Incompatibility}
+\begin{frame}\frametitle{\hyperlink{hilbert-program}{\beamerbutton{Incompatibility}}}
+\label{incompatibility}
 \begin{block}{}
 			\begin{enumerate}
 				\item \textcolor{green}{consistency}
@@ -17380,17 +18022,13 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 \end{frame}
 
 \begin{frame}\frametitle{Math-Matter-Mind (Penrose)}
-	\centering\resizebox{\textwidth}{!}{
-		\xymatrix{*++[F-]{Mathematical\atop{Structure\atop{\textcolor{red}{defined?}}}} &&&\ar@/_1pc/_{\text{defined by}} "1,1";"1,5" \ar@/_1pc/_{\text{special case of}} "1,5";"1,1"& *++[F]{Computation\atop{\textcolor{red}{halting?}}}\\
-			&\\
-			&\\
-			&\\
-			&&*++[F]{Formal\atop{System\atop{\textcolor{red}{decidable?}}}} 
-			\ar@/_1pc/ | {\text{theorem proving}} "1,5";"5,3" 
-			\ar@/_1pc/ | {\text{describe}}"5,3";"1,5"
-			\ar@/_1pc/ | {\text{model of}}"1,1";"5,3" 
-			\ar@/_1pc/ | {\text{decide}}"5,3";"1,1"
-	}}
+\[
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\boxed{Mathematical\atop{Structure\atop{\textcolor{red}{defined?}}}} \arrow[rr, bend right=10, "\text{defined by}" swap, marking] \arrow[ddr, bend right=10, "\text{model of}" swap, marking] \&\& \boxed{Computation\atop{\textcolor{red}{halting?}}} \arrow[ll, bend right=10, "\text{special case of}", marking]  \arrow[ddl, bend right=10, "\text{theorem proving}", marking] \\
+\& \\
+\& \boxed{Formal\atop{System\atop{\textcolor{red}{decidable?}}}} \arrow[uul, bend right=10, "\text{decide}", marking] \arrow[uur, bend right=10, "\text{describe}" swap, marking]
+\end{tikzcd}
+\]
 \end{frame}
 
 \begin{frame}\frametitle{}
@@ -17398,15 +18036,21 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 		\column{0.53\textwidth}
 			\includegraphics[width=\textwidth,angle=0,origin=c]{img/penrose-three-worlds.pdf}
 		\column{0.51\textwidth}
-			\xymatrix{*++[o][F-]{Mind} &\ar@2{->} "1,1";"1,3"& *++[o][F]{Math}\\
-				&\\
-				&*++[o][F]{Matter} \ar@2{->} "3,2";"1,1" \ar@2{->} "1,3";"3,2" 
-			}\vspace*{3ex}
-			\xymatrix{*++[o][F-]{Mind} && *++[o][F]{Math}\\
-				&*++[o][F=]{\textcolor{red}{?}} \ar@2{->} "2,2";"1,1" \ar@2{->} "2,2";"1,3" \ar@2{->} "2,2";"4,2"\\
-				&\\
-				&*++[o][F]{Matter}
-			}
+\[
+\begin{tikzcd}
+\text{Mind} \arrow[rr,Rightarrow] \&\& \text{Math} \arrow[ddl,Rightarrow]\\
+\&\\
+\& \text{Matter} \arrow[uul,Rightarrow]
+\end{tikzcd}
+\]
+\[
+\begin{tikzcd}
+\text{Mind} \&\& \text{Math} \\
+\& \textcolor{red}{?} \arrow[dd, Rightarrow] \arrow[ul, Rightarrow] \arrow[ur, Rightarrow]\\
+\&\\
+\& \text{Matter}
+\end{tikzcd}
+\]
 	\end{columns}
 \end{frame}
 
@@ -17874,7 +18518,7 @@ for all $i=1,\dots,n$. And when $p_i>0$ we have $f_i(p_1^*,\dots,p_n^*)=0$.
 \end{enumerate}
 \end{definition}
 \begin{definition}[Topological Space]
-	A \emph{topological space} $(X,\tau X)$ is a set $X$ with a family $\tau X\subset\operatorname{P}(X)$ of subsets of $X$ which contains $\emptyset$ and $X$, and is closed under finite intersections and arbitrary unions.
+	A \emph{topological space} $(X,\mathcal{O}(X))$ is a set $X$ with a family $\mathcal{O}(X)\subset\operatorname{P}(X)$ of subsets of $X$ which contains $\emptyset$ and $X$, and is closed under finite intersections and arbitrary unions.
 \end{definition}
 \begin{definition}[Manifold]
 	An \emph{$m$-manifold} is a Hausdorff space with a countable basis such that every point has an open neighborhood homeomorphic to an open neighborhood in Euclidean space $\mathbb{R}^m$.
@@ -17951,7 +18595,10 @@ In terms of matrices, $A^\dagger=\overline{A^\top}$.
 \setlength\belowdisplayskip{0pt}
 \begin{definition}[Tensor Product]
 Suppose $U$ and $V$ are vector spaces over a field $F$. Then a tensor product of $U$ and $V$ is a vector space $U\otimes V$ over $F$ with a bilinear map $\otimes: U\times V\to U\otimes V :: (u,v)\mapsto u\otimes v$ having the ``universal property'':
-\[\xymatrix{U\times V\ar[r]^{\otimes}\ar[dr]_{f} & U\otimes V\ar@{.>}[d]^{\exists!\overline{f}}\\ &W}\]
+\[\begin{tikzcd}
+U\times V \arrow[r,"\otimes"] \arrow[dr, "f"'] \& U\otimes V \arrow[d,"\exists!\overline{f}"]\\
+\& W
+\end{tikzcd}\]
 \end{definition}
 \begin{block}{}
 	Given two linear maps $A: U \to X$ and $B: V \to Y$ between vector spaces, the tensor product of the two linear maps $A$ and $B$ is a linear map $A\otimes B: U\otimes V\to X\otimes Y$ defined by

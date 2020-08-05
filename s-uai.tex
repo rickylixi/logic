@@ -3,7 +3,7 @@
 %!TEX TS-program=xelatex
 %!TEX encoding=UTF-8 Unicode
 \RequirePackage{fix-cm}%优化字体
-\documentclass[UTF8,aspectratio=43,11pt,colorlinks,compress,openany]{beamer}%aspectratio=169 %169宽屏 43窄屏[handout]
+\documentclass[UTF8,11pt,colorlinks,compress,openany]{beamer}%aspectratio=169 %169宽屏 43窄屏[handout]
 
 \input{preamble-beamer}
 \input{beamer-light}%monokai,dark,light
@@ -855,18 +855,12 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 \end{frame}
 
 \begin{frame}\frametitle{MDL vs Bayesian Mixture}
-	\begin{center}
-		\resizebox{0.9\textwidth}{!}{\hspace{1.5em}
-				\xymatrix @C=1pc{&&&*+++[o][F--]{\txt{\textit{\textbf{\underline{\textcolor{yellow}{{\text{Model}}}}}}}}&&\\
-					&&&&
-					\ar@2{-->}^*++[o]{\textcolor{red}{\text{\footnotesize Deduction}}} "1,4";"5,7"
-					&&&\\
-					\ar@2{-->}^*++[o]{\textcolor{red}{\text{\footnotesize Induction}}} "5,1";"1,4"
-					&&&&&\\
-					\ar@2{->}^*++[o]{\textcolor{red}{\text{\footnotesize Prediction}}} "5,1";"5,7"\\
-					*+++[o][F--]{\txt{\textit{\textbf{\underline{\textcolor{yellow}{{\text{Sample}}}}}}}}&&&&&&*+++[o][F--]{\txt{\textit{\textbf{\underline{\textcolor{yellow}{{\text{Data}}}}}}}}}}
-	\end{center}
-
+\[
+\begin{tikzcd}[column sep=huge,row sep=huge]
+\& \textbf{\textcolor{yellow}{Model}} \arrow[dr, dashrightarrow, "\text{Deduction}"]\\
+\textbf{\textcolor{yellow}{Sample}} \arrow[rr, Rightarrow, "\text{Prediction}"' red] \arrow[ur, dashrightarrow, "\text{Induction}"] \&\& \textbf{\textcolor{yellow}{Data}}
+\end{tikzcd}
+\]
 	When solving a problem of interest, do not solve a more general problem as an intermediate step.
 \end{frame}
 
@@ -2727,12 +2721,12 @@ Take advantage of the structure of the data!
 \end{frame}
 
 \begin{frame}\frametitle{AlphaZero}
-\resizebox{\textwidth}{!}{
-\begin{minipage}{1.3\textwidth}
-\xymatrix{*++{current\atop player} \ar@//[r] & *++[F-]{\mbox{policy evaluation}\atop\mbox{\textcolor{yellow}{neural network}}} \ar@//[rrr]^{\small \mbox{\!\!\!\!\!\!\!\!\!\!\!position `value'}\atop\mbox{\!\!\!\!\!\!\!\!\!\!\!move `probability'}} &&& *++[F-]{\mbox{policy improvement}\atop\mbox{\textcolor{yellow}{neural network}}} \ar@//[r] & *++{improved\atop player} \ar@/^4pc/[lllll]_{\mbox{self-learning/policy iteration}}}
-\end{minipage}}
+\[{\footnotesize
+\begin{tikzcd}
+\text{$current\atop player$} \arrow[r] \& \boxed{\mbox{policy evaluation}\atop\mbox{\textcolor{yellow}{neural network}}} \arrow[rr, "\tiny\mbox{position `value'}\atop\mbox{move `probability'}"] \&\& \boxed{\mbox{policy improvement}\atop\mbox{\textcolor{yellow}{neural network}}} \arrow[r] \& \text{$improved\atop player$} \arrow[llll,bend left=20,"\mbox{self-learning/policy iteration}"]
+\end{tikzcd}}\]
 \begin{columns}
-\column{.49\textwidth}
+\column{.43\textwidth}
 	\begin{figure}
 	\includegraphics[width=\textwidth]{img/alphazero}
 	\end{figure}
@@ -2808,7 +2802,9 @@ Find a random variable $T$ s.t.:
 \includegraphics[width=\textwidth,angle=0,origin=c]{img/bottleneck}
 \end{figure}
 \column{.21\textwidth}
-张三丰：将所见到的剑招忘得半点不剩，才能得其神髓。
+张三丰：将所见到的剑招忘得半点不剩，才能得其神髓。\\
+\vspace*{2ex}
+老子：为学日益，为道日损。
 \end{columns}
 \end{frame}
 
@@ -2926,25 +2922,18 @@ p(y|t)&=\sum\limits_x p(y|x)p(x|t)
 \end{frame}
 
 \begin{frame}\frametitle{}
-	\begin{figure}[H]
-		\begin{center}
-			\resizebox{.95\textwidth}{!}{\begin{minipage}{70ex}
-						\xymatrix @C=1pc{&&&&&&&\\
-							&*++[o][F.]{\txt{Sensors}}\ar[d]&&&\\
-							&*++[F]{\txt{What the world\\ is like now}}\ar[d]\\
-							&*++[F]{\txt{What it will be like\\ if I do action $a$}}\ar[d]
-							&*+++[o]{\txt{\textit{\textbf{\underline{\large{\textcolor{red}{Agent}}}}}}}
-							&&&&*+++[F=]{\txt{\textit{\textbf{\underline{\Huge\textcolor{yellow}{{Environment}}}}}}}
-							\ar@2{->}_*++[o]{perception} "4,7";"2,2"
-							\ar@2{<-}^*++[o]{action} "4,7";"7,2"\\
-							&*++[F]{\txt{How happy I will be\\in such a state}}\ar[d]\\
-							&*++[F]{\txt{What action I\\ should do now}}\ar[d]\\
-							&*++[o][F.]{\txt{Effectors}}&&&&\\
-							&&&&&&&&
-							\save "1,1"."8,4"*[F=]\frm{}\restore}
-			\end{minipage}}
-		\end{center}
-	\end{figure}
+\[
+{\footnotesize
+\begin{tikzcd}
+\boxed{\large sensors} \arrow[d]\\
+\boxed{\text{What the world}\atop \text{is like now}} \arrow[d]\\
+\boxed{\text{What it will be like}\atop \text{if I do action $a$}} \arrow[d] \& \text{\textit{\textbf{\underline{\huge{\textcolor{red}{Agent}}}}}} \& \boxed{\boxed{\text{\textit{\textbf{\underline{\Large\textcolor{yellow}{{Environment}}}}}}}} \arrow[uull,Rightarrow,"perception",marking]\\
+\boxed{\text{How happy I will be}\atop \text{in such a state}} \arrow[d]\\
+\boxed{\text{What action}\atop \text{I should do now}} \arrow[d]\\
+\boxed{\large Effectors} \arrow[uuurr,Rightarrow,"action" swap,marking]
+\end{tikzcd}
+}
+\]
 \end{frame}
 
 \begin{frame}\frametitle{Computationalism}
@@ -4286,12 +4275,11 @@ Yanofsky: A universal approach to self-referential paradoxes, incompleteness and
 \setlength\belowdisplayskip{0pt}
 \begin{columns}
 \column{.57\textwidth}
-\begin{definition}[Weakly Point Surjective]
-An arrow $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g: X\to Y$, there is a $t: \mathbf{1}\to X$ such that, for all $x: \mathbf{1}\to X$:
-\[g\circ x=f\circ(x,t): \mathbf{1}\to Y\]
+\begin{definition}[Point-Surjective]
+A morphism $f: X\to Y$ is \emph{point-surjective} if for every $y: 1\to Y$, there is an $x: \mathbf{1}\to X$ such that $y=f\circ x$.
 \end{definition}
 	\begin{theorem}[Lawvere's Fixpoint Theorem]
-		Let $\mathcal{C}$ be a category with finite products. If $f: X\times X\to Y$ is weakly point surjective, then every endomorphism $\alpha: Y\to Y$ has a fixpoint $y:\mathbf{1}\to Y$ such that $\alpha\circ y=y$.
+		In a cartesian closed category, if there is a point-surjective morphism $f: X\to Y^X$, then every morphism $\alpha: Y\to Y$ has a fixpoint $y:\mathbf{1}\to Y$.
 	\end{theorem}
 \column{.2\textwidth}
 	\begin{figure}
@@ -4314,11 +4302,10 @@ An arrow $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g: 
 	\end{theorem}
 	\begin{columns}[onlytextwidth]
 		\column{.62\textwidth}
-			\[\xymatrix{X\times X
-				\ar[rr]^f && Y \ar[dd]^\alpha
-				\\
-				\\
-				X\ar[uu]^{\Delta}\ar[rr]_{g}&&Y}\]
+			\[\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times X \arrow[r,"f"] \& Y \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"\Delta"] \& Y
+\end{tikzcd}\]
 				$\alpha\big(f\left(\ulcorner g\urcorner,\ulcorner g\urcorner\right)\big)=g\left(\ulcorner g\urcorner\right)=f\left(\ulcorner g\urcorner,\ulcorner g\urcorner\right)$
 		\column{.38\textwidth}
 			\resizebox{\textwidth}{!}{\hspace{-0.15\textwidth}
@@ -4346,42 +4333,40 @@ An arrow $f: X\times X\to Y$ is \emph{weakly point surjective} if for every $g: 
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{theorem}[Lawvere's Fixpoint Theorem]
-		For sets $X, Y, Z$, functions $\beta: X\to Y, f: X\times Y\to Z, \alpha: Z\to Z$, let $g\coloneqq \alpha\circ f\circ(1_X,\beta)$. Assume \textcolor{red}{$\beta$ is surjective}. 
+		For all sets $X, Y, Z$, and all functions $\beta: X\to Y, f: X\times Y\to Z, \alpha: Z\to Z$, let $g\coloneqq \alpha\circ f\circ\langle 1_X,\beta\rangle$. Assume \textcolor{red}{$\beta$ is surjective}. 
 		\begin{enumerate}
 			\item If \textcolor{yellow}{$\alpha$ has no fixpoint}, then \textcolor{green}{$g$ is not representable by $f$}.
 			\item If \textcolor{yellow}{$g$ is representable by $f$}, then \textcolor{green}{$\alpha$ has a fixpoint}.
 		\end{enumerate}
 	\end{theorem}
-	\[\xymatrix{X\times Y
-	\ar[rr]^f && Z \ar[dd]^\alpha\\
-	\\
-	X\ar[uu]^{(1_X,\beta)}\ar[rr]_{g}&&Z}\]
+	\[\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times Y \arrow[r,"f"] \& Z \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"{\langle 1_X,\beta\rangle}"] \& Z
+\end{tikzcd}\]
 \end{frame}
 
-\begin{frame}\frametitle{Kleene's Fixpoint Theorem}
+\begin{frame}\frametitle{Example --- Kleene's Fixpoint Theorem}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{theorem}[Kleene's Fixpoint Theorem]
 		Given a recursive function $h$, there is an index $e$ s.t.
 		\[\varphi_e=\varphi_{h(e)}\]
 	\end{theorem}
-	\[\xymatrix{\mathbb{N}\times \mathbb{N}
-		\ar[rr]^{f} && \left\{\varphi_n\right\}_{n\in\mathbb{N}} \ar[dd]^{\mathcal{E}_h}
-		\\
-		\\
-		\mathbb{N}\ar[uu]^{\Delta}\ar[rr]_{g}&&\left\{\varphi_n\right\}_{n\in\mathbb{N}}}\]
-	where $f:(m,n)\mapsto\varphi_{\varphi_n(m)}$, and $\mathcal{E}_h:\varphi_n\mapsto\varphi_{h(n)}$.\\
+	\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbb{N}\times \mathbb{N} \arrow[r,"f"] \& \left\{\varphi_n\right\}_{n\in\mathbb{N}} \arrow[d,"\mathcal{E}_h"]\\
+\mathbb{N} \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \left\{\varphi_n\right\}_{n\in\mathbb{N}}
+\end{tikzcd}\]
+	where \textcolor{yellow}{$f:(m,n)\mapsto\varphi_{\varphi_n(m)}$}, and \textcolor{yellow}{$\mathcal{E}_h:\varphi_n\mapsto\varphi_{h(n)}$}.\\
 	The function $g: m\mapsto\varphi_{h\left(\varphi_m(m)\right)}$ is a recursive sequence of partial recursive functions, and thus is representable by $f$. Explicitly,
 	\[g(m)=\varphi_{h(\varphi_m(m))}=\varphi_{s(m)}=\varphi_{\varphi_t(m)}=f(m,t)\]
 	\[e\coloneqq \varphi_t(t)\]
 \end{frame}
 
 \begin{frame}\frametitle{Fixpoint vs Diagonalization}
-	\[\xymatrix{X\times X
-		\ar[rr]^{f} &&Y\ar[dd]^\alpha
-		\\
-		\\
-		X\ar[uu]^{\Delta}\ar[rr]_{g}&&Y}\]
+	\[\begin{tikzcd}[column sep=huge, row sep=huge]
+X\times X \arrow[r,"f"] \& Y \arrow[d,"\alpha"]\\
+X \arrow[r,"g" swap] \arrow[u,"\Delta"] \& Y
+\end{tikzcd}\]
 	\scalebox{.85}{
 		\begin{minipage}{\textwidth}
 \[\hspace*{-9pt}
@@ -4779,15 +4764,14 @@ Hardware &Hardware &Body\\
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Non-operational Self-inspection?}
+\begin{frame}\frametitle{Non-operational Self-inspection\textcolor{red}{\textbf{?}}}
 \begin{quote}
 	The information available to the observer regarding his own state could have absolute limitations, by the laws of nature.\par\hfill --- \textsl{von Neumann}
 \end{quote}
-	\[\xymatrix{\mathbf{M}\times\mathbf{M}
-		\ar[rr]^{f} &&\mathbf{O}\ar[dd]^\alpha
-		\\
-		\\
-		\mathbf{M}\ar[uu]^{\Delta}\ar[rr]_{g}&&\mathbf{O}}\]
+\[\begin{tikzcd}[column sep=huge, row sep=huge]
+\mathbf{M}\times \mathbf{M} \arrow[r,"f"] \& \mathbf{O} \arrow[d,"\alpha"]\\
+\mathbf{M} \arrow[r,"g" swap] \arrow[u,"\Delta"] \& \mathbf{O}
+\end{tikzcd}\]
 \begin{itemize}
 	\item $\mathbf{M}$: quantum measurements.
 	\item $\mathbf{O}$: possible outcomes of quantum measurements.
