@@ -6,7 +6,7 @@
 \documentclass[UTF8,11pt,colorlinks,compress,openany]{beamer}%aspectratio=169 %169宽屏 43窄屏[handout]
 
 \input{preamble-beamer}
-\input{beamer-light}%monokai,dark,light
+\input{beamer-monokai}%monokai,dark,light
 
 
 \begin{document}
@@ -1367,10 +1367,10 @@ $\mathcal{H}$ is PAC-learnable iff $\operatorname{VC}(\mathcal{H})<\infty$. Inde
 			\begin{figure}[htbp]
 				\begin{center}
 					\begin{tikzpicture}[node distance=17mm, auto]
-					\node[circle, draw, text centered, minimum height=2em, fill=darkgray!50!green!50] (a1) {$s_1$};
-					\node[circle, draw, text centered, minimum height=2em, right of=a1, fill=darkgray!50!green!50] (e1) {$s_2$};
-					\node[circle, draw, text centered, minimum height=2em, right of=e1, fill=darkgray!50!green!50] (a2) {$s_3$};
-					\node[circle, draw, text centered, minimum height=2em, right of=a2, fill=darkgray!50!green!50] (e2) {$s_4$};
+					\node[circle, draw, text centered, minimum height=2em, fill=green!60!darkgray] (a1) {$s_1$};
+					\node[circle, draw, text centered, minimum height=2em, right of=a1, fill=green!60!darkgray] (e1) {$s_2$};
+					\node[circle, draw, text centered, minimum height=2em, right of=e1, fill=green!60!darkgray] (a2) {$s_3$};
+					\node[circle, draw, text centered, minimum height=2em, right of=a2, fill=green!60!darkgray] (e2) {$s_4$};
 					\node[right of=e2,minimum height=2em] (dots) {$\cdots$};
 					\draw[->] (a1) to (e1);
 					\draw[->] (e1) to (a2);
@@ -1885,9 +1885,9 @@ Natural language processing & Definite clause grammars & Probabilistic context-f
 		\item the agent chooses a distribution $\mathbf{b}_t\in\Delta_n\coloneqq \left\{\mathbf{x}\in[0,1]^n:\|\mathbf{x}\|_1=1\right\}$ of wealth over $n$ goods.
 		\item nature chooses returns $\mathbf{x}_t\in(\mathbb{R}^+)^n$, where \[(\mathbf{x}_t)_i=\frac{\text{price of good $i$ at end of $t$}}{\text{price of good $i$ at beginning of $t$}}\]
 		\item the total wealth.
-		$W_t(\mathbf{b},\mathbf{x})=W_1\prod\limits_{k=1}^t\mathbf{b}_k^\top(\mathbf{x}_{<k})\mathbf{x}_k$
+		$W_t(\mathbf{b},\mathbf{x})=W_1\prod\limits_{k=1}^t\mathbf{b}_k^\mathsf{T}(\mathbf{x}_{<k})\mathbf{x}_k$
 		\item regret.
-		$R_t\coloneqq \max\limits_{\mathbf{b}\in\Delta_n}\sum\limits_{k=1}^t\log \mathbf{b}_k^\top(\mathbf{x}_{<k})\mathbf{x}_k-\sum\limits_{k=1}^t\log \mathbf{b}_k^\top(\mathbf{x}_{<k})\mathbf{x}_k$
+		$R_t\coloneqq \max\limits_{\mathbf{b}\in\Delta_n}\sum\limits_{k=1}^t\log \mathbf{b}_k^\mathsf{T}(\mathbf{x}_{<k})\mathbf{x}_k-\sum\limits_{k=1}^t\log \mathbf{b}_k^\mathsf{T}(\mathbf{x}_{<k})\mathbf{x}_k$
 		\item universal portfolios.
 		\begin{align*}
 		\hat{\mathbf{b}}_1&\coloneqq \left(\tfrac{1}{n},\dots,\tfrac{1}{n}\right)\\
@@ -2562,7 +2562,7 @@ TD Learning is model-free and learns from incomplete episodes of experience.
 		Let $g$ be a nonconstant, bounded, and increasing continuous function. Let $I_n$ be any compact subset of $\mathbb{R}^n$. The space of continuous functions on $I_n$ is denoted by $C(I_n,\mathbb{R})$. Then, given any function $f\in C(I_n,\mathbb{R})$ and $\varepsilon>0$, there exists an integer $N$, real constants $v_i,b_i\in\mathbb{R}$ and real vectors $\mathbf{w}_i \in \mathbb{R}^n$, where $i=1,\dots,N$, s.t.
 		\[\forall\mathbf{x}\in I_n: |h(\mathbf{x}) - f(\mathbf{x})| < \varepsilon\]
 		where
-		\[h(\mathbf{x})\coloneqq \sum\limits_{i=1}^{N} v_i g\left(\mathbf{w}_i^\top\mathbf{x} + b_i\right)\]
+		\[h(\mathbf{x})\coloneqq \sum\limits_{i=1}^{N} v_i g\left(\mathbf{w}_i^\mathsf{T}\mathbf{x} + b_i\right)\]
 		In other words, functions of the form $h(\mathbf{x})$ are dense in $C(I_n,\mathbb{R})$.
 	\end{theorem}
 \end{frame}
@@ -2732,7 +2732,7 @@ Take advantage of the structure of the data!
 	\end{figure}
 \column{.42\textwidth}
 	\[(\mathbf{p},v)=f_\theta(s)\]
-	\[\ell=(z-v)^2-\pi^\top\log\mathbf{p}+c\|\theta\|^2\]
+	\[\ell=(z-v)^2-\pi^\mathsf{T}\log\mathbf{p}+c\|\theta\|^2\]
 	\begin{block}{Intuition $+$ Calculation}\centering
 		DNN $+$ MCTS
 	\end{block}
@@ -4276,10 +4276,10 @@ Yanofsky: A universal approach to self-referential paradoxes, incompleteness and
 \begin{columns}
 \column{.57\textwidth}
 \begin{definition}[Point-Surjective]
-A morphism $f: X\to Y$ is \emph{point-surjective} if for every $y: 1\to Y$, there is an $x: \mathbf{1}\to X$ such that $y=f\circ x$.
+A morphism $f: X\to Y$ is \emph{point-surjective} if for every $y: 1\to Y$, there is an $x: 1\to X$ such that $y=f\circ x$.
 \end{definition}
 	\begin{theorem}[Lawvere's Fixpoint Theorem]
-		In a cartesian closed category, if there is a point-surjective morphism $f: X\to Y^X$, then every morphism $\alpha: Y\to Y$ has a fixpoint $y:\mathbf{1}\to Y$.
+		In a cartesian closed category, if there is a point-surjective morphism $f: X\to Y^X$, then every morphism $\alpha: Y\to Y$ has a fixpoint $y: 1\to Y$.
 	\end{theorem}
 \column{.2\textwidth}
 	\begin{figure}
@@ -5153,7 +5153,7 @@ Q(q_k=s)&\coloneqq \max\limits_{a_k}Q(q_k=s,a_k=a)
 \end{overpic}
 \end{center}
 \end{figure}
-\centerline{\Huge\color{green}{Thanks}}
+\centerline{\Huge\textcolor{green}{Thanks}}
 \end{frame}
 
 
