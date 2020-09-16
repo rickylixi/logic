@@ -6,7 +6,7 @@
 \documentclass[UTF8,11pt,colorlinks,compress,openany]{beamer}%aspectratio=169%169宽屏 43窄屏[handout]
 
 \input{preamble-beamer}
-\input{beamer-monokai}%monokai,dark,light
+\input{beamer-light}%monokai,dark,light
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -868,8 +868,8 @@ A force is that which changes or tends to change the state of rest or motion of 
 			\end{itemize}
 		\column{0.4\textwidth}\vspace{-5pt}
 			\begin{figure}
-				\colorbox{green!15}{\includegraphics[width=.57\textwidth]{img/grav.pdf}
-				\includegraphics[width=.4\textwidth]{img/acc.pdf}}
+				\includegraphics[width=.57\textwidth]{img/grav.pdf}
+				\includegraphics[width=.4\textwidth]{img/acc.pdf}
 			\end{figure}
 			\begin{figure}
 				\includegraphics[width=\textwidth]{img/spacetime-curvature.png}
@@ -1633,9 +1633,9 @@ Maximal degree of existence & Observed path\\
 \end{frame}
 
 \begin{frame}\frametitle{Leibniz's Program}
-	\begin{figure}
-		\colorbox{green!15}{\includegraphics[width=\textwidth,angle=0,origin=c]{img/leibnizprogram-cn}}
-	\end{figure}
+\begin{figure}
+	\includegraphics[width=\textwidth,angle=0,origin=c]{img/leibnizprogram-cn}
+\end{figure}
 \end{frame}
 
 %---------------------------------%
@@ -1905,9 +1905,9 @@ Arithetical truth can't be defined in arithmetic.
 	\end{quote}
 \[
 \begin{tikzcd}[column sep=huge,row sep=huge]
-\textbf{\textcolor{yellow}{Form}} \arrow[rr, "\text{transform}" red] \arrow[dr, dashrightarrow, "\text{suspend}"']
-\&\& \textbf{\textcolor{yellow}{Form}}\\
-\& \textbf{\textcolor{yellow}{Meaning}} \arrow[ur, dashrightarrow, "\text{endow}"']
+\& \textbf{\textcolor{yellow}{Meaning}} \arrow[dr, dashrightarrow, "\text{endow}"] \\
+\textbf{\textcolor{yellow}{Form}} \arrow[rr, "\text{transform}" red] \arrow[ur, dashrightarrow, "\text{suspend}"]
+\&\& \textbf{\textcolor{yellow}{Form}}
 \end{tikzcd}
 \]
 \end{frame}
@@ -4352,13 +4352,13 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 
 \begin{frame}\frametitle{}
 	\begin{figure}
-		\colorbox{green!15}{\includegraphics[height=\textheight,angle=-90,origin=c]{img/tree}}
+		\includegraphics[height=\textheight,angle=-90,origin=c]{img/tree}
 	\end{figure}
 \end{frame}
 
 \begin{frame}\frametitle{}
 	\begin{figure}
-		\colorbox{green!15}{\includegraphics[height=\textheight,angle=0,origin=c]{img/theory-tree}}
+		\includegraphics[height=\textheight,angle=0,origin=c]{img/theory-tree}
 	\end{figure}
 \end{frame}
 
@@ -4514,23 +4514,38 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 \end{frame}
 
 \begin{frame}\frametitle{Translation}
-		\begin{block}{}
-			\centering\textcolor{red}{How to `speak' the language of first order logic?}
-		\end{block}
+\begin{block}{}
+	\centering\textcolor{red}{How to `speak' the language of first order logic?}
+\end{block}
+\begin{enumerate}
+	\item 敌人的敌人是朋友。
+	\[\forall xyz(Exy\wedge Eyz\to Fxz)\]
+	\item 朋友之间要么都吸烟要么都不吸烟。
+	\[\forall xy\big(Fxy\to (Sx\leftrightarrow Sy)\big)\]
+	\item 既没有朋友又没有敌人是寂寞的。
+	\[\forall x(\neg\exists yFxy\wedge\neg\exists zExz\to Lx)\]
+	\item 最可怕的敌人是最亲密的朋友。
+	\[\forall xy\big(Exy\wedge\forall z(Exz\to Tyz)\to Fxy\wedge\forall z(Fxz\to Cyz)\big)\]
+	\item 如果大鱼比小鱼游得快，那么，有最大的鱼就有游得最快的鱼。\\
+	$\forall xy(Fx\wedge Fy\wedge Bxy\to Sxy)\to\exists x(Fx\wedge\forall y(Fy\to Bxy))\to\exists x(Fx\wedge\forall y(Fy\to Sxy))$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Translation}
 		\begin{enumerate}
 			\item $\mathbf{A}$: $\forall x(Sx\to Px)$
 			\item $\mathbf{E}$: $\forall x(Sx\to \neg Px)$
 			\item $\mathbf{I}$: $\exists x(Sx\wedge Px)$
 			\item $\mathbf{O}$: $\exists x(Sx\wedge \neg Px)$
-			\item Every boy loves some girl. $\forall x\big(Bx\to\exists y(Gy\wedge Lxy)\big)$
-			\item Whoever has a father has a mother. $\forall x(\exists y Fyx\to\exists y Myx)$
+			\item Every boy loves some girl.
+			\[\forall x\big(Bx\to\exists y(Gy\wedge Lxy)\big)\]
+			\item Whoever has a father has a mother.
+			\[\forall x(\exists y Fyx\to\exists y Myx)\]
 			\item Grandmother is mother's mother.
-			$\forall xy\big(Gxy\leftrightarrow\exists z(Mxz\wedge Mzy)\big)$ or
-			$\forall xy\big(x=Gy\leftrightarrow\exists z(x=Mz\wedge z=My)\big)$
-			\item 如果大鱼比小鱼游得快，那么，有最大的鱼就有游得最快的鱼。\\
-			$\forall xy(Fx\wedge Fy\wedge Bxy\to Sxy)\to\exists x(Fx\wedge\forall y(Fy\to Bxy))\to\exists x(Fx\wedge\forall y(Fy\to Sxy))$
+			\[\forall xy\big(Gxy\leftrightarrow\exists z(Mxz\wedge Mzy)\big)\]
+			\[\forall xy\big(x=Gy\leftrightarrow\exists z(x=Mz\wedge z=My)\big)\]
 			\item There are $n$ elements.
-			$\exists x_1\dots x_n\left(\bigwedge\limits_{1\leq i<j\leq n}x_i\ne x_j\wedge\forall x\left(\bigvee\limits_{i=1}^n x=x_i\right)\right)$
+			\[\exists x_1\dots x_n\left(\bigwedge\limits_{1\leq i<j\leq n}x_i\ne x_j\wedge\forall x\left(\bigvee\limits_{i=1}^n x=x_i\right)\right)\]
 		\end{enumerate}
 \end{frame}
 
@@ -4819,6 +4834,20 @@ continuity vs uniform continuity
 Px&\vDash\forall xPx\;\;\;?\\
 Px&\vDash^*\forall xPx\;\;?
 \end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{figure}
+\includegraphics[width=.65\textwidth]{img/king-brother.pdf}
+\end{figure}
+\begin{itemize}
+	\item $\operatorname{brother}(\textsf{Richard},\textsf{John})$
+	\item $\neg\operatorname{king}(\textsf{Richard})\to \operatorname{king}(\textsf{John})$
+	\item $\operatorname{king}(\textsf{John})\wedge\exists x\big(\operatorname{crown}(x)\wedge \operatorname{on-head}(x,\textsf{John})\big)$
+	\item $\neg\operatorname{brother}\big(\operatorname{left-leg}(\textsf{Richard}),\textsf{John}\big)$
+	\item $\forall x\big(\operatorname{king}(x)\to \operatorname{person}(x)\big)$
+	\item $\operatorname{length}\big(\operatorname{left-leg}\textsf{Richard})\big)>\operatorname{length}\big(\operatorname{left-leg}(\textsf{John})\big)$
+\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Example}
@@ -8953,11 +8982,11 @@ known}
 	\begin{columns}
 		\column{.6\textwidth}
 		\begin{figure}[H]
-			\colorbox{green!15}{\includegraphics[width=\textwidth]{img/attack0.pdf}}
+			\includegraphics[width=\textwidth]{img/attack0.pdf}
 		\end{figure}
 		\column{.4\textwidth}
 		\begin{figure}[H]
-			\colorbox{green!15}{\includegraphics[width=\textwidth]{img/infiniteguess.pdf}}
+			\includegraphics[width=\textwidth]{img/infiniteguess.pdf}
 		\end{figure}
 	\end{columns}
 \end{frame}
@@ -10050,7 +10079,7 @@ A \emph{transformation group} $G$ is a non-empty set of bijections s.t.
 	\begin{columns}
 		\column{0.55\textwidth}\vspace{-11pt}
 			\begin{figure}
-				\colorbox{green!15}{\includegraphics[width=\textwidth,angle=0,origin=c]{img/ordinal.png}}
+				\includegraphics[width=\textwidth,angle=0,origin=c]{img/ordinal.png}
 			\end{figure}
 		\column{0.45\textwidth}
 			\vspace{-15pt}
@@ -10950,7 +10979,7 @@ x&\mbox{otherwise }
 \]
 \column{.47\textwidth}
 \begin{figure}
-	\colorbox{green!15}{\includegraphics[width=\textwidth,angle=0,origin=c]{img/biject01.pdf}}
+	\includegraphics[width=\textwidth,angle=0,origin=c]{img/biject01.pdf}
 \end{figure}
 \end{columns}
 \end{frame}
@@ -11229,7 +11258,7 @@ x&\mbox{otherwise }
 			\end{align*}
 		\column{.45\textwidth}
 		\begin{figure}
-			\colorbox{green!15}{\includegraphics[width=\textwidth,angle=0,origin=c]{img/csb.pdf}}
+			\includegraphics[width=\textwidth,angle=0,origin=c]{img/csb.pdf}
 		\end{figure}
 	\end{columns}
 \end{frame}
@@ -11758,7 +11787,7 @@ For $k,k'\in\operatorname{Iter}(j)$, declare $k\equiv_n k'\coloneqq \forall x\in
 
 \begin{frame}\frametitle{}
 	\begin{figure}
-		\colorbox{green!15}{\includegraphics[width=\textwidth,angle=0,origin=c]{img/v.pdf}}
+		\includegraphics[width=\textwidth,angle=0,origin=c]{img/v.pdf}
 	\end{figure}
 \end{frame}
 
@@ -14273,7 +14302,7 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 
 \begin{frame}\frametitle{\href{https://rmzoo.math.uconn.edu/diagrams/}{Reverse Mathematics}}\vspace{-1ex}
 	\begin{figure}
-	\colorbox{green!15}{\includegraphics[height=.9\textheight,angle=0,origin=c]{img/rmzoo.pdf}}
+		\includegraphics[height=.9\textheight,angle=0,origin=c]{img/rmzoo.pdf}
 	\end{figure}
 \end{frame}
 
@@ -15193,7 +15222,7 @@ There is no solution in radicals to general polynomial equations of degree five 
 	\begin{block}{Lindenbaum Algebra of Propositional Logic}
 	\begin{columns}
 	\column{.5\textwidth}
-		\[\mathrm{Lin}\coloneqq \Big(\mathrm{wff}/\sim,0,1,+,\cdot,\overline{\phantom{x}}\Big)\]
+		\[\mathrm{Lin}\coloneqq \big(\mathrm{wff}/\sim,0,1,+,\cdot,\overline{\phantom{x}}\big)\]
 		where 
 		\begin{align*}
 		\sim&\coloneqq \;\dedeq\\
@@ -16932,7 +16961,7 @@ GA \arrow[r,"Gf"']
 \begin{tikzcd}[column sep=huge, row sep=large]
   \begin{tikzpicture}[scale=0.4, baseline=(current bounding box.center)]
    \begin{polaraxis}[grid=none, axis lines=none]
-     \addplot[thick,mark=none,domain=0:360,samples=300,background] {1};
+     \addplot[thick,mark=none,domain=0:360,samples=300] {1};
      \addplot[thick,mark=none,domain=0:360,samples=300] {-sin(x*3)};
      \node[fill,circle] (p) at (0,100) {};
    \end{polaraxis}
@@ -16949,7 +16978,7 @@ GA \arrow[r,"Gf"']
   \ar{d}{\circlearrowleft 120^{\circ}} \\
   \begin{tikzpicture}[scale=0.4, baseline=(current  bounding box.center)]
    \begin{polaraxis}[grid=none, axis lines=none]
-     \addplot[thick,mark=none,domain=0:360,samples=300,background] {1};
+     \addplot[thick,mark=none,domain=0:360,samples=300] {1};
      \addplot[thick,mark=none,domain=0:360,samples=300] {-sin(x*3)};
     \node[fill,circle] (p) at (-90,-50) {};
    \end{polaraxis}
@@ -19600,7 +19629,7 @@ A\otimes B=
 \[p(x_i)=\|P_{x_i}|z\rangle\|^2=\langle z|P_{x_i}|z\rangle=|\langle x_i|z\rangle|^2\]
 \column{.2\textwidth}
 	\begin{figure}[H]
-		\colorbox{green!15}{\includegraphics[width=\textwidth]{img/projector.pdf}}
+		\includegraphics[width=\textwidth]{img/projector.pdf}
 	\end{figure}
 \end{columns}
 The state vector $|z\rangle$ can be expressed in terms of the basis states as $|z\rangle=\sum\limits_i\langle x_i|z\rangle|x_i\rangle$.\\
@@ -20359,7 +20388,7 @@ If we all go for the blonde and block each other, not a single one of us is goin
 \begin{frame}\frametitle{Braess Paradox}
 Let $L_e(x)$ be the travel time of each car traveling along edge $e$ when $x$ cars take that edge ($L_e(0)\coloneqq 0$). Suppose there is a traffic graph $G$ with $x_e$ cars along edge $e$. Let $E(e)\coloneqq \sum_{i=1}^{x_e} L_e(i)$, and $E(G)\coloneqq \sum_{e\in G}E(e)$. Take a choice of routes that minimizes the total energy $E(G)$. That will be a Nash equilibrium.\vspace{-2pt}
 \begin{figure}
-	\colorbox{green!15}{\includegraphics[width=0.65\textwidth]{img/braess2}}
+	\includegraphics[width=0.65\textwidth]{img/braess2}
 \end{figure}
 \end{frame}
 
