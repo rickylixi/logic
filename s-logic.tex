@@ -311,8 +311,6 @@ It always takes longer than you expect, even when you take into account Hofstadt
 	\end{itemize}
 \end{frame}
 
-%\iffalse
-
 %-----------------------------%
 \subsection{Analogical Argument}
 %-----------------------------%
@@ -891,8 +889,6 @@ A force is that which changes or tends to change the state of rest or motion of 
 		\item The music of reason --- the fulfillment of the human spirit.
 	\end{itemize}
 \end{frame}
-
-%\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Logic and other Disciplines}
@@ -1570,8 +1566,8 @@ Philosophy is a `catalyst' or `spice' which makes the interdisciplinary mixture 
 \end{enumerate}
 \begin{tabu}{p{.45\textwidth}|p{.45\textwidth}}
 	\hline
-	\textbf{Characteristica Universalis} & \textbf{Calculus Ratiocinator}\\
 	\hline
+	\textbf{Characteristica Universalis} & \textbf{Calculus Ratiocinator}\\
 	\hline
 	Language as Medium & Language as Calculus\\
 	\hline
@@ -1588,6 +1584,7 @@ Philosophy is a `catalyst' or `spice' which makes the interdisciplinary mixture 
 	Ontology is the central problem & Ontology conventional\\
 	\hline
 	Logical truths are about this world & Logical truth as truth in all possible worlds\\
+	\hline
 	\hline
 \end{tabu}
 \end{frame}
@@ -2630,15 +2627,64 @@ B \arrow[r] \arrow[dr, "h"']
 \end{columns}
 \end{frame}
 
-\begin{frame}\frametitle{Proof by Contradiction}
-\[(\neg p\to q)\wedge(\neg p\to\neg q)\to p\]
-\begin{theorem}[Euclid's Theorem]
-There are infinitely many prime numbers.
-\end{theorem}
-\begin{proof}
-Assume to the contrary that $\mathbb{P}\coloneqq \{p_1,p_2,\dots,p_k\}$ is finite. Let $N\coloneqq \prod\limits_{i=1}^kp_i$.
-$\exists p\in\mathbb{P}: p\mid(N+1)\;\;\&\;\;p\mid N\implies p\mid 1$.
-\end{proof}
+\begin{frame}\frametitle{Proof Methods}
+\begin{itemize}
+	\item direct proof: $(p\to q)\wedge p\to q$\\
+	If $n$ is an odd integer, then $n^2$ is odd.
+	\item backward reasoning: to prove $q$, find $p$ and $p\to q$.\\
+	If $x$ and $y$ are non-negative real numbers, then $\frac{x+y}{2}\geq\sqrt{xy}$.
+	\item proof by contraposition: $p\to q\semeq\neg q\to\neg p$\\
+	If $n$ is an integer and $3n+2$ is odd, then $n$ is odd.
+	\item proof by contradiction: $(\neg p\to q)\wedge(\neg p\to\neg q)\to p$\\
+	$\sqrt{2}$ is irrational.
+	\item reductio ad absurdum: $(p\to q)\wedge(p\to\neg q)\to\neg p$\\
+	The following board cannot be tiled by the dominos.
+\begin{columns}
+\column{.2\textwidth}
+		\begin{tikzpicture}[scale=0.5]
+		\foreach \x[count=\x] in {0,1}{
+			\node[fill,inner sep=0pt] (a\x) at (0,\x){};
+		}
+		
+		\foreach \x[count=\x] in {0,1}{
+			\node[fill,inner sep=0pt] (b\x) at (1,\x){};
+		}
+		
+		\foreach \x[count=\x] in {0,1}{
+			\node[fill,inner sep=0pt] (c\x) at (2,\x){};
+		}
+		
+		\draw[thick] (a1) -- (b1);
+		\draw[thick] (a1) -- (a2);
+		\draw[thick] (a2) -- (b2);
+		\draw[thick] (b1) -- (b2);
+		\draw[thick] (c1) -- (c2);
+		\draw[thick] (b1) -- (c1);
+		\draw[thick] (b2) -- (c2);
+		\end{tikzpicture}\qquad
+		\begin{tikzpicture}[scale=0.5]
+		\foreach \x[count=\x] in {0,1,2}{
+			\node[fill,inner sep=0pt] (a\x) at (0,\x){};
+		}
+		
+		\foreach \x[count=\x] in {0,1,2}{
+			\node[fill,inner sep=0pt] (b\x) at (1,\x){};
+		}
+		
+		\draw[thick] (a1) -- (b1);
+		\draw[thick] (a1) -- (a2);
+		\draw[thick] (a2) -- (a3);
+		\draw[thick] (a3) -- (b3);
+		\draw[thick] (b1) -- (b2);
+		\draw[thick] (b2) -- (b3);
+		\draw[thick] (a2) -- (b2);
+		\end{tikzpicture}
+\column{.2\textwidth}
+		\includegraphics[width=\textwidth]{img/checkerboard.pdf}
+\end{columns}
+	\item proof by cases: $p\vee q\to r\semeq (p\to r)\wedge(q\to r)$\\
+	If $n$ is an integer, then $n^2\geq n$.
+\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Semantic Equivalence}
@@ -2657,12 +2703,34 @@ A\semeq A'&\implies\neg A\semeq\neg A'\\
 	\end{itemize}
 \end{frame}
 
+\begin{frame}\frametitle{Substitution}
+	\begin{align*}
+		p_i[C/p]&\coloneqq
+		\begin{cases}
+			C &\mbox{if}\;p_i=p\\
+			p_i &\mbox{otherwise}
+		\end{cases}\\
+		(\neg A)[C/p]&\coloneqq\neg A[C/p]\\
+		(A\to B)[C/p]&\coloneqq A[C/p]\to B[C/p]
+	\end{align*}
+	\begin{theorem}[Substitution Theorem]
+		\[B\leftrightarrow C \vDash A[B/p]\leftrightarrow A[C/p]\]
+	\end{theorem}
+	\begin{proof}
+		\begin{itemize}
+			\item $A=p_i$
+			\item $A=\neg A_1$
+			\item $A=A_1\to A_2$
+		\end{itemize}
+	\end{proof}
+\end{frame}
+
 \begin{frame}\frametitle{Substitution}\vspace*{-3ex}
 	\begin{align*}
 	p[C_1/p_1,\dots,C_n/p_n]&\coloneqq 
 	\begin{cases}
-	 C_i &\text{if}\;p=p_i\;\text{for some}\;1\leq i\leq n\\
-	p &\text{otherwise}
+	 C_i &\mbox{if}\;p=p_i\;\mbox{for some}\;1\leq i\leq n\\
+	p &\mbox{otherwise}
 	\end{cases}\\
 	(\neg A)[C_1/p_1,\dots,C_n/p_n]&\coloneqq \neg A[C_1/p_1,\dots,C_n/p_n]\\
 	\hspace*{-7pt}(A\to B)[C_1/p_1,\dots,C_n/p_n]&\coloneqq A[C_1/p_1,\dots,C_n/p_n]\to B[C_1/p_1,\dots,C_n/p_n]
@@ -2670,13 +2738,40 @@ A\semeq A'&\implies\neg A\semeq\neg A'\\
 	\begin{theorem}
 		Consider a wff $A$ and a sequence $C_1,\dots,C_n$ of wffs.
 		\begin{enumerate}
-			\item Let $\nu$ be a truth assignment for the set of all propositional symbols. Define $\mu$ to be the truth assignment for which $\mu(p_i)=\overline{\nu}(C_i)$. Then $\overline{\mu}(A)=\overline{\nu}\left(A[C_1/p_1,\dots,C_n/p_n]\right)$.
+			\item Let $\nu$ be a truth assignment for the set of all propositional symbols. Define $\mu$ to be the truth assignment for which $\mu(p_i)=\nu(C_i)$. Then $\mu(A)=\nu\left(A[C_1/p_1,\dots,C_n/p_n]\right)$.
 			\item $\vDash A\implies\vDash A[C_1/p_1,\dots,C_n/p_n]$
 		\end{enumerate}
 	\end{theorem}
 	\begin{block}{Example}
 		\[\vDash p\vee\neg p\implies\vDash(p\wedge\neg p)\vee\neg(p\wedge\neg p)\]
 	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{Equivalent Replacement}
+	\begin{theorem}
+		Suppose $B\in \operatorname{Sub}(A)$, and $A^*$ arises from the wff $A$ by replacing one or more occurrences of $B$ in $A$ by $C$. Then
+		\[B\leftrightarrow C\vDash A\leftrightarrow A^*\]
+	\end{theorem}
+	\begin{proof}
+		Prove by induction on the number of connective of $A$.
+	\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{Example}
+	\begin{block}{$\sideset{^\circledcirc}{^\circledcirc}{\operatorname{\hat{o}}}$}
+		\begin{enumerate}
+			\item A logician's wife is having a baby. 
+			\item The doctor immediately hands the newborn to the dad.
+			\item His wife asks impatiently: ``So, is it a boy or a girl''?
+			\item The logician replies: ``yes''.
+		\end{enumerate}
+	\end{block}
+	\begin{itemize}
+	\item wife.
+	\[p?\]
+	\item logician.
+	\[\left.\begin{array}{r} p\vee q\\q\leftrightarrow\neg p\end{array}\right\}\implies p\vee\neg p\qquad\checkmark\]
+	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Duality}
@@ -2754,6 +2849,56 @@ A\semeq A'&\implies\neg A\semeq\neg A'\\
 				\UnaryInfC{$p\oplus q$}
 			\end{prooftree}
 	\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Nim Game}
+\begin{block}{Nim Game}
+Given several piles of stones. Two players take turns moving. Each move consists of selecting one of the piles and removing any positive number of stones from it. The winner is the player who removes the last stone.
+\end{block}
+\begin{columns}
+\column{.25\textwidth}
+\[\star\star\star\]
+\[\star\star\star\star\]
+\[\star\star\star\star\star\]
+\[
+\begin{tabu}{cccc}
+3 &\quad	0 & 1 & 1\\
+4 &\quad	1 & 0 & 0\\
+5 &\quad	1 & 0 & 1\\
+	\hline
+2 &\quad	0 & 1 & 0
+\end{tabu}
+\]
+\column{.3\textwidth}
+\[
+\begin{tabu}{ccccc}
+& x &\quad	a_1 & \cdots & a_n\\
+\oplus & y& \quad	b_1 & \cdots & b_n\\
+\hline
+=& z &\quad c_1 & \cdots & c_n
+\end{tabu}
+\]
+\[\mbox{where } c_i\coloneqq a_i\oplus b_i\]
+\column{.4\textwidth}
+\begin{gather*}
+x\oplus(y\oplus z) = (x\oplus y)\oplus z\\
+x\oplus y = y\oplus x\\
+x\oplus 0 = x\\
+x\oplus x = 0\\
+x\oplus y = x\oplus z\implies y = z\\
+\end{gather*}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Nim Game}
+\begin{theorem}[Bouton Theorem]
+In a Nim game with piles of size $x_1,\dots,x_n$, the first player has a winning strategy iff $\bigoplus\limits_{i=1}^n x_i\ne 0$.
+\end{theorem}
+\begin{enumerate}
+	\item If $\bigoplus\limits_{i=1}^n x_i\ne 0$, it is possible to make a move $x_k-x_k'$ so that $x_1\oplus\cdots x_k'\cdots\oplus x_n=0$, where $x_k'\coloneqq x_k\oplus\bigoplus\limits_{i=1}^n x_i$.\\
+	Here's how we construct such a move. Form the nim-sum as a column addition, and look at the leftmost column with an odd number of $1$'s. Choose the pile that have a $1$ in that column.
+	\item If $\bigoplus\limits_{i=1}^n y_i=0$, and $y_k$ is changed to $y_k'<y_k$, then $y_1\oplus\cdots y_k'\cdots\oplus y_n\ne 0$, because otherwise the cancellation law would imply that $y_k=y_k'$.
+\end{enumerate}
 \end{frame}
 
 \begin{frame}\frametitle{Example}
@@ -2840,18 +2985,18 @@ A truth assignment for $\mathscr{L}^0$ is a function $\nu:\mathcal{P}\to\{0,1\}$
 \[
 \begin{tabu}{ccc|ccc}
 	\hline
-	\nu(p_1),\dots,\nu(p_n)& & \textcolor{yellow}{x_1,\dots,x_n} & \textcolor{yellow}{F_A(x_1,\dots,x_n)} & & \overline{\nu}(A)\\
+	\nu(p_1),\dots,\nu(p_n)& & \textcolor{yellow}{x_1,\dots,x_n} & \textcolor{yellow}{F_A(x_1,\dots,x_n)} & & \nu(A)\\
 	\hline
-	\nu_1(p_1),\dots,\nu_1(p_n)&=& \textcolor{yellow}{0,\dots,0} & \textcolor{yellow}{F_A(0,\dots,0)} &=& \overline{\nu}_1(A)\\
+	\nu_1(p_1),\dots,\nu_1(p_n)&=& \textcolor{yellow}{0,\dots,0} & \textcolor{yellow}{F_A(0,\dots,0)} &=& \nu_1(A)\\
 	\vdots & & \textcolor{yellow}{\vdots} & \quad\textcolor{yellow}{\vdots} & & \vdots\\
-	\nu_{2^n}(p_1),\dots,\nu_{2^n}(p_n)&=& \textcolor{yellow}{1,\dots,1} & \textcolor{yellow}{F_A(1,\dots,1)} &=& \overline{\nu}_{2^n}(A)\\
+	\nu_{2^n}(p_1),\dots,\nu_{2^n}(p_n)&=& \textcolor{yellow}{1,\dots,1} & \textcolor{yellow}{F_A(1,\dots,1)} &=& \nu_{2^n}(A)\\
 	\hline
 \end{tabu}
 \]
 \begin{definition}
 	Suppose $A$ is a wff whose propositional symbols are $p_1,\dots,p_n$.\\
 	A truth function $F:\{0,1\}^n\to\{0,1\}$ \textcolor{yellow}{represented} by $A$ is
-	\[F_A(\nu(p_1),\dots,\nu(p_n))=\overline{\nu}(A)\]
+	\[F_A(\nu(p_1),\dots,\nu(p_n))=\nu(A)\]
 \end{definition}
 \[A\semeq B\iff F_A=F_B\]
 \end{frame}
@@ -3290,33 +3435,6 @@ A truth assignment for $\mathscr{L}^0$ is a function $\nu:\mathcal{P}\to\{0,1\}$
 		$\Gamma, A\vdash C_j\to B\implies\Gamma\vdash A\to C_j\to B$\\
 		$\Gamma\vdash A\to B$
 	\end{proof}
-\end{frame}
-
-\begin{frame}\frametitle{Equivalent Replacement}
-	\begin{theorem}
-		Suppose $B\in \operatorname{Sub}(A)$, and $A^*$ arises from the wff $A$ by replacing one or more occurrences of $B$ in $A$ by $C$. Then
-		\[B\leftrightarrow C\vdash A\leftrightarrow A^*\]
-	\end{theorem}
-	\begin{proof}
-		Prove by induction on the number of connective of $A$.
-	\end{proof}
-\end{frame}
-
-\begin{frame}\frametitle{Example}
-	\begin{block}{$\sideset{^\circledcirc}{^\circledcirc}{\operatorname{\hat{o}}}$}
-		\begin{enumerate}
-			\item A logician's wife is having a baby. 
-			\item The doctor immediately hands the newborn to the dad.
-			\item His wife asks impatiently: ``So, is it a boy or a girl''?
-			\item The logician replies: ``yes''.
-		\end{enumerate}
-	\end{block}
-	\begin{itemize}
-	\item wife.
-	\[p?\]
-	\item logician.
-	\[\left.\begin{array}{r} p\vee q\\q\leftrightarrow\neg p\end{array}\right\}\implies p\vee\neg p\qquad\checkmark\]
-	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Formal System --- Variant}\vspace*{-5pt}
@@ -4244,12 +4362,28 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 \end{frame}
 
 \begin{frame}\frametitle{Exercise}
+\begin{enumerate}
+	\item Behind one of the door is a path to freedom, behind the other two doors is an evil dragon.
+	\item At least one of the three statements is true.
+	\item At least one of the three statements is false.
+\end{enumerate}
+\begin{figure}
+	\includegraphics[width=.5\textwidth]{img/freedom-door.pdf}
+\end{figure}
+\begin{enumerate}
+	\item $(r\wedge \neg b\wedge\neg g)\vee(\neg r\wedge b\wedge\neg g)\vee(\neg r\wedge \neg b\wedge g)$
+	\item $r\vee\neg b$
+	\item $\neg r\vee b$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Exercise}
 \begin{block}{宝藏在哪里？}
 你面前有三扇门，只有一扇门后是宝藏。门上各有一句话，只有一扇门上的是真话。
 \begin{enumerate}
-	\item 宝藏不在这儿。
-	\item 宝藏不在这儿。
-	\item 宝藏在\textcircled{\footnotesize 2}号门。
+	\item[\textcircled{\footnotesize 1}] 宝藏不在这儿。
+	\item[\textcircled{\footnotesize 2}] 宝藏不在这儿。
+	\item[\textcircled{\footnotesize 3}] 宝藏在\textcircled{\footnotesize 2}号门。
 \end{enumerate}
 \end{block}
 \begin{itemize}
@@ -5764,6 +5898,35 @@ Frege: Mathematics is analytic.
 \includegraphics[width=\textwidth]{img/frege-concept.png}
 \end{figure}
 \end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Existence Proofs --- Constructive vs Nonconstructive}
+\begin{theorem}
+	There exist two irrational numbers $x$ and $y$ s.t. $x^y$ is rational.
+\end{theorem}
+\begin{proof}
+	\begin{align*}
+		x&\coloneqq\sqrt{2}\\
+		y&\coloneqq\log_2 9
+	\end{align*}
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{Existence Proofs --- Constructive vs Nonconstructive}
+\begin{columns}
+\column{.5\textwidth}
+\begin{figure}
+	\includegraphics[width=\textwidth]{img/chomp.pdf}
+\end{figure}
+\column{.5\textwidth}
+The cookie in the top left position is poisoned. Two players take turns making moves; at each move, a player is required to eat a cookie, together with all cookies to the right and/or below it.
+\end{columns}
+\begin{theorem}
+	The first player has a winning strategy.
+\end{theorem}
+\begin{proof}
+	Suppose that the first player begins the game by eating the cookie in the bottom right corner. There are two possibilities, this is the first move of a winning strategy for the first player, or the second player can make a move that is the first move of a winning strategy. In the second case, the first player could have made the same move that the second player made as the first move of a winning strategy.
+\end{proof}
 \end{frame}
 
 \begin{frame}\frametitle{\href{https://www.maa.org/programs/maa-awards/writing-awards/the-three-crises-in-mathematics-logicism-intuitionism-and-formalism}{Philosophy of Math: Logicism/Intuitionism/Formalism}}
@@ -7905,12 +8068,19 @@ For any $n\in\mathbb{N}$,
 \end{frame}
 
 \begin{frame}\frametitle{L\"owenheim-Skolem Theorem}
-	\begin{theorem}[Downward L\"owenheim-Skolem Theorem]
-		A consistent set of sentences in a language of cardinality $\lambda$ has a model of cardinality $\leq\lambda$.
-	\end{theorem}
-	\begin{theorem}[Upward L\"owenheim-Skolem Theorem]
-		If a set of sentences in a language of cardinality $\lambda$ has an infinite model, then it has models of every cardinality $\geq\lambda$.
-	\end{theorem}
+\begin{theorem}[Downward L\"owenheim-Skolem Theorem]
+	A consistent set of sentences in a language of cardinality $\lambda$ has a model of cardinality $\leq\lambda$.
+\end{theorem}
+\begin{theorem}[Upward L\"owenheim-Skolem Theorem]
+	If a set of sentences in a language of cardinality $\lambda$ has an infinite model, then it has models of every cardinality $\geq\lambda$.
+\end{theorem}
+\begin{proof}
+	Add $\{c_\xi\}_{\xi<\lambda}$ to $\mathscr{L}$. Let $T'\coloneqq T\cup\{c_\xi\ne c_\eta:\xi <\eta<\lambda\}$.\\
+	Every finite subset $\Sigma\subset T'$ will involve at most a finite number of $c_\xi$.\\
+	Hence any infinite model of $T$ can be expanded to a model of $\Sigma$.\\
+	By compactness and the downward L\"owenheim-Skolem theorem, $T'$ has a model $\mathcal{M}$ of cardinality $\leq\lambda$.\\
+	On the other hand, the interpretations of $c_\xi$ in $\mathcal{M}$ must give different elements. So $\lambda\leq |\mathcal{M}|\leq\lambda$.
+\end{proof}
 \end{frame}
 
 \begin{frame}\frametitle{Skolem Paradox? --- Models and Reality}
@@ -7938,13 +8108,10 @@ For any $n\in\mathbb{N}$,
 \end{tikzpicture}
 \end{frame}
 
-\begin{frame}\frametitle{The Interpolation Theorem}
+\begin{frame}\frametitle{Craig's Interpolation Theorem}
 	\begin{theorem}[Craig's Interpolation Theorem]
 		If $\vDash A\to B$, then there is a
 		sentence $C$ s.t. $\vDash A\to C$ and $\vDash C\to B$, and $C$ contains no non-logical symbols except such as are both in $A$ and in $B$.
-	\end{theorem}
-	\begin{theorem}[Robinson's joint Consistency Theorem]
-		Let $\mathscr{L}_0,\mathscr{L}_1,\mathscr{L}_2$ be languages, with $\mathscr{L}_0=\mathscr{L}_1\cap \mathscr{L}_2$. Let $\mathrm{T}_i$ be a theory in $\mathscr{L}_i$ for $i=1,2$. If $\mathrm{T}_1$ and $\mathrm{T}_2$ are consistent and if there is no formula $A$ of $\mathscr{L}_0$ s.t. $\mathrm{T}_1\vdash A$ and $\mathrm{T}_2\vdash\neg A$, then the union $\mathrm{T}_1\cup \mathrm{T}_2$ is consistent.
 	\end{theorem}
 \end{frame}
 
@@ -7966,9 +8133,45 @@ For any $n\in\mathbb{N}$,
 	\centerline{\fbox{\footnotesize Philosophy question: Is supervenience equivalent to reducibility?}}
 \end{frame}
 
+\begin{frame}\frametitle{}
+\begin{proof}
+Assume that $\Sigma(P)$ implicitly defines $P$. First, we add constant $c_1$, \dots,~$c_n$ to $\mathscr{L}$. Then $\Sigma(P) \cup \Sigma(P') \vDash P(c_1, \dots, c_n)\to  P'(c_1, \dots, c_n)$. By compactness, there are $A_1(P),\dots,A_m(P) \in \Sigma(P)$ and $B_1(P'),\dots,B_n(P') \in \Sigma(P')$ s.t. $A_1(P)\wedge\dots\wedge A_m(P)\wedge B_1(P')\wedge\dots\wedge B_n(P') \vDash
+P(c_1, \dots, c_n)\to P'(c_1, \dots, c_n)$.\\
+Let $\varphi(P)\coloneqq A_1(P)\wedge\dots\wedge A_m(P)\wedge B_1(P)\wedge\dots\wedge B_n(P)$. Then $\varphi(P) \wedge
+\varphi(P') \vDash P(c_1, \dots, c_n) \to P'(c_1\dots c_n)$, from which $\varphi(P) \wedge P(c_1, \dots, c_n) \vDash \varphi(P') \to P'(c_1, \dots, c_n)$.\\
+By Craig's Interpolation theorem there is a sentence $C(c_1,\dots, c_n)$ not containing $P$ or $P'$ such that:
+\begin{align*}
+  \varphi(P) \wedge P(c_1, \dots, c_n) & \vDash C(c_1,\dots, c_n) \\
+  C(c_1,\dots, c_n) & \vDash \varphi(P') \to P'(c_1, \dots, c_n)
+\end{align*}
+Since an $\mathscr{L}\cup\{P\}$-model $\mathcal{M}\vDash A(P)$ iff the corresponding $\mathscr{L}\cup\{P'\}$-model $\mathcal{M}\vDash A(P')$, we have
+$C(c_1,\dots, c_n) \vDash \varphi(P) \to P(c_1,\dots, c_n)$.\\
+Putting them together, $\varphi(P) \vDash P(c_1,\dots, c_n)
+\leftrightarrow C(c_1, \dots, c_n)$. Therefore
+\[
+\Sigma(P) \vDash
+\forall x_1\dots\forall x_n\big(P(x_1,\dots, x_n) \leftrightarrow C(x_1,\dots, x_n)\big)
+\]
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{Robinson's Joint Consistency Theorem}
+\begin{theorem}[Robinson's Joint Consistency Theorem]
+	Let $\mathscr{L}_0,\mathscr{L}_1,\mathscr{L}_2$ be languages, with $\mathscr{L}_0=\mathscr{L}_1\cap \mathscr{L}_2$. Let $\mathrm{T}_i$ be a theory in $\mathscr{L}_i$ for $i=1,2$. If $\mathrm{T}_1$ and $\mathrm{T}_2$ are consistent and if there is no formula $A$ of $\mathscr{L}_0$ s.t. $\mathrm{T}_1\vdash A$ and $\mathrm{T}_2\vdash\neg A$, then the union $\mathrm{T}_1\cup \mathrm{T}_2$ is consistent.
+\end{theorem}
+\begin{proof}
+	Suppose $T_1\cup T_2$ is inconsistent.\\
+	Then there exists finite subsets $\Sigma_1\subset T_1$ and $\Sigma_2\subset T_2$ such that $\Sigma_1\cup\Sigma_2$ is inconsistent.\\
+	Let $A\coloneqq\bigwedge\Sigma_1$ and $B\coloneqq\bigwedge\Sigma_2$.\\
+	It follows that $A\vDash\neg B$.\\
+	By Craig's interpolation theorem, there is a sentence $C$ of $\mathscr{L}_0$ such that $A\vDash C$ and $C\vDash\neg B$.\\
+	Then we have $T_1\vdash C$ and $T_2\vdash\neg C$. Contradiction.
+\end{proof}
+\end{frame}
+
 \begin{frame}\frametitle{Abstract Logics}
 	\begin{definition}[Abstract Logic]
-		An \emph{abstract logic} is a pair $\mathcal{L}\coloneqq (\mathcal{S},\vDash_{\mathcal{L}})$, where $\mathcal{S}:\operatorname{signatures}\to\operatorname{sets}$ assigns to signature $\tau$ a set $\mathcal{S}(\tau)$ of sentences, and $\vDash_{\mathcal{L}}$ is a relation between $\tau$-$\operatorname{structures}$ and elements of
+		An \emph{abstract logic} is a pair $\mathcal{L}\coloneqq (\mathcal{S},\vDash_{\mathcal{L}})$, where $\mathcal{S}:\mathsf{signatures}\to\mathsf{sets}$ assigns to signature $\tau$ a set $\mathcal{S}(\tau)$ of sentences, and $\vDash_{\mathcal{L}}$ is a relation between $\tau$-$\mathsf{structures}$ and elements of
 		$\mathcal{S}(\tau)$ s.t.
 		\begin{enumerate}
 			\item (\emph{Monotony}) $\tau\subset\tau'\implies \mathcal{S}(\tau) \subset \mathcal{S}(\tau')$
@@ -7976,7 +8179,7 @@ For any $n\in\mathbb{N}$,
 			\item (\emph{Expansion}) If $\tau\subset\tau', A\in \mathcal{S}(\tau)$, and $\mathcal{M}$ is an $\tau'$-structure, then $\mathcal{M}\vDash_{\mathcal{L}} A\iff\mathcal{M}{\restriction_\tau}\vDash_{\mathcal{L}} A$
 		\end{enumerate}
 	\end{definition}
-	\[\operatorname{Mod}_{\mathcal{L}}^\tau(A)\coloneqq \big\{\mathcal{M}\in\tau\text{-}structures:\mathcal{M}\vDash_{\mathcal{L}} A\big\}\]
+	\[\operatorname{Mod}_{\mathcal{L}}^\tau(A)\coloneqq \big\{\mathcal{M}\in\tau\text{-}\mathsf{structures}:\mathcal{M}\vDash_{\mathcal{L}} A\big\}\]
 \end{frame}
 
 \begin{frame}\frametitle{Example --- $\mathcal{L}_{\kappa\lambda}$}
@@ -13396,14 +13599,17 @@ In particular, every finite sequence $s$ is enumerated by $e$ in some model $\ma
 \end{frame}
 
 \begin{frame}\frametitle{The Infinity of Primes}
-\setlength\abovedisplayskip{0pt}
-\setlength\belowdisplayskip{0pt}
-	\vspace*{-.15\textheight}
-	\begin{theorem}[The Infinity of Primes]
-		The set of primes is infinite.
-	\end{theorem}
-	\vspace*{-.01\textheight}
-	\begin{proof}
+\begin{theorem}[Euclid's Theorem]
+There are infinitely many prime numbers.
+\end{theorem}
+\begin{proof}[Proof by Contradiction]
+Assume to the contrary that $\mathbb{P}\coloneqq \{p_1,p_2,\dots,p_k\}$ is finite. Let $N\coloneqq \prod\limits_{i=1}^kp_i$.
+$\exists p\in\mathbb{P}: p\mid(N+1)\;\;\&\;\;p\mid N\implies p\mid 1$.
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{}
+	\begin{proof}[Proof by Incompressibility Method]
 		\[n=\prod\limits_{i=1}^m p_i^{e_i}\]
 		For a random $n$,
 		\begin{align*}
@@ -16518,20 +16724,24 @@ A \arrow[r,"f"] \arrow[dr, "1_A"'] \& B \arrow[d,"g"]\\
 \end{frame}
 
 \begin{frame}\frametitle{Product \& Coproduct}
+\centerline{
+\begin{tikzcd}[column sep=large, row sep=large]
+\&\& A\\
+C \arrow[r,dashed,"u"] \arrow[urr,"f"] \arrow[drr,"g" swap] \& A\times B \arrow[ur,"\pi_1" swap] \arrow[dr,"\pi_2"]\\
+\&\& B
+\end{tikzcd}\qquad
+\begin{tikzcd}[column sep=large, row sep=large]
+A \arrow[dr,"\iota_1" swap] \arrow[drr,"f"]\\
+\& A+B \arrow[r, dashed, "u"] \& C\\
+B \arrow[ur,"\iota_2"] \arrow[urr,"g" swap]
+\end{tikzcd}
+}
 \begin{itemize}
 	\item A \emph{product} of $A$ and $B$ is an object $A\times B$ with a pair of morphisms $A\xleftarrow{\pi_1}A\times B\xrightarrow{\pi_2}B$ s.t
 	\[\forall C\forall fg: A\xleftarrow{f}C\xrightarrow{g}B\;\exists!u: C\to A\times B\big[f=\pi_1\circ u\;\;\&\;\;g=\pi_2\circ u\big]\]
-\[\begin{tikzcd}
-A \& A\times B \arrow[l,"\pi_1"'] \arrow[r,"\pi_2"] \& B\\
-\& C \arrow[ul,"f"] \arrow[ur, "g"'] \arrow[u, dashed, "u"']
-\end{tikzcd}\]
 Example: $\min\{x,y\}$ in $(\mathbb{R},\leq)$. $x\cap y$ in $(\operatorname{P}(A),\subset)$. $\gcd(x,y)$ in $(\mathbb{N},|)$.
 	\item A \emph{coproduct} of $A$ and $B$ is an object $A + B$ with a pair of morphisms $A\xrightarrow{\iota_1}A + B\xleftarrow{\iota_2}B$ s.t
 	\[\forall C\forall fg: A\xrightarrow{f}C\xleftarrow{g}B\;\exists!u: A + B\to C\big[f=u\circ \iota_1\;\;\&\;\;g=u\circ \iota_2\big]\]
-\[\begin{tikzcd}
-A \arrow[dr,"f"'] \arrow[r, "\iota_1"] \& A+B \arrow[d,dashed,"u"] \& B \arrow[dl,"g"] \arrow[l, "\iota_2"']\\
-\& C
-\end{tikzcd}\]
 \end{itemize}
 \end{frame}
 
@@ -17432,20 +17642,35 @@ D_j \arrow[ur,"p_j"] \arrow[urr,"c_j" swap]
 \end{frame}
 
 \begin{frame}\frametitle{Examples}
-\begin{itemize}
-	\item Take $\mathbf{I}\coloneqq \emptyset$. Then a limit for $D:\mathbf{I}\to\mathbf{C}$ is a terminal object in $\mathbf{C}$: $\varprojlim D\cong 1$.
-	\item Take $\mathbf{I}\coloneqq \fbox{$\bullet \hspace*{1.5em} \bullet$}$. Then a limit for $D$ is a product $\varprojlim D\cong D_1\times D_2$.
-	\item Take $\mathbf{I}\coloneqq \fbox{\begin{tikzcd} \bullet \arrow[r, yshift=0.6ex,"f"] \arrow[r, yshift=-0.6ex,"g" swap] \& \bullet\end{tikzcd}}$. Then a cone over $D$ is \begin{tikzcd}[column sep=small]
-\& C \arrow[dl, "c_1" swap] \arrow[dr, "c_2"] \&\\
-D_1 \arrow[rr, yshift=0.6ex,"f"] \arrow[rr, yshift=-0.6ex,"g" swap] \& \& D_2
-\end{tikzcd}.
-
-Thus a limit for $D$ is an equalizer for $f,g$.
-	\item Take $\mathbf{I}\coloneqq \fbox{\begin{tikzcd}
-\& \bullet \arrow[d] \\
-\bullet \arrow[r] \& \bullet
-\end{tikzcd}}$. Then a limit for $D$ is a pullback.
-\end{itemize}
+\begin{table}
+\begin{tabu}{ccc}
+\hline
+\hline
+\textbf{Limit} $\varprojlim D$ & $\mathcal{I}$ & \textbf{Colimit} $\varinjlim D$ \\
+\hline
+terminal object & $\emptyset$ & initial object \\
+\hline
+binary product & \begin{tikzcd}[row sep=tiny]
+\bullet\\
+\bullet
+\end{tikzcd} & binary coproduct \\
+\hline
+equalizor & \begin{tikzcd} \bullet \arrow[r, yshift=0.6ex] \arrow[r, yshift=-0.6ex] \& \bullet\end{tikzcd} & coequalizor \\
+\hline
+pullback & \begin{tikzcd}[row sep=tiny]
+\bullet \arrow[dr] \\
+\& \bullet \\
+\bullet \arrow[ur]
+\end{tikzcd} & \\
+\hline
+ & \begin{tikzcd}[row sep=tiny]
+\& \bullet \\
+\bullet \arrow[ur] \arrow[dr]\\
+\& \bullet
+\end{tikzcd} & pushout \\
+\hline
+\end{tabu}
+\end{table}
 \end{frame}
 
 \begin{frame}\frametitle{products \& equalizers $\implies$ limits}
@@ -17930,7 +18155,7 @@ s\mapsto S=
 	\includegraphics[width=.25\textwidth]{img/d3.jpg}
 \end{figure}
 	\item We can think of a group $G$ as providing the syntax while automorphisms $\operatorname{Aut}(X)$ provide the semantics. So a group representation is like a functor
-\[\mbox{syntax } \to \mbox{ semantics}\]
+\[\textsf{syntax} \to \textsf{semantics}\]
 \end{itemize}
 \end{frame}
 
@@ -18546,14 +18771,18 @@ $1_\mathbf{C}:\mathbf{1}\to\mathbf{C}$ has the property that, for every $A\in\ma
 \end{theorem}
 	\[\mathbf{C}\times\mathbf{C}(\Delta X,(A,B))\cong\mathbf{C}(X,A)\times\mathbf{C}(X,B)\cong\mathbf{C}(X,A\times B)\]
 	\[\mathbf{C}(A+B,X)\cong\mathbf{C}(A,X)\times\mathbf{C}(B,X)\cong\mathbf{C}\times\mathbf{C}((A,B),\Delta X)\]
-\[\begin{tikzcd}
-A \& A\times B \arrow[l,"\pi_1"'] \arrow[r,"\pi_2"] \& B\\
-\& Z \arrow[ul,"f"] \arrow[ur, "g"'] \arrow[u, dashed, "u"']
-\end{tikzcd}\qquad\begin{tikzcd}
-A \arrow[dr,"f"'] \arrow[r, "\iota_1"]
-\& A+B \arrow[d,dashed,"u"] \& B \arrow[dl,"g"] \arrow[l, "\iota_2"']\\
-\& Z
-\end{tikzcd}\]
+\centerline{
+\begin{tikzcd}[column sep=large, row sep=large]
+\&\& A\\
+C \arrow[r,dashed,"u"] \arrow[urr,"f"] \arrow[drr,"g" swap] \& A\times B \arrow[ur,"\pi_1" swap] \arrow[dr,"\pi_2"]\\
+\&\& B
+\end{tikzcd}\qquad
+\begin{tikzcd}[column sep=large, row sep=large]
+A \arrow[dr,"\iota_1" swap] \arrow[drr,"f"]\\
+\& A+B \arrow[r, dashed, "u"] \& C\\
+B \arrow[ur,"\iota_2"] \arrow[urr,"g" swap]
+\end{tikzcd}
+}
 \end{frame}
 
 \begin{frame}\frametitle{$\varinjlim\dashv\Delta\dashv\varprojlim$}
