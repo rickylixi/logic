@@ -5442,6 +5442,39 @@ If $\Gamma, A\vdash B$, where the rule of generalization is not applied to the f
 	\end{itemize}
 \end{frame}
 
+\begin{frame}\frametitle{Existence Proofs --- Constructive vs Nonconstructive}
+\begin{itemize}
+	\item $\Gamma\vdash A(t)\implies \Gamma\vdash\exists xA$
+	\item $\Gamma,\neg\exists xA\vdash\bot\implies\Gamma\vdash\exists xA$
+\end{itemize}
+\begin{theorem}
+	There exist two irrational numbers $x$ and $y$ s.t. $x^y$ is rational.
+\end{theorem}
+\begin{proof}
+	\begin{align*}
+		x&\coloneqq\sqrt{2}\\
+		y&\coloneqq\log_2 9
+	\end{align*}
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{Existence Proofs --- Constructive vs Nonconstructive}
+\begin{columns}
+\column{.5\textwidth}
+\begin{figure}
+	\includegraphics[width=\textwidth]{img/chomp.pdf}
+\end{figure}
+\column{.5\textwidth}
+The cookie in the top left position is poisoned. Two players take turns making moves; at each move, a player is required to eat a cookie, together with all cookies to the right and/or below it.
+\end{columns}
+\begin{theorem}
+	The first player has a winning strategy.
+\end{theorem}
+\begin{proof}
+	Suppose that the first player begins the game by eating the cookie in the bottom right corner. There are two possibilities, this is the first move of a winning strategy for the first player, or the second player can make a move that is the first move of a winning strategy. In the second case, the first player could have made the same move that the second player made as the first move of a winning strategy.
+\end{proof}
+\end{frame}
+
 \begin{frame}\frametitle{Alphabetic Variant}
 	\begin{theorem}[Existence of Alphabetic Variants]
 		Let $A$ be a formula, $t$ a term, and $x$ a variable. Then we can find a formula $A^*$ which differs from $A$ only in the choice of quantified variables s.t.
@@ -5900,35 +5933,6 @@ Frege: Mathematics is analytic.
 \end{columns}
 \end{frame}
 
-\begin{frame}\frametitle{Existence Proofs --- Constructive vs Nonconstructive}
-\begin{theorem}
-	There exist two irrational numbers $x$ and $y$ s.t. $x^y$ is rational.
-\end{theorem}
-\begin{proof}
-	\begin{align*}
-		x&\coloneqq\sqrt{2}\\
-		y&\coloneqq\log_2 9
-	\end{align*}
-\end{proof}
-\end{frame}
-
-\begin{frame}\frametitle{Existence Proofs --- Constructive vs Nonconstructive}
-\begin{columns}
-\column{.5\textwidth}
-\begin{figure}
-	\includegraphics[width=\textwidth]{img/chomp.pdf}
-\end{figure}
-\column{.5\textwidth}
-The cookie in the top left position is poisoned. Two players take turns making moves; at each move, a player is required to eat a cookie, together with all cookies to the right and/or below it.
-\end{columns}
-\begin{theorem}
-	The first player has a winning strategy.
-\end{theorem}
-\begin{proof}
-	Suppose that the first player begins the game by eating the cookie in the bottom right corner. There are two possibilities, this is the first move of a winning strategy for the first player, or the second player can make a move that is the first move of a winning strategy. In the second case, the first player could have made the same move that the second player made as the first move of a winning strategy.
-\end{proof}
-\end{frame}
-
 \begin{frame}\frametitle{\href{https://www.maa.org/programs/maa-awards/writing-awards/the-three-crises-in-mathematics-logicism-intuitionism-and-formalism}{Philosophy of Math: Logicism/Intuitionism/Formalism}}
 \begin{figure}
 	\subfigure{\includegraphics[height=.3\textwidth,angle=0,origin=c]{img/russell-logicism.jpg}
@@ -6101,7 +6105,7 @@ $\forall X\bigg(\exists x Xx\wedge\exists y\forall x(Xx\to x\leq y)\to\exists y\
 	Mystics exult in mystery and want it to stay mysterious. Scientists exult in mystery for a different reason: it gives them something to do.\par \hfill --- \textsl{Dawkins}
 \end{frame}
 
-%\iffalse
+\iffalse
 
 \begin{frame}\frametitle{Hilbert's Epsilon Calculus}
 \[\nu(\varepsilon_x A)=\Phi\left(\{a\in M:\mathcal{M},\nu(a/x)\vDash A\}\right)\]
@@ -9839,13 +9843,17 @@ Its satisfiability is decidable (in EXPTIME).
 \end{itemize}
 \begin{block}{}
 For any \textcolor{red}{`subjective'} formula $A$,\\
-\centerline{\infer{\neg K_zHf\wedge\neg K_h\neg K_zHf}{\forall xy\big(K_x A(y)\vee K_x\neg A(y)\to x=y\big)&h\ne z&z\ne f}\hfill Moore's Paradox?}
+\centerline{\infer[\textsf{Moore's Paradox?}]{\neg K_zHf\wedge\neg K_h\neg K_zHf}{\forall xy\big(K_x A(y)\vee K_x\neg A(y)\to x=y\big)&h\ne z&z\ne f}}
 \end{block}
 \end{frame}
 
 \begin{frame}\frametitle{Proof of God's Existence?}
-\begin{block}{安瑟尔谟}
-当人们思考上帝时，人们是把上帝作为一切完美性的总和来思考的。因为不存在的必然是不完美的，所以必须把存在算在上帝的完美性之中。因此上帝存在。
+\begin{block}{}
+\begin{enumerate}
+	\item God is a being which has every perfection.
+	\item Existence is a perfection.
+	\item Hence God exists.
+\end{enumerate}
 \end{block}	
 \end{frame}
 
@@ -16224,7 +16232,7 @@ Syntax \arrow[u]
 \]
 
 \[
-\infer[\sum\text{-C}_1]{\pi_1(a,b)=a}{a:A & b:B(a)}\qquad\qquad\infer[\sum\text{-C}_2]{\pi_2(a,b)=b}{a:A & b:B(a)}
+\infer[\sum\text{-C}_1]{\pi_1(a,b)=a:A}{a:A & b:B(a)}\qquad\qquad\infer[\sum\text{-C}_2]{\pi_2(a,b)=b:B(a)}{a:A & b:B(a)}
 \]
 \textbf{Remark:} We write $A\times B$ instead of $\sum_{x:A}B$ if $x$ is not free in $B$.
 \end{frame}
@@ -17425,8 +17433,6 @@ If \begin{tikzcd} A \arrow[r, yshift=0.6ex,"f"] \arrow[r, yshift=-0.6ex,"g" swap
 \end{frame}
 
 \begin{frame}\frametitle{Pullback}
-\setlength\abovedisplayskip{0pt}
-\setlength\belowdisplayskip{0pt}
 Let $\mathbf{C}$ be a category. A \emph{pullback} of \begin{tikzcd}
 \& B \arrow[d, "g"] \\
 A \arrow[r, "f"] \& C
@@ -17448,8 +17454,6 @@ Q \arrow[dr, dashed, "u"] \arrow[drr, bend left=20, "q_2"] \arrow[ddr, bend righ
 \& A \arrow[r,"f" swap]
 \& C
 \end{tikzcd}.
-
-Example: In $\mathbf{Set}$, $P\coloneqq A\times_C B\coloneqq \big\{(x,y)\in A\times B: f(x)=g(y)\big\}$.
 \end{frame}
 
 \begin{frame}\frametitle{Pullback}
@@ -17542,8 +17546,6 @@ A \arrow[r] \& B \arrow[r] \& C
 \end{frame}
 
 \begin{frame}\frametitle{Pushout}
-\setlength\abovedisplayskip{0pt}
-\setlength\belowdisplayskip{0pt}
 Let $\mathbf{C}$ be a category. A \emph{pushout} of \begin{tikzcd}
 C \arrow[r,"g"] \arrow[d,"f" swap] \& B\\
 A
@@ -17742,6 +17744,9 @@ E \arrow[r, dashed, "\chi" swap]
 \]
 \item A \emph{topos} is a cartesian closed category with finite limits and a subobject classifier.
 \end{itemize}
+\begin{theorem}
+	For any small category $\mathbf{C}$, the category of diagrams $\mathbf{Set}^{\mathbf{C}^\mathrm{op}}$ is a topos.
+\end{theorem}
 \end{frame}
 
 \begin{frame}\frametitle{}
@@ -17765,6 +17770,29 @@ Z \arrow[r,"f"] \arrow[dr,"z" swap] \& M \arrow[d,tail,"m"]\\
 \end{itemize}
 \end{frame}
 
+\begin{frame}\frametitle{Epi-Mono Factorization}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+\begin{theorem}
+In a topos, any morphism $f:X\to Y$ has an epi-mono factorization i.e., there exists an epi $e:X\to A$ and a mono $m:A\to Y$ s.t.
+\[
+\begin{tikzcd}
+X\arrow[dr,two heads,"e" swap] \arrow[rr,"f"] \&\& Y\\
+\& A\arrow[ur,tail,"m" swap]
+\end{tikzcd}
+\]
+And the epi-mono factorization is unique up to a unique isomorphism.
+\[
+\begin{tikzcd}
+X\arrow[dr,two heads,"e" swap] \arrow[ddr,two heads,bend right,"e'" swap] \arrow[rr,"f"] \&\& Y\\
+\& A\arrow[ur,tail,"m" swap] \arrow[d,dashed,"u"]\\
+\& A'\arrow[uur,tail,bend right,"m'" swap]
+\end{tikzcd}
+\]
+\end{theorem}
+Given an epi-mono factorization, we call $A$ the image of $f$, and denote it as $\operatorname{Im}(f)$.
+\end{frame}
+
 \begin{frame}\frametitle{}
 \begin{theorem}
 If $\mathbf{C}$ has finite limits and is in addition a locally small category, then it has a subobject classifier iff $\operatorname{Sub}:\mathbf{C}^\mathrm{op}\to\mathbf{Set} :: X\mapsto\{M\rightarrowtail X\}/\sim$ is representable, with representing object $\Omega$. In this case there is a natural isomorphism
@@ -17777,9 +17805,6 @@ If $\mathbf{C}$ has finite limits and is in addition a locally small category, t
 \begin{definition}[Boolean Topos]
 	A topos $\mathbf{E}$ is \emph{Boolean} if for any $X\in\mathbf{E}$, $(\operatorname{Sub}_\mathbf{E}(X),\subset)$ is a Boolean algebra.
 \end{definition}
-\begin{theorem}
-	For any small category $\mathbf{C}$, the category of diagrams $\mathbf{Set}^{\mathbf{C}^\mathrm{op}}$ is a topos.
-\end{theorem}
 \end{frame}
 
 \begin{frame}\frametitle{Lawvere's Elementary Theory of the Category of Sets $\mathrm{ETCS}$}
@@ -18751,6 +18776,75 @@ universal quantification: $\forall$ & right adjoint to pullback\\
 \hline
 \end{tabular}
 \end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Dependent Sum}
+\begin{theorem}
+For $f:A\to B$ a morphism in a category $\mathbf{C}$ with pullbacks, the pullback functor $f^*:\mathbf{C}/B\to\mathbf{C}/A :: y\mapsto f^*y$ has a left adjoint $\sum_f\dashv f^*$.
+\[\begin{tikzcd}
+f^*Y \arrow[r] \arrow[d,"f^*b" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+\& Y \arrow[d,"b"] \\
+A \arrow[r,"f" swap]
+\& B
+\end{tikzcd}
+\]
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+\begin{proof}[proof sketch]
+Let $\sum_f:\mathbf{C}/A\to\mathbf{C}/B :: a\mapsto f\circ a$.\\
+We have to check that there is a natural isomorphism: $\theta:\operatorname{Hom}_{\mathbf{C}/B}(\sum_f(a),b)\xrightarrow{\cong} \operatorname{Hom}_{\mathbf{C}/A}(a,f^*b)$.\\
+Assume $g\in \operatorname{Hom}_{\mathbf{C}/B}(\sum_f(x),y)$.
+\[\begin{tikzcd}
+X \arrow[r,"g"] \arrow[d,"a" swap] %\arrow[dr, phantom, "\lrcorner", very near start]
+\& Y \arrow[d,"b"] \\
+A \arrow[r,"f" swap]
+\& B
+\end{tikzcd}
+\]
+By definition of $f^*b$, the following diagram is a pullback.
+\[
+\begin{tikzcd}
+X \arrow[dr, dashed, "u"] \arrow[drr, bend left=30, "g"] \arrow[ddr, bend right=30, "a" swap]\\
+\& f^*Y \arrow[r,"p"] \arrow[d,"f^*b" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+\& Y \arrow[d,"b"] \\
+\& A \arrow[r,"f" swap]
+\& B
+\end{tikzcd}
+\]
+So for any $g\in \operatorname{Hom}_{\mathbf{C}/B}(\sum_f(a),b)$, there is a unique $u\in \operatorname{Hom}_{\mathbf{C}/A}(a,f^*b)$ s.t. $\theta:g\mapsto u$ is a bijection.
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{Dependent Product}
+\begin{definition}[Locally Cartesian Closed]
+A category $\mathbf{C}$ is called \emph{locally cartesian closed} whenever, for all object $A\in \operatorname{ob}(\mathbf{C})$, the slice category $\mathbf{C}/A$ is cartesian closed.	
+\end{definition}
+\begin{theorem}
+If $\mathbf{C}$ is locally cartesian closed and has a terminal object, then $\mathbf{C}$ is cartesian closed.
+\end{theorem}
+\begin{theorem}
+Let $\mathbf{C}$ be a category with all pullbacks. Then $\mathbf{C}$ is locally cartesian closed, iff, for any morphism $f:A\to B$, the pullback functor $f^*:\mathbf{C}/B\to\mathbf{C}/A$ has a right adjoint $\prod_f$.
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{proof}[proof sketch]
+Fix $f:A\to B$ in $\mathbf{C}$. Define $\prod_f$ on objects $X\xrightarrow{a} A$ as in the following pullback square:
+\[\begin{tikzcd}
+\prod_fX \arrow[r] \arrow[d,"\prod_fa" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+\& X^f \arrow[d,"a^f"] \arrow[ddr,bend left=40,"(f\circ a)^f"]\\
+B \arrow[r,"j" swap] \arrow[drr,bend right=40,"\operatorname{id}_B" swap]
+\& A^f \arrow[dr,"f^f"] \\
+\&\& B
+\end{tikzcd}
+\]
+where $j: \operatorname{id}_B\to f^f$ is the exponential transpose of $\operatorname{id}_f:f\to f$. Now $\prod_fa=j^*a^f$.\\
+It remains to prove that there is a bijection $\theta:\operatorname{Hom}_{\mathbf{C}/A}(f^*b,a)\xrightarrow{\cong} \operatorname{Hom}_{\mathbf{C}/B}(b,\prod_fa)$ which is natural in $X\xrightarrow{a}A$ and $Y\xrightarrow{b}B$.
+\end{proof}
 \end{frame}
 
 \begin{frame}\frametitle{$0_\mathbf{C}\dashv\; !_\mathbf{C}\dashv 1_\mathbf{C}$}
@@ -20775,7 +20869,7 @@ for all $i=1,\dots,n$. And when $p_i>0$ we have $f_i(p_1^*,\dots,p_n^*)=0$.
 \end{enumerate}
 \end{frame}
 
-%\fi
+\fi
 
 \begin{frame}\frametitle{}
 \begin{figure}[H]
