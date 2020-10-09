@@ -6,7 +6,7 @@
 \documentclass[UTF8,11pt,colorlinks,compress,openany]{beamer}%aspectratio=169 %169宽屏 43窄屏[handout]
 
 \input{preamble-beamer}
-\input{beamer-monokai}%monokai,dark,light
+\input{beamer-light}%monokai,dark,light
 
 
 \begin{document}
@@ -87,6 +87,22 @@ Could a tadpole hope that it will survive to be a frog?
 \end{itemize}
 \end{frame}
 
+\begin{frame}\frametitle{A brief history of ontology}
+\begin{description}
+	\item[Descartes] Central role of mind.\\
+	Dualism of mind and matter.
+	\item[Kant] Reality is unknowable.\\
+	Metaphysics is impossible.\\
+	We can only know the quasi-fictional domains which we ourselves create.\\
+	The mind imposes its categories on the data of experience.
+	\item[Russell] Logic as mirror of reality.
+	\item[Wittgenstein] Centrality of language and of language games.
+	\item[Quine] Ontological commitment (study not: what there is, but: what sciences believe there is when logically formalized)
+	\item[Hayes] Ontology to build Robots.\\
+	Ontological commitment $=$ study what people believe there is when logically formalized.
+\end{description}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{History of AI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -125,6 +141,7 @@ link a sort of symbol manipulation?
 
 \begin{frame}\frametitle{Think like a human}
 \begin{itemize}
+	\item What cognitive capabilities are necessary to produce intelligent performance?
 	\item \textbf{Cognitive science:} Models of the human thinking processes.
 	\item \textbf{Advantages:} Models of the human thinking processes./Intelligible.
 	\item \textbf{Difficulties:} The best artificial design for an intelligent system need not mirror the human mind.
@@ -152,6 +169,8 @@ Any system (human or machine) exhibiting intelligence must operate by manipulati
 
 \begin{frame}\frametitle{Think rationally: Logicist AI}
 \begin{itemize}
+	\item What are the laws of thought?
+	\item How should we think?
 	\item \textbf{Logic:} Automatic reasoning procedure.
 	\item \textbf{Advantages:} Precise./Search algorithm.
 	\item \textbf{Difficulties:} Formalization of informal knowledge./Computational Cost.
@@ -160,8 +179,61 @@ Any system (human or machine) exhibiting intelligence must operate by manipulati
 
 \begin{frame}\frametitle{Act rationally: Agents}
 \begin{itemize}
-	\item \textbf{Rational agent:} Autonomous system, capable of perceiving and interacting with its environment, of exploration (information gathering), learning and adaptation, of formulating goals and designing plans to reach those goals. The agent is rational, in the sense that it acts to achieve the best (expected) outcome, according to a performance measure, conditioned to its knowledge of the world and given computational resources.
+	\item \textbf{Rational agent:} Autonomous system, capable of perceiving and interacting with its environment, of exploration (information gathering), learning and adaptation, of formulating goals and designing plans to reach those goals.
+	\item The agent is rational, in the sense that it acts to achieve the best (expected) outcome, according to a performance measure, conditioned to its knowledge of the world and given computational resources.
+	\item What to do, for example, when we must make a decision faced with insufficient information?
 \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{The Environment of Rational Agents}
+\begin{itemize}
+	\item Accessible vs. inaccessible (fully observable vs. partially observable)\\
+Are the relevant aspects of the environment accessible to the sensors?
+	\item Deterministic vs. stochastic\\
+Is the next state of the environment completely determined by the current state and the selected action?
+	\item Episodic vs. sequential\\
+Can the quality of an action be evaluated within an episode (perception $+$ action), or are future developments decisive for the evaluation of quality?
+	\item Static vs. dynamic\\
+Can the environment change while the agent is deliberating?
+	\item Discrete vs. continuous\\
+Is the environment discrete or continuous?
+	\item Single agent vs. multi-agent\\
+Which entities have to be regarded as agents? There are competitive and cooperative scenarios.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Solving Problems by Searching}
+\begin{itemize}
+	\item Before an agent can start searching for solutions, it must formulate a goal and then use that goal to formulate a problem.
+	\item A problem consists of five parts: The state space, initial situation, actions, goal test and path costs. A path from an initial state to a goal state is a solution.
+	\item A general search algorithm can be used to solve any problem. Specific variants of the algorithm can use different search strategies.
+	\item Search algorithms are judged on the basis of completeness, time complexity, space complexity and optimality.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Criteria for Search Strategies}
+\begin{description}
+	\item[Completeness] Is the strategy guaranteed to find a solution when there is one?
+	\item[Time Complexity] How long does it take to find a solution?
+	\item[Space Complexity] How much memory does the search require?
+	\item[Optimality] Does the strategy find the best solution (with the lowest path cost)?
+\end{description}
+\end{frame}
+
+\begin{frame}\frametitle{Example --- Missionaries and Cannibals}
+\begin{itemize}
+	\item Three missionaries and three cannibals are on one side of a river.
+	\item A boat is available that can hold at most two people.
+	\item You must never leave a group of missionaries outnumbered by cannibals on the same bank.
+	\item Find a strategy that brings everyone safely to the opposite bank.
+\end{itemize}
+\begin{description}
+	\item[States] $(x,y,z)$ with $0\leq x,y\leq 3$  and $z\in\{0,1\}$, where $x,y$ and $z$ represent the number of missionaries, cannibals and boat currently on the original bank.
+	\item[Initial State] $(3,3,1)$
+	\item[Goal State] $(0,0,0)$
+	\item[Path Costs] $1$ unit per crossing.
+\end{description}
+$(3,3,1)\to(3,1,0)\vee(2,2,0)\to(3,2,1)\to(3,0,0,)\to(3,1,1)\to(1,1,0)\to(2,2,1)\to(0,2,0)\to(0,3,1)\to(0,1,0)\to(0,2,1)\vee(1,1,1)\to(0,0,0)$
 \end{frame}
 
 \begin{frame}\frametitle{How do computers discover new knowledge?}
@@ -2169,9 +2241,545 @@ Landauer's Principle: Logically irreversible computation costs energy. Erasing $
 \end{itemize}
 \end{frame}
 
-%--------------------------%
-\section{Reinforcement Learning}
-%--------------------------%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Causal Inference}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}\frametitle{Simpson Paradox --- Should we treat scurvy with lemons?}
+\vspace*{-1ex}
+\begin{table}
+\begin{tabu}{c|cccc}
+\hline
+ & Recovery & No Recovery & Total & Recovery Rate\\
+\hline
+No Lemons & 20 & 20 & 40 & $50\%$ \\
+Lemons & 16 & 24 & 40 & $40\%$ \\
+Total & 36 & 44 & 80 &\\
+\hline
+\end{tabu}\caption{$P(\text{recovery}|\text{lemmon})<P(\text{recovery}|\text{no lemmon})$}
+\end{table}
+\begin{table}
+\vspace*{-1ex}
+\begin{tabu}{c|cccc}
+\hline
+ & Recovery & No Recovery & Total & Recovery Rate\\
+\hline
+No Lemons & 2 & 8 & 10 & $20\%$ \\
+Lemons & 9 & 21 & 30 & $30\%$ \\
+Total & 11 & 29 & 40 &\\
+\hline
+\end{tabu}\caption{$P(\text{recovery}|\text{lemmon},\text{old})>P(\text{recovery}|\text{no lemmon},\text{old})$}
+\end{table}
+\vspace*{-1ex}
+\begin{table}
+\begin{tabu}{c|cccc}
+\hline
+ & Recovery & No Recovery & Total & Recovery Rate\\
+\hline
+No Lemons & 18 & 12 & 30 & $60\%$ \\
+Lemons & 7 & 3 & 10 & $70\%$ \\
+Total & 25 & 15 & 40 &\\
+\hline
+\end{tabu}\caption{$P(\text{recovery}|\text{lemmon},\text{young})>P(\text{recovery}|\text{no lemmon},\text{young})$}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Resolution of Simpson's paradox --- The $\operatorname{do}$-operator}
+\begin{itemize}
+	\item What is the sailors' probability of recovery when \textbf{we see} a treatment with lemons?
+	\[P(\text{recovery}|\text{lemmon})\]
+	\item What is the sailors' probability of recovery if \textbf{we do} treat them with lemons?
+	\[P(\text{recovery}|\operatorname{do}(\text{lemmon}))\]
+	\item We should treat scurvy with lemons if
+	\[P(\text{recovery}|\operatorname{do}(\text{lemmon}))>P(\text{recovery}|\operatorname{do}(\text{no lemmon}))\]
+\end{itemize}
+\begin{align*}
+P(\text{recovery}|\operatorname{do}(\text{lemmon}))&=\sum\limits_{\text{age}} P(\text{age})P(\text{recovery}|\text{lemmon},\text{age})=0.5\\
+P(\text{recovery}|\operatorname{do}(\text{no lemmon}))&=\sum\limits_{\text{age}} P(\text{age})P(\text{recovery}|\text{no lemmon},\text{age})=0.4
+\end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{The Causal Hierarchy}
+\begin{enumerate}
+	\item Association: ``What if I see $x$?'' \[P(y|x)\]
+	\item Intervention: ``What if I do $x$?'' \[P(y|\operatorname{do}(x))\]
+	\item Counterfactuals: ``What if I had done things differently?'' \[P(y_{x'}|x)\]
+	\item Options: ``With what probability?'' --- Graphical Representation
+\end{enumerate}
+\begin{description}
+	\item[Explanation] $y$ because of $x$
+	\item[Intervention] $y$ will be true if I do $x$
+	\item[Counterfactuals] $y$ would be different if $x'$ were true
+\end{description}
+\end{frame}
+
+\begin{frame}\frametitle{Structural Causal Model}
+\begin{definition}
+	A structural causal model is a $4$-tuple $(V,U, F, P)$, where
+	\begin{itemize}
+		\item $V=\{V_1,\dots,V_n\}$ are endogenous variables.
+		\item $U=\{U_1,\dots,U_m\}$ are background variables.
+		\item $F=\{f_1,\dots,f_n\}$ are functions determining $V$, $v_i=f_i(\operatorname{pa}_i,u_i)$.
+		\item $P$ is a distribution over $U$.
+	\end{itemize}
+	$P(u)$ and $F$ induce a distribution $P(v)$ over observable variables.
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Example}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+\begin{columns}
+\column{.5\textwidth}
+\[
+\begin{tikzcd}[row sep = small]
+\& Climate \arrow[dl] \arrow[dr] \& \\
+Sprinkler \arrow[dr] \&\& Rain \arrow[dl]\\
+\& Wetness
+\end{tikzcd}
+\]
+\column{.4\textwidth}
+\begin{align*}
+&\textcolor{red}{{Model}(M)}\\
+C&=f_C(U_C)\\
+S&=f_S(C,U_S)\\
+R&=f_R(C,U_R)\\
+W&=f_W(S,R,U_W)
+\end{align*}
+\end{columns}
+\begin{itemize}
+	\item Every missing arrow advertises an independency, conditional on a separating set.
+\[C\perp W | (S,R)\qquad S\perp R | C\]
+	\item $P_{S=1}(C,R,W)=P(C)P(R|C)P(W|R,S=1)\ne P(C,R,W|S=1)$
+\end{itemize}
+\begin{columns}
+\column{.5\textwidth}
+\[
+\begin{tikzcd}[row sep = small]
+\& C \arrow[dr] \& \\
+S=1 \arrow[dr] \&\& R \arrow[dl]\\
+\& W
+\end{tikzcd}
+\]
+\column{.4\textwidth}
+\begin{align*}
+&\textcolor{red}{\text{Model}(M_{S=1})}\\
+C&=f_C(U_C)\\
+S&=1\\
+R&=f_R(C,U_R)\\
+W&=f_W(S,R,U_W)
+\end{align*}
+\end{columns}
+Would the pavement be wet \textbf{had} the sprinkler been on?
+\end{frame}
+
+\begin{frame}\frametitle{$d$-separation}
+\begin{definition}[Blocking of Paths]
+A path $q$ is said to be \textcolor{red}{blocked} by a set $S$ if
+\begin{itemize}
+	\item $q$ contains a \textcolor{red}{chain} $V_i\to V_j\to V_k$ or a \textcolor{red}{fork} $V_i\gets V_j\to V_k$ such that the middle node is in $S$, or
+	\item $q$ contains a \textcolor{red}{collider} $V_i\to V_j\gets V_k$ such that the middle node is not in $S$ and no descendant of $V_j$ is in $S$.
+\end{itemize}
+\end{definition}
+\begin{definition}[$d$-separation]
+$S$ is said to \textcolor{red}{$d$-separate} $X$ and $Y$ in the DAG $G$, i.e., $(X\perp Y | S)_G$ if $S$ blocks every path from a vertex in $X$ to a vertex in $Y$.
+\end{definition}
+\begin{example}
+\[
+\begin{tikzcd}[row sep = small]
+X \arrow[dr] \&\& Y \arrow[dl]\\
+\& Z
+\end{tikzcd}
+\begin{array}{c}
+	X\perp Y \\X\not\perp Y | Z
+\end{array}\quad
+\begin{tikzcd}[row sep = small]
+X \&\& Y \\
+\& Z \arrow[ul] \arrow[ur]
+\end{tikzcd}
+\begin{array}{c}
+	X\not\perp Y \\
+	X\perp Y | Z
+\end{array}
+\]
+\end{example}
+\end{frame}
+
+\begin{frame}\frametitle{}
+The sentence: ``$Y$ would be $y$ (in situation $u$), had $X$ been $x$'', denoted $Y_x(u) = y$, means:\\
+The solution for $Y$ in a mutilated model $M_x$, (i.e., the equations for $X$ replaced by $X = x$) with input $U=u$, is equal to $y$.
+\[
+\begin{tikzcd}[row sep = small]
+\textcolor{red}{\text{Model}(M)}\& U \arrow[dl] \arrow[dr] \& \\
+X(u) \arrow[rr] \&\& Y(u)
+\end{tikzcd}\qquad
+\begin{tikzcd}[row sep = small]
+\textcolor{red}{\text{Model}(M_x)}\& U \arrow[dr] \& \\
+X=x \arrow[rr] \&\& Y_x(u)
+\end{tikzcd}
+\]
+\begin{itemize}
+	\item The Law of Counterfactuals
+	\[Y_x(u)=Y_{M_x}(u)\]
+	($M$ generates and evaluates all counterfactuals.)
+	\item The Law of Conditional Independence ($d$-separation)
+	\[(X\perp Y | Z)_G\implies(X\perp Y | Z)_P\]
+	(Separation in the model $\implies$ independence in the distribution.)
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{The $\operatorname{do}$-operator}
+\begin{itemize}
+	\item The joint probability distribution
+	\[P(x_1,\dots,x_n)=\prod_{i=1}^nP(x_i|\operatorname{pa}_i)\]
+	\item The $\operatorname{do}$-operator
+	\[P(x_1,\dots,x_{j-1},x_{j+1},\dots,x_n|\operatorname{do}(x_j=b))=\prod_{\tiny\begin{array}{c}
+	i=1\\
+	i\ne j
+	\end{array}}^nP(x_i|\operatorname{pa}_i)\]
+	\item The post-intervention distribution resulting from the action $\operatorname{do}(X=x)$ is given by
+	\[P_M(y|\operatorname{do}(x))=P_{M_x}(y)\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Perturbed Graphs}
+\begin{itemize}
+	\item $G_{\overline{X}}$ perturbed graph in which all edges pointing to $X$ have been deleted
+	\item $G_{\underline{X}}$ perturbed graph in which all edges pointing from $X$ have been deleted
+	\item $Z(W)$ set of nodes in $Z$ which are not ancestors of $W$
+\end{itemize}
+\[
+\begin{tikzcd}
+\textcolor{red}{G} \& U \arrow[dl] \arrow[dr] \\
+X \arrow[r] \& Z \arrow[r] \& Y
+\end{tikzcd}\qquad
+\begin{tikzcd}
+\textcolor{red}{G_{\overline{Z}}=G_{\underline{X}}} \& U \arrow[dl] \arrow[dr] \\
+X \& Z \arrow[r] \& Y
+\end{tikzcd}
+\]
+\[
+\begin{tikzcd}
+\textcolor{red}{G_{\overline{X},\overline{Z}}} \& U \arrow[dr] \\
+X \& Z \arrow[r] \& Y
+\end{tikzcd}\qquad
+\begin{tikzcd}
+\textcolor{red}{G_{\overline{X},\underline{Z}}} \& U \arrow[dr] \\
+X \arrow[r] \& Z \& Y
+\end{tikzcd}
+\]
+\end{frame}
+
+\begin{frame}\frametitle{Back-Door Criterion}
+\begin{itemize}
+	\item Any common ancestor of $X$ and $Y$ is a confounder.
+	\item Confounders originate ``back-door'' paths that need to be blocked by conditioning.
+\end{itemize}
+\[
+\begin{tikzcd}
+\textcolor{red}{G}\& U \arrow[dl] \arrow[dr] \\
+X \arrow[rr] \& \& Y
+\end{tikzcd}\qquad\qquad
+\begin{tikzcd}
+\textcolor{red}{G_{\overline{X}}}\& U \arrow[dr] \\
+X \arrow[rr] \& \& Y
+\end{tikzcd}
+\]
+\[
+P(x,y,u)=P(x|u)P(u)P(y|x,u)\qquad
+P(y,u|\operatorname{do}(x))=P(u)P(y|x,u)
+\]
+\textcolor{red}{Back-door adjustment:}
+\[P(y|\operatorname{do}(x))=\sum_u P(u)P(y|x,u)\]
+\vspace*{-2ex}
+\begin{block}{}
+A set of variables $Z$ satisfies \emph{the back-door criterion} relative to an ordered pair of variables $(V_i,V_j)$ in a DAG $G$ if:
+\begin{enumerate}
+	\item no node in $Z$ is a descendant of $V_i$; and
+	\item $Z$ blocks every path between $V_i$ and $V_j$ that contains an arrow to $V_i$.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{Front-Door Criterion}
+\[
+\begin{tikzcd}
+\textcolor{red}{G}\& U \arrow[dl] \arrow[dr] \\
+X \arrow[r] \& Z \arrow[r] \& Y
+\end{tikzcd}\qquad\qquad
+\begin{tikzcd}
+\textcolor{red}{G_{\overline{X}}}\& U \arrow[dr] \\
+X \arrow[r] \& Z \arrow[r] \& Y
+\end{tikzcd}
+\]
+\centerline{\small $P(x,y,z,u)=P(x|u)P(z|x)P(u)P(y|z,u)\quad
+P(y,z,u|\operatorname{do}(z))=P(z|x)P(u)P(y|z,u)$}
+\textcolor{red}{Front-door adjustment:}
+\[P(y|\operatorname{do}(x))=\sum_z P(z|x)\sum_u P(u)P(y|z,u)\]
+\vspace*{-2ex}
+\begin{block}{}
+A set of variables $Z$ satisfies the \emph{front-door criterion} relative to an ordered pair of variables $(C_i,V_j)$ in a DAG $G$ if:
+\begin{enumerate}
+	\item $Z$ intercepts all directed paths from $V_i$ to $V_j$; and
+	\item there is no unblocked back-door path from $V_i$ to $Z$; and
+	\item all back-door paths from $Z$ to $V_j$ are blocked by $V_i$
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{$\operatorname{do}$-Calculus}
+\begin{description}
+	\item[Rule 1] Insertion/deletion of observations
+	\[P(y|\operatorname{do}(x),z,w)=P(y|\operatorname{do}(x),w)\mbox{ if } (Y\perp Z | X,W)_{G_{\overline{X}}}\]
+	\item[Rule 2] Action/observation exchange
+	\[P(y|\operatorname{do}(x),\operatorname{do}(z),w)=P(y|\operatorname{do}(x),z,w)\mbox{ if } (Y\perp Z | X,W)_{G_{\overline{X},\underline{Z}}}\]
+	\item[Rule 3] Insertion/deletion of actions
+	\[P(y|\operatorname{do}(x),\operatorname{do}(z),w)=P(y|\operatorname{do}(x),w)\mbox{ if } (Y\perp Z | X,W)_{G_{\overline{X},\overline{Z(W)}}}\]
+\end{description}
+\end{frame}
+
+\begin{frame}\frametitle{Example}
+\begin{center}
+\begin{tikzcd}[row sep = small]
+\textcolor{red}{G}\& genotype \arrow[dl] \arrow[dr] \\
+smoking \arrow[r] \& tar \arrow[r] \& cancer
+\end{tikzcd}	
+\end{center}
+\begin{align*}
+P(c|\textcolor{red}{\operatorname{do}(s)})&=\sum\nolimits_t P(t|\textcolor{red}{\operatorname{do}(s)})P(c|\textcolor{red}{\operatorname{do}(s)},t) \tag{Probability}\\
+&=\sum\nolimits_t P(t|\textcolor{red}{\operatorname{do}(s)})P(c|\textcolor{red}{\operatorname{do}(s)},\textcolor{red}{\operatorname{do}(t)}) \tag{Rule2 $G_{\overline{s},\underline{t}}$}\\
+&=\sum\nolimits_t P(t|s)P(c|\textcolor{red}{\operatorname{do}(s)},\textcolor{red}{\operatorname{do}(t)}) \tag{Rule2 $G_{\underline{s}}$}\\
+&=\sum\nolimits_t P(t|s)P(c|\textcolor{red}{\operatorname{do}(t)}) \tag{Rule3 $G_{\overline{t},\overline{s}}$}\\
+&=\sum\nolimits_t P(t|s)\sum\nolimits_u P(u|\textcolor{red}{\operatorname{do}(t)})P(c|\textcolor{red}{\operatorname{do}(t)},u) \tag{Probability}\\
+&=\sum\nolimits_t P(t|s)\sum\nolimits_u P(u|\textcolor{red}{\operatorname{do}(t)})P(c|t,u) \tag{Rule2 $G_{\underline{t}}$}\\
+&=\sum\nolimits_t P(t|s)\sum\nolimits_u P(u)P(c|t,u) \tag{Rule3 $G_{\overline{t}}$}
+\end{align*}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Game Theory}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]{\href{https://mp.weixin.qq.com/s/LLUoU0gl3t6GTh6jDef5vA}{Pirate Game}}
+	\begin{problem}[\switchocg{ocg2}{Pirate Game}]
+		\switchocg{ocg3}{$5$ rational pirates} have a treasure of 100 gold coins.\\
+		The pirate world's rules of distribution are thus:
+		\begin{enumerate}
+			\item The fiercest pirate proposes how to split the coins, and all pirates (including the proposer) vote for or against it;
+			\item If \switchocg{ocg4}{$50\%$ or more} of the pirates vote for it, then the coins will be shared that way. Otherwise, the proposer will be thrown overboard, and the procedure is repeated with the next fiercest pirate;
+			\item As the pirates are bloodthirsty, each pirate would prefer to throw another overboard, if all other results would otherwise be equal.
+		\end{enumerate}
+	\end{problem}
+\begin{ocg}{pirate1}{ocg2}{0}
+\begin{verbatim}
+1,0,1,0,98
+\end{verbatim}
+\end{ocg}
+\begin{ocg}{pirate2}{ocg3}{0}
+\begin{verbatim}
+What about more than 200 pirates? Who can survive?
+1-200, 201, 202, 204, 200+2^n
+\end{verbatim}
+\end{ocg}
+\begin{ocg}{pirate3}{ocg4}{0}
+\begin{verbatim}
+What about more than half?
+0,2,1,0,97 / 2,0,1,0,97
+\end{verbatim}
+\end{ocg}
+\end{frame}
+
+\begin{frame}[fragile]{\href{https://www.zhihu.com/question/19912025/answer/99088775}{Who Will Survive?}}
+	\begin{problem}[\switchocg{ocg5}{Who Will Survive?}]
+		$5$ rational prisoners are going to take beans from a bag with 100 beans. They will do it one by one. No communication is allowed between them. But they can count the beans left in the bag.
+		\begin{enumerate}
+			\item each must take at least $1$ bean, and the last prisoner need not to take all the rest;
+			\item all prisoners who take the maximum/minimum number will die;
+			\item they will try to survive first and then try to kill more people.
+		\end{enumerate}
+	\end{problem}
+\begin{ocg}{prisoner}{ocg5}{0}
+\begin{verbatim}
+None survive!
+\end{verbatim}
+\end{ocg}
+\end{frame}
+
+\begin{frame}\frametitle{Simpson Paradox}
+\begin{center}
+\begin{tabu}{c|ccc}
+\hline
+ & Group $1$ & Group $2$ & Total\\
+\hline
+Lisa & $0\%$ & $75\%$ & $60\%$\\
+Bart & $25\%$ & $100\%$ & $40\%$\\
+\hline
+\end{tabu}\;\;
+\begin{tabu}{c|ccc}
+\hline
+ & Group $1$ & Group $2$ & Total\\
+\hline
+Lisa & $0/1$ & $3/4$ & $3/5$\\
+Bart & $1/4$ & $1/1$ & $2/5$\\
+\hline
+\end{tabu}
+\end{center}
+\begin{figure}
+	\includegraphics[width=0.5\textwidth,angle=0,origin=c]{img/simpson-paradox}\vspace{-1ex}\caption{Something true for different groups is false for the combined group.}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Monty Hall Problem}
+	\begin{problem}[Monty Hall Problem]
+		You're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No.$1$, and the host, who knows what's behind the doors, opens another door, say No.$3$, which has a goat. He then says to you, ``Do you want to pick door No.$2$?''
+	\end{problem}
+	\begin{columns}
+		\column{0.4\textwidth}
+			\begin{figure}
+				\includegraphics[width=.8\textwidth,angle=0,origin=c]{img/monty1}
+			\end{figure}
+		\column{0.4\textwidth}
+			\begin{figure}
+				\includegraphics[width=.8\textwidth,angle=0,origin=c]{img/monty2}
+			\end{figure}
+	\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Bertrand's Paradox}
+	\begin{problem}[Bertrand's Paradox]
+		Consider an equilateral triangle inscribed in a circle. Suppose a chord of the circle is chosen at random. What is the probability that the chord is longer than a side of the triangle?
+	\end{problem}
+	\begin{columns}
+		\column{0.3\textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth,angle=0,origin=c]{img/bertrand-endpoint}
+			\end{figure}
+		\column{0.3\textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth,angle=0,origin=c]{img/bertrand-radius}
+			\end{figure}
+		\column{0.3\textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth,angle=0,origin=c]{img/bertrand-midpoint}
+			\end{figure}
+	\end{columns}
+	\begin{center}
+		What is ``randomness''? a process or a product?
+	\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{Confirmation Problem}
+\begin{columns}
+\column{.7\textwidth}
+	\begin{prooftree}
+		\AxiomC{$\neg Rx\wedge\neg Bx \;\;\text{confirms}\;\; \forall x(\neg Bx\to\neg Rx)$}
+		\noLine
+		\UnaryInfC{$\forall x(\neg Bx\to\neg Rx)\leftrightarrow\forall x(Rx\to Bx)$}
+		\alwaysSingleLine
+		\UnaryInfC{$\neg Rx\wedge\neg Bx\;\; \text{confirms}\;\; \forall x(Rx\to Bx)$}
+	\end{prooftree}
+\column{.3\textwidth}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{img/raven.png}\caption{Raven Paradox}
+	\end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{\href{https://zhuanlan.zhihu.com/p/34072069}{Zero-Knowledge Proof}}
+	\begin{itemize}
+		\item Alice gave Bob a Sudoku puzzle.
+		\item Bob tried and failed: ``Is it an unsolvable one?''
+		\item Alice: ``Let me show you that I have a solution. But I will not show you the actual solution.''
+	\end{itemize}
+\begin{figure}
+\includegraphics[width=.5\textwidth]{img/sudoku.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Prover vs Verifier}
+	\begin{itemize}
+		\item \textbf{Completeness:} $P$ can convince $V$ if $X$ is true.
+		\item \textbf{Soundness:} no (efficient) $P$ can convince $V$ if $X$ is not true.
+		\item \textbf{Zero Knowledge:} no efficient $V$ learns anything more than the validity of $X$.
+	\end{itemize}
+	\textbf{Remark:} The adversary can simulate the proof without knowing the prover's witness.
+	\begin{theorem}
+		Every NP statement can be proven in zero-knowledge.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{Logic vs Probability --- Cox Theorem}
+\begin{center}
+\fbox{Probability theory extends propositional logic?}
+\end{center}
+\begin{assumption}[Cox's Assumptions for Beliefs]
+\begin{enumerate}
+	\item $A\leftrightarrow B\implies b(\cdot|A)=b(\cdot|B)\;\&\;b(A|\cdot)=b(B|\cdot)$.
+	\item there is a continuous binary operation $\otimes$ that is strictly increasing in each coordinate s.t. $b(A\wedge B|C)=b(A|C)\otimes b(B|A\wedge C)$.
+	\item for any rational numbers $r_1,r_2,r_3\in (0,1)$ there are $A,B,C,D\in\Omega$ s.t. $r_1=b(A|D)$, $r_2=b(B|A\wedge D)$ and $r_3=b(C|A\wedge B\wedge D)$.
+	\item thers is a continuous nonnegative nonincreasing function $N: [0,1]\to [0,1]$ s.t. $b(\neg A|C)=N(b(A|C))$.
+\end{enumerate}
+\end{assumption}
+\begin{theorem}[Cox Theorem]
+A credence function that satisfies Cox's assumptions for beliefs is isomorphic to a probability function.
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{Game Theory}
+\begin{columns}
+\column{.5\textwidth}
+\begin{table}
+\begin{tabu}{c|cc}
+\hline
+ & silent & betray\\
+\hline
+Silent & $-1,-1$ & $-4,0$\\
+Betray & $0,-4$ &\textcolor{yellow}{$-3,-3$}\\
+\hline
+\end{tabu}\caption{Prisoner's Dilemma}
+\end{table}
+\column{.5\textwidth}
+\begin{table}
+\begin{tabu}{c|cc}
+\hline
+ & opera & football\\
+\hline
+Opera & \textcolor{yellow}{$1,2$} & $0,0$\\
+Football & $0,0$ & \textcolor{yellow}{$2,1$}\\
+\hline
+\end{tabu}\caption{Battle of the Sexes}
+\end{table}
+\end{columns}
+\begin{columns}
+\column{.5\textwidth}
+\begin{table}
+\begin{tabu}{c|cc}
+\hline
+ & stop & go\\
+\hline
+Stop & $0,0$ & \textcolor{yellow}{$0,1$}\\
+Go & \textcolor{yellow}{$1,0$} & $-\infty,-\infty$\\
+\hline
+\end{tabu}
+\caption{\footnotesize Chicken/Traffic}
+\end{table}
+\column{.5\textwidth}
+\begin{table}
+\begin{tabu}{c|cc}
+\hline
+ & head & tail\\
+\hline
+Head & $+1,-1$ & $-1,+1$\\
+Tail & $-1,+1$ & $+1,-1$\\
+\hline
+\end{tabu}\caption{Matching Pennies}
+\end{table}
+\end{columns}
+\end{frame}
 
 \begin{frame}\frametitle{Preferences Lead to Utility}
 \setlength\abovedisplayskip{0pt}
@@ -2194,6 +2802,194 @@ If a preference relation $\succeq$ satisfies the above constraints, then there e
 \[u\big([p_1,x_1;\dots;p_n,x_n]\big)=\sum\limits_{i=1}^n p_i u(x_i)\]
 \end{theorem}
 \end{frame}
+
+\begin{frame}\frametitle{Equilibrium}
+\begin{definition}[Nash Euqilibrium]
+\begin{itemize}
+\item $s^*$ is a \emph{pure Nash equilibrium} if $s^*\in\prod\limits_{i\in N}\argmax\limits_{s_i\in S_i}u_i(s_i;s_{-i})$.
+\item $\sigma^*$ is a \emph{mixed Nash equilibrium} if
+\[\forall i\in N\forall\sigma_i\in\Delta S_i: u_i(\sigma_i^*;\sigma_{-i}^*)\geq u_i(\sigma_i;\sigma_{-i}^*)\]
+\end{itemize}
+\end{definition}
+\begin{definition}[Correlated Equilibrium]
+Let $\Omega$ be the state space, $\mathcal{I}_i$ be the information partition of player $i$, $P(\cdot|\mathcal{I}_i)\in\Delta\Omega$ be the interim belief systems, and $\sigma_i: \Omega \to S_i$ be measurable with regard to $\mathcal{I}_i$. Then $(\sigma_i)_{i\in N}$ is a posteriori equilibrium of the strategic game $(N,S_i,u_i)$ if
+\[\forall i\in N\forall s_i\in S_i: \sum_{\omega \in \Omega}P\big(\omega|\mathcal{I}_i(\omega)\big)\Big(u_i\big(\sigma_i(\omega );\sigma_{-i}(\omega)\big)-u_i\big(s_i;\sigma_{-i}(\omega)\big)\Big)\geq 0\]
+\end{definition}
+{\footnotesize \textbf{Remark:} For every Nash equilibrium there exists a corresponding correlated equilibrium.}
+\end{frame}
+
+\begin{frame}\frametitle{Evolutionarily Stable Strategy}
+Given a symmetric two-player normal form game, $\sigma^*$ is an ESS iff $\forall \sigma\neq \sigma^*\exists\delta\in(0,1)\forall\varepsilon\in(0,\delta):$
+	\[u\left(\sigma^*,(1-\varepsilon)\sigma^*+\varepsilon \sigma\right)>u\left(\sigma,(1-\varepsilon)\sigma^*+\varepsilon \sigma\right)\]
+	iff
+	\[(1-\varepsilon)u\left(\sigma^*,\sigma^*\right)+\varepsilon u\left(\sigma^*,\sigma\right)>(1-\varepsilon)u\left(\sigma,\sigma^*\right)+\varepsilon u\left(\sigma,\sigma\right)\]
+	iff
+	\begin{align*}
+	&\bullet u\left(\sigma^*,\sigma^*\right)>u\left(\sigma,\sigma^*\right)\quad\mbox{or}\\
+	&\bullet u\left(\sigma^*,\sigma^*\right)=u\left(\sigma,\sigma^*\right)\mbox{ and } u\left(\sigma^*,\sigma\right)>u\left(\sigma,\sigma\right)
+	\end{align*}
+	If $\sigma$ is an ESS, then $(\sigma,\sigma)$ is a Nash equilibrium. If $(\sigma,\sigma)$ is a strict Nash equilibrium, then $\sigma$ is an ESS.
+\begin{columns}
+\column{.5\textwidth}
+\begin{table}
+\begin{tabu}{c|cc}
+\hline
+ & dove & hawk\\
+\hline
+Dove & $\frac{b}{2},\frac{b}{2}$ & $0,b$\\
+Hawk & $b,0$ & $\frac{b-c}{2},\frac{b-c}{2}$\\
+\hline
+\end{tabu}
+\end{table}
+\column{.5\textwidth}\vspace{-3ex}
+\begin{align*}
+&\frac{b}{2}x+0(1-x)=bx+\frac{b-c}{2}(1-x)\\
+&c>b\implies(1-\frac{b}{c},\frac{b}{c})\\
+&c\leq b\implies(H,h)
+\end{align*}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Evolutionarily Stable Strategy}
+\begin{itemize}
+	\item strict Nash Equilibrium: $u(\sigma_i^*;\sigma_{-i}^*)>u(\sigma_i;\sigma_{-i}^*)$
+	\item Nash Equilibrium: $u(\sigma_i^*;\sigma_{-i}^*)\geq u(\sigma_i;\sigma_{-i}^*)$
+	\item ESS:
+	\begin{align*}
+	&\bullet u\left(\sigma^*,\sigma^*\right)>u\left(\sigma,\sigma^*\right)\quad\mbox{or}\\
+	&\bullet u\left(\sigma^*,\sigma^*\right)=u\left(\sigma,\sigma^*\right)\mbox{ and } u\left(\sigma^*,\sigma\right)>u\left(\sigma,\sigma\right)
+	\end{align*}
+	\item weak ESS:
+	\begin{align*}
+	&\bullet u\left(\sigma^*,\sigma^*\right)>u\left(\sigma,\sigma^*\right)\quad\mbox{or}\\
+	&\bullet u\left(\sigma^*,\sigma^*\right)=u\left(\sigma,\sigma^*\right)\mbox{ and } u\left(\sigma^*,\sigma\right)\geq u\left(\sigma,\sigma\right)
+	\end{align*}
+	\item unbeatable strategy:
+	$u\left(\sigma^*,\sigma^*\right)>u\left(\sigma,\sigma^*\right)\mbox{ and } u\left(\sigma^*,\sigma\right)>u\left(\sigma,\sigma\right)$
+\end{itemize}
+\[\mbox{unbeatable}\implies\mbox{strict Nash}\implies\mbox{ESS}\implies\mbox{weak ESS}\implies\mbox{Nash}\]
+\end{frame}
+
+\begin{frame}\frametitle{Braess Paradox}
+\begin{quote}
+If we all go for the blonde and block each other, not a single one of us is going to get her. So then we go for her friends, but they will all give us the cold shoulder because no one likes to be second choice. But what if none of us goes for the blonde?\par\hfill --- \textsl{A Beautiful Mind}
+\end{quote}\vspace{-4pt}
+\begin{itemize}
+	\item The addition of options is not necessarily a good thing.
+	\item A strategy profile is Pareto efficient if no other strategy profile improves the payoff to at least one actor without decreasing the payoff of other actors.
+	\item The Nash equilibrium of a game is not necessarily Pareto efficient.
+\end{itemize}
+\begin{figure}
+	\includegraphics[height=0.2\textwidth]{img/braess0}
+	\includegraphics[height=0.2\textwidth]{img/braess1}\vspace{-9pt}\caption{$4000$ cars travelling around the lake}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Braess Paradox}
+Let $L_e(x)$ be the travel time of each car traveling along edge $e$ when $x$ cars take that edge ($L_e(0)\coloneqq 0$). Suppose there is a traffic graph $G$ with $x_e$ cars along edge $e$. Let $E(e)\coloneqq \sum_{i=1}^{x_e} L_e(i)$, and $E(G)\coloneqq \sum_{e\in G}E(e)$. Take a choice of routes that minimizes the total energy $E(G)$. That will be a Nash equilibrium.\vspace{-2pt}
+\begin{figure}
+	\includegraphics[width=0.65\textwidth]{img/braess2}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Sperner's Lemma}
+\begin{columns}
+\column{.65\textwidth}
+\begin{lemma}[Sperner's Lemma]
+Suppose that some triangle with vertices $V_1, V_2, V_3$ is triangulated.
+
+The vertices in the triangulation get ``colors'' from $\{1,2,3\}$ s.t. vertices on the edge $(V_i,V_j)$ are colored either $i$ or $j$, while the interior vertices are colored $1$, $2$ or $3$.
+
+Then in the triangulation there must be an odd number of ``tricolored'' triangles.
+\end{lemma}
+\column{.35\textwidth}
+	\includegraphics[width=\textwidth]{img/sperner0}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Proof of Sperner's Lemma}
+\begin{columns}
+\column{.65\textwidth}\vspace{-1ex}
+\begin{proof}
+Consider the dual graph to the triangulation --- but take only those which cross an edge that has endvertices with the colors $1$ and $2$. Thus we get a partial dual graph which has degree $1$ at all vertices that correspond to tricolored triangles, degree $2$ for all triangles in which the two colors $1$ and $2$ appear, and degree $0$ for triangles that do not have both colors $1$ and $2$.
+
+The vertex of the dual graph which corresponds to the outside of the triangulation has odd degree: along the big edge from $V_1$ to $V_2$, there is an odd number of changes between $1$ and $2$.
+
+Since the number of odd-degree vertices in any finite graph is even, the number of tricolored triangles is odd.
+\end{proof}
+\column{.35\textwidth}
+	\includegraphics[width=\textwidth]{img/sperner1}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Brouwer Fixpoint Theorem}
+\begin{theorem}[Brouwer Fixpoint Theorem]
+Given a convex compact set $B\subset\mathbb{R}^n$ and continuous function $f: B\to B$, there exists $\mathbf{x}^*$ s.t. $f(\mathbf{x}^*)=\mathbf{x}^*$.
+\end{theorem}
+\begin{theorem}[Kakutani Fixpoint Theorem]
+Given a compact convex set $S\subset\mathbb{R}^n$ and function $f: S\to \operatorname{P}(S)$ for which
+\begin{itemize}
+	\item for all $x\in S$ the set $f(x)$ is nonempty and convex,
+	\item the graph of $f$ is closed (i.e. for all sequences $\{x_n\}$ and $\{y_n\}$ s.t. $y_n\in f(x_n)$ for all $n$, $x_n\to x$, and $y_n\to y$, we have $y\in f(x)$).
+\end{itemize}
+Then there exists $x^*\in S$ s.t. $x^*\in f(x^*)$.
+\end{theorem}
+\begin{theorem}[Schauder Fixpoint Theorem]
+If $K$ is a nonempty convex subset of a Hausdorff topological vector space $V$ and $T$ is a continuous mapping of $K$ into itself such that $T(K)$ is contained in a compact subset of $K$, then $T$ has a fixpoint.
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{Proof of Brouwer Fixpoint Theorem}
+\begin{proof}
+Let $\Delta$ be the triangle in $\mathbb{R}^3$ with vertices $\mathbf{e}_1=(1, 0, 0)$, $\mathbf{e}_2=(0, 1, 0)$, and $\mathbf{e}_3=(0, 0, 1)$. We prove that any continuous map $f:\Delta\to\Delta$ has a fixpoint.
+
+Let $\delta(T)$ be the maximal length of an edge in a triangulation $T$.
+
+One can construct an infinite sequence of triangulations $T_1, T_2,\dots$ of $\Delta$ s.t. $\lim\limits_{k\to\infty}\delta(T_k)=0$.
+
+Suppose $f$ has no fixpoint. Since $\sum_i \mathbf{v}_i=1=\sum_i f(\mathbf{v})_i$, for each of these triangulations, we can define a Sperner coloring of their vertices $\mathbf{v}$ by setting $\lambda(\mathbf{v})\coloneqq \min\left\{i: f(\mathbf{v})_i<\mathbf{v}_i\right\}$.
+
+Sperner's lemma tells us that in each triangulation $T_k$ there is a tricolored triangle $\left\{\mathbf{v}_1^k,\mathbf{v}_2^k,\mathbf{v}_3^k\right\}$ with $\lambda(\mathbf{v}_i^k)=i$.
+
+Since the simplex $\Delta$ is compact, some subsequence of $\left(\mathbf{v}_1^k\right)_{k\geq 1}$ has a limit point $\mathbf{v}^*\in\Delta$. Since $\lim\limits_{k\to\infty}\delta(T_k)=0$, the sequences $\mathbf{v}_2^k$ and $\mathbf{v}_3^k$ converge to the same point $\mathbf{v}^*$.
+
+Then $\forall i: f(\mathbf{v}^*)_i\leq\mathbf{v}^*_i$, which contradicts $f(\mathbf{v}^*)\neq\mathbf{v}^*$.
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{Nash Equilibrium}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+\begin{theorem}[Existence of Mixed Nash Equilibrium]
+	Every finite strategic game has a mixed Nash equilibrium.
+\end{theorem}
+\begin{proof}
+	Given a strategy profile $\sigma\in\prod\limits_{i\in N}\Delta S_i$, define
+	\[\varphi_{i,s_i}(\sigma)\coloneqq \max\big\{0,u_i(s_i;\sigma_{-i})-u_i(\sigma)\big\}\]
+	Then define a continuous $f: \prod\limits_{i\in N}\Delta S_i\to\prod\limits_{i\in N}\Delta S_i$ by $f: \sigma\mapsto\sigma^\prime$, where
+	\[
+	\sigma_i^\prime(s_i)\coloneqq \dfrac{\sigma_i(s_i)+\varphi_{i,s_i}(\sigma)}{\sum\limits_{s_i\in S_i}\left[\sigma_i(s_i)+\varphi_{i,s_i}(\sigma)\right]}=\dfrac{\sigma_i(s_i)+\varphi_{i,s_i}(\sigma)}{1+\sum\limits_{s_i\in S_i}\varphi_{i,s_i}(\sigma)}
+	\]
+	Since $\prod\limits_{i\in N}\Delta S_i$ is convex and compact, $f$ has a fixpoint.
+
+	Consider any fixpoint $\sigma$ of $f$. By the linearity of expectation there exists $s_i^\prime$ in the support of $\sigma$, for which $u_i(s_i^\prime;\sigma_{-i})\leq u_i(\sigma)$. Then
+	\[\varphi_{i,s_i^\prime}(\sigma)=0\;\;\&\;\;\sigma_i^\prime(s_i^\prime)=\sigma_i(s_i^\prime)\implies\forall i\in N\forall s_i\in S_i: \varphi_{i,s_i}(\sigma)=0\]
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{Walrasian Equilibrium}
+\begin{theorem}[Existence of Walrasian Equilibrium]
+Consider an economy with $n$ goods $X_1,\dots, X_n$ with a price vector $(p_1,\dots, p_n)\in\Delta_n\coloneqq \left\{x\in[0,1]^n:\|x\|_1=1\right\}$, and the prices of at least two goods are not zero. Assume that an excess demand function for each good $f_i(p_1,\dots, p_n)$ is continuous and satisfies the following condition
+\[\sum\limits_{i=1}^n p_if_i=0\tag{Walras Law}\]
+Then, there exists an equilibrium price vector $(p_1^*,\dots,p_n^*)$ s.t.
+\[f_i(p_1^*,\dots,p_n^*)\leq 0\]
+for all $i=1,\dots,n$. And when $p_i>0$ we have $f_i(p_1^*,\dots,p_n^*)=0$.
+\end{theorem}
+\end{frame}
+
+%--------------------------%
+\section{Reinforcement Learning}
+%--------------------------%
 
 \begin{frame}\frametitle{Markov Decision Process}
 \begin{columns}
@@ -2321,6 +3117,20 @@ Q^\pi(s,a)&=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')
 		\item Cost: $N|\mathcal{S}||\mathcal{A}|$ vs $|\mathcal{A}|^{N|\mathcal{S}|}$ of brute force policy search.
 		\item From now on, we will consider infinite-horizon discounted MDPs.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Example --- Dynamic Programming}
+\begin{figure}[H]
+\includegraphics[width=.9\textwidth]{img/dp.pdf}
+\end{figure}
+\begin{align*}
+D_E&=\min(d(A,C)+d(C,E),d(A,D)+d(D,E))=3\\
+D_F&=\min(d(A,C)+d(C,F),d(A,D)+d(D,F))=2\\
+D_G&=\min(D_E+d(E,G),D_F+d(F,G))=5\\
+D_H&=\min(D_E+d(E,H),D_F+d(F,H))=4\\
+D_B&=\min(D_G+d(G,B),D_H+d(H,B))=5
+\end{align*}
+Working backward, the ``best'' path from $A$ to $B$ is $A, D, E, H, B$.
 \end{frame}
 
 \begin{frame}\frametitle{Solving MDPs --- Value Iteration}
@@ -4406,12 +5216,29 @@ y(xx) &\hat{=} &F\ulcorner M\ulcorner M\urcorner\urcorner &\hat{=} &F(\ulcorner 
 \begin{block}{Quine in Python}
 s=\textquotesingle s=\%r; print(s\%\%s)\textquotesingle; print(s\%s)
 \end{block}
-\centerline{$(\lambda x.xx)(\lambda x.xx)$}
+\begin{block}{Quine in Lambda Calculus}
+\[(\lambda x.xx)(\lambda x.xx)\]
+\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{Self-reproducing Program}
 \begin{block}{}
-	Print two copies of the following, the second copy in quotes:\\
-	``Print two copies of the following, the second copy in quotes:''
+	\begin{quote}
+		Print two copies of the following, the second copy in quotes:
+	\end{quote}
+	\begin{quote}
+		``Print two copies of the following, the second copy in quotes:''
+	\end{quote}
 \end{block}
 	\centerline{\fbox{\textcolor{green}{DNA / mutation / evolution}}}
+\begin{block}{}
+	\begin{quote}
+		Build a baby that acts on the following instructions, and also contains a copy of those instructions in its reproductive organs.
+	\end{quote}
+	\begin{quote}
+		``Build a baby that acts on the following instructions, and also contains a copy of those instructions in its reproductive organs.''
+	\end{quote}
+\end{block}
 \end{frame}
 
 \begin{frame}\frametitle{von Neumann's Self-reproducing Automata}
@@ -4761,6 +5588,98 @@ Hardware &Hardware &Body\\
 \begin{itemize}
 	\item Experts do their specialties best when they're in a state of ``flow'', aware only of what's happening at a higher level, and unconscious of the low-level details of how they're doing it. The information processing that we're consciously aware of is merely the tip of the iceberg. Many behaviors and brain regions are unconscious, with much of our conscious experience representing an after-the-fact summary of vastly larger amounts of unconscious information. Consciousness lags behind the outside world by about a quarter second. Brain measurements can sometimes predict your decision before you become conscious of having made it.
 	\item Consciousness requires a kind of information processing that's fairly autonomous and integrated, so that the whole system is rather autonomous but its parts aren't. Given a physical process that, with the passage of time, transforms the initial state of a system into a new state, its integrated information measures inability to split the process into independent parts. In other word, it measures how much different parts of a system know about each other.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Properties of Conscious Experience --- Tononi}
+\begin{description}
+	\item[Existence] Consciousness exists. ``I experience therefore I am''.
+	\item[Composition] Consciousness is structured: each experience consists of multiple aspects in various combinations.
+	\item[Information] Consciousness is informative: each experience differs in its particular way from other possible experiences.
+	\item[Integration] Consciousness is integrated: each experience is irreducible to non-interdependent components. Every part must be able to both affect and be affected by the rest of the system.
+	\item[Exclusion] Consciousness is exclusive: each experience has definite borders; each experience has a particular spatial and temporal grain.
+\end{description}
+\end{frame}
+
+\begin{frame}\frametitle{Integrated Information Theory (IIT)}
+\begin{itemize}
+	\item Suppose given a stochastic dynamical system, where the state of the system at time $n$ is described by a set of random variables $\{X_i=X_i^{(n)}\}_{i=1}^N$ which correspond to a partition of the system into $N$ subsystems, and the state at time $n+1$ by $\{Y_i=X_i^{(n+1)}\}_{i=1}^N$.
+	\item The full system including all the mutual influences between these two sets of variables is described by $P(X,Y)$.
+	\item Integrated information is meant to capture the difference between $P(X,Y)$ and an approximation $Q(X,Y)$ where only certain kinds of mutual influences are retained.
+	\item These are usually taken to be the interdependencies between the variables at the same time and between each $X_i$ and the corresponding $Y_i$, removing the dependencies of the $Y_i$ from the $X_j$ with $j\neq i$.
+\begin{equation*}%\label{disconnQ}
+Q(Y_i|X) = Q(Y_i|X_i)\quad \mbox{for } i=1,\dots,N.
+\end{equation*}
+\end{itemize}
+\[
+\begin{tikzcd}[row sep=small]
+x_1 \arrow[r] \arrow[d,-] \arrow[dr] \& y_1 \arrow[d,-] \\
+x_2 \arrow[r] \arrow[ur] \& y_2
+\end{tikzcd}\qquad
+\begin{tikzcd}[row sep=small]
+x_1 \arrow[r] \arrow[d,-] \& y_1 \arrow[d,-] \\
+x_2 \arrow[r] \& y_2
+\end{tikzcd}
+\]
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{itemize}
+	\item Given a partition $\lambda$
+\[\big\{(X,Y)\big\}=\biguplus_{i=1}^N \big\{(X_i,Y_i)\big\}\]
+Consider the space $\mathcal{M}_\lambda\coloneqq\big\{Q: Q(Y_i|X) = Q(Y_i|X_i) \mbox{ for } i=1,\dots,N\big\}$.
+	\item The best approximation to $P(X,Y)$ by $Q(X,Y)$ in $\mathcal{M}_\lambda$ is
+\[
+ Q^*_\lambda\coloneqq\argmin_{Q \in \mathcal{M}_\lambda}\,\, D_\mathsf{KL}(P\|Q)
+\]
+	\item Then the integrated information, for a given partition $\lambda$, is defined as
+\[
+\Phi_\lambda:= D_\mathsf{KL}(P\|Q^*_\lambda) =\min_{Q\in\mathcal{M}_\lambda} D_\mathsf{KL}(P\|Q)
+\]
+with a further minimization over the choice of the partition,
+\[
+\Phi:= \min_\lambda D_\mathsf{KL}(P\|Q^*_\lambda) = \min_{Q\in\bigcup_\lambda \mathcal{M}_\lambda} D_\mathsf{KL}(P\|Q)
+\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{IIT --- another version}
+\begin{columns}
+\column{.45\textwidth}
+\[
+\begin{tikzcd}[row sep=small]
+x_1 \arrow[r] \arrow[d,-] \arrow[dr] \& y_1 \arrow[d,-] \\
+x_2 \arrow[r] \arrow[ur] \& y_2
+\end{tikzcd}\qquad
+\begin{tikzcd}[row sep=small]
+x_1 \arrow[r] \arrow[d,-] \& y_1 \\
+x_2 \arrow[r] \& y_2
+\end{tikzcd}
+\]
+\[\mathcal{M}_\lambda\coloneqq\left\{Q:Q(Y|X)=\prod_{i=1}^N Q(Y_i|X_i)\right\}\]
+\column{.55\textwidth}
+\includegraphics[width=\textwidth]{img/iit.pdf}
+\end{columns}
+\begin{itemize}
+	\item $\Phi\coloneqq\min\limits_{Q\in\bigcup\mathcal{M}_\lambda}D_\mathsf{KL}(P\|Q)=\sum\limits_i H(Y_i|X_i)-H(Y|X)$
+	\item counterexample
+\[
+\begin{bmatrix}
+	y_1\\
+	\vdots\\
+	y_N
+\end{bmatrix}=
+\begin{bmatrix}
+	1^0 &\dots &1^{N-1}\\
+	\vdots &\ddots &\vdots\\
+	N^0 &\dots &N^{N-1}
+\end{bmatrix}
+\begin{bmatrix}
+	x_1\\
+	\vdots\\
+	x_N
+\end{bmatrix}
+\]
 \end{itemize}
 \end{frame}
 

@@ -287,7 +287,7 @@ It always takes longer than you expect, even when you take into account Hofstadt
 \end{frame}
 
 \begin{frame}\frametitle{Homework}
-		\href{https://www.google.com/}{Google}/\href{https://www.wikipedia.org/}{Wikipedia}/\href{https://plato.stanford.edu/}{Stanford Encyclopedia}/\href{https://www.iep.utm.edu/}{Internet Encyclopedia}
+		\href{https://www.google.com/}{Google} / \href{https://www.wikipedia.org/}{Wikipedia} / \href{https://plato.stanford.edu/}{Stanford Encyclopedia} / \href{https://www.iep.utm.edu/}{Internet Encyclopedia} / \href{https://stackexchange.com/}{StackExchange}
 		\begin{itemize}
 			\item Leibniz, Cantor, Frege, Russell, Hilbert, G\"odel, Tarski, Turing.
 			\item finite, infinite, syntax, semantics, formal system, deduction, logical consequence, consistency, satisfiability, validity, soundness, completeness, compactness, decidability
@@ -2753,7 +2753,7 @@ A\semeq A'&\implies\neg A\semeq\neg A'\\
 		\[B\leftrightarrow C\vDash A\leftrightarrow A^*\]
 	\end{theorem}
 	\begin{proof}
-		Prove by induction on the number of connective of $A$.
+		Prove by induction.
 	\end{proof}
 \end{frame}
 
@@ -3276,18 +3276,17 @@ A truth assignment for $\mathscr{L}^0$ is a function $\nu:\mathcal{P}\to\{0,1\}$
 		\end{itemize}
 		\item Inapplicability beyond Boolean connectives.
 	\end{itemize}
-\begin{columns}
-\column{.12\textwidth}
-	\begin{figure}[H]
-	\includegraphics[width=\textwidth]{img/grid.pdf}
-	\end{figure}
-\column{.1\textwidth}
 \begin{ocg}{fold-paper}{ocg6}{0}
 \begin{verbatim}
 42
 \end{verbatim}
 \end{ocg}
-\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{}\vspace*{-21pt}
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{img/grid.pdf}
+\end{figure}
 \end{frame}
 
 \begin{frame}\frametitle{Formal System $=$ Axiom $+$ Inference Rule}
@@ -3435,48 +3434,6 @@ A truth assignment for $\mathscr{L}^0$ is a function $\nu:\mathcal{P}\to\{0,1\}$
 		$\Gamma, A\vdash C_j\to B\implies\Gamma\vdash A\to C_j\to B$\\
 		$\Gamma\vdash A\to B$
 	\end{proof}
-\end{frame}
-
-\begin{frame}\frametitle{Formal System --- Variant}\vspace*{-5pt}
-	\begin{columns}
-		\column{.6\textwidth}
-			\begin{block}{Axiom Schema}
-				\begin{enumerate}
-					\item $A\to B\to A$
-					\item $(A\to B\to C)\to(A\to B)\to A\to C$
-					\item $A\wedge B\to A$
-					\item $A\wedge B\to B$
-					\item $(A\to B)\to(A\to C)\to A\to B\wedge C$
-					\item $A\to A\vee B$
-					\item $B\to A\vee B$
-					\item $(A\to C)\to(B\to C)\to A\vee B\to C$
-					\item \textcolor{red}{$(A\to\neg B)\to(A\to B)\to\neg A$}
-					\item \textcolor{red}{$\neg A\to A\to B$}
-					\item \textcolor{red}{$\neg\neg A\to A$}
-				\end{enumerate}
-			\end{block}
-		\column{.31\textwidth}
-			\begin{block}{Reference Rule}
-				\begin{prooftree}
-					\AxiomC{$A$\quad$A\to B$}
-					\alwaysSingleLine
-					\RightLabel{\textcolor{yellow}{[MP]}}
-					\UnaryInfC{$B$}
-				\end{prooftree}
-			\end{block}
-			\vbox{
-				\begin{align*}
-				p'&\coloneqq \neg\neg p\\
-				(A\star B)'&\coloneqq \neg\neg(A'\star B')
-				\end{align*}\vspace{-21pt}
-				\[\text{where}\;\star\in\{\wedge,\vee,\to\}\]
-				\[\Gamma'\coloneqq \{A': A\in\Gamma\}\]
-				\[\textcolor{green}{\Gamma\vdash_{\mathrm{C}} A\iff\Gamma'\vdash_{\mathrm{I}} A'}\]
-			}
-	\end{columns}
-	\vspace{5pt}\centering
-	$1$--$8$+MP=\textbf{P}ositive Calculus \quad \textbf{P}+$9$=\textbf{M}inimal Calculus\\
-	\textbf{M}+$10$=\textbf{I}ntuitionistic Calculus \quad \textbf{I}+$11$=\textbf{C}lassical Calculus
 \end{frame}
 
 \begin{frame}\frametitle{Tree Method for Propositional Logic}\vspace{-2ex}
@@ -6105,7 +6062,7 @@ $\forall X\bigg(\exists x Xx\wedge\exists y\forall x(Xx\to x\leq y)\to\exists y\
 	Mystics exult in mystery and want it to stay mysterious. Scientists exult in mystery for a different reason: it gives them something to do.\par \hfill --- \textsl{Dawkins}
 \end{frame}
 
-\iffalse
+%\iffalse
 
 \begin{frame}\frametitle{Hilbert's Epsilon Calculus}
 \[\nu(\varepsilon_x A)=\Phi\left(\{a\in M:\mathcal{M},\nu(a/x)\vDash A\}\right)\]
@@ -8348,6 +8305,84 @@ $e.g.\quad d(x,y)=\left(\sum\limits_{i=1}^n|x_i-y_i|^p\right)^{\frac{1}{p}}\quad
 	\item $A\coloneqq (0,1)\cup(1,\infty), \neg A=(-\infty,0), \neg\neg A=(0,\infty), A\cup\neg A\ne\mathbb{R}, A\subsetneq\neg\neg A$.
 	\item A topological model of intuitionistic propositional logic is $(X,\mathcal{O}(X),\nu)$ where $\nu:\mathcal{P}\to\mathcal{O}(X)$.
 \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Formal Systems}
+	\begin{columns}
+		\column{.57\textwidth}
+			\begin{block}{Axiom Schema}
+				\begin{enumerate}
+					\item $A\to B\to A$
+					\item $(A\to B\to C)\to(A\to B)\to A\to C$
+					\item $A\wedge B\to A$
+					\item $A\wedge B\to B$
+					\item $(A\to B)\to(A\to C)\to A\to B\wedge C$
+					\item $A\to A\vee B$
+					\item $B\to A\vee B$
+					\item $(A\to C)\to(B\to C)\to A\vee B\to C$
+					\item \textcolor{red}{$(A\to\neg B)\to(A\to B)\to\neg A$}
+					\item \textcolor{red}{$\neg A\to A\to B$}
+					\item \textcolor{red}{$\neg\neg A\to A$}
+				\end{enumerate}
+			\end{block}
+		\column{.43\textwidth}
+			\begin{block}{Reference Rule}
+				\begin{prooftree}
+					\AxiomC{$A$\quad$A\to B$}
+					\alwaysSingleLine
+					\RightLabel{\textcolor{yellow}{[MP]}}
+					\UnaryInfC{$B$}
+				\end{prooftree}
+			\end{block}
+\begin{itemize}\small
+	\item $1$--$8$+MP=\textbf{P}ositive Calculus
+	\item \textbf{P}+$9$=\textbf{M}inimal Calculus
+	\item	\textbf{M}+$10$=\textbf{I}ntuitionistic Calculus
+	\item \textbf{I}+$11$=\textbf{C}lassical Calculus
+\end{itemize}
+	\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{G\"odel Translation}
+\begin{align*}
+p'&\coloneqq \neg\neg p\\
+(A\wedge B)'&\coloneqq A'\wedge B'\\
+(A\vee B)' &\coloneqq\neg\neg(A'\vee B')\\
+(A\to B)' &\coloneqq A'\to B'\\
+(\forall xA)' &\coloneqq \forall xA'\\
+(\exists xA)' &\coloneqq\neg\neg\exists x A'
+\end{align*}
+\begin{itemize}
+	\item $\Gamma\vdash_{\mathrm{C}} A\iff\Gamma'\vdash_{\mathrm{I}} A'$ where $\Gamma'\coloneqq \{A': A\in\Gamma\}$.
+	\item $\vdash_{\mathrm{C}} A\iff\vdash_{\mathrm{I}} \neg\neg A$
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Intuitionistic Logic vs Classical Logic}
+\begin{itemize}
+	\item The difference between intuitionistic and classical logic is in the criteria for truth, i.e., what evidence must be provided before a statement is accepted as true. Speaking vaguely, intuitionistic logic demands positive evidence, while classical logic is happy with lack of negative evidence.
+	\item $\neg\neg A$ holds if it is contradictory to assume that it is contradictory to assume $A$. In essence, it says that $\neg\neg A$ is accepted when there is no evidence against it. In other words, $\neg\neg A$ means something like ``$A$ cannot be falsified'' or ``$A$ is potentially true''.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{theorem}
+The axiom of choice implies excluded middle.
+\end{theorem}
+\begin{proof}
+Consider an arbitrary proposition $P$. To decide $P$, define
+\begin{align*}
+A&\coloneqq\big\{x\in\{0,1\}: P\vee x=0\big\}\\
+B&\coloneqq\big\{x\in\{0,1\}: P\vee x=1\big\}
+\end{align*}
+Every member of $\{A,B\}$ is inhabited because $0\in A$ and $1\in B$. By the axiom of choice there is a function $f:\{A,B\}\to A\cup B$ s.t. $f(A)\in A$ and $f(B)\in B$. Then
+\begin{enumerate}
+	\item $f(A)=1\implies P$
+	\item $f(B)=0\implies P$
+	\item $f(A)=0\;\&\; f(B)=1\implies\neg P$, otherwise $P\implies A=B=\{0,1\}\implies 0=f(A)=f(B)=1$.
+\end{enumerate}
+In each case we decided whether $P$ or $\neg P$ holds.
+\end{proof}
 \end{frame}
 
 \begin{frame}\frametitle{Dense Linear Ordering without Endpoints}
@@ -13174,12 +13209,29 @@ y(xx) &\hat{=} &F\ulcorner M\ulcorner M\urcorner\urcorner &\hat{=} &F(\ulcorner 
 \begin{block}{Quine in Python}
 s=\textquotesingle s=\%r; print(s\%\%s)\textquotesingle; print(s\%s)
 \end{block}
-\centerline{$(\lambda x.xx)(\lambda x.xx)$}
+\begin{block}{Quine in Lambda Calculus}
+\[(\lambda x.xx)(\lambda x.xx)\]
+\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{Self-reproducing Program}
 \begin{block}{}
-	Print two copies of the following, the second copy in quotes:\\
-	``Print two copies of the following, the second copy in quotes:''
+	\begin{quote}
+		Print two copies of the following, the second copy in quotes:
+	\end{quote}
+	\begin{quote}
+		``Print two copies of the following, the second copy in quotes:''
+	\end{quote}
 \end{block}
 	\centerline{\fbox{\textcolor{green}{DNA / mutation / evolution}}}
+\begin{block}{}
+	\begin{quote}
+		Build a baby that acts on the following instructions, and also contains a copy of those instructions in its reproductive organs.
+	\end{quote}
+	\begin{quote}
+		``Build a baby that acts on the following instructions, and also contains a copy of those instructions in its reproductive organs.''
+	\end{quote}
+\end{block}
 \end{frame}
 
 \begin{frame}\frametitle{von Neumann's Self-reproducing Automata}
@@ -16176,6 +16228,20 @@ Syntax \arrow[u]
 \end{description}
 \end{frame}
 
+\begin{frame}\frametitle{Rules for unit type}
+\[
+\infer[1\text{-F}]{\Gamma\vdash 1:\textsf{type}}{}
+\]
+
+\[
+\infer[1\text{-I}]{\Gamma\vdash *:1}{}
+\]
+
+\[
+\infer[1\text{-C}]{\Gamma\vdash x=*:1}{\Gamma\vdash x:1}
+\]
+\end{frame}
+
 \begin{frame}\frametitle{Rules for dependent product type}
 \[
 \infer[\prod\text{-F}]{\prod_{x:A}B(x):\mathsf{type}}{A:\mathsf{type} & x:A \vdash B(x):\mathsf{type}}
@@ -16263,7 +16329,7 @@ Syntax \arrow[u]
 \begin{frame}\frametitle{Rules for identity type}
 \textbf{Notation:} Sometimes we write $x=_Ay$ for $\mathsf{Id}_A(x,y)$.
 \[
-\infer[\mathsf{Id}\text{-F}]{x,y:A\vdash x=_Ay:\mathsf{type}}{A:\mathsf{type}}
+\infer[\mathsf{Id}\text{-F}]{a=_A b:\mathsf{type}}{A:\mathsf{type} & a,b:A}
 \]
 
 \[
@@ -16307,6 +16373,13 @@ A\leftrightarrow B & A\simeq B \\
 \end{tabu}
 \]
 where $\|A\|\coloneqq\prod\limits_{X:\operatorname{Prop}}(A\to X)\to X$.
+\end{frame}
+
+\begin{frame}\frametitle{Translation}
+\centerline{If a farmer owns a donkey, then he beats it.}
+\[\forall x\forall y(Fx\wedge Dy\wedge Oxy\to Bxy)\]
+
+\[b:\prod\limits_{z:\sum\limits_{x:F}\sum\limits_{y:D}Oxy}B(\pi_1(z),\pi_1(\pi_2(z)))\]
 \end{frame}
 
 \begin{frame}\frametitle{Homotopy Levels}
@@ -16576,13 +16649,19 @@ Convex functions on $\mathbb{R}$ do not form a category.}
 \begin{itemize}
 	\item A \emph{discrete category} is a category that contains no morphisms apart from identities.
 	\item A \emph{monoid} $(M,\cdot,e)$ is a category that has only one object $\bullet$ s.t. $\mathbf{C}(\bullet,\bullet)=M$.
-	\item A \emph{group} is a category that has only one object and in which every morphism is an isomorphism.\vspace*{-2ex}
+	\item A \emph{group} is a category that has only one object and in which every morphism is an isomorphism.
 \[
 \begin{tikzcd}
 \bullet \arrow[loop left] \arrow[loop right] \arrow[loop above] \arrow[loop below]
 \end{tikzcd}
 \]
 	\item A \emph{groupoid} is a category in which every morphism is an isomorphism.
+
+\[
+\begin{tikzcd}
+\bullet \arrow[loop left] \arrow[r,bend left] \& \bullet \arrow[loop right] \arrow[l,bend left]
+\end{tikzcd}
+\]
 \end{itemize}
 \end{frame}
 
@@ -18782,7 +18861,7 @@ universal quantification: $\forall$ & right adjoint to pullback\\
 \begin{theorem}
 For $f:A\to B$ a morphism in a category $\mathbf{C}$ with pullbacks, the pullback functor $f^*:\mathbf{C}/B\to\mathbf{C}/A :: y\mapsto f^*y$ has a left adjoint $\sum_f\dashv f^*$.
 \[\begin{tikzcd}
-f^*Y \arrow[r] \arrow[d,"f^*b" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+A\times_B Y \arrow[r] \arrow[d,"f^*b" swap] \arrow[dr, phantom, "\lrcorner", very near start]
 \& Y \arrow[d,"b"] \\
 A \arrow[r,"f" swap]
 \& B
@@ -18796,8 +18875,8 @@ A \arrow[r,"f" swap]
 \setlength\belowdisplayskip{0pt}
 \begin{proof}[proof sketch]
 Let $\sum_f:\mathbf{C}/A\to\mathbf{C}/B :: a\mapsto f\circ a$.\\
-We have to check that there is a natural isomorphism: $\theta:\operatorname{Hom}_{\mathbf{C}/B}(\sum_f(a),b)\xrightarrow{\cong} \operatorname{Hom}_{\mathbf{C}/A}(a,f^*b)$.\\
-Assume $g\in \operatorname{Hom}_{\mathbf{C}/B}(\sum_f(x),y)$.
+We have to check that there is a natural isomorphism: $\theta:\operatorname{Hom}_{\mathbf{C}/B}(\sum_f a,b)\xrightarrow{\cong} \operatorname{Hom}_{\mathbf{C}/A}(a,f^*b)$.\\
+Assume $g\in \operatorname{Hom}_{\mathbf{C}/B}(\sum_fa,b)$.
 \[\begin{tikzcd}
 X \arrow[r,"g"] \arrow[d,"a" swap] %\arrow[dr, phantom, "\lrcorner", very near start]
 \& Y \arrow[d,"b"] \\
@@ -18809,41 +18888,95 @@ By definition of $f^*b$, the following diagram is a pullback.
 \[
 \begin{tikzcd}
 X \arrow[dr, dashed, "u"] \arrow[drr, bend left=30, "g"] \arrow[ddr, bend right=30, "a" swap]\\
-\& f^*Y \arrow[r,"p"] \arrow[d,"f^*b" swap] \arrow[dr, phantom, "\lrcorner", very near start]
+\& A\times_B Y \arrow[r,"p"] \arrow[d,"f^*b" swap] \arrow[dr, phantom, "\lrcorner", very near start]
 \& Y \arrow[d,"b"] \\
 \& A \arrow[r,"f" swap]
 \& B
 \end{tikzcd}
 \]
-So for any $g\in \operatorname{Hom}_{\mathbf{C}/B}(\sum_f(a),b)$, there is a unique $u\in \operatorname{Hom}_{\mathbf{C}/A}(a,f^*b)$ s.t. $\theta:g\mapsto u$ is a bijection.
+So for any $g\in \operatorname{Hom}_{\mathbf{C}/B}(\sum_f a,b)$, there is a unique $u\in \operatorname{Hom}_{\mathbf{C}/A}(a,f^*b)$ s.t. $\theta:g\mapsto u$ is a bijection.
 \end{proof}
 \end{frame}
 
-\begin{frame}\frametitle{Dependent Product}
-\begin{definition}[Locally Cartesian Closed]
+\begin{frame}\frametitle{Locally Cartesian Closed Category}
+\begin{definition}[Locally Cartesian Closed Category]
 A category $\mathbf{C}$ is called \emph{locally cartesian closed} whenever, for all object $A\in \operatorname{ob}(\mathbf{C})$, the slice category $\mathbf{C}/A$ is cartesian closed.	
 \end{definition}
 \begin{theorem}
 If $\mathbf{C}$ is locally cartesian closed and has a terminal object, then $\mathbf{C}$ is cartesian closed.
 \end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{Dependent Product}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
 \begin{theorem}
 Let $\mathbf{C}$ be a category with all pullbacks. Then $\mathbf{C}$ is locally cartesian closed, iff, for any morphism $f:A\to B$, the pullback functor $f^*:\mathbf{C}/B\to\mathbf{C}/A$ has a right adjoint $\prod_f$.
 \end{theorem}
+\begin{proof}[proof sketch of ``$\Rightarrow$'']
+Let $f:A\to B$ in $\mathbf{C}$, and $X\xrightarrow{a} A$ in $\mathbf{C}/A$. The pullback of $Y\xrightarrow{b} B$ along $f$ corresponds to $f\times_B b:A\times_B Y\to B$ in $\mathcal{C}/B$.
+\[\begin{tikzcd}
+\& A\times_B Y \arrow[dl,"g" swap] \arrow[r] \arrow[dr,"f\times_B b" description] \arrow[d,"f^*b" swap]
+\& Y \arrow[d,"b"]\\
+X \arrow[r,"a" swap] \& A \arrow[r,"f" swap] \& B
+\end{tikzcd}
+\]
+Since $\mathcal{C}/B$ is cartesian closed, we may exponentiate $fa:X\to B$ by $f: A\to B$ to obtain a morphism $(fa)^f:X^f\to B$ such that
+\[\operatorname{Hom}_{\mathbf{C}/B}(f\times_B b,fa)\cong\operatorname{Hom}_{\mathbf{C}/B}(b,(fa)^f)\]
+\end{proof}
 \end{frame}
 
 \begin{frame}\frametitle{}
-\begin{proof}[proof sketch]
-Fix $f:A\to B$ in $\mathbf{C}$. Define $\prod_f$ on objects $X\xrightarrow{a} A$ as in the following pullback square:
+\begin{proof}[proof sketch of ``$\Rightarrow$'' continued]
+Since $(-)^f:\mathcal{C}/B\to\mathcal{C}/B$ is a functor and we have a morphism $a:fa\to f$ in $\mathcal{C}/B$, so we obtain a morphism $a^f:(fa)^f\to f^f$ in $\mathcal{C}/B$. Moreover, $1_B\times_B f\cong f$, so by the product-exponential adjunction
+\[\operatorname{Hom}_{\mathbf{C}/B}(f,f)\cong\operatorname{Hom}_{\mathbf{C}/B}(1_B,f^f)\]
 \[\begin{tikzcd}
 \prod_fX \arrow[r] \arrow[d,"\prod_fa" swap] \arrow[dr, phantom, "\lrcorner", very near start]
-\& X^f \arrow[d,"a^f"] \arrow[ddr,bend left=40,"(f\circ a)^f"]\\
-B \arrow[r,"j" swap] \arrow[drr,bend right=40,"\operatorname{id}_B" swap]
+\& X^f \arrow[d,"a^f"] \arrow[ddr,bend left=40,"(fa)^f"]\\
+B \arrow[r,"s" swap] \arrow[drr,bend right=40,"1_B" swap]
 \& A^f \arrow[dr,"f^f"] \\
 \&\& B
 \end{tikzcd}
 \]
-where $j: \operatorname{id}_B\to f^f$ is the exponential transpose of $\operatorname{id}_f:f\to f$. Now $\prod_fa=j^*a^f$.\\
-It remains to prove that there is a bijection $\theta:\operatorname{Hom}_{\mathbf{C}/A}(f^*b,a)\xrightarrow{\cong} \operatorname{Hom}_{\mathbf{C}/B}(b,\prod_fa)$ which is natural in $X\xrightarrow{a}A$ and $Y\xrightarrow{b}B$.
+In particular, $1_f:f\to f$ is mapped to some $s:1_B\to f^f$ (i.e. a morphism $s: B\to A^f$ in $\mathcal{C}$ such that $f^f\circ s=1_B$). Now, take the pullback (in $\mathcal{C}$) of $a^f$ along $s$ to obtain $\prod_f a\coloneqq s^*a^f:\prod_f X\to B$.
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+\begin{proof}[proof sketch of ``$\Rightarrow$'' continued]
+Now we prove there is a bijection $\operatorname{Hom}_{\mathbf{C}/A}(f^*b,a)\cong\operatorname{Hom}_{\mathbf{C}/B}(b,\prod_fa)$, which is natural in $X\xrightarrow{a}A$ and $Y\xrightarrow{b}B$.\\
+The left hand side can be identified with morphisms $g:f\times_B b\to fa$ in $\mathcal{C}/B$ satisfying $a\circ g=f^*b$, where $f^*b:f\times_B b\to f$ is the projection. The right hand side can be identified with morphisms $h:b\to (fa)^f$ such that $a^f\circ h=s\circ b$. Then $\operatorname{Hom}_{\mathbf{C}/B}(f\times_B b,fa)\cong\operatorname{Hom}_{\mathbf{C}/B}(b,(fa)^f)$ restricts to a bijection $g\mapsto u$.
+\[\begin{tikzcd}
+\& A\times_B Y \arrow[ddl,red,"g" swap] \arrow[dd,"f^*b"] \arrow[r] \arrow[ddrr, bend right=10, "f\times_B b" description] \& Y \arrow[dr,dashed,red,"u" description] \arrow[drr,bend left=10,red,"h"] \arrow[ddr,bend right=10,"b"] \\
+\&\&\& \prod_f X \arrow[r] \arrow[d,"\prod_fa"] \& X^f \arrow[d,"a^f"] \arrow[ddr,bend left=40,"(fa)^f"]\\
+X \arrow[r,"a" swap] \& A \arrow[rr,"f" swap] \&\& B \arrow[r,"s" swap] \arrow[drr,bend right=40,"1_B"]
+\& A^f \arrow[dr,"f^f"] \\
+\&\&\&\&\& B
+\end{tikzcd}
+\]
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{proof}[proof sketch of ``$\Leftarrow$'']
+The terminal object in $\mathbf{C}/B$ is $1_B$.\\
+The pullback of $f$ and $b$ in $\mathbf{C}$ corresponds to a product in $\mathbf{C}/B$.
+\[
+\begin{tikzcd}
+P \arrow[d,"f^*b" swap] \arrow[r] \arrow[dr,"f\times_B b" description] \& X \arrow[d,"b"] \\
+A \arrow[r,"f" swap] \& B
+\end{tikzcd}
+\]
+\[f\times_B b=f\circ f^*b=\sum_f\nolimits f^*b\]
+We deduce the following equivalence
+\begin{align*}
+\operatorname{Hom}_{\mathbf{C}/B}(f\times_B b,u)&=\operatorname{Hom}_{\mathbf{C}/B}(\sum\nolimits_f(f^*b),u)\\
+&\cong\operatorname{Hom}_{\mathbf{C}/A}(f^*b,f^*u)\\
+&\cong\operatorname{Hom}_{\mathbf{C}/B}(b,\prod\nolimits_f(f^*(u)))
+\end{align*}
+Then $u^f=\prod_f(f^*(u))$.
 \end{proof}
 \end{frame}
 
@@ -18857,26 +18990,38 @@ $1_\mathbf{C}:\mathbf{1}\to\mathbf{C}$ has the property that, for every $A\in\ma
 \end{frame}
 
 \begin{frame}\frametitle{$+\dashv\Delta\dashv\times$}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
 \begin{theorem}
 \begin{enumerate}
 	\item $\Delta$ has a right adjoint iff $\mathbf{C}$ has binary products, and the right adjoint is $\times:\mathbf{C}\times\mathbf{C}\to\mathbf{C}$.
 	\item $\Delta$ has a left adjoint iff $\mathbf{C}$ has binary coproducts, and the left adjoint is $+:\mathbf{C}\times\mathbf{C}\to\mathbf{C}$.
-\end{enumerate}
+\end{enumerate}\vspace*{-3ex}
 \end{theorem}
 	\[\mathbf{C}\times\mathbf{C}(\Delta X,(A,B))\cong\mathbf{C}(X,A)\times\mathbf{C}(X,B)\cong\mathbf{C}(X,A\times B)\]
 	\[\mathbf{C}(A+B,X)\cong\mathbf{C}(A,X)\times\mathbf{C}(B,X)\cong\mathbf{C}\times\mathbf{C}((A,B),\Delta X)\]
-\centerline{
-\begin{tikzcd}[column sep=large, row sep=large]
-\&\& A\\
-C \arrow[r,dashed,"u"] \arrow[urr,"f"] \arrow[drr,"g" swap] \& A\times B \arrow[ur,"\pi_1" swap] \arrow[dr,"\pi_2"]\\
-\&\& B
-\end{tikzcd}\qquad
-\begin{tikzcd}[column sep=large, row sep=large]
-A \arrow[dr,"\iota_1" swap] \arrow[drr,"f"]\\
-\& A+B \arrow[r, dashed, "u"] \& C\\
-B \arrow[ur,"\iota_2"] \arrow[urr,"g" swap]
+\[
+\begin{tikzcd}
+X \arrow[d,"f" swap] \& X\times Y \arrow[l,"\pi_1" swap] \arrow[d,"f\times g"] \arrow[r,"\pi_2"] \& Y \arrow[d,"g"] \\
+A \& A\times B \arrow[l,"\pi_1"] \arrow[r,"\pi_2" swap] \& B
 \end{tikzcd}
-}
+\begin{tikzcd}
+X \arrow[d,"f" swap] \& X\times X \arrow[l,"\pi_1" swap] \arrow[d,"f\times g"] \arrow[r,"\pi_2"] \& X \arrow[d,"g"] \\
+A \& A\times B \arrow[l,"\pi_1"] \arrow[r,"\pi_2" swap] \& B
+\end{tikzcd}
+\infer={f\times g:X\to A\times B}{(f,g):\Delta X\to(A,B)}
+\]
+\[
+\begin{tikzcd}
+X \arrow[r,"\iota_1"] \& X+Y \& Y \arrow[l,"\iota_2" swap] \\
+A \arrow[u,"f"] \arrow[r,"\iota_1" swap] \& A+B \arrow[u,"f+g" swap] \& B \arrow[u,"g" swap] \arrow[l,"\iota_2"]
+\end{tikzcd}
+\begin{tikzcd}
+X \arrow[r,"\iota_1"] \& X+X \& X \arrow[l,"\iota_2" swap] \\
+A \arrow[u,"f"] \arrow[r,"\iota_1" swap] \& A+B \arrow[u,"f+g" swap] \& B \arrow[u,"g" swap] \arrow[l,"\iota_2"]
+\end{tikzcd}
+\infer={(f,g):(A,B)\to\Delta X}{f+g:A+B\to X}
+\]
 \end{frame}
 
 \begin{frame}\frametitle{$\varinjlim\dashv\Delta\dashv\varprojlim$}
@@ -19886,6 +20031,8 @@ A\otimes B=
 \end{frame}
 
 \begin{frame}\frametitle{The No-cloning Theorem}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
 	\begin{theorem}[The No-cloning Theorem]
 	If there is a unitary operator $U$ and two quantum states $|\phi\rangle$ and $|\psi\rangle$, and $U$ takes $\phi\rangle\otimes|0\rangle$ to $\phi\rangle\otimes|\phi\rangle$ and $\psi\rangle\otimes|0\rangle$ to $\psi\rangle\otimes|\psi\rangle$, then either $\phi=\psi$ or $\phi\,\bot\,\psi$.
 \end{theorem}
@@ -19897,8 +20044,9 @@ A\otimes B=
 	&=\big(\langle\phi|\langle\phi|\big)\big(|\psi\rangle\psi\rangle\big)\\
 	&=\langle\phi|\psi\rangle\langle\phi|\psi\rangle\\
 	&=\langle\phi|\psi\rangle^2
-\end{align*}
+\end{align*}\vspace*{-2ex}
 \end{proof}
+\textbf{Remark:} Quantum states cannot be cloned. It's impossible to measure a qubit in two different ways (even, indirectly, by using a copy trick).
 \end{frame}
 
 \begin{frame}\frametitle{Quantum Computing}
@@ -19973,7 +20121,30 @@ The measurement of an $n$ qubit quantum state: $|\psi\rangle=\sum\limits_{x\in\{
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Quantum Gates}
+\begin{frame}\frametitle{$\operatorname{NOT}$ Gate \& $\sqrt{\operatorname{NOT}}$ Gate}
+\begin{itemize}
+	\item $\operatorname{NOT}$ Gate
+	\[\operatorname{NOT}=\begin{bmatrix}
+		0 & 1\\
+		1 & 0
+	\end{bmatrix}\]
+	\begin{align*}
+		\operatorname{NOT} |0\rangle&=|1\rangle\\
+		\operatorname{NOT} |1\rangle&=|0\rangle
+	\end{align*}
+	\item $\sqrt{\operatorname{NOT}}$ Gate
+	\[\sqrt{\operatorname{NOT}}=\frac{1}{2}\begin{bmatrix}
+		1+\mathrm{i} & 1-\mathrm{i} \\
+		1-\mathrm{i} & 1+\mathrm{i}
+	\end{bmatrix}\]
+	\begin{align*}
+		\sqrt{\operatorname{NOT}}\cdot \sqrt{\operatorname{NOT}}&=\operatorname{NOT} \\
+		\sqrt{\operatorname{NOT}}\cdot \sqrt{\operatorname{NOT}}^\dagger&=I
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{$\operatorname{SWAP}$ Gate \& Hadamard Gate}
 	\begin{itemize}
 		\item $\operatorname{SWAP}$ Gate
 		\begin{columns}
@@ -19989,7 +20160,7 @@ The measurement of an $n$ qubit quantum state: $|\psi\rangle=\sum\limits_{x\in\{
 	\[|\psi\rangle=a|0\rangle+b|1\rangle=\frac{a+b}{\sqrt{2}}|+\rangle+\frac{a-b}{\sqrt{2}}|-\rangle\]
 \end{frame}
 
-\begin{frame}\frametitle{Quantum Gates}
+\begin{frame}\frametitle{Pauli Gates}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{block}{Pauli Gates}
@@ -20201,10 +20372,10 @@ c_1 & c_2 & t & x_1 & x_2 & x_3\\
 
 \begin{frame}\frametitle{Quantum Algorithms}
 	\begin{enumerate}[I.]
-		\item Build an initial state $|\psi_i\rangle=\sum\limits_{x\in\{0,1\}^n}a_x|x\rangle$.\\
+		\item \textbf{Initialization} Build an initial state $|\psi_i\rangle=\sum\limits_{x\in\{0,1\}^n}a_x|x\rangle$.\\
 		For example, $\frac{1}{\sqrt{2^n}}\sum\limits_{x\in\{0,1\}^n}|x\rangle$ (uniform superposition) can be build from $|0\rangle^{\otimes n}$ by application of Hadamard gate $H^{\otimes n}$.
-		\item Transform $|\psi_i\rangle\to|\psi_f\rangle = \sum\limits_{x\in\{0,1\}^n} b_x|x\rangle$ through a sequence of elementary quantum gates.
-		\item Extract information by quantum measurement of $|\psi_f\rangle$.
+		\item \textbf{Transformations} Transform $|\psi_i\rangle\to|\psi_f\rangle = \sum\limits_{x\in\{0,1\}^n} b_x|x\rangle$ through a sequence of elementary quantum gates.
+		\item \textbf{Measurement} Extract information by quantum measurement of $|\psi_f\rangle$.
 	\end{enumerate}
 \end{frame}
 
@@ -20257,7 +20428,7 @@ c_1 & c_2 & t & x_1 & x_2 & x_3\\
 \end{frame}
 
 \begin{frame}\frametitle{Quantum Teleportation}
-Alice and Bob share $|\Phi^+\rangle$. Alice wants to convey $|\psi\rangle=a|0\rangle+b|1\rangle$ to Bob.\\
+Alice and Bob share $|\Phi^+\rangle$. Alice wants to teleport $|\psi\rangle=a|0\rangle+b|1\rangle$ to Bob.\\
 The joint state is $|\psi\rangle|\Phi^+\rangle=\frac{|\Phi^+\rangle\otimes(a|0\rangle+b|1\rangle)+|\Phi^-\rangle\otimes(a|0\rangle-b|1\rangle)+|\Psi^+\rangle\otimes(a|1\rangle+b|0\rangle)+|\Psi^-\rangle\otimes(a|1\rangle-b|0\rangle)}{2}$.
 \begin{columns}
 \column{.49\textwidth}
@@ -20365,452 +20536,6 @@ Let $A,B,C$ be three distinct states in $\mathbb{C}^2$, then:
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Logic vs Game Theory}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}[fragile]{\href{https://mp.weixin.qq.com/s/LLUoU0gl3t6GTh6jDef5vA}{Pirate Game}}
-	\begin{problem}[\switchocg{ocg2}{Pirate Game}]
-		\switchocg{ocg3}{$5$ rational pirates} have a treasure of 100 gold coins.\\
-		The pirate world's rules of distribution are thus:
-		\begin{enumerate}
-			\item The fiercest pirate proposes how to split the coins, and all pirates (including the proposer) vote for or against it;
-			\item If \switchocg{ocg4}{$50\%$ or more} of the pirates vote for it, then the coins will be shared that way. Otherwise, the proposer will be thrown overboard, and the procedure is repeated with the next fiercest pirate;
-			\item As the pirates are bloodthirsty, each pirate would prefer to throw another overboard, if all other results would otherwise be equal.
-		\end{enumerate}
-	\end{problem}
-\begin{ocg}{pirate1}{ocg2}{0}
-\begin{verbatim}
-1,0,1,0,98
-\end{verbatim}
-\end{ocg}
-\begin{ocg}{pirate2}{ocg3}{0}
-\begin{verbatim}
-What about more than 200 pirates? Who can survive?
-1-200, 201, 202, 204, 200+2^n
-\end{verbatim}
-\end{ocg}
-\begin{ocg}{pirate3}{ocg4}{0}
-\begin{verbatim}
-What about more than half?
-0,2,1,0,97 / 2,0,1,0,97
-\end{verbatim}
-\end{ocg}
-\end{frame}
-
-\begin{frame}[fragile]{\href{https://www.zhihu.com/question/19912025/answer/99088775}{Who Will Survive?}}
-	\begin{problem}[\switchocg{ocg5}{Who Will Survive?}]
-		$5$ rational prisoners are going to take beans from a bag with 100 beans. They will do it one by one. No communication is allowed between them. But they can count the beans left in the bag.
-		\begin{enumerate}
-			\item each must take at least $1$ bean, and the last prisoner need not to take all the rest;
-			\item all prisoners who take the maximum/minimum number will die;
-			\item they will try to survive first and then try to kill more people.
-		\end{enumerate}
-	\end{problem}
-\begin{ocg}{prisoner}{ocg5}{0}
-\begin{verbatim}
-None survive!
-\end{verbatim}
-\end{ocg}
-\end{frame}
-
-\begin{frame}\frametitle{Simpson Paradox}
-\begin{center}
-\begin{tabu}{c|ccc}
-\hline
- & Group $1$ & Group $2$ & Total\\
-\hline
-Lisa & $0\%$ & $75\%$ & $60\%$\\
-Bart & $25\%$ & $100\%$ & $40\%$\\
-\hline
-\end{tabu}\;\;
-\begin{tabu}{c|ccc}
-\hline
- & Group $1$ & Group $2$ & Total\\
-\hline
-Lisa & $0/1$ & $3/4$ & $3/5$\\
-Bart & $1/4$ & $1/1$ & $2/5$\\
-\hline
-\end{tabu}
-\end{center}
-\begin{figure}
-	\includegraphics[width=0.5\textwidth,angle=0,origin=c]{img/simpson-paradox}\vspace{-1ex}\caption{Something true for different groups is false for the combined group.}
-\end{figure}
-\end{frame}
-
-\begin{frame}\frametitle{Monty Hall Problem}
-	\begin{problem}[Monty Hall Problem]
-		You're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No.$1$, and the host, who knows what's behind the doors, opens another door, say No.$3$, which has a goat. He then says to you, ``Do you want to pick door No.$2$?''
-	\end{problem}
-	\begin{columns}
-		\column{0.4\textwidth}
-			\begin{figure}
-				\includegraphics[width=.8\textwidth,angle=0,origin=c]{img/monty1}
-			\end{figure}
-		\column{0.4\textwidth}
-			\begin{figure}
-				\includegraphics[width=.8\textwidth,angle=0,origin=c]{img/monty2}
-			\end{figure}
-	\end{columns}
-\end{frame}
-
-\begin{frame}\frametitle{Bertrand's Paradox}
-	\begin{problem}[Bertrand's Paradox]
-		Consider an equilateral triangle inscribed in a circle. Suppose a chord of the circle is chosen at random. What is the probability that the chord is longer than a side of the triangle?
-	\end{problem}
-	\begin{columns}
-		\column{0.3\textwidth}
-			\begin{figure}
-				\includegraphics[width=\textwidth,angle=0,origin=c]{img/bertrand-endpoint}
-			\end{figure}
-		\column{0.3\textwidth}
-			\begin{figure}
-				\includegraphics[width=\textwidth,angle=0,origin=c]{img/bertrand-radius}
-			\end{figure}
-		\column{0.3\textwidth}
-			\begin{figure}
-				\includegraphics[width=\textwidth,angle=0,origin=c]{img/bertrand-midpoint}
-			\end{figure}
-	\end{columns}
-	\begin{center}
-		What is ``randomness''? a process or a product?
-	\end{center}
-\end{frame}
-
-\begin{frame}\frametitle{Confirmation Problem}
-\begin{columns}
-\column{.7\textwidth}
-	\begin{prooftree}
-		\AxiomC{$\neg Rx\wedge\neg Bx \;\;\text{confirms}\;\; \forall x(\neg Bx\to\neg Rx)$}
-		\noLine
-		\UnaryInfC{$\forall x(\neg Bx\to\neg Rx)\leftrightarrow\forall x(Rx\to Bx)$}
-		\alwaysSingleLine
-		\UnaryInfC{$\neg Rx\wedge\neg Bx\;\; \text{confirms}\;\; \forall x(Rx\to Bx)$}
-	\end{prooftree}
-\column{.3\textwidth}
-	\begin{figure}
-		\includegraphics[width=\textwidth]{img/raven.png}\caption{Raven Paradox}
-	\end{figure}
-\end{columns}
-\end{frame}
-
-\begin{frame}\frametitle{\href{https://zhuanlan.zhihu.com/p/34072069}{Zero-Knowledge Proof}}
-	\begin{itemize}
-		\item Alice gave Bob a Sudoku puzzle.
-		\item Bob tried and failed: ``Is it an unsolvable one?''
-		\item Alice: ``Let me show you that I have a solution. But I will not show you the actual solution.''
-	\end{itemize}
-\begin{figure}
-\includegraphics[width=.5\textwidth]{img/sudoku.png}
-\end{figure}
-\end{frame}
-
-\begin{frame}\frametitle{Prover vs Verifier}
-	\begin{itemize}
-		\item \textbf{Completeness:} $P$ can convince $V$ if $X$ is true.
-		\item \textbf{Soundness:} no (efficient) $P$ can convince $V$ if $X$ is not true.
-		\item \textbf{Zero Knowledge:} no efficient $V$ learns anything more than the validity of $X$.
-	\end{itemize}
-	\textbf{Remark:} The adversary can simulate the proof without knowing the prover's witness.
-	\begin{theorem}
-		Every NP statement can be proven in zero-knowledge.
-	\end{theorem}
-\end{frame}
-
-\begin{frame}\frametitle{Logic vs Probability --- Cox Theorem}
-\begin{center}
-\fbox{Probability theory extends propositional logic?}
-\end{center}
-\begin{assumption}[Cox's Assumptions for Beliefs]
-\begin{enumerate}
-	\item $A\leftrightarrow B\implies b(\cdot|A)=b(\cdot|B)\;\&\;b(A|\cdot)=b(B|\cdot)$.
-	\item there is a continuous binary operation $\otimes$ that is strictly increasing in each coordinate s.t. $b(A\wedge B|C)=b(A|C)\otimes b(B|A\wedge C)$.
-	\item for any rational numbers $r_1,r_2,r_3\in (0,1)$ there are $A,B,C,D\in\Omega$ s.t. $r_1=b(A|D)$, $r_2=b(B|A\wedge D)$ and $r_3=b(C|A\wedge B\wedge D)$.
-	\item thers is a continuous nonnegative nonincreasing function $N: [0,1]\to [0,1]$ s.t. $b(\neg A|C)=N(b(A|C))$.
-\end{enumerate}
-\end{assumption}
-\begin{theorem}[Cox Theorem]
-A credence function that satisfies Cox's assumptions for beliefs is isomorphic to a probability function.
-\end{theorem}
-\end{frame}
-
-\begin{frame}\frametitle{Logic vs Probability --- Algorithmic Probability}
-\setlength\abovedisplayskip{0pt}
-\setlength\belowdisplayskip{0pt}
-\begin{definition}[Algorithmic Probability]
-	\[M(x)\coloneqq \sum\limits_{p:U(p)=x*}2^{-\ell(p)}\]
-	where $U$ is a universal monotone Turing machine.
-\end{definition}
-\begin{align*}
-	M'(\epsilon)&\coloneqq 1\\
-	M'(x_{1:t})&\coloneqq M'(x_{<t})\frac{M(x_{1:t})}{\sum\limits_{x\in\mathcal{X}}M(x_{<t}x)}
-\end{align*}
-\begin{theorem}[Completeness Theorem]
-		For any computable environment $\mu$,
-		\[\sum\limits_{t=1}^\infty\sum\limits_{x_{1:t}\in\mathcal{X}^t}\mu(x_{<t})\big(M'(x_t|x_{<t})-\mu(x_t|x_{<t})\big)^2\leqa K(\mu)\ln2\]
-\end{theorem}
-\end{frame}
-
-\begin{frame}\frametitle{Game Theory}
-\begin{columns}
-\column{.5\textwidth}
-\begin{table}
-\begin{tabu}{c|cc}
-\hline
- & silent & betray\\
-\hline
-Silent & $-1,-1$ & $-4,0$\\
-Betray & $0,-4$ &\textcolor{yellow}{$-3,-3$}\\
-\hline
-\end{tabu}\caption{Prisoner's Dilemma}
-\end{table}
-\column{.5\textwidth}
-\begin{table}
-\begin{tabu}{c|cc}
-\hline
- & opera & football\\
-\hline
-Opera & \textcolor{yellow}{$1,2$} & $0,0$\\
-Football & $0,0$ & \textcolor{yellow}{$2,1$}\\
-\hline
-\end{tabu}\caption{Battle of the Sexes}
-\end{table}
-\end{columns}
-\begin{columns}
-\column{.5\textwidth}
-\begin{table}
-\begin{tabu}{c|cc}
-\hline
- & stop & go\\
-\hline
-Stop & $0,0$ & \textcolor{yellow}{$0,1$}\\
-Go & \textcolor{yellow}{$1,0$} & $-\infty,-\infty$\\
-\hline
-\end{tabu}
-\caption{\footnotesize Chicken/Traffic}
-\end{table}
-\column{.5\textwidth}
-\begin{table}
-\begin{tabu}{c|cc}
-\hline
- & head & tail\\
-\hline
-Head & $+1,-1$ & $-1,+1$\\
-Tail & $-1,+1$ & $+1,-1$\\
-\hline
-\end{tabu}\caption{Matching Pennies}
-\end{table}
-\end{columns}
-\end{frame}
-
-\begin{frame}\frametitle{Preferences Lead to Utility}
-\setlength\abovedisplayskip{0pt}
-\setlength\belowdisplayskip{0pt}\vspace*{-2pt}
-\begin{itemize}
-	\item A lottery $L=[p_1,x_1;\dots;p_n,x_n]$ is a probability distribution over outcomes $\mathcal{X}$.
-	\item Preferences of a rational agent must obey constraints.
-\end{itemize}
-\begin{enumerate}
-	\item completeness $x_1\succ x_2\vee x_1\sim x_2\vee x_2\succ x_1$
-	\item transitivity $x_1\succ x_2\wedge x_2\succ x_3\to x_1\succ x_3$
-	\item continuity $x_1\succ x_2\succ x_3\to\exists p: x_2\sim[p,x_1;1-p,x_3]$
-	\item independence $x_1\sim x_2\to[p,x_1;1-p,x_3]\sim[p,x_2;1-p,x_3]$
-	\item monotonicity $x_1\succ x_2\wedge p>q\to[p,x_1;1-p,x_2]\succ[q,x_1;1-q,x_2]$
-	\item decomposability $\big[p,x_1;1-p,[q,x_2;1-q,x_3]\big]\sim\big[p,x_1;(1-p)q,x_2;(1-p)(1-q),x_3\big]$
-\end{enumerate}\vspace*{-2pt}
-\begin{theorem}[von Neumann \& Morgenstern 1944]
-If a preference relation $\succeq$ satisfies the above constraints, then there exists a function $u:\mathcal{X}\to[0,1]$ such that
-\[x_1\succeq x_2\iff u(x_1)\geq u(x_2)\quad\mbox{and}\]
-\[u\big([p_1,x_1;\dots;p_n,x_n]\big)=\sum\limits_{i=1}^n p_i u(x_i)\]
-\end{theorem}
-\end{frame}
-
-\begin{frame}\frametitle{Equilibrium}
-\begin{definition}[Nash Euqilibrium]
-\begin{itemize}
-\item $s^*$ is a \emph{pure Nash equilibrium} if $s^*\in\prod\limits_{i\in N}\argmax\limits_{s_i\in S_i}u_i(s_i;s_{-i})$.
-\item $\sigma^*$ is a \emph{mixed Nash equilibrium} if
-\[\forall i\in N\forall\sigma_i\in\Delta S_i: u_i(\sigma_i^*;\sigma_{-i}^*)\geq u_i(\sigma_i;\sigma_{-i}^*)\]
-\end{itemize}
-\end{definition}
-\begin{definition}[Correlated Equilibrium]
-Let $\Omega$ be the state space, $\mathcal{I}_i$ be the information partition of player $i$, $P(\cdot|\mathcal{I}_i)\in\Delta\Omega$ be the interim belief systems, and $\sigma_i: \Omega \to S_i$ be measurable with regard to $\mathcal{I}_i$. Then $(\sigma_i)_{i\in N}$ is a posteriori equilibrium of the strategic game $(N,S_i,u_i)$ if
-\[\forall i\in N\forall s_i\in S_i: \sum_{\omega \in \Omega}P\big(\omega|\mathcal{I}_i(\omega)\big)\Big(u_i\big(\sigma_i(\omega );\sigma_{-i}(\omega)\big)-u_i\big(s_i;\sigma_{-i}(\omega)\big)\Big)\geq 0\]
-\end{definition}
-{\footnotesize \textbf{Remark:} For every Nash equilibrium there exists a corresponding correlated equilibrium.}
-\end{frame}
-
-\begin{frame}\frametitle{Evolutionarily Stable Strategy}
-Given a symmetric two-player normal form game, $\sigma^*$ is an ESS iff $\forall \sigma\neq \sigma^*\exists\delta\in(0,1)\forall\varepsilon\in(0,\delta):$
-	\[u\left(\sigma^*,(1-\varepsilon)\sigma^*+\varepsilon \sigma\right)>u\left(\sigma,(1-\varepsilon)\sigma^*+\varepsilon \sigma\right)\]
-	iff
-	\[(1-\varepsilon)u\left(\sigma^*,\sigma^*\right)+\varepsilon u\left(\sigma^*,\sigma\right)>(1-\varepsilon)u\left(\sigma,\sigma^*\right)+\varepsilon u\left(\sigma,\sigma\right)\]
-	iff
-	\begin{align*}
-	&\bullet u\left(\sigma^*,\sigma^*\right)>u\left(\sigma,\sigma^*\right)\quad\mbox{or}\\
-	&\bullet u\left(\sigma^*,\sigma^*\right)=u\left(\sigma,\sigma^*\right)\mbox{ and } u\left(\sigma^*,\sigma\right)>u\left(\sigma,\sigma\right)
-	\end{align*}
-	If $\sigma$ is an ESS, then $(\sigma,\sigma)$ is a Nash equilibrium. If $(\sigma,\sigma)$ is a strict Nash equilibrium, then $\sigma$ is an ESS.
-\begin{columns}
-\column{.5\textwidth}
-\begin{table}
-\begin{tabu}{c|cc}
-\hline
- & dove & hawk\\
-\hline
-Dove & $\frac{b}{2},\frac{b}{2}$ & $0,b$\\
-Hawk & $b,0$ & $\frac{b-c}{2},\frac{b-c}{2}$\\
-\hline
-\end{tabu}
-\end{table}
-\column{.5\textwidth}\vspace{-3ex}
-\begin{align*}
-&\frac{b}{2}x+0(1-x)=bx+\frac{b-c}{2}(1-x)\\
-&c>b\implies(1-\frac{b}{c},\frac{b}{c})\\
-&c\leq b\implies(H,h)
-\end{align*}
-\end{columns}
-\end{frame}
-
-\begin{frame}\frametitle{Evolutionarily Stable Strategy}
-\begin{itemize}
-	\item strict Nash Equilibrium: $u(\sigma_i^*;\sigma_{-i}^*)>u(\sigma_i;\sigma_{-i}^*)$
-	\item Nash Equilibrium: $u(\sigma_i^*;\sigma_{-i}^*)\geq u(\sigma_i;\sigma_{-i}^*)$
-	\item ESS:
-	\begin{align*}
-	&\bullet u\left(\sigma^*,\sigma^*\right)>u\left(\sigma,\sigma^*\right)\quad\mbox{or}\\
-	&\bullet u\left(\sigma^*,\sigma^*\right)=u\left(\sigma,\sigma^*\right)\mbox{ and } u\left(\sigma^*,\sigma\right)>u\left(\sigma,\sigma\right)
-	\end{align*}
-	\item weak ESS:
-	\begin{align*}
-	&\bullet u\left(\sigma^*,\sigma^*\right)>u\left(\sigma,\sigma^*\right)\quad\mbox{or}\\
-	&\bullet u\left(\sigma^*,\sigma^*\right)=u\left(\sigma,\sigma^*\right)\mbox{ and } u\left(\sigma^*,\sigma\right)\geq u\left(\sigma,\sigma\right)
-	\end{align*}
-	\item unbeatable strategy:
-	$u\left(\sigma^*,\sigma^*\right)>u\left(\sigma,\sigma^*\right)\mbox{ and } u\left(\sigma^*,\sigma\right)>u\left(\sigma,\sigma\right)$
-\end{itemize}
-\[\mbox{unbeatable}\implies\mbox{strict Nash}\implies\mbox{ESS}\implies\mbox{weak ESS}\implies\mbox{Nash}\]
-\end{frame}
-
-\begin{frame}\frametitle{Braess Paradox}
-\begin{quote}
-If we all go for the blonde and block each other, not a single one of us is going to get her. So then we go for her friends, but they will all give us the cold shoulder because no one likes to be second choice. But what if none of us goes for the blonde?\par\hfill --- \textsl{A Beautiful Mind}
-\end{quote}\vspace{-4pt}
-\begin{itemize}
-	\item The addition of options is not necessarily a good thing.
-	\item A strategy profile is Pareto efficient if no other strategy profile improves the payoff to at least one actor without decreasing the payoff of other actors.
-	\item The Nash equilibrium of a game is not necessarily Pareto efficient.
-\end{itemize}
-\begin{figure}
-	\includegraphics[height=0.2\textwidth]{img/braess0}
-	\includegraphics[height=0.2\textwidth]{img/braess1}\vspace{-9pt}\caption{$4000$ cars travelling around the lake}
-\end{figure}
-\end{frame}
-
-\begin{frame}\frametitle{Braess Paradox}
-Let $L_e(x)$ be the travel time of each car traveling along edge $e$ when $x$ cars take that edge ($L_e(0)\coloneqq 0$). Suppose there is a traffic graph $G$ with $x_e$ cars along edge $e$. Let $E(e)\coloneqq \sum_{i=1}^{x_e} L_e(i)$, and $E(G)\coloneqq \sum_{e\in G}E(e)$. Take a choice of routes that minimizes the total energy $E(G)$. That will be a Nash equilibrium.\vspace{-2pt}
-\begin{figure}
-	\includegraphics[width=0.65\textwidth]{img/braess2}
-\end{figure}
-\end{frame}
-
-\begin{frame}\frametitle{Sperner's Lemma}
-\begin{columns}
-\column{.65\textwidth}
-\begin{lemma}[Sperner's Lemma]
-Suppose that some triangle with vertices $V_1, V_2, V_3$ is triangulated.
-
-The vertices in the triangulation get ``colors'' from $\{1,2,3\}$ s.t. vertices on the edge $(V_i,V_j)$ are colored either $i$ or $j$, while the interior vertices are colored $1$, $2$ or $3$.
-
-Then in the triangulation there must be an odd number of ``tricolored'' triangles.
-\end{lemma}
-\column{.35\textwidth}
-	\includegraphics[width=\textwidth]{img/sperner0}
-\end{columns}
-\end{frame}
-
-\begin{frame}\frametitle{Proof of Sperner's Lemma}
-\begin{columns}
-\column{.65\textwidth}\vspace{-1ex}
-\begin{proof}
-Consider the dual graph to the triangulation --- but take only those which cross an edge that has endvertices with the colors $1$ and $2$. Thus we get a partial dual graph which has degree $1$ at all vertices that correspond to tricolored triangles, degree $2$ for all triangles in which the two colors $1$ and $2$ appear, and degree $0$ for triangles that do not have both colors $1$ and $2$.
-
-The vertex of the dual graph which corresponds to the outside of the triangulation has odd degree: along the big edge from $V_1$ to $V_2$, there is an odd number of changes between $1$ and $2$.
-
-Since the number of odd-degree vertices in any finite graph is even, the number of tricolored triangles is odd.
-\end{proof}
-\column{.35\textwidth}
-	\includegraphics[width=\textwidth]{img/sperner1}
-\end{columns}
-\end{frame}
-
-\begin{frame}\frametitle{Brouwer Fixpoint Theorem}
-\begin{theorem}[Brouwer Fixpoint Theorem]
-Given a convex compact set $B\subset\mathbb{R}^n$ and continuous function $f: B\to B$, there exists $\mathbf{x}^*$ s.t. $f(\mathbf{x}^*)=\mathbf{x}^*$.
-\end{theorem}
-\begin{theorem}[Kakutani Fixpoint Theorem]
-Given a compact convex set $S\subset\mathbb{R}^n$ and function $f: S\to \operatorname{P}(S)$ for which
-\begin{itemize}
-	\item for all $x\in S$ the set $f(x)$ is nonempty and convex,
-	\item the graph of $f$ is closed (i.e. for all sequences $\{x_n\}$ and $\{y_n\}$ s.t. $y_n\in f(x_n)$ for all $n$, $x_n\to x$, and $y_n\to y$, we have $y\in f(x)$).
-\end{itemize}
-Then there exists $x^*\in S$ s.t. $x^*\in f(x^*)$.
-\end{theorem}
-\begin{theorem}[Schauder Fixpoint Theorem]
-If $K$ is a nonempty convex subset of a Hausdorff topological vector space $V$ and $T$ is a continuous mapping of $K$ into itself such that $T(K)$ is contained in a compact subset of $K$, then $T$ has a fixpoint.
-\end{theorem}
-\end{frame}
-
-\begin{frame}\frametitle{Proof of Brouwer Fixpoint Theorem}
-\begin{proof}
-Let $\Delta$ be the triangle in $\mathbb{R}^3$ with vertices $\mathbf{e}_1=(1, 0, 0)$, $\mathbf{e}_2=(0, 1, 0)$, and $\mathbf{e}_3=(0, 0, 1)$. We prove that any continuous map $f:\Delta\to\Delta$ has a fixpoint.
-
-Let $\delta(T)$ be the maximal length of an edge in a triangulation $T$.
-
-One can construct an infinite sequence of triangulations $T_1, T_2,\dots$ of $\Delta$ s.t. $\lim\limits_{k\to\infty}\delta(T_k)=0$.
-
-Suppose $f$ has no fixpoint. Since $\sum_i \mathbf{v}_i=1=\sum_i f(\mathbf{v})_i$, for each of these triangulations, we can define a Sperner coloring of their vertices $\mathbf{v}$ by setting $\lambda(\mathbf{v})\coloneqq \min\left\{i: f(\mathbf{v})_i<\mathbf{v}_i\right\}$.
-
-Sperner's lemma tells us that in each triangulation $T_k$ there is a tricolored triangle $\left\{\mathbf{v}_1^k,\mathbf{v}_2^k,\mathbf{v}_3^k\right\}$ with $\lambda(\mathbf{v}_i^k)=i$.
-
-Since the simplex $\Delta$ is compact, some subsequence of $\left(\mathbf{v}_1^k\right)_{k\geq 1}$ has a limit point $\mathbf{v}^*\in\Delta$. Since $\lim\limits_{k\to\infty}\delta(T_k)=0$, the sequences $\mathbf{v}_2^k$ and $\mathbf{v}_3^k$ converge to the same point $\mathbf{v}^*$.
-
-Then $\forall i: f(\mathbf{v}^*)_i\leq\mathbf{v}^*_i$, which contradicts $f(\mathbf{v}^*)\neq\mathbf{v}^*$.
-\end{proof}
-\end{frame}
-
-\begin{frame}\frametitle{Nash Equilibrium}
-\setlength\abovedisplayskip{0pt}
-\setlength\belowdisplayskip{0pt}
-\begin{theorem}[Existence of Mixed Nash Equilibrium]
-	Every finite strategic game has a mixed Nash equilibrium.
-\end{theorem}
-\begin{proof}
-	Given a strategy profile $\sigma\in\prod\limits_{i\in N}\Delta S_i$, define
-	\[\varphi_{i,s_i}(\sigma)\coloneqq \max\big\{0,u_i(s_i;\sigma_{-i})-u_i(\sigma)\big\}\]
-	Then define a continuous $f: \prod\limits_{i\in N}\Delta S_i\to\prod\limits_{i\in N}\Delta S_i$ by $f: \sigma\mapsto\sigma^\prime$, where
-	\[
-	\sigma_i^\prime(s_i)\coloneqq \dfrac{\sigma_i(s_i)+\varphi_{i,s_i}(\sigma)}{\sum\limits_{s_i\in S_i}\left[\sigma_i(s_i)+\varphi_{i,s_i}(\sigma)\right]}=\dfrac{\sigma_i(s_i)+\varphi_{i,s_i}(\sigma)}{1+\sum\limits_{s_i\in S_i}\varphi_{i,s_i}(\sigma)}
-	\]
-	Since $\prod\limits_{i\in N}\Delta S_i$ is convex and compact, $f$ has a fixpoint.
-
-	Consider any fixpoint $\sigma$ of $f$. By the linearity of expectation there exists $s_i^\prime$ in the support of $\sigma$, for which $u_i(s_i^\prime;\sigma_{-i})\leq u_i(\sigma)$. Then
-	\[\varphi_{i,s_i^\prime}(\sigma)=0\;\;\&\;\;\sigma_i^\prime(s_i^\prime)=\sigma_i(s_i^\prime)\implies\forall i\in N\forall s_i\in S_i: \varphi_{i,s_i}(\sigma)=0\]
-\end{proof}
-\end{frame}
-
-\begin{frame}\frametitle{Walrasian Equilibrium}
-\begin{theorem}[Existence of Walrasian Equilibrium]
-Consider an economy with $n$ goods $X_1,\dots, X_n$ with a price vector $(p_1,\dots, p_n)\in\Delta_n\coloneqq \left\{x\in[0,1]^n:\|x\|_1=1\right\}$, and the prices of at least two goods are not zero. Assume that an excess demand function for each good $f_i(p_1,\dots, p_n)$ is continuous and satisfies the following condition
-\[\sum\limits_{i=1}^n p_if_i=0\tag{Walras Law}\]
-Then, there exists an equilibrium price vector $(p_1^*,\dots,p_n^*)$ s.t.
-\[f_i(p_1^*,\dots,p_n^*)\leq 0\]
-for all $i=1,\dots,n$. And when $p_i>0$ we have $f_i(p_1^*,\dots,p_n^*)=0$.
-\end{theorem}
-\end{frame}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Answers to the Exercises}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20869,7 +20594,7 @@ for all $i=1,\dots,n$. And when $p_i>0$ we have $f_i(p_1^*,\dots,p_n^*)=0$.
 \end{enumerate}
 \end{frame}
 
-\fi
+%\fi
 
 \begin{frame}\frametitle{}
 \begin{figure}[H]
