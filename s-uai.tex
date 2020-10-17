@@ -1127,7 +1127,7 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{theorem}
-		\begin{enumerate}[i]
+		\begin{enumerate}[(i)]
 			\item $w(\neg A)=1-w(A)$
 			\item $\vDash\neg A\implies w(A)=0$
 			\item The following are equivalent:
@@ -1439,10 +1439,10 @@ $\mathcal{H}$ is PAC-learnable iff $\operatorname{VC}(\mathcal{H})<\infty$. Inde
 			\begin{figure}[htbp]
 				\begin{center}
 					\begin{tikzpicture}[node distance=17mm, auto]
-					\node[circle, draw, text centered, minimum height=2em, fill=green!60!darkgray] (a1) {$s_1$};
-					\node[circle, draw, text centered, minimum height=2em, right of=a1, fill=green!60!darkgray] (e1) {$s_2$};
-					\node[circle, draw, text centered, minimum height=2em, right of=e1, fill=green!60!darkgray] (a2) {$s_3$};
-					\node[circle, draw, text centered, minimum height=2em, right of=a2, fill=green!60!darkgray] (e2) {$s_4$};
+					\node[world, fill=green!10!gray!10] (a1) {$s_1$};
+					\node[world, right of=a1, fill=green!10!gray!10] (e1) {$s_2$};
+					\node[world, right of=e1, fill=green!10!gray!10] (a2) {$s_3$};
+					\node[world, right of=a2, fill=green!10!gray!10] (e2) {$s_4$};
 					\node[right of=e2,minimum height=2em] (dots) {$\cdots$};
 					\draw[->] (a1) to (e1);
 					\draw[->] (e1) to (a2);
@@ -1454,12 +1454,12 @@ $\mathcal{H}$ is PAC-learnable iff $\operatorname{VC}(\mathcal{H})<\infty$. Inde
 			\begin{figure}[htbp]
 				\begin{center}
 					\begin{tikzpicture}[node distance=17mm, auto]
-					\node[circle, draw, text centered, minimum height=2em, fill=red!50!darkgray] (a1) {$a_1$};
-					\node[circle, draw, text centered, minimum height=2em, right of=a1, fill=orange!50!gray] (e1) {$e_1$};
-					\node[circle, draw, text centered, minimum height=2em, right of=e1, fill=red!50!darkgray] (a2) {$a_2$};
-					\node[circle, draw, text centered, minimum height=2em, right of=a2, fill=orange!50!gray] (e2) {$e_2$};
+					\node[world, fill=red!10!darkgray!10] (a1) {$a_1$};
+					\node[world, right of=a1, fill=orange!10!gray!10] (e1) {$e_1$};
+					\node[world, right of=e1, fill=red!10!darkgray!10] (a2) {$a_2$};
+					\node[world, right of=a2, fill=orange!10!gray!10] (e2) {$e_2$};
 					\node[right of=e2,minimum height=2em] (dots) {\ldots};
-					\node[circle, draw, text centered, minimum height=2em, above of=a1, fill=green!50!darkgray] (hidden) {$h$};
+					\node[world, above of=a1, fill=green!10!gray!10] (hidden) {$h$};
 					\draw[->] (hidden) to (a1);
 					\draw[->] (hidden) to (e1);
 					\draw[->] (hidden) to (a2);
@@ -1648,10 +1648,13 @@ For any c.e. set $(\ell_i,x_i)_{i\in\omega}\subset\mathbb{N}\times 2^{<\omega}$ 
 	$\mathcal{M}\coloneqq \{\nu_1,\nu_2,\dots\}$~lower semicomputable semi-measure.
 	\[
 	\xi(x)\coloneqq \sum\limits_{\nu\in\mathcal{M}}\textcolor{yellow}{2^{-K(\nu)}}\nu(x)\]
+	\[\textcolor{yellow}{M(x)\eqm \xi(x)}\]
 	\begin{center}
 		\fbox{$w_\nu \,\coloneqq \, 2^{-K(\nu)}$ is reparametrization \& regrouping invariant.}
 	\end{center}
-	\[\textcolor{yellow}{M(x)\eqm \xi(x)}\]
+	\[\tilde{w}_{\theta'} = w_{f^{-1}(\theta')} =
+2^{-K(f^{-1}(\theta'))} \eqm 2^{-K(\theta')}\eqm w_{\theta'}'\]
+	\[\tilde{w}_{\theta'} = \sum\limits_{\theta:f(\theta)=\theta'}2^{-K(\theta)}\eqm 2^{-K(\theta')}\eqm w_{\theta'}'\]
 \end{frame}
 
 \begin{frame}\frametitle{Aspect~$3$ --- Frequency Interpretation}
@@ -2393,14 +2396,14 @@ X \arrow[dr] \&\& Y \arrow[dl]\\
 \& Z
 \end{tikzcd}
 \begin{array}{c}
-	X\perp Y \\X\not\perp Y | Z
+	X\perp Y \\X\centernot\perp Y | Z
 \end{array}\quad
 \begin{tikzcd}[row sep = small]
 X \&\& Y \\
 \& Z \arrow[ul] \arrow[ur]
 \end{tikzcd}
 \begin{array}{c}
-	X\not\perp Y \\
+	X\centernot\perp Y \\
 	X\perp Y | Z
 \end{array}
 \]
@@ -2609,30 +2612,6 @@ None survive!
 \end{ocg}
 \end{frame}
 
-\begin{frame}\frametitle{Simpson Paradox}
-\begin{center}
-\begin{tabu}{c|ccc}
-\hline
- & Group $1$ & Group $2$ & Total\\
-\hline
-Lisa & $0\%$ & $75\%$ & $60\%$\\
-Bart & $25\%$ & $100\%$ & $40\%$\\
-\hline
-\end{tabu}\;\;
-\begin{tabu}{c|ccc}
-\hline
- & Group $1$ & Group $2$ & Total\\
-\hline
-Lisa & $0/1$ & $3/4$ & $3/5$\\
-Bart & $1/4$ & $1/1$ & $2/5$\\
-\hline
-\end{tabu}
-\end{center}
-\begin{figure}
-	\includegraphics[width=0.5\textwidth,angle=0,origin=c]{img/simpson-paradox}\vspace{-1ex}\caption{Something true for different groups is false for the combined group.}
-\end{figure}
-\end{frame}
-
 \begin{frame}\frametitle{Monty Hall Problem}
 	\begin{problem}[Monty Hall Problem]
 		You're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No.$1$, and the host, who knows what's behind the doors, opens another door, say No.$3$, which has a goat. He then says to you, ``Do you want to pick door No.$2$?''
@@ -2653,20 +2632,37 @@ Bart & $1/4$ & $1/1$ & $2/5$\\
 	\begin{problem}[Bertrand's Paradox]
 		Consider an equilateral triangle inscribed in a circle. Suppose a chord of the circle is chosen at random. What is the probability that the chord is longer than a side of the triangle?
 	\end{problem}
-	\begin{columns}
-		\column{0.3\textwidth}
-			\begin{figure}
-				\includegraphics[width=\textwidth,angle=0,origin=c]{img/bertrand-endpoint}
-			\end{figure}
-		\column{0.3\textwidth}
-			\begin{figure}
-				\includegraphics[width=\textwidth,angle=0,origin=c]{img/bertrand-radius}
-			\end{figure}
-		\column{0.3\textwidth}
-			\begin{figure}
-				\includegraphics[width=\textwidth,angle=0,origin=c]{img/bertrand-midpoint}
-			\end{figure}
-	\end{columns}
+\begin{center}
+\begin{tikzpicture}
+  \draw circle [radius = 1];
+  \draw (0, 1) -- (0.866, -0.5) -- (-0.866, -0.5) -- cycle;
+  \node [point, fill=red] at (0, 1) {};
+  \draw [dashed] (0, 1) -- (0, -1);
+  \draw [blue] (-0.4359, -0.9) -- (0.4359, -0.9);
+  \draw [blue] (-0.8, -0.6) -- (0.8, -0.6);
+  \draw [red] (-0.9539, -0.3) -- (0.9539, -0.3);
+  \draw [red] (-1, 0) -- (1, 0);
+\end{tikzpicture}\qquad
+\begin{tikzpicture}
+  \draw circle [radius = 1];
+  \draw (0, 1) -- (0.866, -0.5) -- (-0.866, -0.5) -- cycle;
+  \node [point, fill=red] at (0, 1) {};
+  \draw [blue] (0, 1) -- (-1, 0);
+  \draw [red] (0, 1) -- (0, -1);
+  \draw [blue] (0, 1) -- (1, 0);
+\end{tikzpicture}\qquad
+\begin{tikzpicture}
+  \draw circle [radius = 1];
+  \draw (0, 1) -- (0.866, -0.5) -- (-0.866, -0.5) -- cycle;
+  \node [point, fill=red] at (0, 1) {};
+  \draw circle [radius = 0.5];
+  \draw [red] (0, -1) -- (-0.6, 0.8);
+  \draw [blue] (-0.9539, 0.3) -- (0.4359, 0.9);
+  \draw [blue] (0.6, -0.8) -- (0.9165, 0.4);
+  \draw [blue] (-1, 0) -- (0.3, -0.9539);
+\end{tikzpicture}
+\[\frac{1}{2}?\qquad \frac{1}{3}?\qquad \frac{1}{4}?\]
+\end{center}
 	\begin{center}
 		What is ``randomness''? a process or a product?
 	\end{center}
@@ -2803,6 +2799,510 @@ If a preference relation $\succeq$ satisfies the above constraints, then there e
 \end{theorem}
 \end{frame}
 
+\begin{frame}\frametitle{Pareto Optimality}
+\vspace*{-1ex}
+\begin{center}
+    \begin{tikzpicture}
+      \draw [->] (0, 0) -- (2.3, 0) node [right] {$A$};
+      \draw [->] (0, 0) -- (0, 2.3) node [left] {$B$};
+      \draw [red, thick] (0, 2) -- (2, 0);
+      \draw [dashed, thick] (0, 0.5) -- (1.5, 0.5);
+      \draw [dashed, thick] (0.5, 0) -- (0.5, 1.5);
+      \node at (0.7,0.7) {$x$};
+      \node at (0.5,1.7) {$z$};
+      \node at (1.7,0.5) {$y$};
+    \end{tikzpicture}
+\end{center}\vspace*{-1ex}
+\begin{itemize}
+	\item Given an initial situation, a \emph{Pareto improvement} is a new situation where some agents will gain, and no agents will lose.
+	\item A situation is called \emph{Pareto dominated} if it has a Pareto improvement.
+	\item A situation is called \emph{Pareto optimal} if no change could lead to improved satisfaction for all parties.
+	\item The \emph{Pareto frontier} is the set of all Pareto efficient allocations.
+\end{itemize}
+\begin{table}
+\begin{tabu}{c|c}
+\hline
+not change & change\\
+\hline
+$100,100$ & $1000,99$\\
+\hline
+\end{tabu}\caption{Pareto Improvement vs Rawls' Fair Opportunity Principle (veil of ignorance)}
+$0.5*1000+0.5*90=545>100$
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Prisoner's Dilemma}
+\begin{table}
+\begin{tabu}{c|cc}
+\hline
+ & silent & betray\\
+\hline
+Silent & $-1,-1$ & $-4,0$\\
+Betray & $0,-4$ &\textcolor{yellow}{$-3,-3$}\\
+\hline
+\end{tabu}\caption{Prisoner's Dilemma}
+\end{table}
+\begin{table}
+\begin{tabu}{c|cc}
+\hline
+ & silent & betray\\
+\hline
+Silent & $\textcolor{yellow}{-1,-1}$ & $-4,0-x$\\
+Betray & $0-x,-4$ &$-3-x,-3-x$\\
+\hline
+\end{tabu}\caption{Prisoner's Dilemma with Punishment $0-x<-1$}
+\end{table}	
+\end{frame}
+
+\begin{frame}\frametitle{Boxed Pig Game}
+\begin{table}
+\begin{tabu}{c|cc}
+\hline
+ & press & not press\\
+\hline
+Press & $4,0$ & $3,3$\\
+Not Press & $7,-1$ & $0,0$\\
+\hline
+\end{tabu}\caption{Boxed Pig Game}
+\end{table}
+\begin{table}
+\begin{tabu}{c|cc}
+\hline
+ & press & not press\\
+\hline
+Press &  & $3,3$\\
+Not Press &  & $0,0$\\
+\hline
+\end{tabu}\caption{Rationalizability and Iterated Elimination of Dominated Actions}
+\end{table}
+\begin{table}
+\begin{tabu}{c|cc}
+\hline
+ & press & not press\\
+\hline
+Press &  & $3,3$\\
+Not Press &  &\\
+\hline
+\end{tabu}\caption{Rationalizability and Iterated Elimination of Dominated Actions}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{definition}[Games in Extensive Form]
+	A game in \emph{extensive form} $\Gamma=\langle N,P,\mathcal{H},(\mathcal{I}_i)_{i\in N},f_c,(u_i)_{i\in N}\rangle$.
+	\begin{itemize}
+		\item The set of players $N$.
+		\item The set of actions $\mathcal{A}$.
+		\item A set $\mathcal{H}$ of sequences (finite or infinite) such that,
+		\begin{enumerate}
+			\item $\emptyset\in \mathcal{H}$
+			\item $\forall m<n\left(h_{1:n}\in \mathcal{H}\implies h_{1:m}\in \mathcal{H}\right)$
+			\item $\forall n\in\mathbb N\left(h_{1:n}\in \mathcal{H}\right)\implies h_{1:\infty}\in \mathcal{H}$
+		\end{enumerate}
+		\item A history $h\in \mathcal{H}$ is terminal if $h=h_{1:\infty}$ or there is no $a\in \mathcal{A}$ s.t. $ha\in \mathcal{H}$. The set of terminal histories is denoted $\mathcal{Z}$.
+		\item The set of actions at $h$: $A(h):=\{a:ha\in \mathcal{H}\}$.
+		\item The player function: $P:\mathcal{H}\setminus \mathcal{Z}\to N\cup\{c\}$.
+		\item The function $f_c$ associates with every history $h$ for which $P(h)=c$ a probability measure $f_c(\cdot|h)$ on $A(h)$. $f_c(\cdot|h)\in\Delta(A(h))$.
+		\item For player $i\in N$, $\mathcal{I}_i\coloneqq \operatorname{part}(\{h\in \mathcal{H}:P(h)=i\})$ where $\forall h,h'\in I\in\mathcal{I}_i: A(h)=A(h^\prime)$.
+		\item The Payoff function for each player $i\in N$: $u_i: \mathcal{Z}\to\mathbb R$.
+	\end{itemize}
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{itemize}
+	\item If $|I|=1$ for all $I\in\mathcal{I}_i$ and all $i\in N$, then we say that $\Gamma$ is a game with \emph{perfect information}.
+	\item If $|I|>1$ for some $i\in N$ and some $I\in\mathcal{I}_i$, then we say that $\Gamma$ is a game with \emph{imperfect information}.
+	\item If all elements of $\Gamma$ are common knowledge, then we say that $\Gamma$ is a game with \emph{complete information}; otherwise, a game with \emph{incomplete information}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Pure Strategy}
+\begin{definition}[Pure Strategy]
+	A \emph{pure strategy} of player $i$ is $s_i: \mathcal{I}_i\to \mathcal{A}$ s.t. $s_i(I)\in A(I)$ for all $I\in\mathcal{I}_i$.\\
+	The \emph{set of pure strategies} of player $i$ is denoted by $S_i\coloneqq \prod\limits_{I\in\mathcal{I}_i}s_i(I)$.\\
+	A \emph{strategy profile} \[s=(s_i)_{i\in N}\] is a vector consisting of one pure strategy for each player.\\
+	The \emph{set of strategy profiles} is \[S=\prod\limits_{i\in N} S_i\]
+	\[s_{-i}\coloneqq (s_1\ldots s_{i-1};s_{i+1}\ldots s_{|N|})\]
+	\[S_{-i}\coloneqq S_1\times\ldots\times S_{i-1}\times S_{i+1}\times\ldots\times S_{|N|}\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{definition}[Pure Strategy Consistent with History]
+	For any history $h$ define a pure strategy $s_i$ of player $i$ to be consistent with $h$
+	\[s_i\leadsto h\iff\forall k<\ell(h)\left(P(h_{1:k})=i\implies s_i(h_{1:k})=h_{k+1}\right)\]
+\end{definition}
+\[\sigma_c(h)\coloneqq \prod\limits_{h^\prime\sqsubseteq h}f_{P(h^\prime)}(h_{\ell(h^\prime)+1}|h^\prime)\]
+where $f_{P(h)}(\cdot|h)\coloneqq 1$ if $P(h)\neq c$.\\
+Each strategy profile $s=(s_i)_{i\in N}$ can be assigned a payoff for each player $i$:
+\[u_i(s)\coloneqq \sum\limits_{h: \forall i(s_i\leadsto h)}\sigma_c(h)u_i(h)\]
+Obviously, \[\forall h\in\mathcal{H}\left(P(h)\neq c\right)\implies u_i(s)=u_i(h^s)\] where $h^s$ is the history uniquely determined by $s$.
+\end{frame}
+
+\begin{frame}\frametitle{Mixed Strategy}
+\setlength\abovedisplayskip{0pt}
+%\setlength\belowdisplayskip{0pt}
+\begin{definition}[Mixed Strategy]
+	A \emph{mixed strategy} of player $i$ in an extensive game is a probability measure over the set of player $i$'s pure strategies:
+	\[\sigma_i\in\Delta(S_i)\]
+	A \emph{mixed strategy profile} specifies a mixed strategy for each	player $i$
+	\[\sigma\coloneqq (\sigma_i)_{i\in N}\]
+	The \emph{set of mixed strategy profiles} is:
+	\[\prod\limits_{i\in N}\Delta(S_i)\]
+	Each mixed strategy profile $\sigma=(\sigma_i)_{i\in N}$ implies a probability distribution
+	over the \emph{set of pure strategy profiles} $S$
+	\[\sigma(s)\coloneqq \prod\limits_{i\in N} \sigma_i(s_i)\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Payoff of Mixed Strategy}
+\begin{definition}[Payoff of Mixed Strategy]
+	The expected payoff of player $i$ given a mixed strategy profile $\sigma$ is
+	\[u_i(\sigma)\coloneqq \sum\limits_{s\in S}u_i(s)\sigma(s)\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Behavioural Strategy}
+\setlength\abovedisplayskip{0pt}
+\begin{definition}[Behavioural Strategy]
+	A \emph{behavioural strategy} of player $i$ is a collection $(\rho_i(I))_{I\in\mathcal{I}_i}$ of probability measures, where \[\rho_i(I)\in\Delta(A(I))\;\;\text{for $I\in\mathcal{I}_i$}\]
+	A \emph{behavioural strategy profile} is a vector consisting of one	behavioural strategy for each player:
+	\[\rho\coloneqq \left((\rho_i(I))_{I\in\mathcal{I}_i}\right)_{i\in N}\]
+	For any history $h\in I\in\mathcal{I}_i$ and action $a\in A(h)$, we denote by $\rho_i(h)(a)$ the probability $\rho_i(I)(a)$ assigned by $\rho_i(I)$ to the action $a$.\\
+	The \emph{set of behavioural strategies} of player $i$ is
+	\[B_i\coloneqq \prod\limits_{I\in\mathcal{I}_i}\Delta(A(I))\]
+	The \emph{set of behavioural strategy profiles} is:
+	\[B\coloneqq \prod\limits_{i\in N}B_i=\prod\limits_{I\in\mathcal{I}}\Delta(A(I))\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Payoff of Behavioural Strategy}
+\begin{definition}[Payoff of Behavioural Strategy]
+	The expected payoff of player $i$ given a behavioural strategy profile $\rho$ is
+	\[u_i(\rho)\coloneqq \sum\limits_{s\in S}u_i(s)\prod\limits_{i\in N}\prod\limits_{I\in\mathcal{I}_i}\rho_i(I)(s_i(I))\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Perfect Recall}
+\begin{definition}[Perfect Recall]
+	An extensive game has \emph{perfect recall} if for every player $i\in N$ and for histories $h,h^\prime\in I\in\mathcal{I}_i$
+\begin{itemize}
+	\item $\ell(h)=\ell(h')$
+	\item $\forall k\leq \ell(h):\,P(h_{1:k})=i\implies h_{k+1}=h_{k+1}'\;\&\;\exists I\in\mathcal{I}_i(h_{1:k}\in I\;\&\;h_{1:k}'\in I)$
+\end{itemize}
+\end{definition}	
+\end{frame}
+
+\begin{frame}\frametitle{Outcome-Equivalence}
+For any profile $\sigma/\rho$, we define the \emph{outcome} $\overline{\sigma}(h)/\overline{\rho}(h)$ to be the multiplicative product of all the chance probabilities and move probabilities over history $h$ when all players choose their moves according to $\sigma_i/\rho_i$.
+\[\sigma_i(h)\coloneqq \sum\limits_{s_i\leadsto h}\sigma_i(s_i)\]
+\[\overline{\sigma}(h)\coloneqq \prod\limits_{i\in N\cup\{c\}}\sigma_i(h)\]
+\[\overline{\rho}(h)\coloneqq \prod\limits_{k=0}^{\ell(h)}\rho_{P(h_{<k})}(h_{<k})(h_k)\sigma_c(h)\]
+Two (mixed or behavioural) strategies of any player are \emph{outcome-equivalent} if for every collection of pure strategies of the other players the two strategies induce the same outcome.
+\begin{theorem}[Outcome-Equivalent Theorem]
+	In games with perfect recall, for any mixed strategy there is an outcome-equivalent behavioural strategy and vice versa.
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{proof}
+	``$\implies$''\\
+	with perfect recall,
+	\[\forall h,h^\prime\in I\in\mathcal{I}_i\forall a\in A(I)\left(\sigma_i(h)=\sigma_i(h^\prime)\implies\sigma_i(ha)=\sigma_i(h^\prime a)\right)\]
+	\[\rho_i(I)(a)\coloneqq \dfrac{\sigma_i(ha)}{\sigma_i(h)}\;\;\text{for any $h\in I\in\mathcal{I}_i$}\]
+	``$\impliedby$''
+	\[\sigma_i(s_i)\coloneqq \prod\limits_{I\in\mathcal{I}_i}\rho_i(I)(s_i(I))\]
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{Games in Strategic Form}
+\begin{definition}[Strategy Form]
+	A game in \emph{strategic form} is a triplet $\langle N,(S_i)_{i\in N},(u_i)_{i\in N}\rangle$.
+	\begin{itemize}
+		\item The sets of players $N$.
+		\item The sets of strategies of the players $(S_i)_{i\in N}$.
+		\item The payoff functions $u_i: S\to\mathbb R$.
+	\end{itemize}
+\end{definition}
+\begin{definition}[Mixed Extension]
+	The mixed extension of the strategic game $\langle N,(S_i)_{i\in N},(u_i)_{i\in N}\rangle$ is $\langle N,(\Delta(S_i))_{i\in N},(u_i)_{i\in N}\rangle$, where the payoff function $u_i$ in $\langle N,(\Delta(S_i))_{i\in N},(u_i)_{i\in N}\rangle$ is \[u_i(\sigma)=\sum\limits_{s\in S}u_i(s)\sigma(s)\]
+\end{definition}
+Note that $u_i$ is multilinear.
+\[u_i(\lambda\sigma_i^\prime+(1-\lambda)\sigma_i^{\prime\prime};\sigma_{-i})=\lambda u_i(\sigma_i^\prime;\sigma_{-i})+(1-\lambda)u_i(\sigma_i^{\prime\prime};\sigma_{-i})\]
+\end{frame}
+
+\begin{frame}\frametitle{Dominant Strategy Equilibrium}
+\begin{definition}[Dominant Strategy]
+	A strategy $s_i^*\in S_i$ is a \emph{dominant strategy} if
+	\[u_i(s_i^*;s_{-i})\geq u_i(s_i;s_{-i})\;\;\text{for all $s_i\in S_i$ and for all $s_{-i}\in S_{-i}$}\]
+\end{definition}
+\begin{definition}[Dominant Equilibrium]
+	A strategy profile $s^*$ is a \emph{dominant strategy equilibrium} if for each player $i\in N$, $s_i^*$ is a dominant strategy.
+\end{definition}	
+\end{frame}
+
+\begin{frame}\frametitle{Nash Equilibrium}
+\begin{definition}[Nash Equilibrium]
+	\emph{Best response} of player $i$:
+	\[R_i^B(s_{-i})\coloneqq \argmax\limits_{s_i\in S_i}u_i(s_i;s_{-i})\]
+	
+	The strategy profile $s^*$ is a \emph{Nash equilibrium} iff
+	\[s^*\in\prod\limits_{i\in N}R_i^B(s_{-i})\]
+\end{definition}
+\begin{definition}[Mixed Nash Equilibrium]
+	A mixed strategy profile $\sigma^*$ is a \emph{mixed Nash equilibrium} iff,
+	\[\forall i\in N\forall\sigma_i\in\Delta(S_i):\; u_i(\sigma_i^*;\sigma_{-i}^*)\geq u_i(\sigma_i;\sigma_{-i}^*)\]
+\end{definition}
+A mixed strategy Nash equilibrium of a strategic game is a Nash equilibrium of its mixed extension.
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{theorem}
+	A mixed strategy profile $\sigma^*$ is a mixed Nash equilibrium iff,
+	\[\forall i\in N\forall s_i\in S_i:\; u_i(\sigma_i^*;\sigma_{-i}^*)\geq u_i(s_i;\sigma_{-i}^*)\]
+\end{theorem}
+\begin{proof}
+	\[u_i(\sigma_i;\sigma_{-i})=\sum\limits_{s_i\in S_i}u_i(s_i;\sigma_{-i})\sigma_i(s_i)\]
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{theorem}
+	For a finite strategic game,
+	\[\operatorname{supp}(\sigma_i^*)\subset R_i^B(\sigma_{-i}^*)\]
+\end{theorem}
+\begin{proof}
+	Suppose there exists an $s_i^\prime\in \operatorname{supp}(\sigma_i^*)$ s.t. \[u_i(s_i^\prime;\sigma_{-i}^*)<u_i(\sigma_i^*;\sigma_{-i}^*)\]
+	then \[\sum\limits_{s_i\in S_i}u_i(s_i;\sigma_{-i}^*)\sigma_i^*(s_i)<u_i(\sigma_i^*;\sigma_{-i}^*)\]
+	Contradiction!
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{itemize}
+	\item Every action in the support of any player's equilibrium mixed strategy yields that player the same payoff.
+	\item If the set of actions of some player is not finite the result needs to be modified. In this case, $\sigma^*$ is a mixed strategy Nash equilibrium iff
+	\begin{enumerate}
+		\item for every player $i$ no action in $S_i$ yields, given $\sigma_{-i}^*$, a payoff to player $i$ that exceeds his equilibrium payoff, and
+		\item the set of actions that yield, given $\sigma_{-i}^*$, a payoff less than his equilibrium payoff has $\sigma_i^*-$measure zero.
+	\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{}
+Let $\Omega$ be the uncertainty space, $\mathcal{I}_i$ be the information partition of player $i$, $P(\cdot|\mathcal{I}_i)\in\Delta(\Omega)$ be the interim belief systems, and $v_i: \Omega \to S_i$ be measurable with regard to $\mathcal{I}_i$. Then $(v_i)_{i\in N}$ is a posteriori equilibrium of the strategic game $(N,S_i,u_i)$ if for all $i\in N$ and $s_i\in S_i$:
+\[\sum_{\omega \in \Omega}P(\omega|\mathcal{I}_i(\omega))u_i(v_i(\omega ),v_{-i}(\omega))\geq\sum_{\omega \in \Omega}P(\omega|\mathcal{I}_i(\omega))u_i\left(s_i,v_{-i}(\omega)\right)\]
+\end{frame}
+
+\begin{frame}\frametitle{Subgame}
+某个博弈的子博弈是由该博弈的某个单一结点（即该结点所在的信息集就只包含一个要素，就是该结点）及其所有后续结点构成的集合，并且所有的后续结点必须满足一个条件，即如果某一个后续结点属于该子博弈，那么该后续结点所在信息集的所有结点必须也属于该子博弈。
+\begin{definition}[Subgame]
+	The \emph{subgame} of the extensive game $\Gamma$ that follows the history $h$
+	is the extensive game $\Gamma(h)\coloneqq \langle N,P|_h,\mathcal{H}|_h,(\mathcal{I}_i)_{i\in N},f_c,(u_i|_h)_{i\in N}\rangle$, where
+	\[P|_h(h^\prime)\coloneqq P(hh^\prime)\]
+	\[\mathcal{H}|_h\coloneqq \{h^\prime:hh^\prime\in\mathcal{H}\}\]
+	\[u_i|_h(h^\prime)\coloneqq u_i(hh^\prime)\]
+	\[\forall I\in\bigcup\limits_{i\in N}\mathcal{I}_i:\,I\subset\{hh^\prime:h^\prime\in\mathcal{H}|_h\}\;\vee\;I\subset\mathcal{H}\setminus \{hh^\prime:h^\prime\in\mathcal{H}|_h\}\]
+\end{definition}	
+\end{frame}
+
+\begin{frame}\frametitle{Subgame Perfect Equilibrium}
+\begin{definition}[Subgame Perfect Equilibrium]
+	A \emph{subgame perfect equilibrium} of an extensive game $\Gamma$ is a strategy profile $s^*$ such that for every player $i\in N$ and every nonterminal history $h\in\mathcal{H}\setminus\mathcal{Z}$ for which $P(h)=i$ we have \[u_i|_h(s_i^*;s_{-i}^*)\geq u_i|_h(s_i;s_{-i}^*)\]
+	for every strategy $s_i$ of player $i$ in the subgame $\Gamma(h)$.
+	
+	A behaviour strategy profile $\rho^*$ is a \emph{subgame perfect equilibrium} of a game $\Gamma$ if for all subgames $\Gamma(h)$ of $\Gamma$, and,
+	\[\forall i\in N\forall\rho_i\in B_i:\, u_i|_h(\rho_i^*;\rho_{-i}^*)\geq u_i|_h(\rho_i;\rho_{-i}^*)\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Sequentially Rationality}
+\begin{definition}[Assessment]
+	An \emph{assessment} in an extensive game is a pair $(\rho,\mu)$, where $\rho$ is a profile of behavioural strategies and $\mu$ is a belief system. $\mu(I)(h)$ is the probability that player $P(I)$ assigns to the history $h\in I$, conditional on $I$ being reached.
+\end{definition}
+\begin{definition}[Sequentially Rationality]
+	An assessment $(\rho,\mu)$ is \emph{sequentially rational} if for every player $i$ and every information set $I\in\mathcal{I}_i$ the strategy of player $i$ is a best response to the other players' strategies given $i$'s beliefs at $I$.
+	\[\forall\rho_i^\prime\in B_i:\, \sum\limits_{h\in I}u_i|_h(\rho_i;\rho_{-i})\mu(I)(h)\geq\sum\limits_{h\in I}u_i|_h(\rho_i^\prime;\rho_{-i})\mu(I)(h)\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{}
+We can define the outcome $O(\rho,\mu|I)$ as the distribution over terminal histories determined by $\rho$ and $\mu$ conditional on $I$ being reached.
+\[
+O(\rho,\mu|I)(h^\prime)\coloneqq 
+\begin{cases}
+0 &\text{if $\nexists h\in I\left(h\sqsubset h^\prime\right)$}\\
+\mu(I)(h)\prod\limits_{k=\ell(h)}^{\ell(h^\prime)}\rho_{P(h_{<k})}(h_{<k})(h_k) &\text{otherwise}
+\end{cases}
+\]
+since by perfect recall, there is at most one subhistory $h$ of $h^\prime$ in $I$, and the histories $h_{1:k}$ for $k=\ell(h),\ldots,\ell(h^\prime)$ lie in different information sets.
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{itemize}
+	\item An assessment $(\rho,\mu)$ is \emph{sequentially rational} iff for every player $i$ and every information set $I\in\mathcal{I}_i$
+\[\forall \rho_i^\prime\in B_i:\, O(\rho,\mu|I)\succcurlyeq_i O((\rho_i^\prime;\rho_{-i}),\mu|I)\]
+	\item A behavioural strategy profile to be \emph{\emph{completely mixed}} if it assigns positive probability to every action at every information set.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{definition}[Consistency of Beliefs with Strategies]
+	Let $\Gamma$ be a finite extensive game with perfect recall. An assessment $(\rho,\mu)$ is \emph{consistent} if there is a sequence $((\rho^n,\mu^n))_{n=1}^\infty$ of assessments s.t. $(\rho,\mu)=\lim\limits_{n\to\infty}(\rho^n,\mu^n)$ and each strategy profile $\rho^n$ is completely mixed and each belief system $\mu^n$ is derived from $\rho^n$ using Bayes' rule: \[\mu^n(I)(h)=\dfrac{\overline{\rho}^n(h)}{\sum\limits_{h\in I}\overline{\rho}^n(h)}\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{definition}[Sequential Equilibrium]
+	An assessment is a \emph{sequential equilibrium} of a finite extensive game with perfect recall if it is sequentially rational and consistent.
+\end{definition}
+\begin{theorem}
+	Every finite extensive game with perfect recall has a sequential equilibrium.
+\end{theorem}
+\begin{theorem}
+	In an extensive game with perfect information, $(\rho,\mu)$ is a sequential equilibrium iff $\rho$ is a subgame perfect equilibrium.
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{Bayesian Strategic Game with Observable Actions}
+\begin{definition}[Bayesian Strategic Game with Observable Actions]
+	A Bayesian game is a tuple $\langle N,(S_i)_{i\in N},(\Theta_i)_{i\in N},p,(u_i)_{i\in N}\rangle$ where
+	\begin{itemize}
+		\item The sets of players $N$.
+		\item The sets of strategies of the players $(S_i)_{i\in N}$.
+		\item $\Theta_i$ is a finite set (the set of possible types of player $i$). $\Theta\coloneqq \prod\limits_{i\in N}\Theta_i$.
+		\item $p\in\Delta(\Theta)$.
+		\item $u_i: S\times\Theta\to\mathbb R$
+	\end{itemize}
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Ex Post Expected Utility}
+\begin{definition}[Ex Post Expected Utility]
+	Player $i$'s ex post expected utility in a Bayesian game is defined as
+	\[V_i(\sigma,\theta)\coloneqq \sum\limits_{s\in S}\left(\prod\limits_{j\in N}\sigma_j(s_j|\theta_j)\right)u_i(s,\theta)\]
+	where the players' types are given by $\theta\in\Theta$, and the players' strategies are given by $\sigma\in\prod\limits_{i\in N}\prod\limits_{\theta_i\in\Theta_i}\Delta(S_i)$, $\sigma=(\sigma_i(\cdot|\theta_i))_{\theta_i\in\Theta_i,i\in N}$, $\sigma_i(\cdot|\theta_i)\in\Delta(S_i)$.
+\end{definition}	
+\end{frame}
+
+\begin{frame}\frametitle{Ex Interim Expected Utility}
+\begin{definition}[Ex Interim Expected Utility]
+	Player $i$'s ex interim expected utility in a Bayesian game, where $i$'s type is $\theta_i$ and where the players' strategies are given by the mixed-strategy profile $\sigma$, is defined as
+	\[V_i(\sigma,\theta_i)\coloneqq \sum\limits_{\theta_{-i}\in\Theta_{-i}}p(\theta_{-i}|\theta_i)\sum\limits_{s\in S}\left(\prod\limits_{j\in N}\sigma_j(s_j|\theta_j)\right)u_i(s,(\theta_i;\theta_{-i}))\]
+	or equivalently as
+	\[V_i(\sigma,\theta_i)=\sum\limits_{\theta_{-i}\in\Theta_{-i}}p(\theta_{-i}|\theta_i)V_i(\sigma,(\theta_i;\theta_{-i}))\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Ex Ante Expected Utility}
+\begin{definition}[Ex Ante Expected Utility]
+	Player $i$'s ex ante expected utility in a Bayesian game, where the players' strategies are given by the mixed-strategy profile $\sigma$, is defined as
+	\[V_i(\sigma)\coloneqq \sum\limits_{\theta\in\Theta}p(\theta)\sum\limits_{s\in S}\left(\prod\limits_{j\in N}\sigma_j(s_j|\theta_j)\right)u_i(s,\theta)\]
+	or equivalently as
+	\[V_i(\sigma)=\sum\limits_{\theta\in\Theta}p(\theta)V_i(\sigma,\theta)\]
+	or again equivalently as
+	\[V_i(\sigma)=\sum\limits_{\theta_i\in\Theta_i}p(\theta_i)V_i(\sigma,\theta_i)\]
+\end{definition}	
+\end{frame}
+
+\begin{frame}\frametitle{Best Response in a Bayesian Game}
+\begin{definition}[Best Response in a Bayesian Game]
+	The set of player $i$'s best response to mixed-strategy profile $\sigma_{-i}$ are given by
+	\[R_i^B(\sigma_{-i})\coloneqq \argmax_{\sigma_i\in \Delta(S_i)^{\Theta_i}}V_i(\sigma_i;\sigma_{-i})\]
+\end{definition}
+\textbf{Remark:} It may seem odd that $R^B$ is calculated based on $i$'s
+ex ante expected utility. However, we are in fact performing independent maximization of $i$'s \emph{ex interim expected utilities} conditioned on each type that he could have.
+Intuitively speaking, if a certain action is best after the signal is received, it is also the best conditional plan devised ahead of time for what to do should that signal be received.	
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{definition}[Bayesian Equilibrium]
+	A Bayesian equilibrium is a mixed strategy profile $\sigma^*$ that satisfies
+	\[\forall i\in N:\, \sigma_i^*\in R_i^B(\sigma_{-i}^*)\]
+\end{definition}
+\begin{definition}[Ex Post Equilibrium]
+	An ex post equilibrium is a mixed strategy profile $\sigma$ that satisfies
+	\[\forall\theta\in\Theta\forall i\in N:\, \sigma_i\in\argmax\limits_{\sigma_i\in\Delta(S_i)^{\Theta_i}}V_i((\sigma_i;\sigma_{-i}),\theta)\]
+\end{definition}
+The ex post equilibrium is similar in flavor to equilibria in dominant strategies, which do not require agents to believe that other agents act rationally. However, it seems too good to be true most of the time.
+\end{frame}
+
+\begin{frame}\frametitle{Bayesian Extensive Game with Observable Actions}
+\begin{definition}[Bayesian Extensive Game with Observable Actions]
+	A \emph{Bayesian extensive game with observable actions} is a tuple
+	$\langle\Gamma,(\Theta_i)_{i\in N},(p_i)_{i\in N},(u_i)_{i\in N}\rangle$ where
+	\begin{itemize}
+		\item $\Gamma=\langle N,P,\mathcal{H}\rangle$ is an extensive game form with perfect information and simultaneous moves.
+		\item $\Theta_i$ is a finite set (the set of possible types of player $i$). $\Theta\coloneqq \prod\limits_{i\in N}\Theta_i$.
+		\item $p_i\in\Delta^0(\Theta_i)$.
+		\item $u_i: \mathcal{H}\times\Theta\to\mathbb R$
+	\end{itemize}
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\textbf{Remark:} the type of player encapsulates all the information possessed by the player that is not common knowledge. This is often quite simple (e.g. the player's knowledge of his private payoff function), but can also include his beliefs about other players' payoffs, about their beliefs about his own payoff, and any other higher-order beliefs.
+\end{frame}
+
+\begin{frame}\frametitle{}
+There is a way of capturing the common prior is to hypothesize a special agent $c$ called ``Nature'' who makes probabilistic choices.
+The agent ``nature''($c$) selects the types of the players, who are subsequently fully cognizant at all points of all moves taken previously. We can associate with any such game an extensive game (with imperfect information and simultaneous moves) in which the set of histories is $\{\emptyset\}\cup(\mathcal{H}\times\Theta)$ and each information set of each player $i$ takes the form
+\[I(h,\theta_i)\coloneqq \{(h,(\theta_i,\theta_{-i})):\theta_{-i}\in\Theta_{-i}\}\]
+for $i\in P(h)$ and $\theta_i\in\Theta_i$.
+\end{frame}
+
+\begin{frame}\frametitle{}
+Let $s$ be a profile of behavioural strategies in $\Gamma$. Define $O_h(s)$ to be the probability measure on the set of terminal histories of $\Gamma$ generated by $s$ given that the history $h$ has occurred. Define $O((s_i;\rho_{-i}),u_{-i}|h)$ to be the probability measure on the set of terminal histories of $\Gamma$ given that player $i$ uses the strategy $s_i$ in $\Gamma$, each type $\theta_j$ of each player $j$ uses the strategy $\rho_j(\theta_j)$, the game has reached $h$, and
+the probability that $i$ assigns to $\theta_{-i}$ is derived from $\mu_{-i}(h)$. That is, $O((s_i;\rho_{-i}),u_{-i}|h)$ is the compound lottery in which the probability of the lottery $O_h(s_i;(\rho_j(\theta_j))_{j\in N\setminus\{i\}})$ is $\prod\limits_{j\in N\setminus\{i\}}\mu_j(h)(\theta_j)$ for each $\theta_{-i}\in\Theta_{-i}$.
+\end{frame}
+
+\begin{frame}\frametitle{Ex Ante Expected Utility}
+\begin{definition}[Ex Ante Expected Utility]
+	At history $h$, the player $i$'s ex ante expected utility in a Bayesian game, where the players' behavioural strategy profile is $\rho$, is defined as
+	\[V_i(\rho,h)\coloneqq \sum\limits_{\theta_i\in\Theta_i}\mu_i(h)(\theta_i)\sum\limits_{\theta_{-i}\in\Theta_{-i}}u_i|_h(\rho,\theta)\prod\limits_{j\in N\setminus\{i\}}\mu_j(h)(\theta_j)\]
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Perfect Bayesian Equilibrium}
+\begin{definition}[Perfect Bayesian Equilibrium]
+	For a Bayesian extensive game with observable actions, $((\rho_i),(\mu_i))\coloneqq ((\rho_i(\theta_i))_{\theta_i\in\Theta_i},(\mu_i(h))_{h\in\mathcal{H}\setminus\mathcal{Z}})$ is a \emph{perfect Bayesian equilibrium} of the game if the following conditions are satisfied, where $\rho_i(\theta_i)$ is a behavioural strategy of player $i\in N$ and $\mu_i(h)\in\Delta(\Theta_i)$.
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Perfect Bayesian Equilibrium --- definition continued}
+\vspace*{-1ex}
+\begin{enumerate}[(I)]
+		\item \emph{Sequential rationality} For every terminal history $h\in\mathcal{H}\setminus\mathcal{Z}$, every player $i\in P(h)$, and every $\theta_i\in\Theta_i$ the probability measure $O((\rho_i(\theta_i);\rho_{-i}),\mu_{-i}|h)$ is at least good for type $\theta_i$ as $O((s_i;\rho_{-i}),\mu_{-i}|h)$ for any strategy $s_i$ of player $i$ in $\Gamma$.
+		\[\forall s_i\in S_i:\,O((\rho_i(\theta_i);\rho_{-i}),\mu_{-i}|h)\succcurlyeq_i O((s_i;\rho_{-i}),\mu_{-i}|h)\]
+		or equivalently, for $\rho_i^\prime\in B_i$,
+		\[\resizebox{.9\textwidth}{!}{
+		$\sum\limits_{\theta_{-i}\in\Theta_{-i}}u_i|_h((\rho_i;\rho_{-i}),\theta)\prod\limits_{j\in N\setminus\{i\}}\mu_j(h)(\theta_j) \geq \sum\limits_{\theta_{-i}\in\Theta_{-i}}u_i|_h((\rho_i^\prime;\rho_{-i}),\theta)\prod\limits_{j\in N\setminus\{i\}}\mu_j(h)(\theta_j)$}
+		\]
+		\item \emph{Correct initial beliefs} $\forall i\in N:\mu_i(\emptyset)=p_i$
+		\item \emph{Action-determined beliefs} If $i\notin P(h)$ and $a\in A(h)$ then $\mu_i(ha)=\mu_i(h)$;\\
+		if $i\in P(h), a\in A(h), a^\prime\in A(h)$ and $a=a^\prime$ then $\mu_i(ha)=\mu_i(ha^\prime)$.
+		\item \emph{Bayesian updating} If $i\in P(h)$ and $\exists\theta_i\in \operatorname{supp}(\mu_i(h))\left(a\in \operatorname{supp}(\rho_i(\theta_i)(h))\right)$ then for any $\theta^\prime\in\Theta_i$ we have
+		\begin{align*}
+		&\mu_i(ha)(\theta_i^\prime)\coloneqq \dfrac{\rho_i(\theta_i^\prime)(h)(a)\cdot\mu_i(h)(\theta_i^\prime)}{\sum\limits_{\theta_i\in\Theta_i}\rho_i(\theta_i)(h)(a)\cdot\mu_i(h)(\theta_i)} &\tag{Bayesian Update}
+		\end{align*}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{}
+The condition of Bayesian updating relates to a case in which player $i$'s action at the history $h$ is consistent with the other players' beliefs about player $i$ at $h$, given $\rho_i$. In such a case the condition requires not only that the new belief depend only on player $i$'s action (as required by the condition of action-determined beliefs) but also that the players' beliefs be derived via Bayes' rule from their observation of player $i$'s actions. Thus the players update their beliefs about player $i$ using Bayes' rule until his behaviour contradicts his strategy $\rho_i$, at which point they form a new conjecture about player $i$'s type that is the basis for future Bayesian updating until there is another conflict with $\rho$.
+\end{frame}
+
+\begin{frame}\frametitle{}
+\begin{theorem}
+	Let $(\rho;\mu)$ be a sequential equilibrium of the extensive game associated with the finite Bayesian extensive game with observable actions. For every $h\in\mathcal{H}$, $i\in P(h)$, and $\theta_i\in\Theta_i$, let $\rho_i^\prime(\theta_i)(h)\coloneqq \rho_i(I(h,\theta_i))$. Then there is a collection $(\mu_i^\prime(h))_{i\in N,h\in\mathcal{H}}$, where $\mu_i^\prime(h)\in\Delta(\Theta_i)$, such that
+	\[
+	\mu(I(h,\theta_i))(h,\theta)=\prod\limits_{j\in N\setminus\{i\}}\mu_j^\prime(h)(\theta_j)\;\;\text{for all $\theta\in\Theta$ and $h\in\mathcal{H}$}
+	\]
+	and $((\rho_i^\prime),(\mu_i^\prime))$ is a perfect Bayesian equilibrium of the Bayesian extensive game.
+\end{theorem}
+\end{frame}
+
 \begin{frame}\frametitle{Equilibrium}
 \begin{definition}[Nash Euqilibrium]
 \begin{itemize}
@@ -2879,16 +3379,24 @@ If we all go for the blonde and block each other, not a single one of us is goin
 	\item A strategy profile is Pareto efficient if no other strategy profile improves the payoff to at least one actor without decreasing the payoff of other actors.
 	\item The Nash equilibrium of a game is not necessarily Pareto efficient.
 \end{itemize}
-\begin{figure}
-	\includegraphics[height=0.2\textwidth]{img/braess0}
-	\includegraphics[height=0.2\textwidth]{img/braess1}\vspace{-9pt}\caption{$4000$ cars travelling around the lake}
+\begin{figure}[H]
+\begin{tikzcd}[column sep=large,row sep=small]
+\& C \arrow[dr,bend left=20,"15"] \\
+A \arrow[ur,bend left=20,"T/400"] \arrow[dr,bend right=20,"15" swap] \&\& B\\
+\& D \arrow[ur,bend right=20,"T/400" swap]
+\end{tikzcd}\qquad
+\begin{tikzcd}[column sep=large,row sep=small]
+\& C \arrow[dd,"2"] \arrow[dr,bend left=20,"15"] \\
+A \arrow[ur,bend left=20,"T/400"] \arrow[dr,bend right=20,"15" swap] \&\& B\\
+\& D \arrow[ur,bend right=20,"T/400" swap]
+\end{tikzcd}\caption{$4000$ cars travelling around the lake}
 \end{figure}
 \end{frame}
 
 \begin{frame}\frametitle{Braess Paradox}
 Let $L_e(x)$ be the travel time of each car traveling along edge $e$ when $x$ cars take that edge ($L_e(0)\coloneqq 0$). Suppose there is a traffic graph $G$ with $x_e$ cars along edge $e$. Let $E(e)\coloneqq \sum_{i=1}^{x_e} L_e(i)$, and $E(G)\coloneqq \sum_{e\in G}E(e)$. Take a choice of routes that minimizes the total energy $E(G)$. That will be a Nash equilibrium.\vspace{-2pt}
 \begin{figure}
-	\includegraphics[width=0.65\textwidth]{img/braess2}
+	\includegraphics[width=0.65\textwidth]{img/braess.pdf}
 \end{figure}
 \end{frame}
 
@@ -3120,9 +3628,13 @@ Q^\pi(s,a)&=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')
 \end{frame}
 
 \begin{frame}\frametitle{Example --- Dynamic Programming}
-\begin{figure}[H]
-\includegraphics[width=.9\textwidth]{img/dp.pdf}
-\end{figure}
+\[
+\begin{tikzcd}[column sep=huge]
+\& C \arrow[ddr,"1", near end] \arrow[r,"3"] \& E \arrow[ddr,"1", near end] \arrow[r,"3"] \& G \arrow[dr,"2"] \\
+A \arrow[ur,"1"] \arrow[dr,"2" swap] \&\&\&\& B \\
+\& D \arrow[uur,"1", near end] \arrow[r,"2" swap] \& F \arrow[uur,"3", near end] \arrow[r,"3" swap] \& H \arrow[ur,"1" swap]
+\end{tikzcd}
+\]
 \begin{align*}
 D_E&=\min(d(A,C)+d(C,E),d(A,D)+d(D,E))=3\\
 D_F&=\min(d(A,C)+d(C,F),d(A,D)+d(D,F))=2\\
@@ -5626,7 +6138,7 @@ x_2 \arrow[r] \& y_2
 \begin{frame}\frametitle{}
 \begin{itemize}
 	\item Given a partition $\lambda$
-\[\big\{(X,Y)\big\}=\biguplus_{i=1}^N \big\{(X_i,Y_i)\big\}\]
+\[\big\{(X,Y)\big\}=\coprod_{i=1}^N \big\{(X_i,Y_i)\big\}\]
 Consider the space $\mathcal{M}_\lambda\coloneqq\big\{Q: Q(Y_i|X) = Q(Y_i|X_i) \mbox{ for } i=1,\dots,N\big\}$.
 	\item The best approximation to $P(X,Y)$ by $Q(X,Y)$ in $\mathcal{M}_\lambda$ is
 \[

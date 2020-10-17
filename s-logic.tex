@@ -10,7 +10,7 @@
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Elementary Logic}
+\title{Introduction to Logic}
 \author{
 	{\includegraphics[width=0.1\textwidth,angle=0,origin=c]{img/lixi.pdf}}\\
 	\small Department of Philosophy\\
@@ -420,7 +420,7 @@ It always takes longer than you expect, even when you take into account Hofstadt
 \end{frame}
 
 %-----------------------------%
-\subsection{Mill's Five Methods}
+\subsection{Mill's Methods of Causal Analysis}
 %-----------------------------%
 
 \begin{frame}\frametitle{Method of Agreement}
@@ -496,10 +496,59 @@ It always takes longer than you expect, even when you take into account Hofstadt
 	\begin{block}{}
 		热胀冷缩、体温表
 	\end{block}
-	\begin{block}{}
-		老王发现，抽烟越多肺病越严重，所以推测，抽烟是导致肺病的重要原因。\\
-		有没有可能，老王携带的某种基因是导致他容易抽烟和容易得肺病的共同原因？
-	\end{block}
+	\begin{description}
+		\item[禁烟人士] 吸烟越多越容易患肺癌，所以吸烟是导致肺癌的重要原因。
+		\item[烟草公司] 某种基因是导致人们容易吸烟和容易得肺癌的共同原因。
+	\end{description}
+	\begin{center}
+\begin{tikzcd}[row sep = small]
+\& genotype \arrow[dl] \arrow[dr] \\
+smoking \arrow[rr,"\times" marking,red] \& \& cancer
+\end{tikzcd}\quad
+\begin{tikzcd}[row sep = small]
+\& genotype \arrow[dl] \arrow[dr] \\
+smoking \arrow[r] \& tar \arrow[r] \& cancer
+\end{tikzcd}
+\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{Simpson Paradox --- Should we treat scurvy with lemons?}
+\vspace*{-1ex}
+\begin{table}
+\begin{tabu}{c|cccc}
+\hline
+ & Recovery & No Recovery & Total & Recovery Rate\\
+\hline
+No Lemons & 20 & 20 & 40 & $50\%$ \\
+Lemons & 16 & 24 & 40 & $40\%$ \\
+Total & 36 & 44 & 80 &\\
+\hline
+\end{tabu}\caption{$P(\text{recovery}|\text{lemmon})<P(\text{recovery}|\text{no lemmon})$}
+\end{table}
+\begin{table}
+\vspace*{-1ex}
+\begin{tabu}{c|cccc}
+\hline
+ & Recovery & No Recovery & Total & Recovery Rate\\
+\hline
+No Lemons & 2 & 8 & 10 & $20\%$ \\
+Lemons & 9 & 21 & 30 & $30\%$ \\
+Total & 11 & 29 & 40 &\\
+\hline
+\end{tabu}\caption{$P(\text{recovery}|\text{lemmon},\text{old})>P(\text{recovery}|\text{no lemmon},\text{old})$}
+\end{table}
+\vspace*{-1ex}
+\begin{table}
+\begin{tabu}{c|cccc}
+\hline
+ & Recovery & No Recovery & Total & Recovery Rate\\
+\hline
+No Lemons & 18 & 12 & 30 & $60\%$ \\
+Lemons & 7 & 3 & 10 & $70\%$ \\
+Total & 25 & 15 & 40 &\\
+\hline
+\end{tabu}\caption{$P(\text{recovery}|\text{lemmon},\text{young})>P(\text{recovery}|\text{no lemmon},\text{young})$}
+\end{table}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -611,7 +660,12 @@ It always takes longer than you expect, even when you take into account Hofstadt
 假如潘金莲不开窗户，就不会掉下木棍打到西门庆，也就不会认识西门庆，不会出轨，不会害死武大郎，武松不会被逼杀人上梁山，不会有独臂擒方腊，方腊就可夺取大宋江山，没了宋就不会有靖康耻、金兵入关，也不会有元、明、清，不会闭关锁国、鸦片战争、八国联军。这样中国将成为超级大国，称霸世界！
 \end{block}
 \begin{block}{}
-今天在路边看见一条鱼，捡起一看，还是条活鱼，回家一炖可好吃了。又一想，做鱼要有油、有厨房，还要找个媳妇来做，媳妇一定有娘，又多了个丈母娘。要娶她家姑娘，丈母娘一定会开条件：要房、要车、要钱……恍然大悟，赶紧把鱼扔了，现在房价这么恐怖，这鱼肯定是开发商故意扔的。我的妈呀，差点上当……
+我在马路边，捡到一条鱼，还是条活鱼，一炖可好吃了……又一想，做鱼要有油、有盐、有厨房，还要找个媳妇来帮忙，媳妇一定有娘，又多了个丈母娘，要娶她家姑娘，丈母娘一定会要钱、要车又要房……房……房……房价这么恐怖，这鱼肯定是开发商扔的，差点上当，赶紧扔了！
+\end{block}
+\begin{block}{孔子《论语》}
+名不正则言不顺，言不顺则事不成；\\
+事不成则礼乐不兴，礼乐不兴，则刑罚不中；\\
+刑罚不中，则民无所措手足。
 \end{block}
 \end{frame}
 
@@ -3690,16 +3744,16 @@ Axiom$1$ and Axiom$2$ axiomatizes the conditional ($\to$) fragment of intuitioni
 \[
 	\begin{tabu}{c|ccc}
  \hline
- \to & 1 & 2 & 3\\
+ \to & 0 & u & 1\\
  \hline
- 1 & 1 & 2 & 3\\
- 2 & 1 & 1 & 3\\
- 3 & 1 & 1 & 1\\
+ 0 & 1 & 1 & 1\\
+ u & 0 & 1 & 1\\
+ 1 & 0 & u & 1\\
  \hline
 	\end{tabu}
 \]
-Here we interpret $1$ as ``true'', $3$ as ``false'', and $2$ as ``maybe''.\\
-Let $\nu(p)=2$ and $\nu(q)=3$, then $\nu(((p\to q)\to p)\to p)=2$.
+Here we interpret $1$ as ``true'', $0$ as ``false'', and $u$ as ``maybe''.\\
+Let $\nu(p)=u$ and $\nu(q)=0$, then $\nu(((p\to q)\to p)\to p)=u$.
 \end{frame}
 
 \begin{frame}\frametitle{Model \& Semantic Consequence}
@@ -5892,8 +5946,8 @@ Frege: Mathematics is analytic.
 
 \begin{frame}\frametitle{\href{https://www.maa.org/programs/maa-awards/writing-awards/the-three-crises-in-mathematics-logicism-intuitionism-and-formalism}{Philosophy of Math: Logicism/Intuitionism/Formalism}}
 \begin{figure}
-	\subfigure{\includegraphics[height=.3\textwidth,angle=0,origin=c]{img/russell-logicism.jpg}
-	\subfigure{\includegraphics[height=.3\textwidth,angle=0,origin=c]{img/brouwer-intuitionism.jpg}}}
+	\subfigure{\includegraphics[height=.3\textwidth,angle=0,origin=c]{img/russell-logicism.pdf}
+	\subfigure{\includegraphics[height=.3\textwidth,angle=0,origin=c]{img/brouwer-intuitionism.pdf}}}
 \end{figure}
 \begin{table}
 \begin{tabu}{c|c|c}
@@ -6910,13 +6964,13 @@ Let $f_j: a_i\mapsto b_i$. But $\mathcal{N}\nvDash A_j(b_1,\dots,b_n)$.
 		$\mathscr{L}=\{0,1,+,\cdot\}, \mathcal{N}=\left(\mathbb{N},0,1,+,\cdot\right), \mathcal{R}=\left(\mathbb{R},0,1,+,\cdot\right)$
 		\[\mathcal{N}\subset\mathcal{R}\]
 		\item $\mathscr{L}=\{<\}, \mathcal{M}=\left(\mathbb{N},<\right), \mathcal{N}=\left(\left\{2n: n\in\mathbb{N}\right\},<\right)$
-		\[h: n\mapsto 2n, \quad h:\mathcal{M}\cong\mathcal{N},\quad\text{but}\quad\mathcal{M}\not\subset\mathcal{N}\]
+		\[h: n\mapsto 2n, \quad h:\mathcal{M}\cong\mathcal{N},\quad\text{but}\quad\mathcal{M}\centernot\subset\mathcal{N}\]
 		\item $\mathscr{L}=\{0,+\}$
 		\begin{align*}
 		&\mathcal{M}=\big(\mathbb{N},0^{\mathcal{M}},+^{\mathcal{M}}\big), &\text{where}\quad&0^{\mathcal{M}}=0, &&+^{\mathcal{M}}(a,b)=a+b\\
 		&\mathcal{N}=\big(\left\{2^n: n\in\mathbb{N}\right\}, 0^{\mathcal{N}}, +^{\mathcal{N}}\big), &\text{where}\quad&0^{\mathcal{N}}=1, &&+^{\mathcal{N}}(a,b)=a\cdot b
 		\end{align*}
-		\[h: n\mapsto 2^n,\quad h:\mathcal{M}\cong\mathcal{N}\quad\text{but}\quad\mathcal{M}\not\subset\mathcal{N}.\]
+		\[h: n\mapsto 2^n,\quad h:\mathcal{M}\cong\mathcal{N}\quad\text{but}\quad\mathcal{M}\centernot\subset\mathcal{N}.\]
 	\end{itemize}
 \end{frame}
 
@@ -7142,14 +7196,16 @@ Let $M\subset\mathbb{R}$. $(M,<)\prec(\mathbb{R},<)$ iff $(M,<)$ is a dense line
 
 \begin{frame}\frametitle{What is Mathematics?}
 	\begin{quote}
+		Mathematics may be defined as the subject in which we never know what we are talking about, nor whether what we are saying is true.\par
+		\hfill --- \textsl{Bertrand Russell}
+
 		Mathematics is the art of giving the same name to different things.\par
 		\hfill --- \textsl{Henri Poincar\'e}
 		
 		Not substance but invariant form is the carrier of the relevant mathematical information.\par
 		\hfill --- \textsl{F. William Lawvere}
-		
-		Mathematics may be defined as the subject in which we never know what we are talking about, nor whether what we are saying is true.\par
-		\hfill --- \textsl{Bertrand Russell}
+
+		Mathematics is the analysis of invariants and of the transformations that preserve them (including the analysis of non-preservations, deformations and symmetry breakings).
 	\end{quote}
 \end{frame}
 
@@ -11236,7 +11292,7 @@ x&\mbox{otherwise }
 	\coordinate (O) at (0,0); 
 	\coordinate (N) at (0,-\rad); 
 	
-	\filldraw[ball color=white!30] (O) circle [radius=\rad];
+	\filldraw[ball color=white!30,nearly transparent] (O) circle [radius=\rad];
 	\draw[dashed,orange] 
 	(\rad,0) arc [start angle=0,end angle=180,x radius=\rad,y radius=5mm];
 	\draw[orange]
@@ -15010,7 +15066,16 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 	\end{figure}\vspace{-2ex}
 	\[\left\{e,r,r^2,m,mr,mr^2\right\}\]\vspace{-5ex}
 \begin{columns}
-\column{.85\textwidth}
+\column{.2\textwidth}
+\begin{tikzpicture}
+    \foreach \x in {0,120,240} {
+      \begin{scope}[rotate=\x]
+        \draw (-1, -0.577) -- (1, -0.577);
+        \draw [red, dashed] (0, -1.2) -- (0, 1.778);
+      \end{scope}
+    }
+\end{tikzpicture}
+\column{.55\textwidth}
 \begin{quote}
 Jump above calculations; group the operations, classify them according to their complexities rather than their appearances. \par
 \hfill --- \textsl{\'Evariste Galois}
@@ -16760,8 +16825,8 @@ $\mathbf{C}'$ is called \emph{full} if for $A,B\in\operatorname{ob}(\mathbf{C}')
 \end{frame}
 
 \begin{frame}\frametitle{Monic / Epic / Bimorphism / Isomorphism}
-\begin{itemize}
-	\item A morphism $f: A\to B$ is a:
+\begin{definition}
+A morphism $f: A\to B$ is a:
 \begin{enumerate}
 	\item monomorphism (monic) if $\forall X\forall g_1g_2: X\to A: fg_1=fg_2\implies g_1=g_2$.
 	\item epimorphism (epic) if $\forall X\forall g_1g_2: B\to X: g_1f=g_2f\implies g_1=g_2$.
@@ -16770,8 +16835,7 @@ $\mathbf{C}'$ is called \emph{full} if for $A,B\in\operatorname{ob}(\mathbf{C}')
 	\item endomorphism if $A=B$.
 	\item automorphism if $f$ is both an endomorphism and an isomorphism.
 	\item retraction if a right inverse of $f$ exists, i.e. $\exists g: B\to A: fg=1_B$.
-	\item section if a left inverse of $f$ exists, i.e. $\exists g: B\to A: gf=1_A$.
-	\vspace*{-1ex}
+	\item section if a left inverse of $f$ exists, i.e. $\exists g: B\to A: gf=1_A$.\vspace*{-2ex}
 \[\begin{tikzcd}
 B \arrow[r,"g"] \arrow[dr, "1_B"'] \& A \arrow[d,"f"]\\
 \& B
@@ -16780,10 +16844,17 @@ B \arrow[r,"g"] \arrow[dr, "1_B"'] \& A \arrow[d,"f"]\\
 A \arrow[r,"f"] \arrow[dr, "1_A"'] \& B \arrow[d,"g"]\\
 \& A
 \end{tikzcd}
-\]\vspace*{-2ex}
+\]
 \end{enumerate}
+\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Monic / Epic / Bimorphism / Isomorphism}
+\begin{itemize}
 	\item Every retraction is epic.
-	\item Every section is a monic.
+	\item Every section is monic.
+	\item In a concrete category every section is injective.
+	\item In a concrete category every retraction is surjective.
 	\item The following three statements are equivalent:
 \begin{enumerate}
 	\item $f$ is a monomorphism and a retraction;
@@ -16791,6 +16862,13 @@ A \arrow[r,"f"] \arrow[dr, "1_A"'] \& B \arrow[d,"g"]\\
 	\item $f$ is an isomorphism.
 \end{enumerate}
 \end{itemize}
+\[
+\begin{tikzcd}
+monic \& bimorphism \arrow[l] \arrow[r] \& epic \\
+injection \arrow[u] \& bijection \arrow[l] \arrow[u] \arrow[r] \& surjection \arrow[u] \\
+section \arrow[u] \& isomorphism \arrow[l] \arrow[u] \arrow[r] \& retraction \arrow[u]
+\end{tikzcd}
+\]
 \end{frame}
 
 \begin{frame}\frametitle{Initial Object \& Terminal Object}
@@ -17173,16 +17251,32 @@ m(2t - 1) & 1/2 < t \leq 1
 \begin{columns}
 \column{.65\textwidth}
 Suppose $f:D^2\to D^2$ has no fixpoint. Then there is a continuous function $r: D^2\to S^1$ that carries a point $x\in D^2$ to the intersection of the ray from $f(x)$ to $x$ with the boundary $S^1$, and $r$ fixes the points on $S^1$. The function $r$ defines a retraction of the inclusion $i: S^1\hookrightarrow D^2$.
+\[\begin{tikzcd}
+S^1 \arrow[r,hook,"i"] \& D^2 \arrow[r,"r"] \& S^1
+\end{tikzcd}\]
 \column{.33\textwidth}
-\includegraphics[width=\textwidth]{img/brouwer-fixpoint.pdf}
+\begin{figure}
+\begin{tikzpicture}
+  \draw circle [radius=0.36\textwidth];
+  \node [point] at (-0.4, -0.25) {};
+  \node at (-0.4, -0.25) [above] {$x$};
+  \node [point] at (0.4, 0.3) {};
+  \node at (0.4, 0.3) [right] {$f(x)$};
+  \draw (0.4, 0.3) -- (-1.2, -0.8);
+  \node at (-1.2, -0.8) [point] {};
+  \node at (-1.2, -0.8) [anchor = north east] {$r(x)$};
+\end{tikzpicture}
+\end{figure}
 \end{columns}
 	Pick any basepoint on the boundary $S^1$ and apply the functor $\pi_1$ to obtain a composable pair of group homomorphisms:
-	\[\pi_1(S^1)\xrightarrow{\pi_1(i)}\pi_1(D^2)\xrightarrow{\pi_1(r)}\pi_1(S^1)\]
+	\[\begin{tikzcd}
+\pi_1(S^1) \arrow[r,"\pi_1(i)"] \& \pi_1(D^2) \arrow[r,"\pi_1(r)"] \& \pi_1(S^1)
+\end{tikzcd}\]
 	By the functoriality axioms, we have
 	\[\pi_1(r)\cdot\pi_1(i)=\pi_1(ri)=\pi_1(1_{S^1})=1_{\pi_1(S^1)}\]
-	Therefore, $\pi_1(i)$ is monic and hence injective.\\
-	However, $\pi_1(S^1)\cong(\mathbb{Z},+)$, $\pi_1(D^2)\cong(\{0\},+)$.\\
-	There is no injection $\mathbb{Z}\rightarrowtail 0$.
+	Therefore, $\pi_1(i)$ is monic and hence injective.
+	However, $\pi_1(S^1)\cong(\mathbb{Z},+)$, $\pi_1(D^2)\cong(\{0\},+)$.
+	There is no injection $\mathbb{Z}\rightarrowtail \{0\}$.
 \end{proof}
 \end{frame}
 
@@ -17893,7 +17987,7 @@ If $\mathbf{C}$ has finite limits and is in addition a locally small category, t
 	\item \emph{Well-pointed Topos:} a topos is called \emph{well-pointed} if
 	\begin{enumerate}
 		\item for \begin{tikzcd} A \arrow[r, yshift=0.6ex,"f"] \arrow[r, yshift=-0.6ex,"g" swap] \& B \end{tikzcd}, if $\forall x: 1\to A[fx=gx]$ then $f=g$.
-		\item $0\not\cong 1$.
+		\item $0\centernot\cong 1$.
 	\end{enumerate}
 	\item \emph{Natural Numbers Object:} a \emph{natural numbers object} is an object $N$ with morphisms $0: 1\to N$ and $s: N \to N$ such that: given morphisms $a: 1\to X$ and $g: X \to X$, there is a unique morphism $f: N \to X$ making the following diagram commute:
 \[
@@ -19892,17 +19986,71 @@ A presheaf $F$ is a \emph{sheaf} if $\varprojlim\limits_\mathbf{I} F\cong F(U)$.
 \end{itemize}
 \end{frame}
 
+\begin{frame}\frametitle{Stalk}
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+\vspace*{-1ex}
+\begin{itemize}
+	\item The \emph{stalk} $F_x$ of a presheaf $F:\mathcal{O}(X)^{\mathrm{op}}\to\mathbf{Set}$ at $x\in U$ is the set of germs of $F$ at $x$. Precisely,
+	\[F_x\coloneqq\big\{\operatorname{germ}_xs:x\in U, s\in FU\big\}\]
+	where
+	\[\operatorname{germ}_x s\coloneqq [s]_x\]
+	and $s\sim_x t$ if there is an open set $x\in W\subset U\cap V$ with $s{\restriction_W}=t{\restriction_W}$ where $s\in FU, t\in FV$.
+	\item Equivalently, $F_x\coloneqq \varinjlim\limits_{U\ni x} FU$.\\
+	The function $\operatorname{germ}_x: FU\to F_x$ form a cocone over $F{\restriction_{\{U\in\mathcal{O}(X):x\in U\}}}$.
+\[
+\begin{tikzcd}[column sep=15ex, row sep=large]
+FU \arrow[dd] \arrow[dr,"\operatorname{germ}_xs" swap] \arrow[drr,"c_s"]\\
+\& F_x \arrow[r, dashed, "u" description] \& C\\
+FW \arrow[ur,"\operatorname{germ}_xs{\restriction_W}"] \arrow[urr,"c_{s{\restriction_W}}" swap]
+\end{tikzcd}
+\]
+\end{itemize}
+\end{frame}
+
 \begin{frame}\frametitle{Etale Bundle}
 \begin{itemize}
 	\item Consider the slice category $\mathbf{Top}/X$. An \emph{\'etale bundle} over $X$ is $(Y,f:Y\to X)$ in $\mathbf{Top}/X$ such that $f$ is a local homeomorphism: that is, for every $y\in Y$, there is an open set $U\ni y$ such that $f(U)$ is open in $X$ and $f{\restriction_U}: U\to f(U)$ is a homeomorphism.
 	\item The category $\mathbf{Et}(X)$ is the category of \'etale bundles over $X$ and morphisms are the continous functions between them.
 	\item \begin{tikzcd} \widehat{\mathcal{O}(X)} \arrow[r, yshift=1ex, "\Lambda", ""{name=U, above}] \& \mathbf{Top}/X \arrow[l, yshift=-1ex, "\Gamma", ""{name=D}]
 \arrow[phantom, "\perp", from=U, to=D]\end{tikzcd}\\
-	where $\Gamma: Y\xrightarrow{f} X\mapsto\big\{s:U\to Y: f\circ s=i:U\hookrightarrow X\big\}$, while $\Lambda: F\mapsto \coprod\limits_{x\in X} F_x$ and $F_x\coloneqq \varinjlim\limits_{U\ni x} FU$. There are natural transformations
+	where $\Gamma: Y\xrightarrow{f} X\mapsto\big\{s:U\to Y: f\circ s=i:U\hookrightarrow X\big\}$, while $\Lambda: F\mapsto \coprod\limits_{x\in X} F_x=\big\{\operatorname{germ}_xs:x\in X,s\in FU\big\}$.\\
+	There are natural transformations
 	\[\eta_F: F\to \Gamma\Lambda F,\quad \varepsilon_Y: \Lambda\Gamma Y\to Y\]
 	for $F$ a presheaf and $Y$ a bundle which are unit and counit.
 	\item If $F$ is a sheaf, $\eta_F$ is an isomorphism, while if $Y$ is \'etale, $\varepsilon_Y$ is an isomorphism. \begin{tikzcd} \mathbf{Sh}(X) \arrow[r, yshift=1ex, "", ""{name=U, above}] \& \mathbf{Et}(X) \arrow[l, yshift=-1ex, "", ""{name=D}]
 \arrow[phantom, "\cong", from=U, to=D]\end{tikzcd}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Proof Sketch}
+\begin{proof}[Proof Sketch]
+For $U\in\mathcal{O}(X)$,
+\[\eta_{FU}:FU\to \Gamma\Lambda FU :: s\mapsto \dot{s}\]
+where
+\[\dot{s}:U\to \Lambda F :: x\mapsto \operatorname{germ}_xs\]
+Given a bundle $Y\to X$, each point of the corresponding \'etale bundle $\Lambda\Gamma Y$ has the form $\dot{s}x$ for some point $x\in X$ and some actual cross-section $s:U\to Y$ of the given bundle.
+\[\varepsilon_Y:\Lambda\Gamma Y\to Y :: \dot{s}x\mapsto sx\]
+\[\begin{tikzcd}
+\Lambda \arrow[r,"\Lambda\eta"] \arrow[dr, "1_\Lambda"'] \& \Lambda\Gamma\Lambda \arrow[d,"\varepsilon \Lambda"]\\
+\& \Lambda
+\end{tikzcd}\qquad\qquad\qquad\qquad
+\begin{tikzcd}
+\Gamma \arrow[r,"\eta \Gamma"] \arrow[dr, "1_\Gamma"'] \& \Gamma\Lambda\Gamma \arrow[d,"\Gamma\varepsilon"]\\
+\& \Gamma
+\end{tikzcd}\]
+\[\operatorname{germ}_xs\mapsto \operatorname{germ}_x\dot{s}\mapsto\operatorname{germ}_xs \qquad\qquad s\mapsto\dot{s}\mapsto s\]
+\end{proof}
+\end{frame}
+
+\begin{frame}\frametitle{Sheafification}
+\begin{itemize}
+	\item The inclusion functor
+\[i:\mathbf{Sh}(X)\rightarrowtail\widehat{\mathcal{O}(X)}\]
+has a left adjoint.
+	\item The left adjoint functor
+\[\Gamma\Lambda:\widehat{\mathcal{O}(X)}\to\mathbf{Sh}(X)\]
+is known as the associated sheaf functor, or the sheafification functor. It carries each presheaf $F$ on $X$ to the ``best approximation'' $\Gamma\Lambda F$ of $F$ by a sheaf.
 \end{itemize}
 \end{frame}
 
