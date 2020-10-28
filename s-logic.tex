@@ -71,8 +71,8 @@ The information content of a formula $A$ is the set $\operatorname{Mod}(A)$ of i
 		\begin{enumerate}
 			\item Every man in a village of $100$ married couples has cheated on his wife.
 			\item Every wife in the village knows about the fidelity of every man in the village except for her own husband.
-			\item One day, the queen visits and announces that at least one husband has been unfaithful, and that any wife who discovers his husband's infidelity must kill him that very day.
-			\item What happens?
+			\item Every wife who discovers his husband's infidelity must kill him that very day.
+			\item One day, the queen visits and announces that at least one husband has been unfaithful.
 		\end{enumerate}
 	\end{problem}\vspace{-2ex}
 \begin{columns}
@@ -323,7 +323,7 @@ It always takes longer than you expect, even when you take into account Hofstadt
 		学问像大海，考试像鱼钩。老师怎么能把鱼挂在鱼钩上教它在大海中学习自由、平衡的游泳呢？\par \hfill --- Hermite
 	\end{block}
 	\begin{block}{}
-		正如在潜水时身体有一个自然的漂浮到水面的趋势，它要求我们必须将身体尽力下沉；在思考问题时，我们必须将思维尽力发挥，使我们远离肤浅的表面，下潜到哲学的深度。\par \hfill --- Wittgenstein
+		Just as in swimming our bodies have a natural tendency to float on the surface so that it requires great physical exertion to plunge to the bottom, so in thinking it requires great mental exertion to force our minds away from the superficial, down into the depth of a philosophical problem.\par \hfill --- Wittgenstein
 	\end{block}
 \end{frame}
 
@@ -389,8 +389,8 @@ It always takes longer than you expect, even when you take into account Hofstadt
 	\end{block}
 	\begin{block}{Refutation by Analogy}
 		\begin{itemize}
-			\item 我认为性教育导致怀孕。
-			\item 是的，正如驾驶教育导致交通事故。\textcolor{red}{$\sideset{^\circledcirc}{^\circledcirc}{\operatorname{\hat{o}}}$}
+			\item I think sex education causes pregnancies.
+			\item Right\dots And drivers education causes accidents.\textcolor{red}{$\sideset{^\circledcirc}{^\circledcirc}{\operatorname{\hat{o}}}$}
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -400,7 +400,10 @@ It always takes longer than you expect, even when you take into account Hofstadt
 		不能要求每样东西都有定义，否则如同要求任何物质都可被分解。简单物质不能被分解，逻辑上简单的东西不能被定义。\par \hfill --- Frege
 	\end{block}
 	\begin{block}{Refutation by Analogy}
-		有人认为，人工智能不可能实现，因为“人工智能是建立在固体物理学之上的，而人脑是一个活的半流体系统”。照此推理，汽车也不可能代替马，因为汽车是铁做的，而马是活的血肉做的有机体。
+	\begin{itemize}
+		\item 人工智能不可能实现，因为，人工智能是建立在固体物理学之上的，而人脑是一个活的半流体系统。
+		\item 汽车不可能代替马，因为，汽车是铁做的，而马是活的血肉构成的有机体。
+	\end{itemize}
 	\end{block}
 	\begin{block}{Refutation by Analogy}
 		\begin{itemize}
@@ -412,10 +415,10 @@ It always takes longer than you expect, even when you take into account Hofstadt
 
 \begin{frame}\frametitle{Examples --- Does God Exist?}
 	\begin{block}{Argument by Analogy}
-		如果我们看见某个复杂精巧的机械装置，比如一块手表，我们会推测它是由某人制造的。我们所处的宇宙是一个错综复杂却运行精巧的自然机制，所以，我们应当推测它也有一个造物主。
+		If we found by chance a watch we should infer that it had been made by someone. But all around us we do find intricate pieces of natural mechanism, and the processes of the universe are seen to move together in complex relations; we should therefore infer that these too have a Maker.
 	\end{block}
 	\begin{block}{Refutation by Analogy}
-		众多宇宙中的每一个都有各自的规律和参数。有些适合生命生存，有些不适合。有的甚至发展出了能提出人择问题的高级生命。但这就像是一场随机摸彩。总会有人赢，而没有人在刻意挑选赢家。仅仅因为一个宇宙具有一套独特的规律和参数，不能推出它是被造物主精心设计的。
+		Each of the multitude of universes may have different laws of nature. Some may be suitable for life, and some may not. It is very much like a lottery. If you win the lottery, you may feel very grateful, but someone had to win, and no one selected who that was, except randomly. Just because a universe has a unique set of laws should not lead one to wonder whether that set was designed.
 	\end{block}
 \end{frame}
 
@@ -2084,8 +2087,8 @@ Arithetical truth can't be defined in arithmetic.
 			\end{block}
 			\begin{block}{Top Down}
 				\begin{itemize}
-					\item A set $S$ is \textcolor{green}{closed under a function} $f$ if for all $\mathbf{x}$: $\mathbf{x}\in S\to f(\mathbf{x})\in S$.
-					\item A set $S$ is \textcolor{yellow}{inductive} if $B\subset S$ and for all $f\in\mathcal{F}$: $S$ is closed under $f$.
+					\item A set $S$ is \textcolor{green}{closed under a function} $f$ iff for all $\mathbf{x}$: $\mathbf{x}\in S\to f(\mathbf{x})\in S$.
+					\item A set $S$ is \textcolor{yellow}{inductive} iff $B\subset S$ and for all $f\in\mathcal{F}$: $S$ is closed under $f$.
 					\item $C^*\coloneqq \bigcap\{S: S\mbox{ is inductive}\}$
 				\end{itemize}
 			\end{block}
@@ -2292,7 +2295,7 @@ $P(n)\coloneqq $ ``$n$ rings needs $2^n-1$ moves.''
 			\item $\overline{\nu}(\neg A)=1-\overline{\nu}(A)$
 			\item $\overline{\nu}(A\wedge B)=\min\{\overline{\nu}(A),\overline{\nu}(B)\}$
 			\item $\overline{\nu}(A\vee B)=\max\{\overline{\nu}(A),\overline{\nu}(B)\}$
-			\item $\overline{\nu}(A\to B)=1-\overline{\nu}(A)+\overline{\nu}(A)\cdot\overline{\nu}(B)$
+			\item $\overline{\nu}(A\to B)=1-\overline{\nu}(A)\cdot(1-\overline{\nu}(B))$
 			\item $\overline{\nu}(A\leftrightarrow B)=\overline{\nu}(A)\cdot\overline{\nu}(B)+(1-\overline{\nu}(A))\cdot(1-\overline{\nu}(B))$
 		\end{enumerate}		
 	\end{minipage}
@@ -2393,9 +2396,9 @@ B \arrow[r] \arrow[dr, "h"']
 			$n$ propositional symbols.
 		\end{center}
 		\begin{itemize}
-			\item $\nu\vDash A$ if $\overline{\nu}(A)=1$.
-			\item \textcolor{green}{Logical Consequence.} \textcolor{yellow}{$\Gamma\vDash A$} if for any truth assignment $\nu$ s.t. $(\text{for all}\; B\in\Gamma: \nu\vDash B)\implies\nu\vDash A$.
-			\item \textcolor{green}{Tautology.} \textcolor{yellow}{$\vDash A$ if $\emptyset\vDash A$}.
+			\item $\nu\vDash A$ iff $\overline{\nu}(A)=1$.
+			\item \textcolor{green}{Logical Consequence.} \textcolor{yellow}{$\Gamma\vDash A$} iff for any truth assignment $\nu$ s.t. $(\text{for all}\; B\in\Gamma: \nu\vDash B)\implies\nu\vDash A$.
+			\item \textcolor{green}{Tautology.} \textcolor{yellow}{$\vDash A$ iff $\emptyset\vDash A$}.
 		\end{itemize}
 \end{frame}
 
@@ -3118,7 +3121,7 @@ A truth assignment for $\mathscr{L}^0$ is a function $\nu:\mathcal{P}\to\{0,1\}$
 
 \begin{frame}\frametitle{Adequate Sets of Connectives}
 	\begin{definition}
-		A set of connectives is adequate if every truth function can be represented by a wff containing only connectives from that set.
+		A set of connectives is adequate iff every truth function can be represented by a wff containing only connectives from that set.
 	\end{definition}
 	\begin{columns}
 		\column{0.6\textwidth}
@@ -3377,7 +3380,7 @@ A truth assignment for $\mathscr{L}^0$ is a function $\nu:\mathcal{P}\to\{0,1\}$
 			\end{enumerate}
 		\end{definition}
 		\begin{itemize}
-			\item \textcolor{yellow}{$\Gamma\vdash A$} if $A$ is the last member of some deduction from $\Gamma$.
+			\item \textcolor{yellow}{$\Gamma\vdash A$} iff $A$ is the last member of some deduction from $\Gamma$.
 			\item \textcolor{yellow}{$\vdash A\coloneqq \emptyset\vdash A$}
 		\end{itemize}
 \textcolor{green}{A mathematician's house is on fire. His wife puts it out with a bucket of water. Then there is a gas leak. The mathematician lights it on fire.}
@@ -3588,10 +3591,10 @@ A truth assignment for $\mathscr{L}^0$ is a function $\nu:\mathcal{P}\to\{0,1\}$
 	\item Goto \textcircled{\footnotesize 2}.
 \end{enumerate}
 \begin{itemize}
-	\item \emph{Closed branch.} A branch is closed if it contains a wff and its negation.
-	\item \emph{Closed tree.} A tree is closed if all its branches are closed.
-	\item \emph{Open branch.} A branch is open if it is not closed and no rule can be applied.
-	\item \emph{Open tree.} A tree is open if it has at least one open branch.
+	\item \emph{Closed branch.} A branch is closed iff it contains a wff and its negation.
+	\item \emph{Closed tree.} A tree is closed iff all its branches are closed.
+	\item \emph{Open branch.} A branch is open iff it is not closed and no rule can be applied.
+	\item \emph{Open tree.} A tree is open iff it has at least one open branch.
 \end{itemize}
 \end{frame}
 
@@ -3703,7 +3706,7 @@ Decide whether the following inferences are valid or not. If not, provide a coun
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{definition}[Independence]
-		An axiom $A$ in $\Gamma$ is independent if $\Gamma\setminus\{A\}\nvdash A$.
+		An axiom $A$ in $\Gamma$ is independent iff $\Gamma\setminus\{A\}\nvdash A$.
 	\end{definition}
 \begin{block}{}
 	\textcolor{yellow}{Find some property that makes the axiom false and the propositions deduced from the other axioms true.}
@@ -3785,17 +3788,17 @@ Let $\nu(p)=u$ and $\nu(q)=0$, then $\nu(((p\to q)\to p)\to p)=u$.
 
 \begin{frame}\frametitle{Consistency \& Satisfiability}
 	\begin{itemize}
-		\item $\Gamma$ is \textcolor{yellow}{consistent} if $\Gamma\nvdash\bot$.
-		\item $\Gamma$ is \textcolor{yellow}{Post-consistent} if there is some wff $A:\Gamma\nvdash A$.
+		\item $\Gamma$ is \textcolor{yellow}{consistent} iff $\Gamma\nvdash\bot$.
+		\item $\Gamma$ is \textcolor{yellow}{Post-consistent} iff there is some wff $A:\Gamma\nvdash A$.
 		\begin{center}
 			\fbox{$\Gamma$ is consistent iff it is Post-consistent.}
 		\end{center}
-		\item $\Gamma$ is \textcolor{yellow}{maximal} if for every wff $A$, either $A\in\Gamma$ or $\neg A\in\Gamma$.
-		\item $\Gamma$ is \textcolor{yellow}{maximal consistent} if it is both consistent and maximal.
+		\item $\Gamma$ is \textcolor{yellow}{maximal} iff for every wff $A$, either $A\in\Gamma$ or $\neg A\in\Gamma$.
+		\item $\Gamma$ is \textcolor{yellow}{maximal consistent} iff it is both consistent and maximal.
 	\end{itemize}
 	\begin{itemize}
-		\item $\Gamma$ is \textcolor{yellow}{satisfiable} if $\operatorname{Mod}(\Gamma)\neq\emptyset$.
-		\item $\Gamma$ is \textcolor{yellow}{finitely satisfiable} if every finite subset of $\Gamma$ is satisfiable.
+		\item $\Gamma$ is \textcolor{yellow}{satisfiable} iff $\operatorname{Mod}(\Gamma)\neq\emptyset$.
+		\item $\Gamma$ is \textcolor{yellow}{finitely satisfiable} iff every finite subset of $\Gamma$ is satisfiable.
 	\end{itemize}
 	\begin{block}{}
 		\begin{itemize}
@@ -3832,9 +3835,6 @@ Let $\nu(p)=u$ and $\nu(q)=0$, then $\nu(((p\to q)\to p)\to p)=u$.
 	\begin{theorem}[Compactness Theorem]
 		A set of wffs is satisfiable iff it is finitely satisfiable.
 	\end{theorem}
-	\begin{block}{}
-	如果语言可以说无穷析取，则没有紧致性。$\left\{\bigvee\limits_{i=1}^\infty p_i,\neg p_1,\neg p_2,\dots\right\}$
-	\end{block}
 	\begin{corollary}
 		If $\Gamma\vDash A$, then there is a finite $\Gamma_0\subset\Gamma$ s.t. $\Gamma_0\vDash A$.
 	\end{corollary}
@@ -3845,6 +3845,8 @@ Let $\nu(p)=u$ and $\nu(q)=0$, then $\nu(((p\to q)\to p)\to p)=u$.
 		&\implies\Gamma\nvDash A
 		\end{align*}
 	\end{proof}
+	\textbf{Remark:} Compactness does not hold in a language including infinite disjunctions.
+	\[\left\{\bigvee\limits_{i=1}^\infty p_i,\neg p_1,\neg p_2,\dots\right\}\]
 \end{frame}
 
 \begin{frame}\frametitle{Applications of Compactness}
@@ -4013,10 +4015,10 @@ $\Gamma\coloneqq \left\{p_v^1\vee\dots\vee p_v^n: v\in V\right\}\cup\left\{\neg\
 		\centering\textcolor{red}{What is ``theory''?}
 	\end{block}
 	\begin{itemize}
-		\item A set $\Gamma$ of sentences is a \textcolor{yellow}{theory} if $\Gamma=\operatorname{Cn}(\Gamma)$.
-		\item A theory $\Gamma$ is \textcolor{yellow}{complete} if for every sentence $A$, either $A\in\Gamma$ or $\neg A\in\Gamma$.
-		\item A theory $\Gamma$ is \textcolor{yellow}{axiomatizable} if there is a decidable set $\Sigma$ of sentences s.t. $\Gamma=\operatorname{Cn}(\Sigma)$.
-		\item A theory $\Gamma$ is \textcolor{yellow}{finitely axiomatizable} if $\Gamma=\operatorname{Cn}(\Sigma)$ for some finite set $\Sigma$ of sentences.
+		\item A set $\Gamma$ of sentences is a \textcolor{yellow}{theory} iff $\Gamma=\operatorname{Cn}(\Gamma)$.
+		\item A theory $\Gamma$ is \textcolor{yellow}{complete} iff for every sentence $A$, either $A\in\Gamma$ or $\neg A\in\Gamma$.
+		\item A theory $\Gamma$ is \textcolor{yellow}{axiomatizable} iff there is a decidable set $\Sigma$ of sentences s.t. $\Gamma=\operatorname{Cn}(\Sigma)$.
+		\item A theory $\Gamma$ is \textcolor{yellow}{finitely axiomatizable} iff $\Gamma=\operatorname{Cn}(\Sigma)$ for some finite set $\Sigma$ of sentences.
 	\end{itemize}
 \end{frame}
 
@@ -4439,7 +4441,7 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 			\begin{enumerate}
 				\item 如果我不在打网球，那就在看网球。
 				\item 如果我不在看网球，那就在读网球杂志。
-				\item 但我不能同时做两件以上的事。
+				\item 但我不能同时做两件或两件以上的事。
 			\end{enumerate}
 		\end{block}
 \end{frame}
@@ -4651,9 +4653,9 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 		\end{cases}\]
 	\end{definition}
 \begin{itemize}
-	\item $t$ is a ground (closed) term if $\operatorname{Fv}(t)=\emptyset$.
-	\item $A$ is a sentence (closed formula) if $\operatorname{Fv}(A)=\emptyset$.
-	\item $A$ is an open formula if $\operatorname{Bv}(A)=\emptyset$.
+	\item $t$ is a ground (closed) term iff $\operatorname{Fv}(t)=\emptyset$.
+	\item $A$ is a sentence (closed formula) iff $\operatorname{Fv}(A)=\emptyset$.
+	\item $A$ is an open formula iff $\operatorname{Bv}(A)=\emptyset$.
 \end{itemize}
 	Example: $c=d$ is clopen.
 \end{frame}
@@ -4703,12 +4705,12 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 \item $\forall x\big(\operatorname{Time}(x)\to\operatorname{Better}(t,x)\big)\wedge\forall x\big(\operatorname{Time}(x)\to\operatorname{Better}(x,t)\big)$\hfill \textsl{Dickens}
 \item $\exists p\Big(\operatorname{Child}(p)\wedge\neg\operatorname{Grow}(p)\wedge\forall x\big(\operatorname{Child}(x)\wedge x\ne p\to\operatorname{Grow}(x)\big)\Big)$\hfill \textsl{Barrie}
 \item $\forall xy\big(Fx\wedge Fy\to (Hx\wedge Hy\to Axy)\wedge(\neg Hx\wedge\neg Hy\to\neg Axy)\big)$\hfill \textsl{Tolstoi}
-\item $\exists t\forall x \operatorname{Fool}(x,t)\wedge \exists x\forall t \operatorname{Fool}(x,t)\wedge\neg\forall x\forall t \operatorname{Fool}(x,t)$\hfill \textsl{Lincoln}
+\item $\forall x(Px\to\exists y(Ty\wedge Fxy))\wedge\exists x(Px\wedge \forall y(Ty\to Fxy))\wedge \neg\forall x(Px\to \forall y(Ty\to Fxy))$\hfill \textsl{Lincoln}
 \item $\forall x\big(\operatorname{Problem}(x)\wedge\operatorname{Philo}(x)\wedge\operatorname{Serious}(x)\leftrightarrow x=\operatorname{suicide}\big)$\hfill \textsl{Camus}
 \item $\forall x\big(\operatorname{Feather}(x)\wedge\operatorname{Perch}(x,\operatorname{soul})\leftrightarrow x=\operatorname{hope}\big)$\hfill \textsl{Dickinson}
 \item $\forall x\Big(\operatorname{Enter}(x)\to\forall y\big(\operatorname{Hope}(y)\to\operatorname{Abandon}(x,y)\big)\Big)$\hfill \textsl{Dante}
 \item $\exists x\forall y\big(\operatorname{For}(y,x)\wedge\operatorname{For}(x,y)\big)\textcolor{yellow}{?}$\hfill \textsl{Dumas}
-\item $\exists x\big(\operatorname{Fear}(\operatorname{we},x)\leftrightarrow x=\operatorname{Fear}\big)$\textcolor{red}{?}\hfill \textsl{Roosevelt}
+\item $\exists x\big(\operatorname{Fear}(\operatorname{we},x)\leftrightarrow x=\operatorname{fear}\big)$\textcolor{red}{?}\hfill \textsl{Roosevelt}
 \item $\forall xy(Ax\wedge Ay\to Exy)\wedge\exists xy\big(Ax\wedge Ay\wedge\llbracket Exx\rrbracket>\llbracket Eyy\rrbracket\big)$\textcolor{red}{?}\hfill \textsl{Orwell}
 \end{enumerate}
 \end{frame}
@@ -4767,11 +4769,16 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 \end{frame}
 
 \begin{frame}\frametitle{Translation}
+\begin{itemize}
+	\item convergence
 \[\lim\limits_{n\to\infty}a_n=a\iff\forall\varepsilon>0\exists N\in\mathbb{N}\forall n\geq N\big(|a_n-a|<\varepsilon\big)\]
-\[\lim\limits_{x\to c}f(x)\uparrow\iff\forall y\in\mathbb{R}\exists\varepsilon>0\forall\delta>0\exists x\in\mathbb{R}\big(0<|x-c|<\delta\wedge|f(x)-y|\geq\varepsilon\big)\]
-continuity vs uniform continuity
-\[\forall x\in\mathbb{R}\forall\varepsilon>0\exists\delta>0\forall y\in\mathbb{R}\big(|x-y|<\delta\to|f(x)-f(y)|<\varepsilon\big)\]
-\[\forall\varepsilon>0\exists\delta>0\forall xy\in\mathbb{R}\big(|x-y|<\delta\to|f(x)-f(y)|<\varepsilon\big)\]
+	\item divergence
+\[\hspace*{-2ex}\lim\limits_{x\to c}f(x)\uparrow\iff\forall y\in\mathbb{R}\exists\varepsilon>0\forall\delta>0\exists x\in\mathbb{R}\big(0<|x-c|<\delta\wedge|f(x)-y|\geq\varepsilon\big)\]
+	\item continuity
+\[\forall x\in I\forall\varepsilon>0\exists\delta>0\forall y\in I \big(|x-y|<\delta\to|f(x)-f(y)|<\varepsilon\big)\]
+	\item uniform continuity
+\[\forall\varepsilon>0\exists\delta>0\forall xy\in I \big(|x-y|<\delta\to|f(x)-f(y)|<\varepsilon\big)\]
+\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Translation}
@@ -4801,10 +4808,17 @@ continuity vs uniform continuity
 				\end{enumerate}
 \end{frame}
 
-\begin{frame}\frametitle{Substitution and Substitutable}
-\setlength\abovedisplayskip{0pt}
-\setlength\belowdisplayskip{0pt}
-	\begin{definition}[Substitution in a term/formula]
+\begin{frame}\frametitle{Substitution}
+	\begin{definition}[Substitution in a term]
+		\[s[t/x]\coloneqq 
+			\begin{cases}
+			c &\text{if}\;s=c\\
+			t &\text{if}\;s=x\\
+			y &\text{if}\;s=y \;\&\;y\ne x\\
+			f(t_1[t/x],\dots,t_n[t/x]) &\text{if}\;s=f(t_1,\dots,t_n)
+			\end{cases}\]
+	\end{definition}
+	\begin{definition}[Substitution in a formula]
 		\[=,P,\neg,\to\cdots\]
 		\[(\forall y B)[t/x]\coloneqq 
 			\begin{cases}
@@ -4812,16 +4826,23 @@ continuity vs uniform continuity
 			\forall y B &\text{if}\;y=x
 			\end{cases}\]
 	\end{definition}
+\end{frame}
+
+\begin{frame}\frametitle{Substitutable}
 	\begin{definition}[Substitutable]
-		$t$ is substitutable for $x$ in $A$:
-		\[=,P,\neg,\to\cdots\]
-		$A=\forall y B$ iff either
+		A term \emph{$t$ is substitutable for $x$ in $A$} iff none of the free occurrences of $x$ in $A$ occur in the scope of a quantifier that binds a variable in $t$.
+	\end{definition}
+		\begin{itemize}
+			\item For atomic $A$, $t$ is always substitutable for $x$ in $A$.
+			\item $t$ is substitutable for $x$ in $\neg A$ iff it is substitutable for $x$ in $A$.
+			\item $t$ is substitutable for $x$ in $A\to B$ iff it is substitutable for $x$ in $A$ and $B$.
+			\item	$t$ is substitutable for $x$ in $\forall y A$ iff either
 		\begin{enumerate}
 			\item $x\notin \operatorname{Fv}(A)$ or
-			\item $y\notin \operatorname{Fv}(t)$ and $t$ is substitutable for $x$ in $B$.
+			\item $y\notin \operatorname{Fv}(t)$ and $t$ is substitutable for $x$ in $A$.
 		\end{enumerate}
-	\end{definition}
-\textcolor{yellow}{Prevent the variables in $t$ from being captured by a quantifier in $A$.}
+		\end{itemize}
+\[\fbox{\textcolor{yellow}{Prevent the variables in $t$ from being bounded by a quantifier in $A$.}}\]
 	\[A=\exists y(x\ne y)\quad t=y\quad A[t/x]?\]
 \end{frame}
 
@@ -4901,13 +4922,12 @@ continuity vs uniform continuity
 
 \begin{frame}\frametitle{Interpretation}
 		An \textcolor{yellow}{interpretation} $(\mathcal{M},\nu)$ is a structure $\mathcal{M}$ with a variable assignment $\nu:\mathcal{V}\to M$.\\
-		We extend $\nu$ to $\overline{\nu}:\mathcal{T}\to M$ by recursion as follows:\\
-		\vspace{2ex}
+		We extend $\nu$ to $\overline{\nu}:\mathcal{T}\to M$ by recursion as follows:
 		\begin{block}{}
 			\begin{itemize}
 				\item $\overline{\nu}(x)\coloneqq \nu(x)$
 				\item $\overline{\nu}(c)\coloneqq c^{\mathcal{M}}$
-				\item $\overline{\nu}(f(t_1,\dots,f_n))\coloneqq f^{\mathcal{M}}(\overline{\nu}(t_1),\dots,\overline{\nu}(t_n))$
+				\item $\overline{\nu}(f(t_1,\dots,t_n))\coloneqq f^{\mathcal{M}}(\overline{\nu}(t_1),\dots,\overline{\nu}(t_n))$
 			\end{itemize}
 		\end{block}
 \[
@@ -4923,11 +4943,11 @@ continuity vs uniform continuity
 \begin{frame}\frametitle{Tarski's Definition of Truth}
 		\begin{definition}[$\mathcal{M},\nu\vDash A$]
 			\begin{itemize}
-				\item $\mathcal{M},\nu\vDash t_1=t_2$ if $\overline{\nu}(t_1)=\overline{\nu}(t_2)$
-				\item $\mathcal{M},\nu\vDash P(t_1,\dots,t_n)$ if $(\overline{\nu}(t_1),\dots,\overline{\nu}(t_n))\in P^{\mathcal{M}}$
-				\item $\mathcal{M},\nu\vDash\neg A$ if $\mathcal{M},\nu\nvDash A$
-				\item $\mathcal{M},\nu\vDash A\to B$ if $\mathcal{M},\nu\nvDash A$\;\;\text{or}\;\;$\mathcal{M},\nu\vDash B$
-				\item $\mathcal{M},\nu\vDash\forall x A$ if for every $a\in M: \mathcal{M},\nu(a/x)\vDash A$\\
+				\item $\mathcal{M},\nu\vDash t_1=t_2$ iff $\overline{\nu}(t_1)=\overline{\nu}(t_2)$
+				\item $\mathcal{M},\nu\vDash P(t_1,\dots,t_n)$ iff $(\overline{\nu}(t_1),\dots,\overline{\nu}(t_n))\in P^{\mathcal{M}}$
+				\item $\mathcal{M},\nu\vDash\neg A$ iff $\mathcal{M},\nu\nvDash A$
+				\item $\mathcal{M},\nu\vDash A\to B$ iff $\mathcal{M},\nu\nvDash A$\;\;\text{or}\;\;$\mathcal{M},\nu\vDash B$
+				\item $\mathcal{M},\nu\vDash\forall x A$ iff for every $a\in M: \mathcal{M},\nu(a/x)\vDash A$\\
 				where
 				\[\nu(a/x)(y)\coloneqq 
 				\begin{cases}
@@ -4935,8 +4955,8 @@ continuity vs uniform continuity
 				a &\text{otherwise}
 				\end{cases}\]
 				\textcolor{green}{or,
-					$\mathcal{M},\nu\vDash\forall x A$ if for all $\nu'\sim_x\nu: \mathcal{M},\nu'\vDash A$.\\
-					where $\nu'\sim_x\nu$ if for all $y\neq x:\nu'(y)=\nu(y)$.}
+					$\mathcal{M},\nu\vDash\forall x A$ iff for all $\nu'\sim_x\nu: \mathcal{M},\nu'\vDash A$.\\
+					where $\nu'\sim_x\nu$ iff for all $y\neq x:\nu'(y)=\nu(y)$.}
 			\end{itemize}
 		\end{definition}
 	\begin{quote}
@@ -4944,14 +4964,13 @@ continuity vs uniform continuity
 	\end{quote}
 \end{frame}
 
-\begin{frame}\frametitle{Tarski's Definition of Truth}
-	Let $h$ map atomic formulae to variable assignments $\operatorname{P}\big(M^{\mathcal{V}}\big)$.
+\begin{frame}\frametitle{Tarski's Definition of Truth --- another version}
+	Let $h$ map atomic formulae to variable assignments $\operatorname{P}(M^{\mathcal{V}})$.
 	\begin{itemize}
 		\item $h(t_1=t_2)=\left\{\nu:\overline{\nu}(t_1)=\overline{\nu}(t_2)\right\}$
 		\item $h(P(t_1,\dots,t_k))=\left\{\nu:(\overline{\nu}(t_1),\dots,\overline{\nu}(t_n))\in P^{\mathcal{M}}\right\}$
 	\end{itemize}
-	We extend $h$ to $\overline{h}:\mathrm{wff}\to \operatorname{P}\big(M^{\mathcal{V}}\big)$ by recursion as follows:\\
-	\vspace{2ex}
+	We extend $h$ to $\overline{h}:\mathrm{wff}\to \operatorname{P}(M^{\mathcal{V}})$ by recursion as follows:
 	\begin{block}{}
 		\begin{enumerate}
 			\item $\overline{h}(A)=h(A)$ for atomic $A$
@@ -4966,18 +4985,18 @@ continuity vs uniform continuity
 \begin{frame}\frametitle{Tarski's Definition of Truth}
 		\begin{block}{}
 			\begin{itemize}
-				\item $\mathcal{M}\vDash A$ if for all $\nu:\mathcal{M},\nu\vDash A$.\hfill (True)
-				\item $\mathcal{M},\nu\vDash\Gamma$ if for all $A\in\Gamma: \mathcal{M},\nu\vDash A$.
-				\item $\mathcal{M}\vDash\Gamma$ if for all $A\in\Gamma:\mathcal{M}\vDash A$.
-				\item $\Gamma\vDash A$ if for all $\mathcal{M},\nu: \mathcal{M},\nu\vDash\Gamma\implies\mathcal{M},\nu\vDash A$.
-				\item $\Gamma\vDash^* A$ if for all $\mathcal{M}:\mathcal{M}\vDash\Gamma\implies\mathcal{M}\vDash A$.
-				\item $\vDash A$ if $\emptyset\vDash A$.\hfill (Valid)
-				\item $A$ is \textcolor{yellow}{satisfiable} if there exists $\mathcal{M},\nu$ s.t. $\mathcal{M},\nu\vDash A$.
+				\item $\mathcal{M}\vDash A$ iff for all $\nu:\mathcal{M},\nu\vDash A$.\hfill (True)
+				\item $\mathcal{M},\nu\vDash\Gamma$ iff for all $A\in\Gamma: \mathcal{M},\nu\vDash A$.
+				\item $\mathcal{M}\vDash\Gamma$ iff for all $A\in\Gamma:\mathcal{M}\vDash A$.
+				\item $\Gamma\vDash A$ iff for all $\mathcal{M},\nu: \mathcal{M},\nu\vDash\Gamma\implies\mathcal{M},\nu\vDash A$.
+				\item $\Gamma\vDash^* A$ iff for all $\mathcal{M}:\mathcal{M}\vDash\Gamma\implies\mathcal{M}\vDash A$.
+				\item $\vDash A$ iff $\emptyset\vDash A$.\hfill (Valid)
+				\item $A$ is \textcolor{yellow}{satisfiable} iff there exists $\mathcal{M},\nu$ s.t. $\mathcal{M},\nu\vDash A$.
 			\end{itemize}
 		\end{block}
 \begin{align*}
-Px&\vDash\forall xPx\;\;\;?\\
-Px&\vDash^*\forall xPx\;\;?
+Px&\stackrel{?}{\vDash}\forall xPx\\
+Px&\vDash^*\forall xPx
 \end{align*}
 \end{frame}
 
@@ -4991,7 +5010,7 @@ Px&\vDash^*\forall xPx\;\;?
 	\item $\operatorname{king}(\textsf{John})\wedge\exists x\big(\operatorname{crown}(x)\wedge \operatorname{on-head}(x,\textsf{John})\big)$
 	\item $\neg\operatorname{brother}\big(\operatorname{left-leg}(\textsf{Richard}),\textsf{John}\big)$
 	\item $\forall x\big(\operatorname{king}(x)\to \operatorname{person}(x)\big)$
-	\item $\operatorname{length}\big(\operatorname{left-leg}\textsf{Richard})\big)>\operatorname{length}\big(\operatorname{left-leg}(\textsf{John})\big)$
+	\item $\operatorname{length}\big(\operatorname{left-leg}(\textsf{Richard})\big)>\operatorname{length}\big(\operatorname{left-leg}(\textsf{John})\big)$
 \end{itemize}
 \end{frame}
 
@@ -5255,7 +5274,8 @@ Px&\vDash^*\forall xPx\;\;?
 	&\forall xy A\leftrightarrow\forall yx A &&\exists xy A\leftrightarrow\exists yx A\\
 	&\exists x\forall y A\to\forall y\exists x A &&\\
 	&\forall x(A\leftrightarrow B)\to(\forall x A\leftrightarrow\forall x B) &&\\
-	&(\forall x A\to\exists x B)\leftrightarrow\exists x(A\to B)&&
+	&(\forall x A\to\exists x B)\leftrightarrow\exists x(A\to B)&&\\
+	&\exists x(A\to\forall x A)
 	\end{align*}
 \end{frame}
 
@@ -5267,8 +5287,7 @@ Px&\vDash^*\forall xPx\;\;?
 	&\forall x(A\vee B)\leftrightarrow A\vee\forall x B &&\exists x(A\vee B)\leftrightarrow A\vee\exists x B\\
 	&\forall x(A\wedge B)\leftrightarrow A\wedge\forall x B &&\exists x(A\wedge B)\leftrightarrow A\wedge\exists x B\\
 	&\forall x(A\to B)\leftrightarrow(A\to\forall x B) &&\exists x(A\to B)\leftrightarrow(A\to\exists x B)\\
-	&\textcolor{yellow}{\forall x(B\to A)\leftrightarrow(\exists x B\to A)} &&\textcolor{yellow}{\exists x(B\to A)\leftrightarrow(\forall x B\to A)}\\
-	&&&\exists x(A\to\forall x A)
+	&\textcolor{yellow}{\forall x(B\to A)\leftrightarrow(\exists x B\to A)} &&\textcolor{yellow}{\exists x(B\to A)\leftrightarrow(\forall x B\to A)}
 	\end{align*}
 \end{frame}
 
@@ -5716,8 +5735,8 @@ The cookie in the top left position is poisoned. Two players take turns making m
 \begin{frame}\frametitle{Unifier}
 \begin{block}{}
 \begin{itemize}
-\item A substitution $\sigma$ is a \emph{unifier} for a set $\Gamma$ of formulae if for every $A, B\in\Gamma: A\sigma=B\sigma$.
-\item A unifier $\sigma$ is a \emph{most general unifier} for $\Gamma$ if for each unifier $\theta$ there exists a substitution $\uplambda$ s.t. $\theta=\sigma\uplambda$.
+\item A substitution $\sigma$ is a \emph{unifier} for a set $\Gamma$ of formulae iff for every $A, B\in\Gamma: A\sigma=B\sigma$.
+\item A unifier $\sigma$ is a \emph{most general unifier} for $\Gamma$ iff for each unifier $\theta$ there exists a substitution $\uplambda$ s.t. $\theta=\sigma\uplambda$.
 \end{itemize}
 \end{block}
 \[\sigma\coloneqq \{t_1/x_1,\dots,t_m/x_m\}\qquad \uplambda\coloneqq \{s_1/y_1,\dots,s_n/y_n\}\]
@@ -6093,7 +6112,7 @@ $\dfrac{\mathrm{d}}{\mathrm{d}x}$ should be explained as a whole.
 \[\exists X\Big(\exists xXx\wedge \forall x(Xx\to Gx)\wedge\forall x\big(Xx\to\exists y(Xy\wedge y\ne x\wedge Sxy)\big)\Big)\]
 	\item Least Number Principle.
 \[\forall X\Big(\exists xXx\wedge \forall x(Xx\to Nx)\to\exists x\big(Xx\wedge\forall y(Xy\wedge y\ne x\to x<y)\big)\Big)\]
-	\item A linear order $(P,<)$ is \emph{complete} if \textcolor{yellow}{every non-empty subset of $P$ that is bounded above has a supremum in $P$}.\\
+	\item A linear order $(P,<)$ is \emph{complete} iff \textcolor{yellow}{every non-empty subset of $P$ that is bounded above has a supremum in $P$}.\\
 $\forall X\bigg(\exists x Xx\wedge\exists y\forall x(Xx\to x\leq y)\to\exists y\Big(\forall x(Xx\to x\leq y)\wedge\forall z\big(\forall x(Xx\to x\leq z)\to y\leq z\big)\Big)\bigg)$
 \end{itemize}
 \end{frame}
@@ -6838,9 +6857,9 @@ where $a\notin\operatorname{Cst}(\exists x A, B)$, and $a$ is not in any assumpt
 \end{block}
 \begin{definition}[Definability]
 \begin{itemize}
-	\item $X\subset M^n$ is $Y$-definable \emph{($X\in\operatorname{Def}(\mathcal{M},Y)$)} over $\mathcal{M}$ if there is a wff $A$ and $b_1,\dots,b_m\in Y^m$ s.t.
+	\item $X\subset M^n$ is $Y$-definable \emph{($X\in\operatorname{Def}(\mathcal{M},Y)$)} over $\mathcal{M}$ iff there is a wff $A$ and $b_1,\dots,b_m\in Y^m$ s.t.
 	\[X=\big\{(a_1,\dots,a_n): \mathcal{M}\vDash A[a_1,\dots,a_n,b_1,\dots,b_m]\big\}\]
-	\item $X$ is definable in $\mathcal{M}$ if it is $\emptyset$-definable in $\mathcal{M}$.
+	\item $X$ is definable in $\mathcal{M}$ iff it is $\emptyset$-definable in $\mathcal{M}$.
 \end{itemize}
 \end{definition}
 \begin{quote}
@@ -6901,7 +6920,7 @@ where $a\notin\operatorname{Cst}(\exists x A, B)$, and $a$ is not in any assumpt
 	\begin{itemize}
 		\item An isomorphism \textcolor{yellow}{(monomorphism/epimorphism)} is a bijective \textcolor{yellow}{(injective/surjective)} homomorphism. $\mathcal{M}\cong\mathcal{N}$
 		\item An automorphism \textcolor{yellow}{(endomorphism)} is an isomorphism \textcolor{yellow}{(homomorphism)} from $\mathcal{M}$ to itself.
-		\item A structure $\mathcal{M}$ is rigid if it has no automorphisms other than $1_M$.
+		\item A structure $\mathcal{M}$ is rigid iff it has no automorphisms other than $1_M$.
 	\end{itemize}
 \end{frame}
 
@@ -6916,7 +6935,7 @@ where $a\notin\operatorname{Cst}(\exists x A, B)$, and $a$ is not in any assumpt
 		\end{enumerate}
 	\end{theorem}
 	\begin{definition}[Elementary Equivalence]
-		\[\mathcal{M}\equiv\mathcal{N} \text{ if for any sentence}\; A: \mathcal{M}\vDash A\iff\mathcal{N}\vDash A\]
+		\[\mathcal{M}\equiv\mathcal{N} \text{ iff for any sentence}\; A: \mathcal{M}\vDash A\iff\mathcal{N}\vDash A\]
 	\end{definition}
 	\[\mathcal{M}\cong\mathcal{N}\implies\mathcal{M}\equiv\mathcal{N}\]
 \end{frame}
@@ -7055,8 +7074,8 @@ Each run of the game has $n$ moves. In each move,
 	\item \emph{Spoler} wins the run otherwise.
 \end{itemize}
 \begin{itemize}
-	\item \textcolor{yellow}{$\mathcal{M}\sim_n\mathcal{N}$} if \emph{Duplicator} has a winning strategy in the $n$-move game.
-	\item \textcolor{yellow}{$\mathcal{M}\equiv_n\mathcal{N}$} if $\mathcal{M}\vDash A\iff\mathcal{N}\vDash A$ for all sentences up to \emph{quantifier depth} $n$.
+	\item \textcolor{yellow}{$\mathcal{M}\sim_n\mathcal{N}$} iff \emph{Duplicator} has a winning strategy in the $n$-move game.
+	\item \textcolor{yellow}{$\mathcal{M}\equiv_n\mathcal{N}$} iff $\mathcal{M}\vDash A\iff\mathcal{N}\vDash A$ for all sentences up to \emph{quantifier depth} $n$.
 \end{itemize}
 \begin{theorem}
 \[\mathcal{M}\sim_n\mathcal{N}\iff \mathcal{M}\equiv_n\mathcal{N}\]
@@ -7114,10 +7133,10 @@ Each run of the game has $n$ moves. In each move,
 \setlength\belowdisplayskip{0pt}
 \begin{definition}
 \begin{itemize}
-	\item \textcolor{yellow}{Isomorphic embedding} $f:\mathcal{M}\subset\mathcal{N}$ if there is $\mathcal{A}\subset\mathcal{N}$ s.t. $f:\mathcal{M}\cong\mathcal{A}$.
-	\item \textcolor{yellow}{Elementary embedding} $f:\mathcal{M}\prec\mathcal{N}$ if for any wff $A(x_1,\dots,x_n)$ and any $a_1,\dots,a_n\in M$,
+	\item \textcolor{yellow}{Isomorphic embedding} $f:\mathcal{M}\subset\mathcal{N}$ iff there is $\mathcal{A}\subset\mathcal{N}$ s.t. $f:\mathcal{M}\cong\mathcal{A}$.
+	\item \textcolor{yellow}{Elementary embedding} $f:\mathcal{M}\prec\mathcal{N}$ iff for any wff $A(x_1,\dots,x_n)$ and any $a_1,\dots,a_n\in M$,
 	\[\mathcal{M}\vDash A[a_1,\dots,a_n]\iff\mathcal{N}\vDash A[f(a_1),\dots,f(a_n)]\]
-	\item \textcolor{yellow}{Elementary substructure} $\mathcal{M}\prec\mathcal{N}$ if $M\subset N\;\;\&\;\;1_M:\mathcal{M}\prec\mathcal{N}$.
+	\item \textcolor{yellow}{Elementary substructure} $\mathcal{M}\prec\mathcal{N}$ iff $M\subset N\;\;\&\;\;1_M:\mathcal{M}\prec\mathcal{N}$.
 \end{itemize}
 \end{definition}
 \begin{block}{Example}
@@ -7321,7 +7340,7 @@ Let $M\subset\mathbb{R}$. $(M,<)\prec(\mathbb{R},<)$ iff $(M,<)$ is a dense line
 		The study of \textcolor{green}{invariants} under \textcolor{green}{all automorphisms} \textcolor{yellow}{(symmetries)}.
 	\end{block}
 	\begin{quote}
-		A notion is ``logical'' if it is invariant under all possible one-one transformations of the universe of discourse onto itself.\par
+		A notion is ``logical'' iff it is invariant under all possible one-one transformations of the universe of discourse onto itself.\par
 		\hfill --- {Tarski}
 	\end{quote}
 	\begin{quote}
@@ -7341,7 +7360,7 @@ Let $M\subset\mathbb{R}$. $(M,<)\prec(\mathbb{R},<)$ iff $(M,<)$ is a dense line
 		\item A Horn clause is a clause in which at most one literal is positive.
 		\item An open formula is in conjuctive normal form (CNF) iff it is a conjuction of clause.
 		\item An open formula is in disjunctive normal form (DNF) iff it is a disjunction of one or more conjunctions of one or more literals.
-		\item A CNF formula is in full conjunctive normal form (FCNF) if each of its variables appears exactly once in every clause. (similarly, full disjunctive normal form)
+		\item A CNF formula is in full conjunctive normal form (FCNF) iff each of its variables appears exactly once in every clause. (similarly, full disjunctive normal form)
 	\end{itemize}
 \end{frame}
 
@@ -7617,7 +7636,7 @@ If $A$ is unsatisfiable, then $\mathcal{R}^n(A)$ will contain the empty clause f
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{definition}[Galois Correspondence]
-The function $X\mapsto X^*$ from $\operatorname{P}(A)$ to $\operatorname{P}(B)$ and the function $Y\mapsto Y^\dagger$ from $\operatorname{P}(B)$ to $\operatorname{P}(A)$ constitute a \emph{Golois correspondence} if
+The function $X\mapsto X^*$ from $\operatorname{P}(A)$ to $\operatorname{P}(B)$ and the function $Y\mapsto Y^\dagger$ from $\operatorname{P}(B)$ to $\operatorname{P}(A)$ constitute a \emph{Golois correspondence} iff
 \begin{enumerate}
 	\item $X_1\subset X_2\implies X_2^*\subset X_1^*$
 	\item $Y_1\subset Y_2\implies Y_2^\dagger\subset Y_1^\dagger$
@@ -7638,24 +7657,24 @@ We refer to the functions $X\mapsto X^*$ and $Y\mapsto Y^\dagger$ as \emph{polar
 
 \begin{frame}\frametitle{Theory \& Axiomatization}
 	\begin{itemize}
-		\item A set $\Gamma$ of sentences is a \textcolor{yellow}{theory} if $\Gamma=\operatorname{Cn}(\Gamma)$.
-		\item A theory $\Gamma$ is \textcolor{yellow}{complete} if for every sentence $A$, either $A\in\Gamma$ or $\neg A\in\Gamma$.
-		\item A theory $\Gamma$ is \textcolor{green}{finitely axiomatizable} if $\Gamma=\operatorname{Cn}(\Sigma)$ for some finite set $\Sigma$ of sentences.
-		\item A theory $\Gamma$ is \textcolor{red}{axiomatizable} if there is a decidable set $\Sigma$ of sentences s.t. $\Gamma=\operatorname{Cn}(\Sigma)$.
-		\item A class $\mathcal{K}$ of structures is an \textcolor{green}{elementary class ($EC$)} if $\mathcal{K}=\operatorname{Mod}(A)$ for some sentence $A$.
-		\item A class $\mathcal{K}$ of structures is an \textcolor{red}{elementary class in wider sense ($EC_\Delta$)} if $\mathcal{K}=\operatorname{Mod}(\Sigma)$ for some set $\Sigma$ of sentences.
+		\item A set $\Gamma$ of sentences is a \textcolor{yellow}{theory} iff $\Gamma=\operatorname{Cn}(\Gamma)$.
+		\item A theory $\Gamma$ is \textcolor{yellow}{complete} iff for every sentence $A$, either $A\in\Gamma$ or $\neg A\in\Gamma$.
+		\item A theory $\Gamma$ is \textcolor{green}{finitely axiomatizable} iff $\Gamma=\operatorname{Cn}(\Sigma)$ for some finite set $\Sigma$ of sentences.
+		\item A theory $\Gamma$ is \textcolor{red}{axiomatizable} iff there is a decidable set $\Sigma$ of sentences s.t. $\Gamma=\operatorname{Cn}(\Sigma)$.
+		\item A class $\mathcal{K}$ of structures is an \textcolor{green}{elementary class ($EC$)} iff $\mathcal{K}=\operatorname{Mod}(A)$ for some sentence $A$.
+		\item A class $\mathcal{K}$ of structures is an \textcolor{red}{elementary class in wider sense ($EC_\Delta$)} iff $\mathcal{K}=\operatorname{Mod}(\Sigma)$ for some set $\Sigma$ of sentences.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Consistency \& Satisfiability}
 	\begin{itemize}
-		\item $\Gamma$ is \textcolor{yellow}{consistent} if $\Gamma\nvdash\bot$.
-		\item $\Gamma$ is \textcolor{yellow}{maximal} if for every wff $A$, either $A\in\Gamma$ or $\neg A\in\Gamma$.
-		\item $\Gamma$ is \textcolor{yellow}{maximal consistent} if it is both consistent and maximal.
+		\item $\Gamma$ is \textcolor{yellow}{consistent} iff $\Gamma\nvdash\bot$.
+		\item $\Gamma$ is \textcolor{yellow}{maximal} iff for every wff $A$, either $A\in\Gamma$ or $\neg A\in\Gamma$.
+		\item $\Gamma$ is \textcolor{yellow}{maximal consistent} iff it is both consistent and maximal.
 	\end{itemize}
 	\begin{itemize}
-		\item $\Gamma$ is \textcolor{yellow}{satisfiable} if $\operatorname{Mod}(\Gamma)\neq\emptyset$.
-		\item $\Gamma$ is \textcolor{yellow}{finitely satisfiable} if every finite subset of $\Gamma$ is satisfiable.
+		\item $\Gamma$ is \textcolor{yellow}{satisfiable} iff $\operatorname{Mod}(\Gamma)\neq\emptyset$.
+		\item $\Gamma$ is \textcolor{yellow}{finitely satisfiable} iff every finite subset of $\Gamma$ is satisfiable.
 	\end{itemize}
 \end{frame}
 
@@ -7848,7 +7867,7 @@ We refer to the functions $X\mapsto X^*$ and $Y\mapsto Y^\dagger$ as \emph{polar
 \column{.66\textwidth}
 \begin{itemize}
 	\item Extreme value theorem: A continuous real-valued function on a compact space is bounded and attains its maximum and minimum values.
-	\item A subset of a topological space is \emph{compact} if every open cover of it has a finite subcover.
+	\item A subset of a topological space is \emph{compact} iff every open cover of it has a finite subcover.
 	\item Heine-Borel Theorem: A subset of $\mathbb{R}$ is compact iff it is closed and bounded.
 	\item Cantor's Intersection Theorem: A decreasing nested sequence of non-empty, closed and bounded subsets of $\mathbb{R}$ has a non-empty intersection.
 	\item Bolzano-Weierstrass Theorem: Every bounded sequence of real numbers has a convergent subsequence.
@@ -8072,7 +8091,7 @@ For any $n\in\mathbb{N}$,
 		\item How to distinguish content-correlations from Ramsey-type correlations?
 		\item Ramsey-type correlations appear in all
 		large enough databases.
-		\item A correlation is \emph{spurious} if it appears in a ``randomly'' generated database.
+		\item A correlation is \emph{spurious} iff it appears in a ``randomly'' generated database.
 		\item How ``large'' is the set of spurious correlations?
 		\item Most strings are algorithmically random. 
 		\[P\left(\Big\{x\in\mathcal{X}^n: \frac{K(x)}{n}<1-\delta\Big\}\right)<2^{-\delta n}\]
@@ -8207,15 +8226,15 @@ Putting them together, $\varphi(P) \vDash P(c_1,\dots, c_n)
 	\end{itemize}
 	Satisfaction relation:
 	\begin{itemize}
-		\item $\mathcal{M}\vDash_{\mathcal{L}_{\kappa\lambda}}\bigwedge\limits_{i\in I} A_i$ if $\mathcal{M}\vDash_{\mathcal{L}_{\kappa\lambda}} A_i$ for all $i\in I$.
-		\item $\mathcal{M}\vDash_{\mathcal{L}_{\kappa\lambda}}\exists(x_i: i\in J) A$ if $\mathcal{M}\vDash_{\mathcal{L}_{\kappa\lambda}} A[a_i: i\in J]$ for some $\{a_i: i\in J\}\subset M$.
+		\item $\mathcal{M}\vDash_{\mathcal{L}_{\kappa\lambda}}\bigwedge\limits_{i\in I} A_i$ iff $\mathcal{M}\vDash_{\mathcal{L}_{\kappa\lambda}} A_i$ for all $i\in I$.
+		\item $\mathcal{M}\vDash_{\mathcal{L}_{\kappa\lambda}}\exists(x_i: i\in J) A$ iff $\mathcal{M}\vDash_{\mathcal{L}_{\kappa\lambda}} A[a_i: i\in J]$ for some $\{a_i: i\in J\}\subset M$.
 	\end{itemize}
 	Note: $\mathcal{L}_{\omega\omega}$ is classical first order logic.
 \end{frame}
 
 \begin{frame}\frametitle{}\vspace{-1ex}
 	\begin{definition}[Regular Abstract Logic]
-		An abstract logic $\mathcal{L}$ is \emph{regular} if it satisfies:
+		An abstract logic $\mathcal{L}$ is \emph{regular} iff it satisfies:
 		\begin{enumerate}
 			\item (\emph{Bool}) For $A\in\mathcal{S}(\tau)$ there is $B\in \mathcal{S}(\tau)$ s.t. $\mathcal{M}\vDash_{\mathcal{L}} B\iff\mathcal{M}\nvDash_{\mathcal{L}} A$; and $\forall A, B\in \mathcal{S}(\tau)\;\exists C\in \mathcal{S}(\tau): \mathcal{M}\vDash_{\mathcal{L}} C\iff\mathcal{M}\vDash_{\mathcal{L}} A\;\&\;\mathcal{M}\vDash_{\mathcal{L}} B$.
 			\item (\emph{Quantifier}) $\forall c\in\tau\forall A \in \mathcal{S}(\tau)\;\exists B \in \mathcal{S}(\tau):$\vspace{-1ex}
@@ -8234,7 +8253,7 @@ Putting them together, $\varphi(P) \vDash P(c_1,\dots, c_n)
 
 \begin{frame}\frametitle{Lindstr\"om's Theorem}
 	\begin{definition}[Expressive Power]
-		$\mathcal{L}_2$ is \emph{at least as expressive} as $\mathcal{L}_1$ ($\mathcal{L}_1\leq \mathcal{L}_2$) if for each signature $\tau$ and $A\in \mathcal{S}_1(\tau)$ there is $B\in \mathcal{S}_2(\tau)$ s.t.
+		$\mathcal{L}_2$ is \emph{at least as expressive} as $\mathcal{L}_1$ ($\mathcal{L}_1\leq \mathcal{L}_2$) iff for each signature $\tau$ and $A\in \mathcal{S}_1(\tau)$ there is $B\in \mathcal{S}_2(\tau)$ s.t.
 		\[\operatorname{Mod}_{\mathcal{L}_1}^\tau(A)=\operatorname{Mod}_{\mathcal{L}_2}^\tau(B)\]
 		\[\mathcal{L}_1\sim\mathcal{L}_2\coloneqq \mathcal{L}_1\leq\mathcal{L}_2\;\&\;\mathcal{L}_2\leq\mathcal{L}_1\]
 	\end{definition}
@@ -8257,10 +8276,10 @@ Putting them together, $\varphi(P) \vDash P(c_1,\dots, c_n)
 
 \begin{frame}\frametitle{}
 \begin{itemize}
-	\item $\mathrm{T}$ is an algebraic theory if its signature has no relation symbols and its axioms are all of the form $\top\vdash_{\mathbf{x}}A$ where $A$ is an atomic formula of the form $s=t$ and $\mathbf{x}$ its canonical context.
-	\item $\mathrm{T}$ is a Horn (resp. regular, coherent, geometric) theory if all the sequents in $\mathrm{T}$ are Horn (resp. regular, coherent, geometric).
-	\item $\mathrm{T}$ is a universal Horn theory if its axioms are all of the form $A\vdash_{\mathbf{x}}B$, where $A$ is a finite conjunction of atomic formulae and $B$ is an atomic formula or the formula $\bot$.
-	\item $\mathrm{T}$ is a propositional theory if it only consists of $0$-ary relation symbols.
+	\item $\mathrm{T}$ is an algebraic theory iff its signature has no relation symbols and its axioms are all of the form $\top\vdash_{\mathbf{x}}A$ where $A$ is an atomic formula of the form $s=t$ and $\mathbf{x}$ its canonical context.
+	\item $\mathrm{T}$ is a Horn (resp. regular, coherent, geometric) theory iff all the sequents in $\mathrm{T}$ are Horn (resp. regular, coherent, geometric).
+	\item $\mathrm{T}$ is a universal Horn theory iff its axioms are all of the form $A\vdash_{\mathbf{x}}B$, where $A$ is a finite conjunction of atomic formulae and $B$ is an atomic formula or the formula $\bot$.
+	\item $\mathrm{T}$ is a propositional theory iff it only consists of $0$-ary relation symbols.
 \end{itemize}
 \end{frame}
 
@@ -8333,7 +8352,7 @@ Define $\neg a\coloneqq a\to\bot$.
 
 \begin{frame}\frametitle{Continuity, Metric and Topology}
 \begin{itemize}
-	\item A function $f: X\to Y$ between metric spaces is \emph{continuous} at point $a\in X$ if $\forall\varepsilon>0\exists\delta>0\forall x\in X: d_X(x,a)<\delta\to d_Y(f(x),f(a))<\varepsilon$.
+	\item A function $f: X\to Y$ between metric spaces is \emph{continuous} at point $a\in X$ iff $\forall\varepsilon>0\exists\delta>0\forall x\in X: d_X(x,a)<\delta\to d_Y(f(x),f(a))<\varepsilon$.
 	\item A \emph{metric space} $(X,d)$ is a set $X$ with a metric $d:X\times X\to \mathbb{R}$ s.t. for all $x,y,z\in X$:
 \begin{enumerate}
 	\item $d(x,y)=0\leftrightarrow x=y$
@@ -8342,8 +8361,8 @@ Define $\neg a\coloneqq a\to\bot$.
 \end{enumerate}
 $e.g.\quad d(x,y)=\left(\sum\limits_{i=1}^n|x_i-y_i|^p\right)^{\frac{1}{p}}\quad d(x,y)=\max\limits_{1\leq i\leq n}|x_i-y_i|$
 	\item For the definition of continuity (``nearby'' points in $U$ go into nearby points in $V$), the notion of `\textcolor{green}{open set}' is more \textbf{intrinsic} than that of \textcolor{yellow}{distance}.
-	\item A function $f: X\to Y$ between topological spaces is \emph{continuous} if the inverse image $f^{-1}(V)$ of any open subset $V\subset Y$ is an open subset of $X$.
-	\item Equivalently, $f$ is \emph{continuous} at point $a\in X$ if to each neighborhood $V$ of $f(a)$ there is a neighborhood $U$ of $a$ for which $f(U)\subset V$.
+	\item A function $f: X\to Y$ between topological spaces is \emph{continuous} iff the inverse image $f^{-1}(V)$ of any open subset $V\subset Y$ is an open subset of $X$.
+	\item Equivalently, $f$ is \emph{continuous} at point $a\in X$ iff to each neighborhood $V$ of $f(a)$ there is a neighborhood $U$ of $a$ for which $f(U)\subset V$.
 \end{itemize}
 \end{frame}
 
@@ -8450,7 +8469,7 @@ In each case we decided whether $P$ or $\neg P$ holds.
 		\item $\exists yz(y<x<z)$
 	\end{enumerate}
 	\begin{definition}[$\kappa$-categoricity]
-	A theory is $\kappa$-categorical if it has a unique model of cardinality $\kappa$.
+	A theory is $\kappa$-categorical iff it has a unique model of cardinality $\kappa$.
 	\end{definition}
 	\begin{theorem}[Cantor]
 		\begin{itemize}
@@ -8509,7 +8528,7 @@ $\mathrm{ACF}_0\vDash A$, since the deduction $\mathrm{ACF}_0\vdash A$ only use 
 \begin{frame}\frametitle{Ax-Grothendieck Theorem}
 \begin{itemize}
 	\item An \emph{affine variety} is a set $V\subset\mathbb{C}^n$ s.t. $V=\big\{(x_1,\dots,x_n): f_i(x_1,\dots,x_n)=0, 1\leq i\leq k\big\}$ with $f_i\in\mathbb{C}[x_1,\dots,x_n]$.
-	\item For any field $K$ a map $f: K^n\to K^n$ is \emph{polynomial} if $f(x_1,\dots,x_n)=\big(f_1(x_1,\dots,x_n),\dots,f_n(x_1,\dots,x_n)\big)$ with $f_i\in K[x_1,\dots,x_n]$.
+	\item For any field $K$ a map $f: K^n\to K^n$ is \emph{polynomial} iff $f(x_1,\dots,x_n)=\big(f_1(x_1,\dots,x_n),\dots,f_n(x_1,\dots,x_n)\big)$ with $f_i\in K[x_1,\dots,x_n]$.
 \end{itemize}
 	\begin{theorem}[Ax-Grothendieck Theorem]
 		Let $f: V\to V$ be a polynomial map of an affine variety in $\mathbb{C}^n$. If $f$ is injective, then it is surjective.
@@ -8626,11 +8645,11 @@ Mary \underline{\phantom{xxxxx}} married.
 	\end{itemize}
 	A Kripke model is $\mathcal{M}\coloneqq (\mathcal{F},V)=(W,R,V)$, where $V:\mathcal{P}\to \operatorname{P}(W)$.
 	\begin{itemize}
-		\item $\mathcal{M},w\Vdash p$ if $w\in V(p)$
-		\item $\mathcal{M},w\Vdash\neg A$ if $\mathcal{M}\nVdash A$
-		\item $\mathcal{M},w\Vdash A\wedge B$ if $\mathcal{M},w\Vdash A$ and $\mathcal{M},w\Vdash B$
-		\item $\mathcal{M},w\Vdash\Box A$ if $\forall v\in W: Rwv\implies\mathcal{M},v\Vdash A$
-		\item $\mathcal{M},w\Vdash\Diamond A$ if $\exists v\in W: Rwv\;\;\&\;\;\mathcal{M},v\Vdash A$
+		\item $\mathcal{M},w\Vdash p$ iff $w\in V(p)$
+		\item $\mathcal{M},w\Vdash\neg A$ iff $\mathcal{M}\nVdash A$
+		\item $\mathcal{M},w\Vdash A\wedge B$ iff $\mathcal{M},w\Vdash A$ and $\mathcal{M},w\Vdash B$
+		\item $\mathcal{M},w\Vdash\Box A$ iff $\forall v\in W: Rwv\implies\mathcal{M},v\Vdash A$
+		\item $\mathcal{M},w\Vdash\Diamond A$ iff $\exists v\in W: Rwv\;\;\&\;\;\mathcal{M},v\Vdash A$
 	\end{itemize}
 \end{frame}
 
@@ -8667,11 +8686,11 @@ Mary \underline{\phantom{xxxxx}} married.
 
 \begin{frame}\frametitle{Satisfiability \& Validity}
 	\begin{itemize}
-		\item $A$ is satisfiable at $\mathcal{M},w$ if $\mathcal{M},w\Vdash A$.
-		\item $A$ is true in $\mathcal{M}\;(\textcolor{yellow}{\mathcal{M}\Vdash A})$ if $\forall w\in W: \mathcal{M},w\Vdash A$
-		\item $A$ is valid in a pointed frame $\mathcal{F},w\;(\textcolor{yellow}{\mathcal{F},w\Vdash A})$ if $\mathcal{M},w\Vdash A$ for every model $\mathcal{M}$ based on $\mathcal{F}$.
-		\item $A$ is valid in $\mathcal{F}\;(\textcolor{yellow}{\mathcal{F}\Vdash A})$ if $\mathcal{M}\Vdash A$ for every model $\mathcal{M}$ based on $\mathcal{F}$.
-		\item $\Vdash A$ if $\mathcal{F}\Vdash A$ for every $\mathcal{F}$.
+		\item $A$ is satisfiable at $\mathcal{M},w$ iff $\mathcal{M},w\Vdash A$.
+		\item $A$ is true in $\mathcal{M}\;(\textcolor{yellow}{\mathcal{M}\Vdash A})$ iff $\forall w\in W: \mathcal{M},w\Vdash A$
+		\item $A$ is valid in a pointed frame $\mathcal{F},w\;(\textcolor{yellow}{\mathcal{F},w\Vdash A})$ iff $\mathcal{M},w\Vdash A$ for every model $\mathcal{M}$ based on $\mathcal{F}$.
+		\item $A$ is valid in $\mathcal{F}\;(\textcolor{yellow}{\mathcal{F}\Vdash A})$ iff $\mathcal{M}\Vdash A$ for every model $\mathcal{M}$ based on $\mathcal{F}$.
+		\item $\Vdash A$ iff $\mathcal{F}\Vdash A$ for every $\mathcal{F}$.
 	\end{itemize}
 \centering\textcolor{yellow}{\emph{Truth is in the eye of the beholder.}}
 \setlength\abovedisplayskip{0pt}
@@ -9018,7 +9037,7 @@ Conversely, if $L$ fails at $w_0$, there must be an infinite upward sequence of 
 	\begin{definition}[Theorem \& Local Syntactic Consequence]
 		\begin{itemize}
 			\item $\vdash_S A$
-			\item $\Gamma\vdash_S A$ if $\vdash_S\bigwedge\limits_{i=1}^n B_i\to A$ for some finite subset $\{B_1,\dots, B_n\}\subset\Gamma$.
+			\item $\Gamma\vdash_S A$ iff $\vdash_S\bigwedge\limits_{i=1}^n B_i\to A$ for some finite subset $\{B_1,\dots, B_n\}\subset\Gamma$.
 		\end{itemize}
 	\end{definition}
 	\begin{theorem}[Soundness \& Completeness]
@@ -10163,7 +10182,7 @@ $\textcolor{yellow}{C_{\operatorname{Human}}}\Bigg(\forall x\bigg(\operatorname{
 \begin{columns}
 \column{.7\textwidth}
 \begin{itemize}
-	\item we say $\mathcal{P}\subset \operatorname{P}(X)$ is a \textcolor{yellow}{partition} of $X$ if
+	\item we say $\mathcal{P}\subset \operatorname{P}(X)$ is a \textcolor{yellow}{partition} of $X$ iff
 	\begin{enumerate}
 		\item $\forall xy\in\mathcal{P}: x\neq y\to x\cap y=\emptyset$
 		\item $\bigcup\mathcal{P}=X$
@@ -10178,7 +10197,7 @@ $\textcolor{yellow}{C_{\operatorname{Human}}}\Bigg(\forall x\bigg(\operatorname{
 
 \begin{frame}\frametitle{Function}
 	\begin{itemize}
-		\item A $n$-ary operation $f:\prod\limits_{i=1}^n X_i\to Y$ is a function if
+		\item A $n$-ary operation $f:\prod\limits_{i=1}^n X_i\to Y$ is a function iff
 		\[(\mathbf{x},y)\in f\wedge(\mathbf{x},z)\in f\to y=z\]
 		\item injection (one-to-one). $f: X\rightarrowtail Y$
 		\[f(x)=f(y)\to x=y\]
@@ -10244,15 +10263,15 @@ A \emph{transformation group} $G$ is a non-empty set of bijections s.t.
 		\item partial order: $x\leq x, x\leq y\wedge y\leq x\to x=y, x\leq y\wedge y\leq z\to x\leq z$.
 		\item strict partial order: $x\not< x, x< y\wedge y<z\to x<z$.
 		\item total order: partial order with $x\leq y\vee y\leq x$.
-		\item A total order of $P$ is a \emph{well order} if every nonempty subset of $P$ has a \textcolor{yellow}{least} element.
+		\item A total order of $P$ is a \emph{well order} iff every nonempty subset of $P$ has a \textcolor{yellow}{least} element.
 	\end{itemize}
 	\begin{definition}
 		If $(P,\leq)$ is a partially ordered set, $X\subset P$, and $a\in P$, then:
 		\begin{itemize}
-			\item $a$ is a \emph{maximal} element of $X$ if $a\in X\wedge\forall x\in X(a\leq x\to a=x)$;
-			\item $a$ is a \emph{greatest} element of $X$ if $a\in X\wedge\forall x\in X(x\leq a)$;
-			\item $a$ is an \emph{upper bound} of $X$ if $\forall x\in X(x\leq a)$;
-			\item $a$ is the \emph{supremum} of $X$ if $a$ is the least upper bound of $X$.
+			\item $a$ is a \emph{maximal} element of $X$ iff $a\in X\wedge\forall x\in X(a\leq x\to a=x)$;
+			\item $a$ is a \emph{greatest} element of $X$ iff $a\in X\wedge\forall x\in X(x\leq a)$;
+			\item $a$ is an \emph{upper bound} of $X$ iff $\forall x\in X(x\leq a)$;
+			\item $a$ is the \emph{supremum} of $X$ iff $a$ is the least upper bound of $X$.
 		\end{itemize}
 	\end{definition}
 \end{frame}
@@ -10277,7 +10296,7 @@ A \emph{transformation group} $G$ is a non-empty set of bijections s.t.
 
 \begin{frame}\frametitle{Ordinal vs Cardinal}
 	\begin{itemize}
-		\item ordinal. \textcolor{yellow}{(``length'')} A set is an ordinal if it is transitive and well-ordered by $\in$. or equivalently,
+		\item ordinal. \textcolor{yellow}{(``length'')} A set is an ordinal iff it is transitive and well-ordered by $\in$. or equivalently,
 		\[\operatorname{Ord}(x)\;\coloneqq \;\bigcup x\subset x\wedge\forall yz(y\in x\wedge z\in x\to y\in z\vee y=z\vee z\in y)\]
 		\item cardinal. \textcolor{yellow}{(``size'')}\quad
 		$\operatorname{Card}(x)\;\coloneqq \;\operatorname{Ord}(x)\wedge\forall y\in x(|y|\neq|x|)$
@@ -10309,11 +10328,11 @@ A \emph{transformation group} $G$ is a non-empty set of bijections s.t.
 	\[\alpha+1\coloneqq \alpha\cup\{\alpha\}\]
 	\[0\coloneqq \emptyset,\quad 1\coloneqq 0+1,\quad 2\coloneqq 1+1,\quad 3\coloneqq 2+1, \dots\]
 	\begin{itemize}
-		\item A set $A$ is \textcolor{yellow}{inductive} if $\emptyset\in A$ and $\forall x\in A: x+1\in A$.
+		\item A set $A$ is \textcolor{yellow}{inductive} iff $\emptyset\in A$ and $\forall x\in A: x+1\in A$.
 		\item A \textcolor{yellow}{natural number} is a set that belongs to every inductive set.
 		\[\mathbb{N}\coloneqq \left\{n: \forall A\big(\emptyset\in A\wedge \forall x\in A(x+1\in A)\to n\in A\big)\right\}\]
-		\item A set $A$ is \textcolor{yellow}{finite} if $\exists n\in\mathbb{N}: |A|=n$.
-		\item A set $A$ is \textcolor{yellow}{countable} if $|A|\leq|\mathbb{N}|$.
+		\item A set $A$ is \textcolor{yellow}{finite} iff $\exists n\in\mathbb{N}: |A|=n$.
+		\item A set $A$ is \textcolor{yellow}{countable} iff $|A|\leq|\mathbb{N}|$.
 	\end{itemize}
 \end{frame}
 
@@ -10697,10 +10716,10 @@ A \emph{transformation group} $G$ is a non-empty set of bijections s.t.
 \begin{columns}
 \column{0.72\textwidth}
 \begin{itemize}
-\item $R\subset A^2$ is \emph{set-like} if $\operatorname{ext}_R(x)\coloneqq \{y\in A: Ryx\}$ is a set for every $x\in A$.
-\item $y\in A$ is \emph{$R$-minimal} in $A$ if $\neg\exists z(z\in A\wedge Rzy)$.
-\item A set-like relation $R$ is \emph{well-founded} on $A$ if every non-empty set $X\subset A$ has a $R$-minimal element.
-\item $R$ \emph{well-orders} $A$ if $R$ totally orders $A$ strictly and $R$ is well-founded on $A$.
+\item $R\subset A^2$ is \emph{set-like} iff $\operatorname{ext}_R(x)\coloneqq \{y\in A: Ryx\}$ is a set for every $x\in A$.
+\item $y\in A$ is \emph{$R$-minimal} in $A$ iff $\neg\exists z(z\in A\wedge Rzy)$.
+\item A set-like relation $R$ is \emph{well-founded} on $A$ iff every non-empty set $X\subset A$ has a $R$-minimal element.
+\item $R$ \emph{well-orders} $A$ iff $R$ totally orders $A$ strictly and $R$ is well-founded on $A$.
 \end{itemize}
 \column{0.2\textwidth}
 	\begin{figure}
@@ -10722,7 +10741,7 @@ Let $R$ be a well-founded relation on $A$. Let $G$ be a function. Then there is 
 
 \begin{frame}\frametitle{Perfect Set}
 	\begin{itemize}
-		\item $x$ is a \emph{limit point} of $A$ if every neighborhood of $x$ intersects $A$ in some point other than $x$ itself.
+		\item $x$ is a \emph{limit point} of $A$ iff every neighborhood of $x$ intersects $A$ in some point other than $x$ itself.
 		\item $A'\coloneqq \big\{x: x\;\text{is a limit point of}\;A\big\}$
 		\item $A$ \text{is \emph{closed} if} $A'\subset A$.
 		\item $A$ \text{is \emph{perfect} if} $A'=A.$
@@ -10754,7 +10773,7 @@ Let $R$ be a well-founded relation on $A$. Let $G$ be a function. Then there is 
 
 \begin{frame}\frametitle{Trigonometric Expansion}
 	\begin{definition}[Trigonometric Expansion]
-	A function $f:\mathbb{R}\to\mathbb{C}$ \emph{admits a trigonometric expansion} if
+	A function $f:\mathbb{R}\to\mathbb{C}$ \emph{admits a trigonometric expansion} iff
 	\[f(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty\big(a_n\cos nx+b_n\sin nx\big)\]
 	\end{definition}
 	For example, a continuously differentiable function admits a trigonometric expansion, where $a_n,b_n$ can be computed by Fourier formulae
@@ -10840,7 +10859,7 @@ Let $R$ be a well-founded relation on $A$. Let $G$ be a function. Then there is 
 			\end{minipage}}
 	\end{columns}
 	\begin{center}
-		A set $A$ is \textcolor{yellow}{finite} if $\exists n\in\mathbb{N}: |A|=n$.
+		A set $A$ is \textcolor{yellow}{finite} iff $\exists n\in\mathbb{N}: |A|=n$.
 	\end{center}
 	Does renaming the elements of a set change its size? No!
 	
@@ -10904,7 +10923,7 @@ Let $R$ be a well-founded relation on $A$. Let $G$ be a function. Then there is 
 				\end{tabu}\]
 		\column{.5\textwidth}
 			\begin{block}{Dedekind-Infinite}
-			A set $A$ is Dedeking-infinite if some proper subset $B\subsetneq A$ is equinumerous to $A$.
+			A set $A$ is Dedeking-infinite iff some proper subset $B\subsetneq A$ is equinumerous to $A$.
 			\end{block}
 			\begin{figure}
 				\includegraphics[width=0.3\textwidth,angle=0,origin=c]{img/dedekind.jpg}\caption{Dedekind}
@@ -11376,9 +11395,10 @@ x&\mbox{otherwise }
 \begin{frame}\frametitle{Cantor's Theorem}
 	\resizebox{\textwidth}{!}{$1,2,\dots,\aleph_0,\aleph_1,\dots,\aleph_{\omega},\aleph_{\omega+1},\dots,\aleph_{\omega\cdot 2},\dots,\aleph_{\omega^2},\dots,\aleph_{\omega^\omega},\dots,\aleph_{\varepsilon_0},\dots,\aleph_{\aleph_0},\dots,\aleph_{\aleph_{\aleph_0}},\dots$}
 	the first cardinal to succeed all of these
-	is labeled by the ordinal $\kappa=\aleph_\kappa$. \textcolor{yellow}{(So big that it needs itself to say how big it is!)}\\
-\vspace{3ex}
+	is labeled by the ordinal $\kappa=\aleph_\kappa$. \textcolor{yellow}{(So big that it needs itself to say how big it is!)}
+	\begin{block}{}
 	\textcolor{green}{The `set' $I$ of all distinct levels of infinity is so large that it can't be a set!}
+	\end{block}
 	\[\forall d\in I:\;|S_d|\leq\bigg|\bigcup\limits_{c\in I}S_c\bigg|<\bigg|\operatorname{P}\bigg(\bigcup\limits_{c\in I}S_c\bigg)\bigg|\]
 	where $S_c$ is a representative set that has cardinality $c$.
 \end{frame}
@@ -11618,7 +11638,7 @@ x&\mbox{otherwise }
 \begin{proof}
 \begin{columns}
 \column{.62\textwidth}
-We define $(\alpha,\beta)<(\gamma,\delta)$ if ether
+We define $(\alpha,\beta)<(\gamma,\delta)$ iff ether
 \begin{itemize}
 	\item $\max\{\alpha,\beta\}<\max\{\gamma,\delta\}$, or
 	\item $\max\{\alpha,\beta\}=\max\{\gamma,\delta\}$ and $\alpha<\gamma$, or
@@ -11708,7 +11728,7 @@ Assume $\alpha$ is the least ordinal s.t. $\Gamma(\omega_\alpha,\omega_\alpha)\n
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{center}
-\fbox{A set $A$ is a \emph{fractal} if $\dim_H(A)>\dim_T(A)$.}
+\fbox{A set $A$ is a \emph{fractal} iff $\dim_H(A)>\dim_T(A)$.}
 \end{center}
 \begin{align*}
 H_{d,\varepsilon}(A)&\coloneqq \inf\left\{\sum_{k=1}^\infty\operatorname{diam}(B_k)^d: A\subset\bigcup_{k=1}^\infty B_k\;\;\&\;\;\operatorname{diam}(B_k)\leq\varepsilon\right\}\\
@@ -11780,9 +11800,9 @@ How to calculate the expected utility?
 \begin{frame}\frametitle{Cofinality and Inaccessible Cardinal}
 \begin{itemize}
 \item $\operatorname{cf}(\alpha)\coloneqq $ the least limit ordinal $\beta$ s.t. there is an increasing $\beta$-sequence $\langle\alpha_\xi:\xi<\beta\rangle$ with $\lim\limits_{\xi\to\beta}\alpha_\xi=\alpha$.
-\item An infinite cardinal $\kappa$ is \emph{regular} if $\operatorname{cf}(\kappa)=\kappa$. It is \emph{singular} if $\operatorname{cf}(\kappa)<\kappa$.
-\item A cardinal $\kappa$ is a \emph{strong limit} cardinal if $\forall \lambda<\kappa\big(2^\lambda<\kappa\big)$.
-\item A cardinal $\kappa$ is \emph{inaccessible} if it is a regular strong limit uncountable cardinal.
+\item An infinite cardinal $\kappa$ is \emph{regular} iff $\operatorname{cf}(\kappa)=\kappa$. It is \emph{singular} iff $\operatorname{cf}(\kappa)<\kappa$.
+\item A cardinal $\kappa$ is a \emph{strong limit} cardinal iff $\forall \lambda<\kappa\big(2^\lambda<\kappa\big)$.
+\item A cardinal $\kappa$ is \emph{inaccessible} iff it is a regular strong limit uncountable cardinal.
 \end{itemize}
 \end{frame}
 
@@ -12329,7 +12349,7 @@ For $k,k'\in\operatorname{Iter}(j)$, declare $k\equiv_n k'\coloneqq \forall x\in
 		\item $\mathrm{Rfn}_{\Pi_1}(\mathrm{T})\iff\mathrm{RFN}_{\Pi_1}(\mathrm{T})\iff\operatorname{Con}(\mathrm{T})$
 	\end{itemize}
 \begin{definition}[G\"odelian Theory]
-	A theory is G\"odelian if it is
+	A theory is G\"odelian iff it is
 	\begin{enumerate}
 		\item consistent
 		\item axiomatizable
@@ -12461,8 +12481,8 @@ we can code the sequence of values of $f$ from $0$ to $y$ by using $\beta$:
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{itemize}
-		\item The function $\bar{f}$ is a \emph{completion} of a partial function $f$ if $\bar{f}$ is total and $\forall n: f(n)\downarrow\implies f(n)=\bar{f}(n)$.
-		\item A partial function $f$ is \emph{potentially recursive} if it has a completion which is recursive.
+		\item The function $\bar{f}$ is a \emph{completion} of a partial function $f$ iff $\bar{f}$ is total and $\forall n: f(n)\downarrow\implies f(n)=\bar{f}(n)$.
+		\item A partial function $f$ is \emph{potentially recursive} iff it has a completion which is recursive.
 	\end{itemize}
 	\begin{block}{Not every partial recursive function is potentially recursive.}
 		\[f(n)\coloneqq \varphi_n(n)+1\]
@@ -12501,7 +12521,7 @@ we can code the sequence of values of $f$ from $0$ to $y$ by using $\beta$:
 
 \begin{frame}\frametitle{Acceptable Numbering}
 	\begin{definition}[Acceptable Numbering]
-		A numbering $\psi$ is acceptable if there are recursive functions $f,g$ s.t.
+		A numbering $\psi$ is acceptable iff there are recursive functions $f,g$ s.t.
 	\setlength\abovedisplayskip{0pt}
 	\setlength\belowdisplayskip{0pt}
 		\[\psi_e=\varphi_{f(e)}\quad\text{and}\quad\varphi_e=\psi_{g(e)}\]
@@ -12762,7 +12782,7 @@ Yanofsky: A universal approach to self-referential paradoxes, incompleteness and
 \begin{columns}
 \column{.57\textwidth}
 \begin{definition}[Point-Surjective]
-A morphism $f: X\to Y$ is \emph{point-surjective} if for every $y: 1\to Y$, there is an $x: 1\to X$ such that $y=f\circ x$.
+A morphism $f: X\to Y$ is \emph{point-surjective} iff for every $y: 1\to Y$, there is an $x: 1\to X$ such that $y=f\circ x$.
 \end{definition}
 	\begin{theorem}[Lawvere's Fixpoint Theorem]
 		In a cartesian closed category, if there is a point-surjective morphism $f: X\to Y^X$, then every morphism $\alpha: Y\to Y$ has a fixpoint $y: 1\to Y$.
@@ -13312,8 +13332,8 @@ s=\textquotesingle s=\%r; print(s\%\%s)\textquotesingle; print(s\%s)
 		Given a total recursive function $\psi$,
 		\begin{itemize}
 			\item the \emph{$\psi$-analysis} of $\varphi(x)$ is the code of the computation of $\varphi(x)$ to $\psi(x)$ steps.
-			\item $\varphi$ is \emph{$\psi$-introspective} at $x$ if $\varphi(x)\downarrow$ and outputs its own $\psi$-analysis.
-			\item $\varphi$ is \emph{totally $\psi$-introspective} if it is $\psi$-introspective at all $x$. 
+			\item $\varphi$ is \emph{$\psi$-introspective} at $x$ iff $\varphi(x)\downarrow$ and outputs its own $\psi$-analysis.
+			\item $\varphi$ is \emph{totally $\psi$-introspective} iff it is $\psi$-introspective at all $x$. 
 		\end{itemize}
 	\end{definition}
 	\begin{corollary}
@@ -14605,7 +14625,7 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 	\setlength\abovedisplayskip{0pt}
 	\setlength\belowdisplayskip{0pt}
 	\begin{definition}[Diophantine Set]
-		A set $A\subset\mathbb{N}^n$ is diophantine if there exists a polynomial $P(\mathbf{x},\mathbf{y})$ with integer coefficients s.t.
+		A set $A\subset\mathbb{N}^n$ is diophantine iff there exists a polynomial $P(\mathbf{x},\mathbf{y})$ with integer coefficients s.t.
 		\[\mathbf{x}\in A\iff\exists \mathbf{y}\in\mathbb{N}^m [P(\mathbf{x},\mathbf{y})=0]\]
 	\end{definition}
 	\begin{theorem}[MRDP Theorem --- Matiyasevich,Robinson,Davis,Putnam]
@@ -14917,7 +14937,7 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 				\begin{itemize}
 					\item $\overline{\nu}(x)=\nu(x)$
 					\item $\overline{\nu}(c)=c^{\mathcal{M}}$
-					\item $\overline{\nu}(f(t_1,\dots,f_n))=f^{\mathcal{M}}(\overline{\nu}(t_1),\dots,\overline{\nu}(t_n))$
+					\item $\overline{\nu}(f(t_1,\dots,t_n))=f^{\mathcal{M}}(\overline{\nu}(t_1),\dots,\overline{\nu}(t_n))$
 				\end{itemize}
 			\end{block}
 		\column{0.4\textwidth}
@@ -14935,11 +14955,11 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 \begin{frame}\frametitle{Semantics}
 	\begin{block}{}
 		\begin{itemize}
-			\item $\mathcal{M},\nu\vDash s=t$ if $\overline{\nu}(s)=\overline{\nu}(t)$.\hfill (Satisfaction)
-			\item $\mathcal{M}\vDash s=t$ if for all $\nu: \mathcal{M},\nu\vDash s=t$.\hfill (True)
-			\item $\mathcal{M}\vDash\mathrm{T}$ if for all $A\in\mathrm{T}: \mathcal{M}\vDash A$.\hfill (Model)
-			\item $\mathrm{T}\vDash s=t$ if for all $\mathcal{M}: \mathcal{M}\vDash\mathrm{T}\implies\mathcal{M}\vDash s=t$.
-			\item $\vDash s=t$ if $\emptyset\vDash s=t$.\hfill (Valid)
+			\item $\mathcal{M},\nu\vDash s=t$ iff $\overline{\nu}(s)=\overline{\nu}(t)$.\hfill (Satisfaction)
+			\item $\mathcal{M}\vDash s=t$ iff for all $\nu: \mathcal{M},\nu\vDash s=t$.\hfill (True)
+			\item $\mathcal{M}\vDash\mathrm{T}$ iff for all $A\in\mathrm{T}: \mathcal{M}\vDash A$.\hfill (Model)
+			\item $\mathrm{T}\vDash s=t$ iff for all $\mathcal{M}: \mathcal{M}\vDash\mathrm{T}\implies\mathcal{M}\vDash s=t$.
+			\item $\vDash s=t$ iff $\emptyset\vDash s=t$.\hfill (Valid)
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -14982,7 +15002,7 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 		\end{prooftree}
 		where $r(\dots t\dots)$ arises from $r(\dots s\dots)$ by replacing an occurrence of $s$ in $r$ by $t$.
 	\end{block}
-	\textcolor{green}{$\mathrm{T}\vdash s=t$}: An equation $s=t$ is a \emph{theorem} of a theory $\mathrm{T}$ if $s=t$ is the last member of some deduction from $\mathrm{T}$.
+	\textcolor{green}{$\mathrm{T}\vdash s=t$}: An equation $s=t$ is a \emph{theorem} of a theory $\mathrm{T}$ iff $s=t$ is the last member of some deduction from $\mathrm{T}$.
 \end{frame}
 
 \begin{frame}\frametitle{Meta-Theorems}
@@ -15583,14 +15603,14 @@ There is no solution in radicals to general polynomial equations of degree five 
 			\item $Rxy\wedge Ryz\to	Rxz$
 		\end{enumerate}
 		\item $\leq$ is a partial order.
-		\item Let $\mathcal{B}=(B,0,1,+,\cdot,\overline{\phantom{x}})$ be a Boolean algebra. A subset $F\subset B$ is a filter if
+		\item Let $\mathcal{B}=(B,0,1,+,\cdot,\overline{\phantom{x}})$ be a Boolean algebra. A subset $F\subset B$ is a filter iff
 		\begin{enumerate}
 			\item $1\in F$
 			\item $x\in F\wedge x\leq y\to y\in F$
 			\item $x\in F\wedge y\in F\to x\cdot y\in F$
 		\end{enumerate}
-		\item A filter $F$ is proper if $0\notin F$.
-		\item A proper filter $F$ is an ultrafilter if either $x\in F$ or $\overline{x}\in F$.
+		\item A filter $F$ is proper iff $0\notin F$.
+		\item A proper filter $F$ is an ultrafilter iff either $x\in F$ or $\overline{x}\in F$.
 		\item \textcolor{yellow}{Ultrafilter Theorem}: every proper filter can be extended to an ultrafilter.
 	\end{itemize}
 	\centering\textcolor{green}{Ultrafilter theorem on Lindenbaum Algebra of Propositional Logic $\iff$ Every consistent set can be extended to a maximal consistent set.}
@@ -15601,7 +15621,7 @@ There is no solution in radicals to general polynomial equations of degree five 
 		Every Boolean algebra is isomorphic to an algebra of sets.
 	\end{theorem}
 	\begin{proof}
-		Let $\mathcal{B}$ be a Boolean algebra, and $\operatorname{Sto}(B)\coloneqq \{w: w\;\text{is an ultrafilter on}\;B\}$. Define a map $h: B\to \operatorname{P}\left(\operatorname{Sto}(B)\right)$ by
+		Let $\mathcal{B}$ be a Boolean algebra, and $\operatorname{Sto}(B)\coloneqq \{w: w\;\text{is an ultrafilter on}\;B\}$. Define a map $h: B\to \operatorname{P}(\operatorname{Sto}(B))$ by
 		\[x\mapsto\left\{w\in\operatorname{Sto}(B): x\in w\right\}\] Then
 		\[\mathcal{B}\cong\left(h(B),\emptyset,\operatorname{Sto}(B),\cup,\cap,\setminus\right)\]
 	\end{proof}
@@ -15654,7 +15674,7 @@ If $N$ is finite and $|C|\geq 3$, then any SWF that satisfy $\mathbf{U}$ and $\m
 
 \begin{frame}\frametitle{Proof Sketch of Arrow's Impossibility Theorem}
 \begin{enumerate}
-	\item We call a subset $A\subset N$ decisive if whenever all $x\in A$ present the same ranking, the SWF $f$ outputs that ranking.
+	\item We call a subset $A\subset N$ decisive iff whenever all $x\in A$ present the same ranking, the SWF $f$ outputs that ranking.
 	\item The set of decisive sets of voters $\mathcal{F}\coloneqq \{A\subset N: A \mbox{ is decisive}\}$ is an ultrafilter.
 	\item If $N$ is finite, then the ultrafilter $\mathcal{F}$ must be a principle ultrafilter.
 \end{enumerate}
@@ -15764,7 +15784,7 @@ Assume $|C|\geq 3$. There is a $1-1$ correspondence between ultrafilters on $N$ 
 	f^{n+1}x&\coloneqq f(f^nx)
 	\end{align*}
 	\begin{definition}[$\lambda$-definability]
-		An $n$-ary function $f(x_1,\dots,x_n)$ is $\lambda$-definable if there is a $\lambda$-term $F$ s.t. for all $a_1,\dots,a_n$,
+		An $n$-ary function $f(x_1,\dots,x_n)$ is $\lambda$-definable iff there is a $\lambda$-term $F$ s.t. for all $a_1,\dots,a_n$,
 		\[F\underline{a_1}\dots\underline{a_n}\stackrel{\beta}{=}\underline{f(a_1,\dots,a_n)}\]
 	\end{definition}
 \begin{columns}
@@ -15792,7 +15812,7 @@ Assume $|C|\geq 3$. There is a $1-1$ correspondence between ultrafilters on $N$ 
 	\setlength\abovedisplayskip{0pt}
 	\setlength\belowdisplayskip{0pt}
 	\begin{definition}[Combinator]
-		A $\lambda$-term $M$ is called a combinator if $\operatorname{Fv}(M)=\emptyset$.
+		A $\lambda$-term $M$ is called a combinator iff $\operatorname{Fv}(M)=\emptyset$.
 	\end{definition}
 	\begin{columns}
 		\column{.33\textwidth}
@@ -15881,10 +15901,10 @@ Let $M\coloneqq \mathbf{Y}(\lambda f\vec{x}.C(f,\vec{x}))$.
 \end{frame}
 
 \begin{frame}\frametitle{Church-Rosser Theorem}
-	We write $M\twoheadrightarrow_\beta N$ if $M$ $\beta$-reduces to $N$ in zero or more steps.
+	We write $M\twoheadrightarrow_\beta N$ iff $M$ $\beta$-reduces to $N$ in zero or more steps.
 	\begin{definition}[$\beta$-nf]
-		A term is in $\beta$ normal form if it can't be $\beta$-reduced.\\
-		A term $M$ has a $\beta$ normal form if it $\beta$ reduces to some $N$ that is in $\beta$-nf.
+		A term is in $\beta$ normal form iff it can't be $\beta$-reduced.\\
+		A term $M$ has a $\beta$ normal form iff it $\beta$ reduces to some $N$ that is in $\beta$-nf.
 	\end{definition}
 	\begin{theorem}[Church-Rosser Theorem]
 		Let $\twoheadrightarrow$ denote either $\twoheadrightarrow_\beta$ or $\twoheadrightarrow_{\beta\eta}$. Suppose $M,P,Q$ are $\lambda$-terms s.t. $M\twoheadrightarrow P$ and $M\twoheadrightarrow Q$. Then there exists a $\lambda$-term $N$ s.t. $P\twoheadrightarrow N$ and $Q\twoheadrightarrow N$.
@@ -16820,22 +16840,22 @@ C \arrow[u,"g^\mathrm{op}" swap]
 		\item the identity morphisms in $\mathbf{C}'$ are identity morphisms in $\mathbf{C}$.
 	\end{enumerate}
 \end{definition}
-Moreover, $\mathbf{C}'$ is called \emph{wide} if all objects of $\mathbf{C}'$ are also objects of $\mathbf{C}$.\\
-$\mathbf{C}'$ is called \emph{full} if for $A,B\in\operatorname{ob}(\mathbf{C}'):\mathbf{C}'(A,B)=\mathbf{C}(A,B)$.
+Moreover, $\mathbf{C}'$ is called \emph{wide} iff all objects of $\mathbf{C}'$ are also objects of $\mathbf{C}$.\\
+$\mathbf{C}'$ is called \emph{full} iff for $A,B\in\operatorname{ob}(\mathbf{C}'):\mathbf{C}'(A,B)=\mathbf{C}(A,B)$.
 \end{frame}
 
 \begin{frame}\frametitle{Monic / Epic / Bimorphism / Isomorphism}
 \begin{definition}
 A morphism $f: A\to B$ is a:
 \begin{enumerate}
-	\item monomorphism (monic) if $\forall X\forall g_1g_2: X\to A: fg_1=fg_2\implies g_1=g_2$.
-	\item epimorphism (epic) if $\forall X\forall g_1g_2: B\to X: g_1f=g_2f\implies g_1=g_2$.
-	\item bimorphism if $f$ is both monic and epic.
-	\item isomorphism if $\exists g: B\to A: gf=1_A\;\;\&\;\;fg=1_B$.
-	\item endomorphism if $A=B$.
-	\item automorphism if $f$ is both an endomorphism and an isomorphism.
-	\item retraction if a right inverse of $f$ exists, i.e. $\exists g: B\to A: fg=1_B$.
-	\item section if a left inverse of $f$ exists, i.e. $\exists g: B\to A: gf=1_A$.\vspace*{-2ex}
+	\item monomorphism (monic) iff $\forall X\forall g_1g_2: X\to A: fg_1=fg_2\implies g_1=g_2$.
+	\item epimorphism (epic) iff $\forall X\forall g_1g_2: B\to X: g_1f=g_2f\implies g_1=g_2$.
+	\item bimorphism iff $f$ is both monic and epic.
+	\item isomorphism iff $\exists g: B\to A: gf=1_A\;\;\&\;\;fg=1_B$.
+	\item endomorphism iff $A=B$.
+	\item automorphism iff $f$ is both an endomorphism and an isomorphism.
+	\item retraction iff a right inverse of $f$ exists, i.e. $\exists g: B\to A: fg=1_B$.
+	\item section iff a left inverse of $f$ exists, i.e. $\exists g: B\to A: gf=1_A$.\vspace*{-2ex}
 \[\begin{tikzcd}
 B \arrow[r,"g"] \arrow[dr, "1_B"'] \& A \arrow[d,"f"]\\
 \& B
@@ -16879,7 +16899,7 @@ section \arrow[u] \& isomorphism \arrow[l] \arrow[u] \arrow[r] \& retraction \ar
 	\item 
 	A \emph{terminal object} in $\mathbf{C}$ is an object $1$ s.t. for every object $A$, there is a unique morphism $!_A: A\to 1$.
 	\item If an object is both initial and terminal, it is called a \emph{zero object}.
-	\item An initial object $0$ is called a \emph{strict initial object} if every morphism $x\to 0$ is an isomorphism.
+	\item An initial object $0$ is called a \emph{strict initial object} iff every morphism $x\to 0$ is an isomorphism.
 \end{itemize}
 \end{definition}
 \begin{itemize}
@@ -17139,7 +17159,7 @@ Yanofsky: A universal approach to self-referential paradoxes, incompleteness and
 \begin{columns}
 \column{.57\textwidth}
 \begin{definition}[Weakly Point-Surjective]
-A morphism $f: X\times X\to Y$ is \emph{weakly point-surjective} if for every $g: X\to Y$, there is a $t: 1\to X$ such that, for all $x: 1\to X$:
+A morphism $f: X\times X\to Y$ is \emph{weakly point-surjective} iff for every $g: X\to Y$, there is a $t: 1\to X$ such that, for all $x: 1\to X$:
 \[gx=f\langle x,t\rangle\]
 \end{definition}
 	\begin{theorem}[Lawvere's Fixpoint Theorem]
@@ -17159,8 +17179,8 @@ A morphism $f: X\times X\to Y$ is \emph{weakly point-surjective} if for every $g
 	The $\mathbf{C}_\mathrm{T}$-objects are generated by a sort object $A$ (more object if the theory is multi-sorted), and an object $2$.\\
 	The $\mathbf{C}_\mathrm{T}$-morphisms are equivalence classes of (tuples of) formulas $A^n\to 2$ or terms $A^n\to A$ of $\mathrm{T}$.\\
 	In particular, morphisms $1\to 2$ are sentences, and morphisms $1\to A$ are constant terms.
-	\item A theory is \emph{consistent} if $\operatorname{Hom}(1,2)$ contains at least two elements $\operatorname{Hom}(1,2)\supset\{\top,\bot\}$.\\
-	A theory is \emph{complete} if $\operatorname{Hom}(1,2)=\{\top,\bot\}$.
+	\item A theory is \emph{consistent} iff $\operatorname{Hom}(1,2)$ contains at least two elements $\operatorname{Hom}(1,2)\supset\{\top,\bot\}$.\\
+	A theory is \emph{complete} iff $\operatorname{Hom}(1,2)=\{\top,\bot\}$.
 \end{itemize}
 \end{frame}
 
@@ -17311,11 +17331,11 @@ The derivative is functorial because:
 \begin{definition}
 A functor $F:\mathbf{C}\to\mathbf{D}$ is:
 \begin{itemize}
-\item \emph{faithful} if for $A,B\in\mathbf{C}$ each $F:\mathbf{C}(A,B)\to\mathbf{D}(FA,FB)$ is injective;
-\item \emph{full} if for $A,B\in\mathbf{C}$ each $F:\mathbf{C}(A,B) \to\mathbf{D}(FA, FB)$ is surjective;
-\item an \emph{embedding} if $F$ is full, faithful, and injective on objects;
-\item \emph{essentially surjective} if for every $B\in\mathbf{D}$ there is $A\in\mathbf{C}$ s.t. $F(A)\cong B$;
-\item an \emph{isomorphism} if there is a functor $G:\mathbf{D}\to\mathbf{C}$ such that $G \circ F=1_\mathbf{C}$ and $F \circ G=1_\mathbf{D}$.
+\item \emph{faithful} iff for $A,B\in\mathbf{C}$ each $F:\mathbf{C}(A,B)\to\mathbf{D}(FA,FB)$ is injective;
+\item \emph{full} iff for $A,B\in\mathbf{C}$ each $F:\mathbf{C}(A,B) \to\mathbf{D}(FA, FB)$ is surjective;
+\item an \emph{embedding} iff $F$ is full, faithful, and injective on objects;
+\item \emph{essentially surjective} iff for every $B\in\mathbf{D}$ there is $A\in\mathbf{C}$ s.t. $F(A)\cong B$;
+\item an \emph{isomorphism} iff there is a functor $G:\mathbf{D}\to\mathbf{C}$ such that $G \circ F=1_\mathbf{C}$ and $F \circ G=1_\mathbf{D}$.
 \end{itemize}
 \end{definition}
 \begin{theorem}[Functors preserve isomorphism]
@@ -17389,13 +17409,13 @@ GA \arrow[r,"Gf"']
 
 \begin{frame}\frametitle{Equivalence of Categories}
 \begin{definition}[Natural Isomorphism]
-A natural transformation $\alpha: F\to G$ is a natural isomorphism ($F\cong G$) if each morphism $\alpha_A: FA\to GA$ is an isomorphism.
+A natural transformation $\alpha: F\to G$ is a natural isomorphism ($F\cong G$) iff each morphism $\alpha_A: FA\to GA$ is an isomorphism.
 \end{definition}
 \begin{definition}[Equivalence of Categories]
-The categories $\mathbf{C}$ and $\mathbf{D}$ are equivalent ($\mathbf{C}\simeq\mathbf{D}$) if there are functors \begin{tikzcd} \mathbf{C} \arrow[r, yshift=0.6ex, "F"] \& \mathbf{D} \arrow[l, yshift=-0.6ex, "G"] \end{tikzcd} and natural isomorphisms $G\circ F\cong 1_\mathbf{C}, F\circ G\cong 1_\mathbf{D}$.
+The categories $\mathbf{C}$ and $\mathbf{D}$ are equivalent ($\mathbf{C}\simeq\mathbf{D}$) iff there are functors \begin{tikzcd} \mathbf{C} \arrow[r, yshift=0.6ex, "F"] \& \mathbf{D} \arrow[l, yshift=-0.6ex, "G"] \end{tikzcd} and natural isomorphisms $G\circ F\cong 1_\mathbf{C}, F\circ G\cong 1_\mathbf{D}$.
 \end{definition}
 \begin{itemize}
-	\item The categories $\mathbf{C}$ and $\mathbf{D}$ are isomorphic ($\mathbf{C}\cong\mathbf{D}$) if there are functors \begin{tikzcd} \mathbf{C} \arrow[r, yshift=0.6ex, "F"] \& \mathbf{D} \arrow[l, yshift=-0.6ex, "G"] \end{tikzcd} satisfying $G\circ F=1_\mathbf{C}, F\circ G=1_\mathbf{D}$.
+	\item The categories $\mathbf{C}$ and $\mathbf{D}$ are isomorphic ($\mathbf{C}\cong\mathbf{D}$) iff there are functors \begin{tikzcd} \mathbf{C} \arrow[r, yshift=0.6ex, "F"] \& \mathbf{D} \arrow[l, yshift=-0.6ex, "G"] \end{tikzcd} satisfying $G\circ F=1_\mathbf{C}, F\circ G=1_\mathbf{D}$.
 	\item Equivalence of categories is a generalization of isomorphism. It can be seen as ``isomorphism up to isomorphism''.
 \end{itemize}
 \end{frame}
@@ -17543,8 +17563,8 @@ Given categories $\mathbf{C}$ and $\mathbf{D}$, the functor category $\mathbf{D}
 \begin{itemize}
 	\item Assume there is an infinite sequence $U_0\in U_1\in U_2\in\dots$ of bigger and bigger Grothendieck universes.
 	\item $\mathbf{Set}_n=$ category whose objects are the sets in $U_n$ and with $\mathbf{Set}_n(A,B)=B^A=$ the functions from $A$ to $B$.
-	\item A category $\mathbf{C}$ is locally small if $\forall AB\in\mathbf{C}: \mathbf{C}(A,B)\in\mathbf{Set}_0$.
-	\item A category $\mathbf{C}$ is small if it is both locally small and $\operatorname{ob}(\mathbf{C})\in\mathbf{Set}_0$.
+	\item A category $\mathbf{C}$ is locally small iff $\forall AB\in\mathbf{C}: \mathbf{C}(A,B)\in\mathbf{Set}_0$.
+	\item A category $\mathbf{C}$ is small iff it is both locally small and $\operatorname{ob}(\mathbf{C})\in\mathbf{Set}_0$.
 \end{itemize}
 \begin{definition}[The Category of Small Categories $\mathbf{Cat}$]
 The category of small categories $\mathbf{Cat}$ has
@@ -17876,8 +17896,8 @@ Then $u:C\to E$ is also the required factorization of the cone $(C,c_i)$ through
 	\item A functor $F:\mathbf{C}\to\mathbf{D}$ is said to \emph{\textcolor{yellow}{reflect} limits of $\mathbf{I}$} iff, for all diagrams $D:\mathbf{I}\to\mathbf{D}$ and all cones $(C,c)$ over $D$,
 	\[(C,c) \mbox{ is a limit over } D\textcolor{yellow}{\impliedby} (FC,Fc) \mbox{ is a limit over } FD:\mathbf{I}\to\mathbf{D}\]
 	\item A functor $F:\mathbf{C}\to\mathbf{D}$ is said to \emph{\textcolor{yellow}{create} limits of $\mathbf{I}$} iff, for all diagrams $D:\mathbf{I}\to\mathbf{C}$, if $(M,m)$ is a limit cone over $FD:\mathbf{I}\to\mathbf{D}$, there is a unique cone $(C,c)$ over $D$ s.t. $(FC,Fc)=(M,m)$, and moreover $(C,c)$ is a limit.
-	\item A category is \emph{complete} if it has all small limits.
-	\item A functor is \emph{continuous} if it preserves all small limits.
+	\item A category is \emph{complete} iff it has all small limits.
+	\item A functor is \emph{continuous} iff it preserves all small limits.
 \end{itemize}
 Obviously, if $F$ preserves limits then $F\left(\varprojlim D\right)\cong\varprojlim (FD)$.
 \end{frame}
@@ -17976,7 +17996,7 @@ If $\mathbf{C}$ has finite limits and is in addition a locally small category, t
 	In any topos $\mathbf{E}$, for any object $X\in\mathbf{E}$, $(\operatorname{Sub}_\mathbf{E}(X),\subset)$ is a Heyting algebra: it is a poset that has finite limits, finite colimits, and is cartesian closed.
 \end{theorem}
 \begin{definition}[Boolean Topos]
-	A topos $\mathbf{E}$ is \emph{Boolean} if for any $X\in\mathbf{E}$, $(\operatorname{Sub}_\mathbf{E}(X),\subset)$ is a Boolean algebra.
+	A topos $\mathbf{E}$ is \emph{Boolean} iff for any $X\in\mathbf{E}$, $(\operatorname{Sub}_\mathbf{E}(X),\subset)$ is a Boolean algebra.
 \end{definition}
 \end{frame}
 
@@ -17984,7 +18004,7 @@ If $\mathbf{C}$ has finite limits and is in addition a locally small category, t
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{itemize}
-	\item \emph{Well-pointed Topos:} a topos is called \emph{well-pointed} if
+	\item \emph{Well-pointed Topos:} a topos is called \emph{well-pointed} iff
 	\begin{enumerate}
 		\item for \begin{tikzcd} A \arrow[r, yshift=0.6ex,"f"] \arrow[r, yshift=-0.6ex,"g" swap] \& B \end{tikzcd}, if $\forall x: 1\to A[fx=gx]$ then $f=g$.
 		\item $0\centernot\cong 1$.
@@ -18245,7 +18265,7 @@ FA \arrow[rrr,"Ff" swap] \&\&\& FB
 \end{corollary}
 Hence, $\operatorname{y}$ is an embedding $\mathbf{C}\hookrightarrow\mathbf{Set}^{\mathbf{C}^\mathrm{op}}$.
 \begin{definition}[Concrete Category \& Abstract Category]
-	A category $\mathbf{C}$ is \emph{concrete} if there is a faithful functor $F:\mathbf{C}\to\mathbf{Set}$.\\
+	A category $\mathbf{C}$ is \emph{concrete} iff there is a faithful functor $F:\mathbf{C}\to\mathbf{Set}$.\\
 	Categories that are not concrete are called \emph{abstract categories}.
 \end{definition}
 All small categories are concrete because of Yoneda lemma.
@@ -18359,7 +18379,7 @@ s\mapsto S=
 
 \begin{frame}\frametitle{Representable Functor \& Universal Element}
 \begin{definition}[Representable Functor]
-A functor $F:\mathbf{C}\to\mathbf{Set}$ is \emph{representable} if there is a natural isomorphism $\alpha:\mathbf{C}(A,-)\xrightarrow{\cong} F$ for some $A\in\mathbf{C}$. We say that the pair $(A,\alpha)$ is a \emph{representation} of $F$.
+A functor $F:\mathbf{C}\to\mathbf{Set}$ is \emph{representable} iff there is a natural isomorphism $\alpha:\mathbf{C}(A,-)\xrightarrow{\cong} F$ for some $A\in\mathbf{C}$. We say that the pair $(A,\alpha)$ is a \emph{representation} of $F$.
 \end{definition}
 \begin{definition}[Universal Element]
 	A \emph{universal element} of the functor $F:\mathbf{C}\to\mathbf{Set}$ is a pair $(A,a)$, where $A\in\mathbf{C}$ and $a\in FA$, and for each $B\in\mathbf{C}$ and $b\in FB$, there is a unique map $f: A\to B$ such that $Ff(a)=b$.
@@ -18639,7 +18659,7 @@ One can generalize the above example to arbitrary limits and colimits.
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{definition}[Left/Right Adjoint]
-Functors \begin{tikzcd} \mathbf{C} \arrow[r, yshift=0.6ex, "F"] \& \mathbf{D} \arrow[l, yshift=-0.6ex, "G"] \end{tikzcd} are \emph{adjoint} $F\dashv G$ if there is an isomorphism
+Functors \begin{tikzcd} \mathbf{C} \arrow[r, yshift=0.6ex, "F"] \& \mathbf{D} \arrow[l, yshift=-0.6ex, "G"] \end{tikzcd} are \emph{adjoint} $F\dashv G$ iff there is an isomorphism
 \[\theta_{A,B}:\mathbf{D}(FA,B)\xrightarrow{\cong}\mathbf{C}(A,GB)\]
 that is natural in both $A$ and $B$.
 \end{definition}
@@ -19825,14 +19845,14 @@ C\otimes (A\otimes B) \& (C\otimes A)\otimes B \arrow[l,"\alpha_{C,A,B}^{-1}"] \
 \begin{definition}
 A morphism $f:A\to B$ in a dagger category is:
 \begin{itemize}
-	\item the \emph{adjoint} of $g:B\to A$ if $g=f^\dagger$;
-	\item \emph{self-adjoint} if $f=f^\dagger$ (and $A=B$);
-	\item \emph{idempotent} if $ff=f$ (and $A=B$);
-	\item a \emph{projection} if it is idempotent and self-adjoint;
-	\item \emph{unitary} if both $f^\dagger f=1_A$ and $ff^\dagger=1_B$;
-	\item an \emph{isometry} if $f^\dagger f=1_A$;
-	\item a \emph{partial isometry} if $f^\dagger f$ is a projection;
-	\item \emph{positive} if $f=g^\dagger g$ for some morphism $g:A\to B$ (and $A=B$).
+	\item the \emph{adjoint} of $g:B\to A$ iff $g=f^\dagger$;
+	\item \emph{self-adjoint} iff $f=f^\dagger$ (and $A=B$);
+	\item \emph{idempotent} iff $ff=f$ (and $A=B$);
+	\item a \emph{projection} iff it is idempotent and self-adjoint;
+	\item \emph{unitary} iff both $f^\dagger f=1_A$ and $ff^\dagger=1_B$;
+	\item an \emph{isometry} iff $f^\dagger f=1_A$;
+	\item a \emph{partial isometry} iff $f^\dagger f$ is a projection;
+	\item \emph{positive} iff $f=g^\dagger g$ for some morphism $g:A\to B$ (and $A=B$).
 \end{itemize}
 \end{definition}
 \end{frame}
@@ -19931,7 +19951,7 @@ I\otimes\mathbf{C}(a,b) \arrow[u,"\operatorname{id}_b\otimes 1"] \arrow[ur,"\lam
 \begin{frame}\frametitle{Sheaf}
 \begin{itemize}
 	\item The topology $\mathcal{O}(X)$ of $X$, i.e. the poset of open subsets of $X$, ordered by inclusion, can be considered to be a category.
-	\item A presheaf $F: \mathcal{O}(X)^{\mathrm{op}}\to\mathbf{Set}$ is a \emph{sheaf} if it satisfies:
+	\item A presheaf $F: \mathcal{O}(X)^{\mathrm{op}}\to\mathbf{Set}$ is a \emph{sheaf} iff it satisfies:
 	\begin{enumerate}
 		\item (Locality) For any open cover $(U_i)_{i\in I}$ of $U$, and for $s,t\in F(U)$, and $\forall i: s{\restriction_{U_i}}=t{\restriction_{U_i}}$, then $s=t$.
 		\item (Gluing) For any open cover $(U_i)_{i\in I}$ of $U$, and for $\left(s_i\in F(U_i)\right)_{i\in I}$ such that $\forall i,j: s_i{\restriction_{U_i\cap U_j}}=s_j{\restriction_{U_i\cap U_j}}$, then there exists some $s\in F(U)$ such that $\forall i: s{\restriction_{U_i}}=s_i$.
@@ -19945,7 +19965,7 @@ I\otimes\mathbf{C}(a,b) \arrow[u,"\operatorname{id}_b\otimes 1"] \arrow[ur,"\lam
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{itemize}
-\item A presheaf $F$ is a \emph{sheaf} if for any open cover $(U_i)_{i\in I}$ of $U$, the following diagram is an equalizer:
+\item A presheaf $F$ is a \emph{sheaf} iff for any open cover $(U_i)_{i\in I}$ of $U$, the following diagram is an equalizer:
 \[
 \begin{tikzcd}
 F(U) \arrow[r,tail,"e"] \& \prod\limits_i F(U_i) \arrow[r, yshift=0.6ex,"f"] \arrow[r, yshift=-0.6ex,"g" swap] \& \prod\limits_{i,j} F(U_i\cap U_j)
@@ -19982,7 +20002,7 @@ F(U_i) \arrow[r] \& F(U_i\cap U_j) \& F(U_j) \arrow[l]\\
 \& F(U) \arrow[ul] \arrow[u] \arrow[ur]
 \end{tikzcd}
 \]
-A presheaf $F$ is a \emph{sheaf} if $\varprojlim\limits_\mathbf{I} F\cong F(U)$.
+A presheaf $F$ is a \emph{sheaf} iff $\varprojlim\limits_\mathbf{I} F\cong F(U)$.
 \end{itemize}
 \end{frame}
 
@@ -19995,7 +20015,7 @@ A presheaf $F$ is a \emph{sheaf} if $\varprojlim\limits_\mathbf{I} F\cong F(U)$.
 	\[F_x\coloneqq\big\{\operatorname{germ}_xs:x\in U, s\in FU\big\}\]
 	where
 	\[\operatorname{germ}_x s\coloneqq [s]_x\]
-	and $s\sim_x t$ if there is an open set $x\in W\subset U\cap V$ with $s{\restriction_W}=t{\restriction_W}$ where $s\in FU, t\in FV$.
+	and $s\sim_x t$ iff there is an open set $x\in W\subset U\cap V$ with $s{\restriction_W}=t{\restriction_W}$ where $s\in FU, t\in FV$.
 	\item Equivalently, $F_x\coloneqq \varinjlim\limits_{U\ni x} FU$.\\
 	The function $\operatorname{germ}_x: FU\to F_x$ form a cocone over $F{\restriction_{\{U\in\mathcal{O}(X):x\in U\}}}$.
 \[
@@ -20106,7 +20126,7 @@ is known as the associated sheaf functor, or the sheafification functor. It carr
 	\end{definition}
 \begin{itemize}
 	\item If $\|\cdot\|$ is a norm on $V$, then $d(u,v)=\|u-v\|$ defines a metric on $V$.
-	\item A metric space is \emph{complete} if for every Cauchy sequence $\{x_n\}$, $\lim\limits_{n\to\infty}\|x-x_n\|=0$.
+	\item A metric space is \emph{complete} iff for every Cauchy sequence $\{x_n\}$, $\lim\limits_{n\to\infty}\|x-x_n\|=0$.
 	\item A \emph{Banach space} is a complete normed vector space.
 \end{itemize}
 \end{frame}
@@ -20122,8 +20142,8 @@ is known as the associated sheaf functor, or the sheafification functor. It carr
 		\end{enumerate}
 	\end{definition}
 	\begin{itemize}
-		\item The vectors $u,v$ are called \emph{orthogonal} if $\langle u|v\rangle=0$.
-		\item A basis $\{e_1,\dots,e_n\}$ is called \emph{orthogonal} if $\langle e_i|e_j\rangle=0$ for all $i\ne j$. It is called \emph{orthonormal} if in addition $\langle e_i|e_i\rangle=1$ for all $i$.
+		\item The vectors $u,v$ are called \emph{orthogonal} iff $\langle u|v\rangle=0$.
+		\item A basis $\{e_1,\dots,e_n\}$ is called \emph{orthogonal} iff $\langle e_i|e_j\rangle=0$ for all $i\ne j$. It is called \emph{orthonormal} iff in addition $\langle e_i|e_i\rangle=1$ for all $i$.
 		\item A \emph{Hilbert space} is a real or complex inner product space that is complete in the norm $\|v\|=\sqrt{\langle v|v\rangle}$.
 	\end{itemize}
 \end{frame}
@@ -20132,11 +20152,11 @@ is known as the associated sheaf functor, or the sheafification functor. It carr
 \begin{definition}
 	A linear operator $A$ is
 \begin{itemize}
-	\item \emph{normal} if $AA^\dagger=A^\dagger A$.
-	\item \emph{unitary} if $AA^\dagger=A^\dagger A=I$.
-	\item \emph{self-adjoint} if $A=A^\dagger$.
-	\item a \emph{projection} if $A=A^\dagger$ and $AA=A$.
-	\item \emph{bounded} if $\exists a\geq 0\forall v: \|Av\|\leq a\|v\|$.
+	\item \emph{normal} iff $AA^\dagger=A^\dagger A$.
+	\item \emph{unitary} iff $AA^\dagger=A^\dagger A=I$.
+	\item \emph{self-adjoint} iff $A=A^\dagger$.
+	\item a \emph{projection} iff $A=A^\dagger$ and $AA=A$.
+	\item \emph{bounded} iff $\exists a\geq 0\forall v: \|Av\|\leq a\|v\|$.
 \end{itemize}
 \end{definition}
 The adjoint of a linear operator $A$ is the function $A^\dagger$ s.t. for every $u,v$:
@@ -20258,7 +20278,7 @@ The measurement of an $n$ qubit quantum state: $|\psi\rangle=\sum\limits_{x\in\{
 \begin{frame}\frametitle{Quantum Gates}
 \begin{itemize}
 	\item A quantum gate: Unitary operation on a number of qubits.
-	\item A set of gates is \emph{universal} if for any unitary matrix $U$ and any $\varepsilon > 0$, there is some circuit $\tilde{U}$ built out of the set of gates such that
+	\item A set of gates is \emph{universal} iff for any unitary matrix $U$ and any $\varepsilon > 0$, there is some circuit $\tilde{U}$ built out of the set of gates such that
  \[
  \left\|U - \tilde{U}\right\| < \varepsilon
  \]
@@ -20366,7 +20386,7 @@ The density matrix of $|\psi\rangle$ is
 
 \begin{frame}\frametitle{$\operatorname{CNOT}$ Gate}
 \begin{definition}
-	A quantum state $\psi\rangle\in(\mathbb{C}^2)^{\otimes n}$ is a \emph{product state} if it can be expressed as a tensor product $\psi_1\rangle \otimes \dots \otimes \psi_n\rangle$ of $n$ $1$-qubit states. Otherwise, it is \emph{entangled}.
+	A quantum state $\psi\rangle\in(\mathbb{C}^2)^{\otimes n}$ is a \emph{product state} iff it can be expressed as a tensor product $\psi_1\rangle \otimes \dots \otimes \psi_n\rangle$ of $n$ $1$-qubit states. Otherwise, it is \emph{entangled}.
 \end{definition}
 \begin{columns}
 \column{.4\textwidth}
@@ -20715,7 +20735,8 @@ Let $A,B,C$ be three distinct states in $\mathbb{C}^2$, then:
 	\item $\forall x\exists y\exists z(Gy\wedge Gz\wedge y\ne z\wedge Lxy\wedge Lxz\to x=t)$
 	\item $\exists x\big(Sx\wedge\forall y(Sy\to y=x)\big)$
 	\item $\forall x\big(L(x,f(w(s)))\to x=m(w(s))\big)$
-	\item $\forall x(Dx\to Ax)\to\forall x\big(\exists y(Dy\wedge Hxy)\to\exists y(Ay\wedge Hxy)\big)$
+	\item $\forall x(Dx\to Ax)\to\forall x\big(\exists y(Dy\wedge Hxy)\to\exists y(Ay\wedge Hxy)\big)$\\
+	$\forall x(Dx\to Ax)\to\forall x(Dx\to\exists y(Ay\wedge hx=hy))$
 	\item $\exists x\big(Gx\wedge Lxb\wedge\forall y(Gy\wedge Lyb\to y=x)\wedge\exists y(y\ne x\wedge Sy)\big)$
 	\item $\exists x(Gx\wedge Lxm\wedge\forall y(Gy\wedge Lym\to y=x)\wedge Lmx\wedge \forall y(Lmy\to y=x))$
 	\item $\exists x(Lxa\wedge\forall y(Lya\to y=x)\wedge\exists y(Lay\wedge\forall z(Laz\to z=y)\wedge y=x))$

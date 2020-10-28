@@ -638,8 +638,7 @@ Our first superhuman AI must be a safe one for we may not get a second chance!
 \hline
 & \textbf{Consequentialism} & \textbf{Deontology} & \textbf{Virtue Ethics}\\
 \hline
-\textbf{Description} & An action is right if it maximizes happiness & An action is right if it is in accordance with a moral rule & An action is right if it
-is what a virtuous person would do in the circumstances\\
+\textbf{Description} & An action is right if it maximizes happiness & An action is right if it is in accordance with a moral rule & An action is right if it is what a virtuous person would do in the circumstances\\
 \hline
 \textbf{Central Concern} & The results matter, not the actions themselves & Persons must be seen as ends and may never be used as means & Emphasize the character of the agent making the actions\\
 \hline
@@ -1371,7 +1370,7 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{definition}[PAC-Learnability]
-		A hypothesis space $\mathcal{H}\subset 2^{\mathcal{X}}$ is PAC-learnable if there exists a sample complexity function $m_{\mathcal{H}}: (0,1)^2\to\mathbb{N}$ and a learning algorithm $A$ with the following property:
+		A hypothesis space $\mathcal{H}\subset 2^{\mathcal{X}}$ is PAC-learnable iff there exists a sample complexity function $m_{\mathcal{H}}: (0,1)^2\to\mathbb{N}$ and a learning algorithm $A$ with the following property:
 		\begin{itemize}
 			\item for every $\varepsilon,\delta\in(0,1)$
 			\item for every distribution $\mathcal{D}$ over $\mathcal{X}$, and for every labeling function $f:\mathcal{X}\to\{0,1\}$
@@ -1386,7 +1385,7 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 	\begin{definition}[Agnostic PAC-Learnability]
-		A hypothesis space $\mathcal{H}\subset\mathcal{Y}^{\mathcal{X}}$ is agnostic PAC-learnable under a class $\Delta$ of distributions with respect to $\mathcal{Z}\coloneqq \mathcal{X}\times\mathcal{Y}$ and a loss function $\ell:\mathcal{H}\times\mathcal{Z}\to\mathbb{R}^+$, if there exists a sample complexity function $m_{\mathcal{H}}: (0,1)^2\to\mathbb{N}$ and a learning algorithm $A$ with the following property:
+		A hypothesis space $\mathcal{H}\subset\mathcal{Y}^{\mathcal{X}}$ is agnostic PAC-learnable under a class $\Delta$ of distributions with respect to $\mathcal{Z}\coloneqq \mathcal{X}\times\mathcal{Y}$ and a loss function $\ell:\mathcal{H}\times\mathcal{Z}\to\mathbb{R}^+$, iff there exists a sample complexity function $m_{\mathcal{H}}: (0,1)^2\to\mathbb{N}$ and a learning algorithm $A$ with the following property:
 		\begin{itemize}
 			\item for every $\varepsilon,\delta\in(0,1)$
 			\item for every distribution $\mathcal{D}\in\Delta$ over $\mathcal{Z}$
@@ -1400,7 +1399,7 @@ Superintelligence is a challenge for which we are not ready now and will not be 
 
 \begin{frame}\frametitle{VC-Dimension}
 \begin{definition}[Shattering]
-A hypothesis space $\mathcal{H}\subset 2^{\mathcal{X}}$ shatters a set $C\subset\mathcal{X}$ if $\mathcal{H}{\restriction_C}=2^C$.
+A hypothesis space $\mathcal{H}\subset 2^{\mathcal{X}}$ shatters a set $C\subset\mathcal{X}$ iff $\mathcal{H}{\restriction_C}=2^C$.
 \end{definition}
 \begin{definition}[VC-Dimension]
 $\operatorname{VC}(\mathcal{H})\coloneqq \sup\big\{|C|: \mathcal{H} \mbox{ shatters } C\big\}$.
@@ -2007,15 +2006,15 @@ Natural language processing & Definite clause grammars & Probabilistic context-f
 \setlength\belowdisplayskip{0pt}
 \begin{definition}[Martin-L\"of Randomness]
 \begin{itemize}
-	\item A total lower semicomputable function $\delta: 2^{<\omega}\to\omega$ is a Martin-Löf test if $\forall n:\mu(V_n)\leq 2^{-n}$, where $V_n\coloneqq \{x:\delta(x)\geq n\}$.
-	\item $x\in 2^\omega$ is ML-random if for every ML-test $\delta$, $\sup_n\delta(x_{1:n})<\infty$.
+	\item A total lower semicomputable function $\delta: 2^{<\omega}\to\omega$ is a Martin-Löf test iff $\forall n:\mu(V_n)\leq 2^{-n}$, where $V_n\coloneqq \{x:\delta(x)\geq n\}$.
+	\item $x\in 2^\omega$ is ML-random iff for every ML-test $\delta$, $\sup_n\delta(x_{1:n})<\infty$.
 \end{itemize}
 \end{definition}
 \[\delta(x)<\infty\iff x\notin\bigcap\limits_{n=1}^\infty V_n\]
 \begin{definition}[Martin-L\"of Randomness]
 \begin{itemize}
 	\item A Martin-Löf test is a uniformly c.e. (i.e., $\big\{\langle n,x\rangle: x\in V_n\big\}$ is c.e.) sequence of open sets $\{V_n\}_{n\in\omega}$ s.t. $\forall n: \mu(V_n)\leq 2^{-n}$.
-	\item $x\in 2^\omega$ is ML-random if for every ML-test $\{V_n\}_{n\in\omega}$, $x\notin\bigcap\limits_{n=1}^\infty V_n$.
+	\item $x\in 2^\omega$ is ML-random iff for every ML-test $\{V_n\}_{n\in\omega}$, $x\notin\bigcap\limits_{n=1}^\infty V_n$.
 \end{itemize}
 \end{definition}
 \end{frame}
@@ -2024,7 +2023,7 @@ Natural language processing & Definite clause grammars & Probabilistic context-f
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{definition}[Universal Martin-L\"of Test]
-A ML-test $\delta_0$ is \emph{universal} if for every ML-test $\delta$, $\exists c\forall x:\delta_0(x)\geq\delta(x)-c$.
+A ML-test $\delta_0$ is \emph{universal} iff for every ML-test $\delta$, $\exists c\forall x:\delta_0(x)\geq\delta(x)-c$.
 \end{definition}
 A ML-test $\{U_n\}_{n\in\omega}$ is \emph{universal} iff for every ML-test $\{V_n\}_{n\in\omega}$, $\bigcap\limits_{n\in\omega}U_n\supset\bigcap\limits_{n\in\omega}V_n$.
 \begin{center}
@@ -2045,7 +2044,7 @@ A sequence $x\in 2^\omega$ is ML-random iff it is $1$-random.
 	\[d(\sigma)=\frac{d(\sigma0)+d(\sigma1)}{2}\]
 	\item A supermartingale is a function $d: 2^{<\omega}\to[0,\infty)$ s.t. for every $\sigma\in 2^{<\omega}$
 	\[d(\sigma)\geq\frac{d(\sigma0)+d(\sigma1)}{2}\]
-	\item A (super)martingale $d$ succeeds on $x\in 2^\omega$ if $\limsup\limits_{n\to\infty}d(x_{1:n})=\infty$.
+	\item A (super)martingale $d$ succeeds on $x\in 2^\omega$ iff $\limsup\limits_{n\to\infty}d(x_{1:n})=\infty$.
 \end{itemize}
 \begin{theorem}
 A sequence $x\in 2^\omega$ is ML-random iff no c.e. (super)martingale succeeds on it.
@@ -2058,7 +2057,7 @@ A sequence $x\in 2^\omega$ is ML-random iff no c.e. (super)martingale succeeds o
 \begin{columns}
 \column{.39\textwidth}
 \begin{definition}[$1$-Randomness]
-$x\in 2^\omega$ is $1$-random if
+$x\in 2^\omega$ is $1$-random iff
 \[\exists c\forall n: K(x_{1:n})\geq n-c\]
 \end{definition}
 \column{.62\textwidth}
@@ -2081,7 +2080,7 @@ The following are equivalent.
 
 \begin{frame}\frametitle{}
 \begin{definition}[Solovay Reducibility]
-Let $a_n\to\alpha$ and $b_n\to\beta$ be two computable strictly increasing sequences of rationals converging to lower semicomputable reals $\alpha$ and $\beta$. We say that $\alpha\leq_S\beta$ if there is a constant $c$ and a total computable function $f$ s.t. $\forall n:\alpha-a_{f(n)}\leq c(\beta-b_n)$.
+Let $a_n\to\alpha$ and $b_n\to\beta$ be two computable strictly increasing sequences of rationals converging to lower semicomputable reals $\alpha$ and $\beta$. We say that $\alpha\leq_S\beta$ iff there is a constant $c$ and a total computable function $f$ s.t. $\forall n:\alpha-a_{f(n)}\leq c(\beta-b_n)$.
 \end{definition}
 \begin{theorem}
 For lower semicomputable reals $\alpha$, the following are equivalent.
@@ -2100,26 +2099,28 @@ For lower semicomputable reals $\alpha$, the following are equivalent.
 \begin{frame}\frametitle{$\mu/\xi$-randomness}
 \begin{definition}[$\mu/\xi$-randomness]
 \begin{itemize}
-	\item A sequence $x\in 2^\omega$ is $\mu/\xi$-random if $\exists c\forall n: \xi(x_{1:n})\leq c\cdot\mu(x_{1:n})$.
-	\item A sequence $x\in 2^\omega$ is $\mu$-ML-random if $\exists c\forall n: M(x_{1:n})\leq c\cdot\mu(x_{1:n})$.
+	\item A sequence $x\in 2^\omega$ is $\mu/\xi$-random iff $\exists c\forall n: \xi(x_{1:n})\leq c\cdot\mu(x_{1:n})$.
+	\item A sequence $x\in 2^\omega$ is $\mu$-ML-random iff $\exists c\forall n: M(x_{1:n})\leq c\cdot\mu(x_{1:n})$.
 \end{itemize}
 \end{definition}
+\begin{block}{}
 \begin{itemize}
 \item $x_{1:\infty}$ is $\mu$-ML-random iff $\sup_n\delta(x_{1:n}|\mu)<\infty$, where
 \[\delta(x|\mu)\coloneqq \log\frac{M(x)}{\mu(x)}\]
 \item For a computable $\mu$, $x_{1:\infty}$ is $\mu$-ML-random iff
 \[\forall n: Km(x_{1:n})\eqa-\log\mu(x_{1:n})\]
-\end{itemize}
+\end{itemize}	
+\end{block}
 \end{frame}
 
 \begin{frame}\frametitle{Randomness, Triviality, Logical Depth}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
 \begin{itemize}
-\item $A\subset\mathbb{N}$ is \emph{low} if $A'\leq_T\emptyset'$, and $A$ is \emph{high} if $\emptyset''\leq_T A'$.
-\item $A$ is \emph{low for ML-randomness} if each ML-random set is already ML-random relative to $A$.
-\item $A$ is \emph{low for $K$} if $\exists c\forall x: K(x)\leq K^A(x)+c$.
-\item $x\in 2^\omega$ is \emph{$K$-trivial} if $\exists c\forall n: K(x_{1:n})\leq K(n)+c$.
+\item $A\subset\mathbb{N}$ is \emph{low} iff $A'\leq_T\emptyset'$, and $A$ is \emph{high} iff $\emptyset''\leq_T A'$.
+\item $A$ is \emph{low for ML-randomness} iff each ML-random set is already ML-random relative to $A$.
+\item $A$ is \emph{low for $K$} iff $\exists c\forall x: K(x)\leq K^A(x)+c$.
+\item $x\in 2^\omega$ is \emph{$K$-trivial} iff $\exists c\forall n: K(x_{1:n})\leq K(n)+c$.
 \end{itemize}
 \begin{theorem}
 $A$ is $K$-trivial $\iff$ $A$ is low for ML-randomness $\iff A$ is low for $K$.
@@ -2131,7 +2132,7 @@ Neither randoms, nor $K$-trivials, are deep.
 The logical depth of $x$ at a significance level $b$ is
 \[\operatorname{depth_b}(x)\coloneqq \min\left\{t: U^t(p)=x\;\;\&\;\;\ell(p)-K(x)\leq b\right\}\]
 \end{definition}
-$x$ is called \emph{shallow} if $\operatorname{depth_b}(x)\leqa\ell(x)$.\\
+$x$ is called \emph{shallow} iff $\operatorname{depth_b}(x)\leqa\ell(x)$.\\
 Let $\chi_i\coloneqq \llbracket\varphi_i(i)\downarrow\rrbracket$. $\chi_{1:\infty}$ is deep. $\Omega$ is shallow.
 \end{frame}
 
@@ -2380,14 +2381,14 @@ Would the pavement be wet \textbf{had} the sprinkler been on?
 
 \begin{frame}\frametitle{$d$-separation}
 \begin{definition}[Blocking of Paths]
-A path $q$ is said to be \textcolor{red}{blocked} by a set $S$ if
+A path $q$ is said to be \textcolor{red}{blocked} by a set $S$ iff
 \begin{itemize}
 	\item $q$ contains a \textcolor{red}{chain} $V_i\to V_j\to V_k$ or a \textcolor{red}{fork} $V_i\gets V_j\to V_k$ such that the middle node is in $S$, or
 	\item $q$ contains a \textcolor{red}{collider} $V_i\to V_j\gets V_k$ such that the middle node is not in $S$ and no descendant of $V_j$ is in $S$.
 \end{itemize}
 \end{definition}
 \begin{definition}[$d$-separation]
-$S$ is said to \textcolor{red}{$d$-separate} $X$ and $Y$ in the DAG $G$, i.e., $(X\perp Y | S)_G$ if $S$ blocks every path from a vertex in $X$ to a vertex in $Y$.
+$S$ is said to \textcolor{red}{$d$-separate} $X$ and $Y$ in the DAG $G$, i.e., $(X\perp Y | S)_G$ iff $S$ blocks every path from a vertex in $X$ to a vertex in $Y$.
 \end{definition}
 \begin{example}
 \[
@@ -2815,9 +2816,9 @@ If a preference relation $\succeq$ satisfies the above constraints, then there e
 \end{center}\vspace*{-1ex}
 \begin{itemize}
 	\item Given an initial situation, a \emph{Pareto improvement} is a new situation where some agents will gain, and no agents will lose.
-	\item A situation is called \emph{Pareto dominated} if it has a Pareto improvement.
-	\item A situation is called \emph{Pareto optimal} if no change could lead to improved satisfaction for all parties.
-	\item The \emph{Pareto frontier} is the set of all Pareto efficient allocations.
+	\item A situation is called \emph{Pareto dominated} iff it has a Pareto improvement.
+	\item A situation is called \emph{Pareto optimal} iff no change could lead to improved satisfaction for some agent without some other agent losing.
+	\item The \emph{Pareto frontier} is the set of all Pareto optimal allocations.
 \end{itemize}
 \begin{table}
 \begin{tabu}{c|c}
@@ -2899,7 +2900,7 @@ Not Press &  &\\
 			\item $\forall m<n\left(h_{1:n}\in \mathcal{H}\implies h_{1:m}\in \mathcal{H}\right)$
 			\item $\forall n\in\mathbb N\left(h_{1:n}\in \mathcal{H}\right)\implies h_{1:\infty}\in \mathcal{H}$
 		\end{enumerate}
-		\item A history $h\in \mathcal{H}$ is terminal if $h=h_{1:\infty}$ or there is no $a\in \mathcal{A}$ s.t. $ha\in \mathcal{H}$. The set of terminal histories is denoted $\mathcal{Z}$.
+		\item A history $h\in \mathcal{H}$ is terminal iff $h=h_{1:\infty}$ or there is no $a\in \mathcal{A}$ s.t. $ha\in \mathcal{H}$. The set of terminal histories is denoted $\mathcal{Z}$.
 		\item The set of actions at $h$: $A(h):=\{a:ha\in \mathcal{H}\}$.
 		\item The player function: $P:\mathcal{H}\setminus \mathcal{Z}\to N\cup\{c\}$.
 		\item The function $f_c$ associates with every history $h$ for which $P(h)=c$ a probability measure $f_c(\cdot|h)$ on $A(h)$. $f_c(\cdot|h)\in\Delta(A(h))$.
@@ -2986,7 +2987,7 @@ Obviously, \[\forall h\in\mathcal{H}\left(P(h)\neq c\right)\implies u_i(s)=u_i(h
 
 \begin{frame}\frametitle{Perfect Recall}
 \begin{definition}[Perfect Recall]
-	An extensive game has \emph{perfect recall} if for every player $i\in N$ and for histories $h,h^\prime\in I\in\mathcal{I}_i$
+	An extensive game has \emph{perfect recall} iff for every player $i\in N$ and for histories $h,h^\prime\in I\in\mathcal{I}_i$
 \begin{itemize}
 	\item $\ell(h)=\ell(h')$
 	\item $\forall k\leq \ell(h):\,P(h_{1:k})=i\implies h_{k+1}=h_{k+1}'\;\&\;\exists I\in\mathcal{I}_i(h_{1:k}\in I\;\&\;h_{1:k}'\in I)$
@@ -2999,7 +3000,7 @@ For any profile $\sigma/\rho$, we define the \emph{outcome} $\overline{\sigma}(h
 \[\sigma_i(h)\coloneqq \sum\limits_{s_i\leadsto h}\sigma_i(s_i)\]
 \[\overline{\sigma}(h)\coloneqq \prod\limits_{i\in N\cup\{c\}}\sigma_i(h)\]
 \[\overline{\rho}(h)\coloneqq \prod\limits_{k=0}^{\ell(h)}\rho_{P(h_{<k})}(h_{<k})(h_k)\sigma_c(h)\]
-Two (mixed or behavioural) strategies of any player are \emph{outcome-equivalent} if for every collection of pure strategies of the other players the two strategies induce the same outcome.
+Two (mixed or behavioural) strategies of any player are \emph{outcome-equivalent} iff for every collection of pure strategies of the other players the two strategies induce the same outcome.
 \begin{theorem}[Outcome-Equivalent Theorem]
 	In games with perfect recall, for any mixed strategy there is an outcome-equivalent behavioural strategy and vice versa.
 \end{theorem}
@@ -3034,11 +3035,11 @@ Note that $u_i$ is multilinear.
 
 \begin{frame}\frametitle{Dominant Strategy Equilibrium}
 \begin{definition}[Dominant Strategy]
-	A strategy $s_i^*\in S_i$ is a \emph{dominant strategy} if
+	A strategy $s_i^*\in S_i$ is a \emph{dominant strategy} iff
 	\[u_i(s_i^*;s_{-i})\geq u_i(s_i;s_{-i})\;\;\text{for all $s_i\in S_i$ and for all $s_{-i}\in S_{-i}$}\]
 \end{definition}
 \begin{definition}[Dominant Equilibrium]
-	A strategy profile $s^*$ is a \emph{dominant strategy equilibrium} if for each player $i\in N$, $s_i^*$ is a dominant strategy.
+	A strategy profile $s^*$ is a \emph{dominant strategy equilibrium} iff for each player $i\in N$, $s_i^*$ is a dominant strategy.
 \end{definition}	
 \end{frame}
 
@@ -3112,7 +3113,7 @@ Let $\Omega$ be the uncertainty space, $\mathcal{I}_i$ be the information partit
 	A \emph{subgame perfect equilibrium} of an extensive game $\Gamma$ is a strategy profile $s^*$ such that for every player $i\in N$ and every nonterminal history $h\in\mathcal{H}\setminus\mathcal{Z}$ for which $P(h)=i$ we have \[u_i|_h(s_i^*;s_{-i}^*)\geq u_i|_h(s_i;s_{-i}^*)\]
 	for every strategy $s_i$ of player $i$ in the subgame $\Gamma(h)$.
 	
-	A behaviour strategy profile $\rho^*$ is a \emph{subgame perfect equilibrium} of a game $\Gamma$ if for all subgames $\Gamma(h)$ of $\Gamma$, and,
+	A behaviour strategy profile $\rho^*$ is a \emph{subgame perfect equilibrium} of a game $\Gamma$ iff for all subgames $\Gamma(h)$ of $\Gamma$, and,
 	\[\forall i\in N\forall\rho_i\in B_i:\, u_i|_h(\rho_i^*;\rho_{-i}^*)\geq u_i|_h(\rho_i;\rho_{-i}^*)\]
 \end{definition}
 \end{frame}
@@ -3122,7 +3123,7 @@ Let $\Omega$ be the uncertainty space, $\mathcal{I}_i$ be the information partit
 	An \emph{assessment} in an extensive game is a pair $(\rho,\mu)$, where $\rho$ is a profile of behavioural strategies and $\mu$ is a belief system. $\mu(I)(h)$ is the probability that player $P(I)$ assigns to the history $h\in I$, conditional on $I$ being reached.
 \end{definition}
 \begin{definition}[Sequentially Rationality]
-	An assessment $(\rho,\mu)$ is \emph{sequentially rational} if for every player $i$ and every information set $I\in\mathcal{I}_i$ the strategy of player $i$ is a best response to the other players' strategies given $i$'s beliefs at $I$.
+	An assessment $(\rho,\mu)$ is \emph{sequentially rational} iff for every player $i$ and every information set $I\in\mathcal{I}_i$ the strategy of player $i$ is a best response to the other players' strategies given $i$'s beliefs at $I$.
 	\[\forall\rho_i^\prime\in B_i:\, \sum\limits_{h\in I}u_i|_h(\rho_i;\rho_{-i})\mu(I)(h)\geq\sum\limits_{h\in I}u_i|_h(\rho_i^\prime;\rho_{-i})\mu(I)(h)\]
 \end{definition}
 \end{frame}
@@ -3143,19 +3144,19 @@ since by perfect recall, there is at most one subhistory $h$ of $h^\prime$ in $I
 \begin{itemize}
 	\item An assessment $(\rho,\mu)$ is \emph{sequentially rational} iff for every player $i$ and every information set $I\in\mathcal{I}_i$
 \[\forall \rho_i^\prime\in B_i:\, O(\rho,\mu|I)\succcurlyeq_i O((\rho_i^\prime;\rho_{-i}),\mu|I)\]
-	\item A behavioural strategy profile to be \emph{\emph{completely mixed}} if it assigns positive probability to every action at every information set.
+	\item A behavioural strategy profile to be \emph{\emph{completely mixed}} iff it assigns positive probability to every action at every information set.
 \end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{}
 \begin{definition}[Consistency of Beliefs with Strategies]
-	Let $\Gamma$ be a finite extensive game with perfect recall. An assessment $(\rho,\mu)$ is \emph{consistent} if there is a sequence $((\rho^n,\mu^n))_{n=1}^\infty$ of assessments s.t. $(\rho,\mu)=\lim\limits_{n\to\infty}(\rho^n,\mu^n)$ and each strategy profile $\rho^n$ is completely mixed and each belief system $\mu^n$ is derived from $\rho^n$ using Bayes' rule: \[\mu^n(I)(h)=\dfrac{\overline{\rho}^n(h)}{\sum\limits_{h\in I}\overline{\rho}^n(h)}\]
+	Let $\Gamma$ be a finite extensive game with perfect recall. An assessment $(\rho,\mu)$ is \emph{consistent} iff there is a sequence $((\rho^n,\mu^n))_{n=1}^\infty$ of assessments s.t. $(\rho,\mu)=\lim\limits_{n\to\infty}(\rho^n,\mu^n)$ and each strategy profile $\rho^n$ is completely mixed and each belief system $\mu^n$ is derived from $\rho^n$ using Bayes' rule: \[\mu^n(I)(h)=\dfrac{\overline{\rho}^n(h)}{\sum\limits_{h\in I}\overline{\rho}^n(h)}\]
 \end{definition}
 \end{frame}
 
 \begin{frame}\frametitle{}
 \begin{definition}[Sequential Equilibrium]
-	An assessment is a \emph{sequential equilibrium} of a finite extensive game with perfect recall if it is sequentially rational and consistent.
+	An assessment is a \emph{sequential equilibrium} of a finite extensive game with perfect recall iff it is sequentially rational and consistent.
 \end{definition}
 \begin{theorem}
 	Every finite extensive game with perfect recall has a sequential equilibrium.
@@ -3212,7 +3213,7 @@ since by perfect recall, there is at most one subhistory $h$ of $h^\prime$ in $I
 	\[R_i^B(\sigma_{-i})\coloneqq \argmax_{\sigma_i\in \Delta(S_i)^{\Theta_i}}V_i(\sigma_i;\sigma_{-i})\]
 \end{definition}
 \textbf{Remark:} It may seem odd that $R^B$ is calculated based on $i$'s
-ex ante expected utility. However, we are in fact performing independent maximization of $i$'s \emph{ex interim expected utilities} conditioned on each type that he could have.
+ex ante expected utility. However, we are in fact performing independent maximization of $i$'s \emph{ex interim expected utilities} conditioned on each type that he could have.\\
 Intuitively speaking, if a certain action is best after the signal is received, it is also the best conditional plan devised ahead of time for what to do should that signal be received.	
 \end{frame}
 
@@ -3266,7 +3267,7 @@ the probability that $i$ assigns to $\theta_{-i}$ is derived from $\mu_{-i}(h)$.
 
 \begin{frame}\frametitle{Perfect Bayesian Equilibrium}
 \begin{definition}[Perfect Bayesian Equilibrium]
-	For a Bayesian extensive game with observable actions, $((\rho_i),(\mu_i))\coloneqq ((\rho_i(\theta_i))_{\theta_i\in\Theta_i},(\mu_i(h))_{h\in\mathcal{H}\setminus\mathcal{Z}})$ is a \emph{perfect Bayesian equilibrium} of the game if the following conditions are satisfied, where $\rho_i(\theta_i)$ is a behavioural strategy of player $i\in N$ and $\mu_i(h)\in\Delta(\Theta_i)$.
+	For a Bayesian extensive game with observable actions, $((\rho_i),(\mu_i))\coloneqq ((\rho_i(\theta_i))_{\theta_i\in\Theta_i},(\mu_i(h))_{h\in\mathcal{H}\setminus\mathcal{Z}})$ is a \emph{perfect Bayesian equilibrium} of the game iff the following conditions are satisfied, where $\rho_i(\theta_i)$ is a behavioural strategy of player $i\in N$ and $\mu_i(h)\in\Delta(\Theta_i)$.
 \end{definition}
 \end{frame}
 
@@ -3306,13 +3307,13 @@ The condition of Bayesian updating relates to a case in which player $i$'s actio
 \begin{frame}\frametitle{Equilibrium}
 \begin{definition}[Nash Euqilibrium]
 \begin{itemize}
-\item $s^*$ is a \emph{pure Nash equilibrium} if $s^*\in\prod\limits_{i\in N}\argmax\limits_{s_i\in S_i}u_i(s_i;s_{-i})$.
-\item $\sigma^*$ is a \emph{mixed Nash equilibrium} if
+\item $s^*$ is a \emph{pure Nash equilibrium} iff $s^*\in\prod\limits_{i\in N}\argmax\limits_{s_i\in S_i}u_i(s_i;s_{-i})$.
+\item $\sigma^*$ is a \emph{mixed Nash equilibrium} iff
 \[\forall i\in N\forall\sigma_i\in\Delta S_i: u_i(\sigma_i^*;\sigma_{-i}^*)\geq u_i(\sigma_i;\sigma_{-i}^*)\]
 \end{itemize}
 \end{definition}
 \begin{definition}[Correlated Equilibrium]
-Let $\Omega$ be the state space, $\mathcal{I}_i$ be the information partition of player $i$, $P(\cdot|\mathcal{I}_i)\in\Delta\Omega$ be the interim belief systems, and $\sigma_i: \Omega \to S_i$ be measurable with regard to $\mathcal{I}_i$. Then $(\sigma_i)_{i\in N}$ is a posteriori equilibrium of the strategic game $(N,S_i,u_i)$ if
+Let $\Omega$ be the state space, $\mathcal{I}_i$ be the information partition of player $i$, $P(\cdot|\mathcal{I}_i)\in\Delta\Omega$ be the interim belief systems, and $\sigma_i: \Omega \to S_i$ be measurable with regard to $\mathcal{I}_i$. Then $(\sigma_i)_{i\in N}$ is a posteriori equilibrium of the strategic game $(N,S_i,u_i)$ iff
 \[\forall i\in N\forall s_i\in S_i: \sum_{\omega \in \Omega}P\big(\omega|\mathcal{I}_i(\omega)\big)\Big(u_i\big(\sigma_i(\omega );\sigma_{-i}(\omega)\big)-u_i\big(s_i;\sigma_{-i}(\omega)\big)\Big)\geq 0\]
 \end{definition}
 {\footnotesize \textbf{Remark:} For every Nash equilibrium there exists a corresponding correlated equilibrium.}
@@ -3376,8 +3377,8 @@ If we all go for the blonde and block each other, not a single one of us is goin
 \end{quote}\vspace{-4pt}
 \begin{itemize}
 	\item The addition of options is not necessarily a good thing.
-	\item A strategy profile is Pareto efficient if no other strategy profile improves the payoff to at least one actor without decreasing the payoff of other actors.
-	\item The Nash equilibrium of a game is not necessarily Pareto efficient.
+	\item A strategy profile is Pareto optimal iff no other strategy profile improves the payoff to at least one actor without decreasing the payoff of other actors.
+	\item The Nash equilibrium of a game is not necessarily Pareto optimal.
 \end{itemize}
 \begin{figure}[H]
 \begin{tikzcd}[column sep=large,row sep=small]
@@ -3533,7 +3534,7 @@ Q^\pi(s,a)&=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')
 		\[Q^*(s,a)\coloneqq \max\limits_\pi Q^\pi(s,a)\]
 	\end{definition}
 	\begin{definition}[Optimal Policy]
-		A policy $\pi$ is called optimal if $\forall s\in\mathcal{S}: V^\pi(s)=V^*(s)$.
+		A policy $\pi$ is called optimal iff $\forall s\in\mathcal{S}: V^\pi(s)=V^*(s)$.
 	\end{definition}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
@@ -3556,7 +3557,7 @@ Q^\pi(s,a)&=r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V^\pi(s')
 		\[T^* V(s)\coloneqq \max\limits_{a\in\mathcal{A}}T_aV(s)=\max\limits_{a\in\mathcal{A}}\left(r(s,a)+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'|s,a)V(s')\right)\]
 	\end{definition}
 	\begin{definition}[Greedy policy]
-		Policy $\pi$ is greedy w.r.t. $V$ if $T^\pi V=T^* V$.
+		Policy $\pi$ is greedy w.r.t. $V$ iff $T^\pi V=T^* V$.
 	\end{definition}	
 \end{frame}
 
@@ -4089,10 +4090,10 @@ Take advantage of the structure of the data!
 
 \begin{frame}\frametitle{Minimal Sufficient Statistic}
 \begin{definition}[Sufficient Statistic]
-Let $Y$ be a parameter indexing a family of probability distributions. Let $X$ be random variable drawn from a probability distribution determined by $Y$. $T(X)$ is a sufficient statistic for $Y$ if $X$ is independent of $Y$ given $T(X)$, i.e., $p(x|t,y)=p(x|t)$.
+Let $Y$ be a parameter indexing a family of probability distributions. Let $X$ be random variable drawn from a probability distribution determined by $Y$. $T(X)$ is a sufficient statistic for $Y$ iff $X$ is independent of $Y$ given $T(X)$, i.e., $p(x|t,y)=p(x|t)$.
 \end{definition}
 \begin{definition}[Minimal Sufficient Statistic]
-A sufficient statistic $S(X)$ is minimal if for any sufficient statistic $T(X)$, there exists a function $f$ s.t. $S=f(T)$ almost everywhere w.r.t $X$.
+A sufficient statistic $S(X)$ is minimal iff for any sufficient statistic $T(X)$, there exists a function $f$ s.t. $S=f(T)$ almost everywhere w.r.t $X$.
 \end{definition}
 \begin{theorem}
 \begin{itemize}
@@ -4894,7 +4895,7 @@ $\nu_\infty$ && $\nu_k$
 		If there is a nonincreasing computable sequence of positive reals $(\varepsilon_t)_{t\in\mathbb{N}}$ s.t. $\varepsilon_t\xrightarrow{t\to\infty}0$ and $\frac{H_t(\varepsilon_t)}{t\varepsilon_t}\xrightarrow{t\to\infty}0$, then there is a \textcolor{yellow}{limit-computable} policy	that is weakly asymptotically optimal in the class of all computable stochastic environments.
 	\end{theorem}
 	\begin{definition}[$\varepsilon$-Optimal Policy]
-		A policy $\pi$ is $\varepsilon$-optimal in environment $\nu$ if 
+		A policy $\pi$ is $\varepsilon$-optimal in environment $\nu$ iff
 		\[\forall h: V_\nu^*(h)-V_\nu^\pi(h)<\varepsilon\]
 	\end{definition}
 	\centering $\varepsilon$-optimal BayesExp
@@ -5598,7 +5599,7 @@ Yanofsky: A universal approach to self-referential paradoxes, incompleteness and
 \begin{columns}
 \column{.57\textwidth}
 \begin{definition}[Point-Surjective]
-A morphism $f: X\to Y$ is \emph{point-surjective} if for every $y: 1\to Y$, there is an $x: 1\to X$ such that $y=f\circ x$.
+A morphism $f: X\to Y$ is \emph{point-surjective} iff for every $y: 1\to Y$, there is an $x: 1\to X$ such that $y=f\circ x$.
 \end{definition}
 	\begin{theorem}[Lawvere's Fixpoint Theorem]
 		In a cartesian closed category, if there is a point-surjective morphism $f: X\to Y^X$, then every morphism $\alpha: Y\to Y$ has a fixpoint $y: 1\to Y$.
@@ -5775,8 +5776,8 @@ s=\textquotesingle s=\%r; print(s\%\%s)\textquotesingle; print(s\%s)
 		Given a total recursive function $\psi$,
 		\begin{itemize}
 			\item the \emph{$\psi$-analysis} of $\varphi(x)$ is the code of the computation of $\varphi(x)$ to $\psi(x)$ steps.
-			\item $\varphi$ is \emph{$\psi$-introspective} at $x$ if $\varphi(x)\downarrow$ and outputs its own $\psi$-analysis.
-			\item $\varphi$ is \emph{totally $\psi$-introspective} if it is $\psi$-introspective at all $x$. 
+			\item $\varphi$ is \emph{$\psi$-introspective} at $x$ iff $\varphi(x)\downarrow$ and outputs its own $\psi$-analysis.
+			\item $\varphi$ is \emph{totally $\psi$-introspective} iff it is $\psi$-introspective at all $x$. 
 		\end{itemize}
 	\end{definition}
 	\begin{corollary}
