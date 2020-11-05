@@ -1992,10 +1992,10 @@ Arithetical truth can't be defined in arithmetic.
 		Building blocks of propositional logic language.
 		\item Syntax.
 		
-		Propositional symbols and propositional formulae.
+		Propositional symbols and propositional formulas.
 		\item Semantics.
 		
-		Assign ``meaning'' to propositional formulae by first assigning ``meaning'' to propositional symbols.
+		Assign ``meaning'' to propositional formulas by first assigning ``meaning'' to propositional symbols.
 		\item Calculus.
 		
 		Axioms and inference rules.
@@ -2123,7 +2123,7 @@ Arithetical truth can't be defined in arithmetic.
 
 \begin{frame}\frametitle{Induction Principle for wff}
 	\begin{theorem}[Induction Principle]
-		Let $P$ be a property of formulae, satisfying
+		Let $P$ be a property of formulas, satisfying
 		\begin{itemize}
 		\item every atomic formula has property $P$, and
 		\item property $P$ is closed under all the formula-building operations,
@@ -2156,7 +2156,7 @@ $P(n)\coloneqq $ ``$n$ rings needs $2^n-1$ moves.''
 
 \begin{frame}\frametitle{Subformula}
 	\begin{definition}[Subformula]
-		The set $\operatorname{Sub}(A)$ of subformulae of a wff $A$ is the smallest set $\Gamma$ that satisfies
+		The set $\operatorname{Sub}(A)$ of subformulas of a wff $A$ is the smallest set $\Gamma$ that satisfies
 		\begin{enumerate}
 			\item $A\in\Gamma$
 			\item $\neg B\in\Gamma\implies B\in\Gamma$
@@ -2167,7 +2167,7 @@ $P(n)\coloneqq $ ``$n$ rings needs $2^n-1$ moves.''
 		\[
 		\operatorname{Sub}(A)\coloneqq 
 		\begin{cases}
-		 A &\text{if}\; A=p\\
+		 \{A\} &\text{if}\; A=p\\
 		\{A\}\cup \operatorname{Sub}(B) &\text{if}\; A=\neg B\\
 		\{A\}\cup \operatorname{Sub}(B)\cup \operatorname{Sub}(C) &\text{if}\; A=B\to C
 		\end{cases}
@@ -2746,7 +2746,7 @@ B \arrow[r] \arrow[dr, "h"']
 
 \begin{frame}\frametitle{Semantic Equivalence}
 	\begin{itemize}
-		\item Semantic equivalence is an equivalence relation between formulae.
+		\item Semantic equivalence is an equivalence relation between formulas.
 		\item Semantic equivalence is compatible with operators.
 \begin{align*}
 A\semeq A'&\implies\neg A\semeq\neg A'\\
@@ -3598,18 +3598,20 @@ A truth assignment for $\mathscr{L}^0$ is a function $\nu:\mathcal{P}\to\{0,1\}$
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Tactics}
+\begin{frame}\frametitle{}
+\begin{block}{Tactics}
 \begin{itemize}
 	\item Try to apply ``non-branching'' rules first, in order to reduce the number of branches.
 	\item Try to close off branches as quickly as possible.
 \end{itemize}
+\end{block}
 \begin{definition}[Deduction]
 	$A_1,\dots, A_n\vdash B$ iff there exists a \emph{closed tree} from $\{A_1,\dots, A_n,\neg B\}$.
 \end{definition}
 \begin{theorem}[Soundness \& Completeness Theorem]
 	\[A_1,\dots, A_n\vdash B\iff A_1,\dots, A_n\vDash B\]
 \end{theorem}
-	\textbf{Remark:} If an inference with propositional formulae is not valid, then its tree will have at least one open branch. The tree method can generate every counterexample of an invalid inference in propositional logic.
+	\textbf{Remark:} If an inference with propositional formulas is not valid, then its tree will have at least one open branch. The tree method can generate every counterexample of an invalid inference in propositional logic.
 \end{frame}
 
 \begin{frame}\frametitle{Examples --- Tree Method}
@@ -4509,7 +4511,7 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 	\end{figure}
 \end{frame}
 
-\begin{frame}\frametitle{Reductionism $\ne$ Emergence}
+\begin{frame}\frametitle{Emergence $\ne$ Reductionism}
 	\begin{figure}
 		\includegraphics[width=\textwidth,angle=0,origin=c]{img/purity}
 	\end{figure}
@@ -4546,7 +4548,7 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 			where $t\in\mathcal{T}$ and $P\in\mathcal{Q}$.
 		\end{block}
 		\begin{itemize}
-			\item $\mathrm{wff}$ is freely generated from atomic formulae by connective and quantifier operators.
+			\item $\mathrm{wff}$ is freely generated from atomic formulas by connective and quantifier operators.
 		\end{itemize}
 \end{frame}
 
@@ -4562,7 +4564,7 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 		\end{itemize}
 	\end{block}
 	\begin{itemize}
-		\item Bottom up and Top down definitions of terms, subterms, wffs and subformulae.
+		\item Bottom up and Top down definitions of terms, subterms, wffs and subformulas.
 		\item Induction Principle for terms and wffs.
 		\item Unique readability theorem for terms and wffs.
 		\item Omitting Parenthesis.\\
@@ -4617,13 +4619,13 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 \end{frame}
 
 \begin{frame}\frametitle{Freedom \& Bondage}
-	\begin{definition}[Free Variable of a Term]
+	\begin{definition}[Variable of a Term]
 		\[
-		\operatorname{Fv}(t)\coloneqq 
+		\operatorname{Var}(t)\coloneqq 
 		\begin{cases}
-		x &\text{if}\;t=x\\
+		\{x\} &\text{if}\;t=x\\
 		\emptyset &\text{if}\;t=c\\
-		\operatorname{Fv}(t_1)\cup\dots\cup \operatorname{Fv}(t_n) &\text{if}\;t=f(t_1,\dots,t_n)
+		\operatorname{Var}(t_1)\cup\dots\cup \operatorname{Var}(t_n) &\text{if}\;t=f(t_1,\dots,t_n)
 		\end{cases}
 		\]
 	\end{definition}
@@ -4631,8 +4633,8 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 		\[
 		\operatorname{Fv}(A)\coloneqq 
 		\begin{cases}
-		\operatorname{Fv}(t_1)\cup \operatorname{Fv}(t_2) &\text{if}\; A=t_1=t_2\\
-		\operatorname{Fv}(t_1)\cup\dots\cup \operatorname{Fv}(t_n) &\text{if}\; A=P(t_1,\dots,t_n)\\
+		\operatorname{Var}(t_1)\cup \operatorname{Var}(t_2) &\text{if}\; A=t_1=t_2\\
+		\operatorname{Var}(t_1)\cup\dots\cup \operatorname{Var}(t_n) &\text{if}\; A=P(t_1,\dots,t_n)\\
 		\operatorname{Fv}(B) &\text{if}\; A=\neg B\\
 		\operatorname{Fv}(B)\cup \operatorname{Fv}(C) &\text{if}\; A=B\to C\\
 		\operatorname{Fv}(B)\setminus\{x\} &\text{if}\; A=\forall x B
@@ -4653,7 +4655,7 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 		\end{cases}\]
 	\end{definition}
 \begin{itemize}
-	\item $t$ is a ground (closed) term iff $\operatorname{Fv}(t)=\emptyset$.
+	\item $t$ is a ground (closed) term iff $\operatorname{Var}(t)=\emptyset$.
 	\item $A$ is a sentence (closed formula) iff $\operatorname{Fv}(A)=\emptyset$.
 	\item $A$ is an open formula iff $\operatorname{Bv}(A)=\emptyset$.
 \end{itemize}
@@ -4839,7 +4841,7 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 			\item	$t$ is substitutable for $x$ in $\forall y A$ iff either
 		\begin{enumerate}
 			\item $x\notin \operatorname{Fv}(A)$ or
-			\item $y\notin \operatorname{Fv}(t)$ and $t$ is substitutable for $x$ in $A$.
+			\item $y\notin \operatorname{Var}(t)$ and $t$ is substitutable for $x$ in $A$.
 		\end{enumerate}
 		\end{itemize}
 \[\fbox{\textcolor{yellow}{Prevent the variables in $t$ from being bounded by a quantifier in $A$.}}\]
@@ -4965,7 +4967,7 @@ transmit the first bit unchanged and swap the last two bits iff the first bit is
 \end{frame}
 
 \begin{frame}\frametitle{Tarski's Definition of Truth --- another version}
-	Let $h$ map atomic formulae to variable assignments $\operatorname{P}(M^{\mathcal{V}})$.
+	Let $h$ map atomic formulas to variable assignments $\operatorname{P}(M^{\mathcal{V}})$.
 	\begin{itemize}
 		\item $h(t_1=t_2)=\left\{\nu:\overline{\nu}(t_1)=\overline{\nu}(t_2)\right\}$
 		\item $h(P(t_1,\dots,t_k))=\left\{\nu:(\overline{\nu}(t_1),\dots,\overline{\nu}(t_n))\in P^{\mathcal{M}}\right\}$
@@ -5242,7 +5244,7 @@ Px&\vDash^*\forall xPx
 
 \begin{frame}\frametitle{Equality and Equivalence}
 	\begin{lemma}
-		Suppose $\operatorname{Fv}(t)\cup \operatorname{Fv}(s)\subset\{x_1,\dots,x_n\}$, and $A^*$ arises from the wff $A$ by replacing one occurrence of $t$ in $A$ by $s$. Then
+		Suppose $\operatorname{Var}(t)\cup \operatorname{Var}(s)\subset\{x_1,\dots,x_n\}$, and $A^*$ arises from the wff $A$ by replacing one occurrence of $t$ in $A$ by $s$. Then
 		\[\vDash\forall x_1\dots x_n(t=s)\to(A\leftrightarrow A^*)\]
 		\[\mathcal{M}\vDash t=s\implies\mathcal{M}\vDash A\leftrightarrow A^*\]
 	\end{lemma}
@@ -5319,7 +5321,7 @@ Therefore $\mathcal{M},\nu\vDash\forall x(B\to A)$.
 	&t=t\\
 	&t=s\to s=t\\
 	&t=s\to s=r\to t=r\\
-	&t_1=s_1\to\dots\to t_n=s_n\to f(t_1,\dots,t_n)=f(s_1,\dots,t_n)\\
+	&t_1=s_1\to\dots\to t_n=s_n\to f(t_1,\dots,t_n)=f(s_1,\dots,s_n)\\
 	&t_1=s_1\to\dots\to t_n=s_n\to \bigl(P(t_1,\dots,t_n)\leftrightarrow P(s_1,\dots,s_n)\bigr)\\
 	&t=s\to r[t/x]=r[s/x]\\
 	&t=s\to\bigl(A[t/x]\leftrightarrow A[s/x]\bigr)
@@ -5327,7 +5329,7 @@ Therefore $\mathcal{M},\nu\vDash\forall x(B\to A)$.
 \end{frame}
 
 \begin{frame}\frametitle{Valid Formulas --- Example}
-	$x\notin \operatorname{Fv}(t):$
+	$x\notin \operatorname{Var}(t):$
 	\hrule
 	\begin{align*}
 	&\exists x(x=t)\\
@@ -5337,14 +5339,14 @@ Therefore $\mathcal{M},\nu\vDash\forall x(B\to A)$.
 \end{frame}
 
 \begin{frame}\frametitle{Example}
-\[\fbox{$A[t/x]\to\forall x(x=t\to A)\;\; \mbox{ where } x\notin\operatorname{Fv}(t)$}\]
+\[\fbox{$A[t/x]\to\forall x(x=t\to A)\;\; \mbox{ where } x\notin\operatorname{Var}(t)$}\]
 $\mathcal{M},\nu\vDash A[t/x]\implies\mathcal{M},\nu(\nu(t)/x)\vDash A$\\
 Assume $\nu(t)=b$. Then for all $a\in M$, ether $a=b$ or $a\ne b$.\\
 If $a=b$, then $\mathcal{M},\nu(a/x)\vDash A$.\\
 If $a\ne b$, then $\nu(a/x)(x)=a\ne b=\nu(t)=\nu(a/x)(t)$. So $\mathcal{M},\nu(a/x)\nvDash x=t$.\\
 Therefore we have $\mathcal{M},\nu(a/x)\vDash x=t\to A$ for all $a\in M$.
 
-\[\fbox{$\forall x(x=t\to A)\to A[t/x]\;\; \mbox{ where } x\notin\operatorname{Fv}(t)$}\]
+\[\fbox{$\forall x(x=t\to A)\to A[t/x]\;\; \mbox{ where } x\notin\operatorname{Var}(t)$}\]
 $\mathcal{M},\nu\vDash\forall x(x=t\to A)\implies \mbox{ for all } a\in M: \mathcal{M},\nu(a/x)\vDash x=t\to A$\\
 Let $\nu(t)=b$. Then $\mathcal{M},\nu(b/x)\vDash x=t\to A$.\\
 $\nu(b/x)(x)=b=\nu(t)=\nu(b/x)(t)\implies\mathcal{M},\nu(b/x)\vDash x=t$\\
@@ -5439,7 +5441,7 @@ Therefore $\mathcal{M},\nu(b/x)\vDash A$. By Substitution Lemma, $\mathcal{M},\n
 	\UnaryInfC{$\forall x A$}
 \end{prooftree}
 \end{block}
-What if we remove Axiom$9$ and add the rule of generalization to Hilbert System?
+What if we remove Axiom$9$ and add the rule of generalization \textcolor{yellow}{[G]} to Hilbert System?
 \begin{theorem}[Deduction Theorem2]
 If $\Gamma, A\vdash B$, where the rule of generalization is not applied to the free variables of $A$, then $\Gamma\vdash A\to B$.
 \end{theorem}
@@ -5735,7 +5737,7 @@ The cookie in the top left position is poisoned. Two players take turns making m
 \begin{frame}\frametitle{Unifier}
 \begin{block}{}
 \begin{itemize}
-\item A substitution $\sigma$ is a \emph{unifier} for a set $\Gamma$ of formulae iff for every $A, B\in\Gamma: A\sigma=B\sigma$.
+\item A substitution $\sigma$ is a \emph{unifier} for a set $\Gamma$ of formulas iff for every $A, B\in\Gamma: A\sigma=B\sigma$.
 \item A unifier $\sigma$ is a \emph{most general unifier} for $\Gamma$ iff for each unifier $\theta$ there exists a substitution $\uplambda$ s.t. $\theta=\sigma\uplambda$.
 \end{itemize}
 \end{block}
@@ -5776,12 +5778,14 @@ The cookie in the top left position is poisoned. Two players take turns making m
 	\begin{definition}[Deduction]
 		\[A_1,\dots, A_n\vdash B\;\text{iff there exists a closed tree from}\;\{A_1,\dots, A_n,\neg B\}.\]
 	\end{definition}
+\begin{block}{Tactics}
 \begin{itemize}
 	\item Try to apply ``non-branching'' rules first, in order to reduce the number of branches.
 	\item Try to close off branches as quickly as possible.
 	\item Deal with negated quantifiers first.
 	\item Instantiate existentials before universals.
 \end{itemize}
+\end{block}
 \end{frame}
 
 \begin{frame}\frametitle{Example --- Ground Tree}
@@ -6829,7 +6833,7 @@ where $a\notin\operatorname{Cst}(\exists x A, B)$, and $a$ is not in any assumpt
 	\end{theorem}
 \setlength\belowdisplayskip{0pt}
 	\begin{corollary}[The Subformula Property]
-		If $\Gamma\vdash\Delta$ is provable, then it has a deduction all of whose formulae are subformulae of $\Gamma$ and $\Delta$.
+		If $\Gamma\vdash\Delta$ is provable, then it has a deduction all of whose formulas are subformulas of $\Gamma$ and $\Delta$.
 	\end{corollary}
 	\begin{corollary}[Consistency]
 		A contradiction, i.e. the empty sequent $\emptyset\vdash\emptyset$, is not deducible.
@@ -7730,7 +7734,7 @@ We refer to the functions $X\mapsto X^*$ and $Y\mapsto Y^\dagger$ as \emph{polar
 	\end{lemma}\vspace{-1pt}
 	\begin{proof}
 		Let $\mathcal{C}$ be a set of new constants. $\mathscr{L}^+\coloneqq \mathscr{L}\cup\mathcal{C}$, $\mathscr{L}\cap\mathcal{C}=\emptyset$, $|\mathcal{C}|=|\mathscr{L}|$.\\
-		Assume $|\mathcal{C}|=\kappa$, and $\mathcal{C}=\left\{c_\xi: \xi<\kappa\right\}$. Arrange all formulae of $\mathscr{L}^+$ with at most one free variable in a sequence $\langle A_\xi: \xi<\kappa\rangle$. Let\vspace{-10pt}
+		Assume $|\mathcal{C}|=\kappa$, and $\mathcal{C}=\left\{c_\xi: \xi<\kappa\right\}$. Arrange all formulas of $\mathscr{L}^+$ with at most one free variable in a sequence $\langle A_\xi: \xi<\kappa\rangle$. Let\vspace{-10pt}
 		\begin{columns}
 			\column{.55\textwidth}
 				\begin{align*}
@@ -7928,8 +7932,8 @@ For any $n\in\mathbb{N}$,
 
 \begin{frame}\frametitle{Applications of Compactness}
 	\begin{itemize}
-		\item The class of all finite structures is not $EC_\Delta$. (Model finiteness is undefinable even by a set of formulae.)
-		\item The class of all infinite structures is $EC_\Delta$ but not $EC$. (Model infiniteness is definable by a set of formulae but undefinable by a single formula.)
+		\item The class of all finite structures is not $EC_\Delta$. (Model finiteness is undefinable even by a set of formulas.)
+		\item The class of all infinite structures is $EC_\Delta$ but not $EC$. (Model infiniteness is definable by a set of formulas but undefinable by a single formula.)
 		\item The class of graphs / groups / rings / fields / ordered fields / $n$-dimensional vector spaces / fields of characteristic $p$ is $EC$; the class of infinite groups / divisible groups / torsion-free groups / infinite rings / infinite-dimensional vector spaces / fields of characteristic $0$ is $EC_\Delta$ but not $EC$; the class of all connected graphs / finite graphs / finite groups / finite rings / finite fields / algebraically closed fields / torsion groups / finite-dimensional vector spaces / noetherian commutative rings is not $EC_\Delta$.
 	\end{itemize}
 \end{frame}
@@ -8219,10 +8223,10 @@ Putting them together, $\varphi(P) \vDash P(c_1,\dots, c_n)
 \end{frame}
 
 \begin{frame}\frametitle{Example --- $\mathcal{L}_{\kappa\lambda}$}
-	For $\kappa\geq\lambda$, define the $\mathcal{L}_{\kappa\lambda}$ formulae as for first order logic, plus:
+	For $\kappa\geq\lambda$, define the $\mathcal{L}_{\kappa\lambda}$ formulas as for first order logic, plus:
 	\begin{itemize}
-		\item Given a set of formulae $\{A_i: i\in I\}, |I|<\kappa$, then $\bigwedge\limits_{i\in I} A_i$ and $\bigvee\limits_{i\in I} A_i$ are formulae.
-		\item Given a set of variables $\{x_i: i\in J\}, |J|<\lambda$ and a formula $A$, then $\exists(x_i: i\in J) A$ and $\forall(x_i: i\in J) A$ are formulae.
+		\item Given a set of formulas $\{A_i: i\in I\}, |I|<\kappa$, then $\bigwedge\limits_{i\in I} A_i$ and $\bigvee\limits_{i\in I} A_i$ are formulas.
+		\item Given a set of variables $\{x_i: i\in J\}, |J|<\lambda$ and a formula $A$, then $\exists(x_i: i\in J) A$ and $\forall(x_i: i\in J) A$ are formulas.
 	\end{itemize}
 	Satisfaction relation:
 	\begin{itemize}
@@ -8265,12 +8269,12 @@ Putting them together, $\varphi(P) \vDash P(c_1,\dots, c_n)
 \begin{frame}\frametitle{\hyperlink{quantifier-adjoint}{\beamerbutton{Fragments of First Order Logic}}}
 \label{fragment-logic}
 \begin{enumerate}
-	\item The set of \emph{Horn formulae} is the smallest set containing the set of atomic formulae and closed under $\top,\wedge$.
-	\item The set of \emph{regular formulae} is the smallest set containing the set of atomic formulae and closed under $\top,\wedge,\exists$.
-	\item The set of \emph{coherent formulae} is the smallest set containing the set of atomic formulae and closed under $\top,\bot,\wedge,\vee,\exists$.
-	\item The set of \emph{first order formulae} is the smallest set containing the set of atomic formulae and closed under $\top,\bot,\neg,\wedge,\vee,\to,\exists,\forall$.
-	\item The class of \emph{geometric formulae} over is the smallest class containing the class of atomic formulae and closed under $\top,\bot,\wedge,\vee,\exists$ and infinitary disjunction.
-	\item The class of \emph{infinitary first order formulae} is the smallest class containing the class of atomic formulae and closed under $\top,\bot,\neg,\wedge,\vee,\to,\exists,\forall$ and infinitary conjunction and infinitary disjunction.
+	\item The set of \emph{Horn formulas} is the smallest set containing the set of atomic formulas and closed under $\top,\wedge$.
+	\item The set of \emph{regular formulas} is the smallest set containing the set of atomic formulas and closed under $\top,\wedge,\exists$.
+	\item The set of \emph{coherent formulas} is the smallest set containing the set of atomic formulas and closed under $\top,\bot,\wedge,\vee,\exists$.
+	\item The set of \emph{first order formulas} is the smallest set containing the set of atomic formulas and closed under $\top,\bot,\neg,\wedge,\vee,\to,\exists,\forall$.
+	\item The class of \emph{geometric formulas} over is the smallest class containing the class of atomic formulas and closed under $\top,\bot,\wedge,\vee,\exists$ and infinitary disjunction.
+	\item The class of \emph{infinitary first order formulas} is the smallest class containing the class of atomic formulas and closed under $\top,\bot,\neg,\wedge,\vee,\to,\exists,\forall$ and infinitary conjunction and infinitary disjunction.
 \end{enumerate}
 \end{frame}
 
@@ -8278,7 +8282,7 @@ Putting them together, $\varphi(P) \vDash P(c_1,\dots, c_n)
 \begin{itemize}
 	\item $\mathrm{T}$ is an algebraic theory iff its signature has no relation symbols and its axioms are all of the form $\top\vdash_{\mathbf{x}}A$ where $A$ is an atomic formula of the form $s=t$ and $\mathbf{x}$ its canonical context.
 	\item $\mathrm{T}$ is a Horn (resp. regular, coherent, geometric) theory iff all the sequents in $\mathrm{T}$ are Horn (resp. regular, coherent, geometric).
-	\item $\mathrm{T}$ is a universal Horn theory iff its axioms are all of the form $A\vdash_{\mathbf{x}}B$, where $A$ is a finite conjunction of atomic formulae and $B$ is an atomic formula or the formula $\bot$.
+	\item $\mathrm{T}$ is a universal Horn theory iff its axioms are all of the form $A\vdash_{\mathbf{x}}B$, where $A$ is a finite conjunction of atomic formulas and $B$ is an atomic formula or the formula $\bot$.
 	\item $\mathrm{T}$ is a propositional theory iff it only consists of $0$-ary relation symbols.
 \end{itemize}
 \end{frame}
@@ -8287,7 +8291,7 @@ Putting them together, $\varphi(P) \vDash P(c_1,\dots, c_n)
 \begin{description}
 	\item[Identity Axiom] $A\vdash_{\mathbf{x}}A$
 	\item[Equality] $\top\vdash_x x=x$\;\; and\;\; $\mathbf{x}=\mathbf{y}\wedge A\vdash_{\mathbf{z}}A[\mathbf{y}/\mathbf{x}]$ where $\operatorname{Fv}(\mathbf{x},\mathbf{y},A)\subset\mathbf{z}$.
-	\item[Substitution] $\infer{A[\mathbf{t}/\mathbf{x}]\vdash_{\mathbf{y}}B[\mathbf{t}/\mathbf{x}]}{A\vdash_{\mathbf{x}}B}\quad\mbox{where } \operatorname{Fv}(\mathbf{t})\subset\mathbf{y}$.
+	\item[Substitution] $\infer{A[\mathbf{t}/\mathbf{x}]\vdash_{\mathbf{y}}B[\mathbf{t}/\mathbf{x}]}{A\vdash_{\mathbf{x}}B}\quad\mbox{where } \operatorname{Var}(\mathbf{t})\subset\mathbf{y}$.
 	\item[Cut] $\infer{A\vdash_{\mathbf{x}}C}{A\vdash_{\mathbf{x}}B\quad B\vdash_{\mathbf{x}}C}$
 	\item[Conjunction] $A\vdash_{\mathbf{x}}\top\qquad A\wedge B\vdash_{\mathbf{x}}A\qquad A\wedge B\vdash_{\mathbf{x}}B\qquad\infer{A\vdash_{\mathbf{x}}B\wedge C}{A\vdash_{\mathbf{x}}B\quad A\vdash_{\mathbf{x}}C}$
 	\item[Disjunction] $\bot\vdash_{\mathbf{x}}A\qquad A\vdash_{\mathbf{x}}A\vee B\qquad B\vdash_{\mathbf{x}}A\vee B\qquad\infer{A\vee B\vdash_{\mathbf{x}} C}{A\vdash_{\mathbf{x}} C\quad B\vdash_{\mathbf{x}} C}$
@@ -10776,7 +10780,7 @@ Let $R$ be a well-founded relation on $A$. Let $G$ be a function. Then there is 
 	A function $f:\mathbb{R}\to\mathbb{C}$ \emph{admits a trigonometric expansion} iff
 	\[f(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty\big(a_n\cos nx+b_n\sin nx\big)\]
 	\end{definition}
-	For example, a continuously differentiable function admits a trigonometric expansion, where $a_n,b_n$ can be computed by Fourier formulae
+	For example, a continuously differentiable function admits a trigonometric expansion, where $a_n,b_n$ can be computed by Fourier formulas
 	\begin{align*}
 	a_n&\coloneqq \frac{1}{\pi}\int_0^{2\pi}\!\!f(t)\cos nt\,\mathrm{d} t\\
 	b_n&\coloneqq \frac{1}{\pi}\int_0^{2\pi}\!\!f(t)\sin nt\,\mathrm{d} t
@@ -12166,7 +12170,7 @@ For $k,k'\in\operatorname{Iter}(j)$, declare $k\equiv_n k'\coloneqq \forall x\in
 				\item Every vector space has a basis.
 				\item The closed unit ball of the dual of a normed vector space over the reals has an extreme point.
 				\item Tychonoff's theorem: The product of compact topological spaces is compact.
-				\item If a set $\Gamma$ of formulae with $|\mathscr{L}|=\kappa$ is finitely satisfiable, then it has a model with cardinality $\leq \kappa+\aleph_0$.
+				\item If a set $\Gamma$ of formulas with $|\mathscr{L}|=\kappa$ is finitely satisfiable, then it has a model with cardinality $\leq \kappa+\aleph_0$.
 \end{itemize}
 \end{frame}
 
@@ -14402,7 +14406,7 @@ We have put a fence around the herd to protect it from the wolves but we do not 
 		\[G(y)=\text{\textcolor{yellow}{``I have no proof of myself shorter than $f(y)$.''}}\]	
 		\[\neg G(n)\implies\Box ^{f(n)} G(n)\implies G(n)\]
 	\end{block}
-	\textbf{Remark:} it is easily seen that the fixpoint lemma applies also to formulae with free variables.
+	\textbf{Remark:} it is easily seen that the fixpoint lemma applies also to formulas with free variables.
 	\begin{center}
 		\fbox{G\"odel's no-short-proof theorem $\implies\mathrm{T}\nvdash\forall x G(x)$}
 	\end{center}
@@ -16141,7 +16145,7 @@ PQ&(P)_\mathbf{C}(Q)_\mathbf{C}\\
 \begin{block}{Reduction rules}
 \begin{align*}
 (\lambda x.t)u&\to t[u/x] &(\beta_\to)\\
-\lambda x.tx&\to t \quad\mbox{where } x\notin\operatorname{Fv}(t) &(\eta_\to)\\
+\lambda x.tx&\to t \quad\mbox{where } x\notin\operatorname{Var}(t) &(\eta_\to)\\
 \pi_1\langle t,u\rangle &\to t &(\beta_{\times,1})\\
 \pi_2\langle t,u\rangle &\to u &(\beta_{\times,2})\\
 \langle\pi_1 t,\pi_2 t\rangle &\to t &(\eta_\times)
@@ -16947,7 +16951,7 @@ C \arrow[u, dashed, "\hat{f}"] \& C\times A \arrow[u, dashed, "\hat{f}\times 1_A
 
 \begin{frame}\frametitle{Curry-Howard-Lambek Isomorphism}
 \begin{itemize}
-	\item \textbf{Objects} types/formulae\;\; $\top\mid A\times B\mid A\to B$
+	\item \textbf{Objects} types/formulas\;\; $\top\mid A\times B\mid A\to B$
 	\item \textbf{Morphisms} terms/proofs\;\; $1_A\mid \;!\mid \operatorname{ev}\mid \pi_1\mid \pi_2\mid \hat{f}\mid \langle f,g\rangle\mid g\circ f$\quad $f: A\to B\iff A\vdash B$
 \end{itemize}
 \begin{columns}
@@ -18918,7 +18922,7 @@ We write $\exists_\pi A$ as $\exists x A(x,y)$, $\forall_\pi A$ as $\forall x A(
 \begin{frame}\frametitle{Quantifiers are Adjoints}
 \setlength\abovedisplayskip{0pt}
 \setlength\belowdisplayskip{0pt}
-For a list $\mathbf{y}=y_1,\dots,y_n$ of distinct variables, let $\operatorname{Form}(\mathbf{y})$ be the set of formulae that has at most $\mathbf{y}$ free. Then $\operatorname{Form}(\mathbf{y})$ is a preorder under $\vdash$. Let $x$ be a variable not in $\mathbf{y}$. We have a trivial operation
+For a list $\mathbf{y}=y_1,\dots,y_n$ of distinct variables, let $\operatorname{Form}(\mathbf{y})$ be the set of formulas that has at most $\mathbf{y}$ free. Then $\operatorname{Form}(\mathbf{y})$ is a preorder under $\vdash$. Let $x$ be a variable not in $\mathbf{y}$. We have a trivial operation
 \[*:\operatorname{Form}(\mathbf{y})\to\operatorname{Form}(x,\mathbf{y})\]
 The operation $*$ is trivially a functor, since
 \[A(\mathbf{y})\vdash B(\mathbf{y}) \mbox{ in } \operatorname{Form}(\mathbf{y})\implies A(x,\mathbf{y})\vdash B(x,\mathbf{y}) \mbox{ in } \operatorname{Form}(x,\mathbf{y})\]
